@@ -39,6 +39,12 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#atLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#atLocation"/>
+    
+
+
     <!-- http://www.w3.org/ns/prov#used -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used"/>
@@ -224,6 +230,20 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#Location -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Location"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Organization -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Organization">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent">
@@ -235,6 +255,7 @@
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/AnalysedData -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/AnalysedData">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
@@ -394,19 +415,12 @@
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Equipment -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Equipment">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/isLocatedIn"/>
-                        <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/isLocatedIn"/>
-                        <owl:allValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">Any kind of tool or device used during the course of an Experiment</skos:definition>
     </owl:Class>
@@ -416,7 +430,7 @@
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Experiment -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Experiment">
-        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Study"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -431,6 +445,18 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <skos:definition xml:lang="en">Identifiable and reproducible activity with a clear start time and clear finish time conducted by Research User who uses one or more Instruments to investigate or produce Sample and collects Raw Data about it. Experiment consists of (or includes – in case of Sample Preparation) one or a series of Measurements. Experiment can be a computer simulation (computational experiment), or a combination of it with physical Measurements.</skos:definition>
     </owl:Class>
     
@@ -439,6 +465,7 @@
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Institution -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Institution">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Organization"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -476,6 +503,7 @@
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Location"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -535,7 +563,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasMeasuredBy"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument"/>
             </owl:Restriction>
@@ -749,7 +777,7 @@ It may include substrate, layer, mask, evaporants, coating, and the molecule(s) 
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/SamplePreparation -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/SamplePreparation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Experiment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
@@ -776,7 +804,7 @@ It may include substrate, layer, mask, evaporants, coating, and the molecule(s) 
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Study -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Study">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Experiment"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -793,20 +821,8 @@ It may include substrate, layer, mask, evaporants, coating, and the molecule(s) 
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/conductedIn"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">A set of one or more experiments performed by one or more Research Users in one or more Laboratories using one or more Instruments for taking one or more Measurements of one or more Samples and corresponding Data analyses, which are part of the same Project.</skos:definition>
