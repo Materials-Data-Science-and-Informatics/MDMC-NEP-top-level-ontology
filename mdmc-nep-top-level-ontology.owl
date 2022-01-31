@@ -75,6 +75,12 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#wasInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInfluencedBy"/>
+    
+
+
     <!-- http://www.w3.org/ns/prov#wasInformedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInformedBy"/>
@@ -181,6 +187,14 @@
     <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/stores -->
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/stores"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInfluencedBy"/>
+    </owl:ObjectProperty>
     
 
 
@@ -405,7 +419,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -445,6 +459,12 @@
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument">
         <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <skos:definition xml:lang="en">Identifiable Equipment that allows performing a Measurement and generated Raw Data in the course of an Experiment. Instrument is located in a Laboratory hosted by an Institution and used by one or more Research Users.  Instrument can be a software for computer simulation (a software module or/and a particular configuration of it).</skos:definition>
     </owl:Class>
     
@@ -489,7 +509,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument"/>
             </owl:Restriction>
@@ -614,12 +634,6 @@
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/ResearchUser">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/az-ihsan/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Instrument"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <skos:definition xml:lang="en">A person, a group of them, or an Institution (organization) who, within a Project, conducts Experiment on one or more Laboratories using one or more Instruments in order to collect and analyze Research Data, or is interested in data collected or analyzed by other Research Users on the same or other Facilities. Research User may be assigned with a role, e.g. to designate the user as a Principal Investigator.</skos:definition>
     </owl:Class>
     
