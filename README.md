@@ -26,4 +26,4 @@ e.g. the Material Science Lab Equipment (MSLE) Ontology.
 Digital Futures” and “Materials System Engineering” of the Helmholtz Association of German Research Centers and the Helmholtz Metadata Collaboration Platform.
 * This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 101007417 within 
 the framework of the NFFA-Europe Pilot (NEP) Joint Activities.
-* A.I. acknowledges financial support from the European Research Council through the ERC Grant Agreement No. 759419 MuDiLingo and Helmholtz Metadata Collaboration (HMC) within the Hub Information at the Forschungszentrum Ju ̈lich..
+* A.I. acknowledges financial support from the European Research Council through the ERC Grant Agreement No. 759419 MuDiLingo and Helmholtz Metadata Collaboration (HMC) within the Hub Information at the Forschungszentrum Jülich..
