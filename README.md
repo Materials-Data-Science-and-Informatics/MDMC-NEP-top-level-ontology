@@ -22,8 +22,5 @@ e.g. the Material Science Lab Equipment (MSLE) Ontology.
 
 ## Acknowledgements
 
-* This work has been supported by the Joint Lab “Integrated Model and Data Driven Materials Characterization” (MDMC), the research programs “Engineering 
-Digital Futures” and “Materials System Engineering” of the Helmholtz Association of German Research Centers and the Helmholtz Metadata Collaboration Platform.
-* This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 101007417 within 
-the framework of the NFFA-Europe Pilot (NEP) Joint Activities.
+* This work has been supported by the Joint Lab “Integrated Model and Data Driven Materials Characterization” ([MDMC](https://jl-mdmc-helmholtz.de)), Helmholtz Metadata Collaboration ([HMC](https://helmholtz-metadaten.de/en)) within the Hub Information at the Forschungszentrum Jülich, the research programs “Engineering Digital Futures” and “Materials System Engineering” of the Helmholtz Association of German Research Centers, and NFFA-Europe Pilot (NEP) Joint Activities.
 
