@@ -143,3 +143,80 @@
 118. In which Data Repository is Research Data stored?
 119. Which Dataset has been Publication Data derived from?
 120. Which Metadata has described Research Data?
+
+
+
+## Answer to CQs via SPARQL
+
+CQ84. Which Project has the Data Analysis Lifecycle been attributed to?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?project ?data_analysis_lifecycle WHERE{
+	?project a mdmc:Project;
+        mdmc:hasStudy ?study. 
+    ?study mdmc:hasDataAnalysisLifeCycle ?data_analysis_lifecycle .
+}
+```
+CQ85. Which Study is the Data Analysis Lifecycle part of?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?study ?data_analysis_lifecycle WHERE{
+	?study a mdmc:Study; 
+        mdmc:hasDataAnalysisLifeCycle ?data_analysis_lifecycle .
+}
+```
+CQ86. Which Research Users have performed the Data Analysis Lifecycle?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?research_user ?data_analysis_lifecycle WHERE{
+    ?data_analysis_lifecycle a mdmc:DataAnalysisLifeCycle ; 
+        prov:wasAssociatedWith ?research_user . 
+	
+}
+```
+CQ87. Which Research Data have been used for the Data Analysis Lifecycle?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?data_analysis_lifecycle ?research_data WHERE{
+	?data_analysis_lifecycle a mdmc:DataAnalysisLifeCycle ; 
+        prov:used ?research_data. 
+    ?research_data a mdmc:ResearchData.
+}
+```
+CQ88. Which Results have been obtained from the Data Analysis Lifecycle?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?data_analysis_lifecycle_member ?result_data WHERE{
+    ?result_data prov:wasGeneratedBy ?data_analysis_lifecycle_member .
+    ?data_analysis_lifecycle_member mdmc:isMemberOf ?data_analysis_life_cycle .  
+}
+
+```
+CQ89. Which processes have been members of the Data Analysis Lifecycle?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?project ?data_analysis_lifecycle WHERE{
+	
+}
+```
+CQ90. Has Data Processing been member of the Data Analysis Lifecycle?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?project ?data_analysis_lifecycle WHERE{
+	
+}
+```

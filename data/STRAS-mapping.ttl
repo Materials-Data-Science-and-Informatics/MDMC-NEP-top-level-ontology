@@ -1,0 +1,502 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/STRAS_RESEARCH_GROUP/> .
+@prefix mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Analysis_Software a mdmc:ResearchSoftware .
+
+ex:filtered_image a mdmc:ProcessedData ;
+    prov:wasAttributedTo ex:Alice ;
+    prov:wasDerivedFrom ex:Structured_and_FAIR_dataset_1 ;
+    prov:wasGeneratedBy ex:metadata_selection_1 .
+
+ex:image_selection_and_retrievement_2 a mdmc:DataProcessing ;
+    mdmc:isMemberOf ex:image_labelling_process_1 .
+
+ex:towards_fairification_stm_data a mdmc:Project ;
+    prov:wasAttributedTo ex:STRAS_Research_Group ;
+    mdmc:hasStudy ex:study_1,
+        ex:study_2 .
+
+skos:definition a owl:AnnotationProperty .
+
+prov:endedAtTime a owl:DatatypeProperty .
+
+prov:startedAtTime a owl:DatatypeProperty .
+
+prov:wasInformedBy a owl:ObjectProperty .
+
+<https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl> a owl:Ontology .
+
+mdmc:PublicationData a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:hasMetadata ;
+            owl:someValuesFrom mdmc:Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom mdmc:Dataset ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isStoredIn ;
+            owl:someValuesFrom mdmc:DataRepository ],
+        prov:Entity ;
+    skos:definition "Research Data intended to appear in a scientific publication."@en .
+
+mdmc:ReferenceData a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dcterms:isReferencedBy ;
+            owl:someValuesFrom mdmc:Conclusion ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:isReferencedBy ;
+            owl:someValuesFrom mdmc:ResearchData ],
+        mdmc:ResearchData ;
+    skos:definition "Reference Data is Research data which is not produced during the current Study, used as reference to compare and/or to validate the output of the Study, typically during the Data Analysis Lifecycle."@en .
+
+mdmc:prepares a owl:ObjectProperty .
+
+<https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Project> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:hasStudy ;
+            owl:someValuesFrom mdmc:Study ],
+        prov:Entity ;
+    skos:definition "An enterprise (potentially individual but typically collaborative) of one or more Research Users, planned to perform one or more Studies in one or more Laboratories using one or more Instruments for taking one or more Measurements of one or more Samples during one or more Experiments, and corresponding Data Analyses. Laboratory, Instrument, Measurement, Experiment, and Sample can refer to computer simulation environment."@en .
+
+ex:Reference_Dataset_1 a mdmc:ProcessedDataOrAnalysedData ;
+    prov:wasAssociatedWith ex:Bob,
+        ex:STRAS_Research_Group ;
+    prov:wasAttributedTo ex:STRAS_Research_Group .
+
+ex:STM_experiment_1998 a mdmc:Experiment ;
+    prov:endedAtTime "1998-05-20"^^xsd:date ;
+    prov:startedAtTime "1998-04-20"^^xsd:date ;
+    mdmc:hasMeasurement ex:VT_STM_measurement_1998_1,
+        ex:VT_STM_measurement_1998_2 .
+
+ex:STM_experiment_2010 a mdmc:Experiment ;
+    prov:startedAtTime "2010-04-20"^^xsd:date,
+        "2010-05-20"^^xsd:date .
+
+ex:VT_STM_Microscopy a mdmc:Instrument .
+
+ex:image_selection_and_retrievement_1 a mdmc:DataProcessing ;
+    prov:used ex:raw_data_1998_1,
+        ex:raw_data_1998_2 ;
+    prov:wasAssociatedWith ex:Bob ;
+    mdmc:isMemberOf ex:image_labelling_process_1 .
+
+ex:metadata_selection_1 a mdmc:DataProcessing ;
+    prov:used ex:Structured_and_FAIR_dataset_1 ;
+    prov:wasAttributedTo ex:Alice ;
+    mdmc:isMemberOf ex:image_labelling_process_1 .
+
+ex:raw_data_1998_1 a mdmc:RawData ;
+    prov:wasGeneratedBy ex:VT_STM_measurement_1998_1 .
+
+ex:raw_data_1998_2 a mdmc:RawData ;
+    prov:wasGeneratedBy ex:VT_STM_measurement_1998_2 .
+
+ex:study_1 a mdmc:Study ;
+    mdmc:hasDataAnalysisLifeCycle ex:image_labelling_process_1 ;
+    mdmc:hasExperiment ex:STM_experiment_1998 .
+
+ex:study_2 a mdmc:Study ;
+    mdmc:hasExperiment ex:STM_experiment_2010 .
+
+prov:Collection a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+prov:Location a owl:Class .
+
+prov:Organization a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:SoftwareAgent a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:wasInfluencedBy a owl:ObjectProperty .
+
+mdmc:AnalysedData a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:DataAnalysis ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:DataAnalysisLifeCycle ],
+        mdmc:ProcessedDataOrAnalysedData ;
+    skos:definition "Identifiable Research data which is a result of Raw Data processing and Data Analysis, obtained with the use of Data Analysis Software. It is typically a data file but it can be potentially a data stream, or other form of data relevant in a particular data management context. Analysed Data is stored in a Data Repository, which may be the same in which Raw Data is stored. Analysed Data can be a part of Dataset."@en .
+
+mdmc:DataAnalysis a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:isMemberOf ;
+            owl:someValuesFrom mdmc:DataAnalysisLifeCycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:ResearchData ],
+        prov:Activity ;
+    skos:definition "The identifiable action of processing and/or combine and/or correlate Raw Data or/and Analysed Data. The analysis may be performed using Data Analysis Software and may be combined in chains or workflows. The data analysis includes data processing, correlative characterization, and data interpretation."@en .
+
+mdmc:DataCollaborationPlatform a owl:Class ;
+    skos:definition "A centralized operational information system where data inflows combine and allow authorized users to gather data and to draw on information, knowledge and insights."@en .
+
+mdmc:DataInterpretation a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:isMemberOf ;
+            owl:someValuesFrom mdmc:DataAnalysisLifeCycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchSoftware ],
+        prov:Activity ;
+    skos:definition "The process of assigning meaning to the collected information, after an analytical and/or experimental Study, and determining the conclusions, significance, and implications of research findings, possibly in comparison with a predefined reference."@en .
+
+mdmc:Institution a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:hosts ;
+            owl:someValuesFrom mdmc:Laboratory ],
+        prov:Organization ;
+    skos:definition "The hierarchical entity which owns the Instrument. For computer simulations, Institution may include hardware or/and software platforms or/and services that allow to order and manage computational experiments (so that the software platform serves the purpose of managing software modules that can be considered virtual Instruments)."@en .
+
+mdmc:MeasurementTechnique a owl:Class ;
+    skos:definition "A technique or technology corresponding to the method used to acquire Raw Data with a specific Instrument."@en .
+
+mdmc:MetadataRepository a owl:Class ;
+    skos:definition "Service for storing, managing, and organizing metadata"@en .
+
+mdmc:SampleCarrier a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:carries ;
+            owl:someValuesFrom mdmc:Sample ],
+        mdmc:Equipment ;
+    skos:definition "A structure used for carrying one or more samples, helpful for referencing, height adjustment, handling. It can be naked wafer, glass slide, sample holder, or an individually designed metal frame"@en .
+
+mdmc:SampleComponentSynthesis a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:SampleComponent ],
+        mdmc:Experiment ;
+    skos:definition "Production of each single Sample Component in controlled conditions, performed by a commercial enterprise, a Research User or someone else"@en .
+
+mdmc:SamplePreparation a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:SampleComponent ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:Sample ],
+        mdmc:Experiment ;
+    skos:definition "Preliminary actions (physical changes or chemical reactions) typically carried out by a Research User on (or between) one or more Sample Components to produce a Sample, in order to perform a Measurement."@en .
+
+mdmc:carries a owl:ObjectProperty ;
+    owl:inverseOf mdmc:isCarriedBy .
+
+mdmc:hasDataAnalysisLifeCycle a owl:ObjectProperty .
+
+mdmc:hasExperiment a owl:ObjectProperty .
+
+mdmc:hasMeasurement a owl:ObjectProperty ;
+    owl:inverseOf mdmc:isMeasurementOf .
+
+mdmc:hasMeasurementTechnique a owl:ObjectProperty .
+
+mdmc:hasSampleComponent a owl:ObjectProperty ;
+    owl:inverseOf mdmc:isSampleComponentOf .
+
+mdmc:hasStudy a owl:ObjectProperty .
+
+mdmc:hosts a owl:ObjectProperty ;
+    owl:inverseOf mdmc:isHostedBy .
+
+mdmc:stores a owl:ObjectProperty .
+
+<https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy> a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasInfluencedBy .
+
+ex:Alice a mdmc:ResearchUser ;
+    prov:actedOnBehalfOf ex:STRAS_Research_Group .
+
+ex:Structured_and_FAIR_dataset_1 a mdmc:ProcessedDataOrAnalysedData ;
+    prov:wasAttributedTo ex:Bob,
+        ex:STRAS_Research_Group ;
+    prov:wasGeneratedBy ex:image_selection_and_retrievement_1 .
+
+ex:VT_STM_measurement_1998_1 a mdmc:Measurement ;
+    prov:endedAtTime "1998-05-20"^^xsd:date ;
+    prov:startedAtTime "1998-04-20"^^xsd:date ;
+    prov:wasAssociatedWith ex:STRAS_Research_Group,
+        ex:VT_STM_Microscopy .
+
+ex:VT_STM_measurement_1998_2 a mdmc:Measurement ;
+    prov:endedAtTime "1998-05-21"^^xsd:date ;
+    prov:startedAtTime "1998-04-21"^^xsd:date .
+
+dcterms:isReferencedBy a owl:ObjectProperty .
+
+prov:atLocation a owl:ObjectProperty .
+
+prov:hadMember a owl:ObjectProperty .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
+
+mdmc:Conclusion a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:DataInterpretation ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:Conclusion ],
+        prov:Entity .
+
+mdmc:DataRepository a owl:Class ;
+    skos:definition "An operational information system for managing and organizing digital resources, particularly suitable for registering Datasets which are not likely to be altered again. For example, a Data Repository may host the Dataset supporting a publication. The Data Repository contains Metadata about the Datasets, as well as given rules for data access. Data Repository may be associated with a certain Institution or a group of them, or a certain Instrument or a group of them, or may be run by a third-party. Data Repository may or may not be directly used by Research Users."@en .
+
+mdmc:Dataset a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:hasMetadata ;
+            owl:someValuesFrom mdmc:Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:hadMember ;
+            owl:someValuesFrom mdmc:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isStoredIn ;
+            owl:someValuesFrom mdmc:DataRepository ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isStoredIn ;
+            owl:someValuesFrom mdmc:DataCollaborationPlatform ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:hadMember ;
+            owl:someValuesFrom mdmc:Dataset ],
+        prov:Collection ;
+    skos:definition "A collection of scientifically related (depending on the research context) Research Data which can be Raw Data (including a result of computer simulation), Analysed Data, or other datasets, described by their related Metadata. The components of a dataset remain individually identifiable within the dataset."@en .
+
+mdmc:Equipment a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom mdmc:Laboratory ],
+        prov:Agent ;
+    skos:definition "Any kind of tool or device used during the course of an Experiment"@en .
+
+mdmc:ProcessedData a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:DataAnalysisLifeCycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:DataProcessing ],
+        mdmc:ProcessedDataOrAnalysedData ;
+    skos:definition """Research data resulting from any kind of processing or
+manipulation of raw data – however minimal – in order to prepare them for analysis. Examples of processed data are anonymized data (which no longer contain personal details), cleaned data, annotated data, etc"""@en .
+
+mdmc:RawData a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:Measurement ],
+        mdmc:ResearchData ;
+    skos:definition "The primary output of a Measurement, generated using a particular Instrument and collected by a Research User, before any subsequent processing, during an Experiment. Raw data is typically in the form of a data file but it can be potentially a data stream, or other form of data relevant in a particular data management context. Raw Data can be a result of a computer experiment (simulation). Raw Data can be a part of a Dataset."@en .
+
+mdmc:isCarriedBy a owl:ObjectProperty .
+
+mdmc:isHostedBy a owl:ObjectProperty .
+
+mdmc:isMeasurementOf a owl:ObjectProperty .
+
+mdmc:isSampleComponentOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+prov:wasAttributedTo a owl:ObjectProperty .
+
+mdmc:Instrument a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy> ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        mdmc:Equipment ;
+    skos:definition "Identifiable Equipment that allows performing a Measurement and generated Raw Data in the course of an Experiment. Instrument is located in a Laboratory hosted by an Institution and used by one or more Research Users.  Instrument can be a software for computer simulation (a software module or/and a particular configuration of it)."@en .
+
+mdmc:Laboratory a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:isHostedBy ;
+            owl:someValuesFrom mdmc:Institution ],
+        prov:Location ;
+    skos:definition "Place where the instrument is located and the experiment is performed (could be also virtual)"@en .
+
+mdmc:Metadata a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isStoredIn ;
+            owl:someValuesFrom mdmc:MetadataRepository ],
+        prov:Entity ;
+    skos:definition "A set of descriptive, structural and contextual information describing the context, content and structure of Research Data and/or Datasets, and their management through time. It describes information pertaining to research Projects, including (but not limited to) Research Users, Studies, Laboratories, Instruments, Measurements, Samples, Experiments, and corresponding Data Analyses. Metadata may include descriptions of how data and files are named, physically structured, and stored."@en .
+
+mdmc:SampleComponent a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:SampleComponentSynthesis ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isSampleComponentOf ;
+            owl:someValuesFrom mdmc:Sample ],
+        prov:Entity ;
+    skos:definition "Identifiable piece of material with distinctive properties (structural, chemical, dimensional and others), which constitutes a Sample. It may include substrate, layer, mask, evaporants, coating, and the molecule(s) itself."@en .
+
+mdmc:Study a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:hasDataAnalysisLifeCycle ;
+            owl:someValuesFrom mdmc:DataAnalysisLifeCycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:hasExperiment ;
+            owl:someValuesFrom mdmc:Experiment ],
+        prov:Entity ;
+    skos:definition "A set of one or more experiments performed by one or more Research Users in one or more Laboratories using one or more Instruments for taking one or more Measurements of one or more Samples and corresponding Data analyses, which are part of the same Project."@en .
+
+mdmc:hasMetadata a owl:ObjectProperty .
+
+mdmc:isMemberOf a owl:ObjectProperty .
+
+ex:Bob a mdmc:ResearchUser .
+
+ex:image_labelling_process_1 a mdmc:DataAnalysisLifeCycle ;
+    prov:used ex:Reference_Dataset_1 ;
+    prov:wasAssociatedWith ex:Bob,
+        ex:STRAS_Research_Group .
+
+prov:Agent a owl:Class .
+
+mdmc:DataProcessing a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isMemberOf ;
+            owl:someValuesFrom mdmc:DataAnalysisLifeCycle ],
+        prov:Activity ;
+    skos:definition "Data treatment to convert raw data into useful information for correlative characterization and interpretation. This may include filtering, scaling, fusion or compression of existing data as well as visualization, transformation and statistical data reduction. Typical tools for time or space related data conversion are derived from mathematics and/or informatics."@en .
+
+mdmc:Measurement a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:isMeasurementOf ;
+            owl:someValuesFrom mdmc:Experiment ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:hasMeasurementTechnique ;
+            owl:someValuesFrom mdmc:MeasurementTechnique ],
+        [ a owl:Restriction ;
+            owl:onClass mdmc:Instrument ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        prov:Activity ;
+    skos:definition "The act of generating a single self-consistent unit of Raw data for a Sample or a set of Samples which may be supported by a sample carrier during the Experiment using a particular Instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to Instrument: a research on the same Sample using a different Instrument implies a separate Measurement. Measurement can be a computer simulation, e.g. a particular run of a program using a particular model, configuration, or input(s)."@en .
+
+mdmc:ProcessedDataOrAnalysedData a owl:Class ;
+    rdfs:subClassOf mdmc:ResearchData ;
+    owl:disjointUnionOf ( mdmc:AnalysedData mdmc:ProcessedData ) .
+
+mdmc:isStoredIn a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf mdmc:stores .
+
+mdmc:ResearchSoftware a owl:Class ;
+    rdfs:comment "Depending on the research context, Data Analysis Software can be used during Data Processing, Data Analysis, or Data Interpretation, taking as input Raw Data, Processed Data, or Analysed Data respectively, and giving as output Processed Data, Analysed Data or conclusions, respectively."@en,
+        "If Software is used for simulation (computer experiment), is it considered an Instrument and should be described as such."@en ;
+    rdfs:subClassOf prov:SoftwareAgent ;
+    skos:definition "The Software used on Research Data during each of the processes included in the Data Analysis Lifecycle (possibly including data rendering, visualisation, plotting) and yelding to Research Data as an output."@en .
+
+mdmc:Sample a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom mdmc:SamplePreparation ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:isCarriedBy ;
+            owl:someValuesFrom mdmc:SampleCarrier ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:hasSampleComponent ;
+            owl:someValuesFrom mdmc:SampleComponent ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom mdmc:Sample ],
+        prov:Entity ;
+    skos:definition "Identifiable piece of material with distinctive properties (structural, chemical, dimensional and others), composed by one or more Sample Components, exposed to Instrument during a Measurement within a defined period of time. Sample may stand for a model or configuration or data input (or any combination of these) in computer simulations."@en .
+
+prov:Activity a owl:Class .
+
+mdmc:Experiment a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty mdmc:hasMeasurement ;
+            owl:someValuesFrom mdmc:Measurement ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom mdmc:Laboratory ],
+        prov:Activity ;
+    skos:definition "Identifiable and reproducible activity with a clear start time and clear finish time conducted by Research User who uses one or more Instruments to investigate or produce Sample and collects Raw Data about it. Experiment consists of (or includes – in case of Sample Preparation) one or a series of Measurements. Experiment can be a computer simulation (computational experiment), or a combination of it with physical Measurements."@en .
+
+ex:STRAS_Research_Group a mdmc:ResearchUser .
+
+mdmc:DataAnalysisLifeCycle a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom mdmc:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom mdmc:ResearchUser ],
+        prov:Activity .
+
+prov:used a owl:ObjectProperty .
+
+prov:Entity a owl:Class .
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+
+mdmc:ResearchData a owl:Class ;
+    rdfs:comment "Research data is the data in the research context."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty mdmc:hasMetadata ;
+            owl:someValuesFrom mdmc:Metadata ],
+        prov:Entity ;
+    skos:definition "Data examined and considered as a basis for reasoning, discussion, or calculation in a research context. Examples of Research data include statistics, results of experiments, measurements, observations resulting from fieldwork, survey results, recordings and images. Within this definition, Raw data and Analysed Data are particular types of Research Data."@en .
+
+prov:wasAssociatedWith a owl:ObjectProperty .
+
+mdmc:ResearchUser a owl:Class ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "A person, a group of them, or an Institution (organization) who, within a Project, conducts Experiment on one or more Laboratories using one or more Instruments in order to collect and analyze Research Data, or is interested in data collected or analyzed by other Research Users on the same or other Facilities. Research User may be assigned with a role, e.g. to designate the user as a Principal Investigator."@en .
+
