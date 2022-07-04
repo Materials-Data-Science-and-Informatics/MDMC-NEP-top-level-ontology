@@ -39,6 +39,12 @@
     
 
 
+    <!-- http://purl.org/dc/terms/isReferencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isReferencedBy"/>
+    
+
+
     <!-- http://www.w3.org/ns/prov#atLocation -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#atLocation"/>
@@ -746,6 +752,18 @@ manipulation of raw data – however minimal – in order to prepare them for an
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ReferenceData">
         <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/isReferencedBy"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Conclusion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/isReferencedBy"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
