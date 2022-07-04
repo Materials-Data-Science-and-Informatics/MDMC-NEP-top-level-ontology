@@ -207,8 +207,10 @@ CQ89. Which processes have been members of the Data Analysis Lifecycle?
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
-SELECT ?project ?data_analysis_lifecycle WHERE{
-	
+SELECT ?process ?data_analysis_lifecycle WHERE{
+	?process mdmc:isMemberOf ?data_analysis_lifecycle .
+
+
 }
 ```
 CQ90. Has Data Processing been member of the Data Analysis Lifecycle?
@@ -216,7 +218,9 @@ CQ90. Has Data Processing been member of the Data Analysis Lifecycle?
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
-SELECT ?project ?data_analysis_lifecycle WHERE{
-	
+SELECT ?data_processing ?data_analysis_lifecycle WHERE{
+	?data_processing a mdmc:DataProcessing ; 
+        mdmc:isMemberOf ?data_analysis_lifecycle.
+
 }
 ```
