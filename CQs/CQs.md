@@ -200,6 +200,7 @@ SELECT ?data_analysis_lifecycle_member ?result_data WHERE{
     ?result_data prov:wasGeneratedBy ?data_analysis_lifecycle_member .
     ?data_analysis_lifecycle_member mdmc:isMemberOf ?data_analysis_life_cycle .  
 }
+
 ```
 CQ89. Which processes have been members of the Data Analysis Lifecycle?
 ```
@@ -208,6 +209,8 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 
 SELECT ?process ?data_analysis_lifecycle WHERE{
 	?process mdmc:isMemberOf ?data_analysis_lifecycle .
+
+
 }
 ```
 CQ90. Has Data Processing been member of the Data Analysis Lifecycle?
@@ -218,5 +221,6 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 SELECT ?data_processing ?data_analysis_lifecycle WHERE{
 	?data_processing a mdmc:DataProcessing ; 
         mdmc:isMemberOf ?data_analysis_lifecycle.
+
 }
 ```
