@@ -234,7 +234,6 @@ SELECT ?Research_Data ?Data_Processing WHERE{
         prov:used ?Research_Data. 
        ?Research_Data a mdmc:ResearchData
 }
-
 ```
 CQ92. Which Research Data have been produced in Data Processing?
 
@@ -256,7 +255,8 @@ SELECT ?Software ?Data_Processing WHERE{
     ?Data_processing a mdmc:DataProcessing.
 }
 ```
-CQ94. Which Research Users have performed the Data Processing?
+CQ94. Which Research Users have performed the Data Processing
+
 ```
 CQ95. Has Data Analysis been member of the Data Analysis Lifecycle?
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
