@@ -233,5 +233,74 @@ SELECT ?Research_Data ?Data_Processing WHERE{
          ?Data_Processing a mdmc:DataProcessing ; 
         prov:used ?Research_Data. 
        ?Research_Data a mdmc:ResearchData
+}
+
+```
+CQ92. Which Research Data have been produced in Data Processing?
+
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?Research_Data ?Data_Processing WHERE{
+         ?Research_Data a mdmc:ResearchData ; 
+        prov:wasGeneratedBy ?Data_Processing. 
    
 }
+```
+CQ93. Which Software has been used in Data Processing?
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+SELECT ?Software ?Data_Processing WHERE{
+	?software a prov:SoftwareAgent ; 
+        prov:used ?Data_processing. 
+    ?Data_processing a mdmc:DataProcessing.
+}
+```
+CQ94. Which Research Users have performed the Data Processing?
+```
+CQ95. Has Data Analysis been member of the Data Analysis Lifecycle?
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?data_Analysis ?data_analysis_lifecycle WHERE{
+	?data_Analysis a mdmc:DataAnalysis ; 
+        mdmc:isMemberOf ?data_analysis_lifecycle.
+        ?data_analysis_lifecycle a mdmc:DataAnalysisLifeCycle
+
+}
+```
+CQ96. Which Research Data have been used in Data Analysis?
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?Research_Data ?Data_Analysis WHERE{
+         ?Data_Analysis a mdmc:DataAnalysis ; 
+        prov:used ?Research_Data. 
+        ?Research_Data a mdmc:ResearchData
+   
+}
+```
+CQ97. Which Research Data have been produced in Data Analysis?
+
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?Research_Data ?Data_Analysis WHERE{
+         ?Research_Data a mdmc:ResearchData ; 
+        prov:wasGeneratedBy ?Data_Analysis. 
+        ?Data_Analysis a mdmc:DataAnalysis
+   
+}
+```
+CQ98. Which Data Analysis Software has been used in Data Analysis?
+```
+CQ99. Which Research Users have performed the Data Analysis?
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?research_user ?data_analysis WHERE{
+    ?data_analysis a mdmc:DataAnalysis ; 
+        prov:wasAssociatedWith ?research_user . 
+	
+}
+```
