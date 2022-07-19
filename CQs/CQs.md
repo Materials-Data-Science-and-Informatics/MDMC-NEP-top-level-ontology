@@ -236,7 +236,7 @@ SELECT ?Research_Data ?Data_Processing WHERE{
 }
 ```
 CQ92. Which Research Data have been produced in Data Processing?
-
+```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
@@ -247,6 +247,7 @@ SELECT ?Research_Data ?Data_Processing WHERE{
 }
 ```
 CQ93. Which Software has been used in Data Processing?
+```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 SELECT ?Software ?Data_Processing WHERE{
@@ -256,7 +257,6 @@ SELECT ?Software ?Data_Processing WHERE{
 }
 ```
 CQ94. Which Research Users have performed the Data Processing
-
 ```
 CQ95. Has Data Analysis been member of the Data Analysis Lifecycle?
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
@@ -270,6 +270,7 @@ SELECT ?data_Analysis ?data_analysis_lifecycle WHERE{
 }
 ```
 CQ96. Which Research Data have been used in Data Analysis?
+```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
@@ -281,7 +282,7 @@ SELECT ?Research_Data ?Data_Analysis WHERE{
 }
 ```
 CQ97. Which Research Data have been produced in Data Analysis?
-
+```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
