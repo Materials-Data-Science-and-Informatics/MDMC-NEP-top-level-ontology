@@ -224,3 +224,14 @@ SELECT ?data_processing ?data_analysis_lifecycle WHERE{
 
 }
 ```
+CQ91. Which Research Data have been used in Data Processing?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?Research_Data ?Data_Processing WHERE{
+         ?Data_Processing a mdmc:DataProcessing ; 
+        prov:used ?Research_Data. 
+       ?Research_Data a mdmc:ResearchData
+   
+}
