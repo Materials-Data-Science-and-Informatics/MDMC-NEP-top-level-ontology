@@ -147,9 +147,29 @@
     
 
 
+    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation"/>
+    
+
+
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasStudy -->
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasStudy"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#holds -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#holds">
+        <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy"/>
+    </owl:ObjectProperty>
     
 
 
@@ -164,6 +184,12 @@
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy -->
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy -->
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy"/>
     
 
 
@@ -320,7 +346,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Identifiable Research data which is a result of Raw Data processing and Data Analysis, obtained with the use of Data Analysis Software. It is typically a data file but it can be potentially a data stream, or other form of data relevant in a particular data management context. Analysed Data is stored in a Data Repository, which may be the same in which Raw Data is stored. Analysed Data can be a part of Dataset.</skos:definition>
+        <skos:definition xml:lang="en">Research Data which is the primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data, by one or more Research Users, possibly using Research Software. Analysed Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Analysed Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Analysed Data may be part of a Dataset.</skos:definition>
     </owl:Class>
     
 
@@ -341,6 +367,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataInterpretation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <skos:definition xml:lang="en">The primary output of Data Interpretation performed by one or more Research Users on Research Data, typically on Analysed Data, possibly using Research Software. Conclusions are any kind of insight that support the answer to some specific research question, such as the significance and implications of the research findings of a Study, possibly in comparison with Reference Data, along with recommendations which may support decision-making about the next steps of a Study or about future work. Conclusions form an important part of a Study debrief and are usually reported in Scientific Publications.</skos:definition>
     </owl:Class>
     
 
@@ -373,7 +400,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">The identifiable action of processing and/or combine and/or correlate Raw Data or/and Analysed Data. The analysis may be performed using Data Analysis Software and may be combined in chains or workflows. The data analysis includes data processing, correlative characterization, and data interpretation.</skos:definition>
+        <skos:definition xml:lang="en">Data treatment performed by one or more Research Users, who collect, model and analyse Research Data, typically Processed Data, to extract insights that support the answer to some specific research question (i.e., Conclusions). Data Analysis may include: linear combination, data fitting, data modeling, pattern extraction. Data Analysis may be performed using Research Software. The output of Data Analysis is Analysed Data.</skos:definition>
     </owl:Class>
     
 
@@ -400,6 +427,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <skos:definition xml:lang="en">Set of processes carried out by one or more Research Users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on Research Data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the Conclusions of the Study. Data Analysis Lifecycle includes (but is not limited to): Data Processing, Data Analysis, Data Interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data Analysis Lifecycle may be performed using Research Software.</skos:definition>
     </owl:Class>
     
 
@@ -407,7 +435,7 @@
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataCollaborationPlatform -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataCollaborationPlatform">
-        <skos:definition xml:lang="en">A centralized operational information system where data inflows combine and allow authorized users to gather data and to draw on information, knowledge and insights.</skos:definition>
+        <skos:definition xml:lang="en">Operational information system which allows Research Users to keep their Research Data, Datasets and related documents (e.g., drafts of Scientific Publications) synchronized and up to date, and to exchange them with other Research Users, who are typically members of the same Project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a Data Collaboration Platform offers versioning of all ingested files but does not usually assign Persistent Identifiers to them.</skos:definition>
     </owl:Class>
     
 
@@ -440,7 +468,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">The process of assigning meaning to the collected information, after an analytical and/or experimental Study, and determining the conclusions, significance, and implications of research findings, possibly in comparison with a predefined reference.</skos:definition>
+        <skos:definition xml:lang="en">Process performed by one or more Research Users, who assign meaning to Research Data, typically Analysed Data, and determine the Conclusions of the Study, possibly in comparison with Reference Data. Data Interpretation supports decision-making about the next steps of the Study or about future work. Data Interpretation may be performed using Research Software.</skos:definition>
     </owl:Class>
     
 
@@ -473,7 +501,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Data treatment to convert raw data into useful information for correlative characterization and interpretation. This may include filtering, scaling, fusion or compression of existing data as well as visualization, transformation and statistical data reduction. Typical tools for time or space related data conversion are derived from mathematics and/or informatics.</skos:definition>
+        <skos:definition xml:lang="en">Data treatment performed by one or more Research Users on Research Data, typically Raw Data, to prepare it for another step of the Data Analysis Lifecycle, e.g., Data Analysis or Data Interpretation. Data Processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion or compression of existing Research Data, as well as calibration, normalization, statistical data reduction, background subtraction, correction of artifacts. Data Processing may be performed using Research Software. The output of Data Processing is Processed Data.</skos:definition>
     </owl:Class>
     
 
@@ -481,7 +509,7 @@
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataRepository -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataRepository">
-        <skos:definition xml:lang="en">An operational information system for managing and organizing digital resources, particularly suitable for registering Datasets which are not likely to be altered again. For example, a Data Repository may host the Dataset supporting a publication. The Data Repository contains Metadata about the Datasets, as well as given rules for data access. Data Repository may be associated with a certain Institution or a group of them, or a certain Instrument or a group of them, or may be run by a third-party. Data Repository may or may not be directly used by Research Users.</skos:definition>
+        <skos:definition xml:lang="en">Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A Data Repository is particularly suitable for Research Data (especially Datasets and/or Publication Data) which are not likely to be altered again. Many Data Repositories automatically assign globally unique Persistent Identifiers to deposited resources. Data Repositories may be associated with an Institution or a group of them, with an Instrument or a group of them, or with a Measurement Technique or a group of them, or may be run by a third party. Data Repositories may or may not be directly used by Research Users.</skos:definition>
     </owl:Class>
     
 
@@ -520,7 +548,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataRepository"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">A collection of scientifically related (depending on the research context) Research Data which can be Raw Data (including a result of computer simulation), Analysed Data, or other datasets, described by their related Metadata. The components of a dataset remain individually identifiable within the dataset.</skos:definition>
+        <skos:definition xml:lang="en">Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of Raw Data (including the output of computational Experiments), Processed Data, Analysed Data, or other Datasets. The components of a Dataset remain individually identifiable.</skos:definition>
     </owl:Class>
     
 
@@ -535,7 +563,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Any kind of tool or device used during the course of an Experiment</skos:definition>
+        <skos:definition xml:lang="en">Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Sample Component Syntheses, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution. According to this definition, an Instrument is a particular type of Equipment.</skos:definition>
     </owl:Class>
     
 
@@ -553,12 +581,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Instrument"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -568,7 +590,19 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Identifiable and reproducible activity with a clear start time and clear finish time conducted by Research User who uses one or more Instruments to investigate or produce Sample and collects Raw Data about it. Experiment consists of (or includes – in case of Sample Preparation) one or a series of Measurements. Experiment can be a computer simulation (computational experiment), or a combination of it with physical Measurements.</skos:definition>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentFabrication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SamplePreparation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition xml:lang="en">Identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more Sample Component Syntheses, Sample Preparations and/or Measurements, performed by one or more Research Users. An Experiment may be a simulation (computational Experiment) or a combination of computational and physical Measurement.</skos:definition>
     </owl:Class>
     
 
@@ -583,7 +617,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">The hierarchical entity which owns the Instrument. For computer simulations, Institution may include hardware or/and software platforms or/and services that allow to order and manage computational experiments (so that the software platform serves the purpose of managing software modules that can be considered virtual Instruments).</skos:definition>
+        <skos:definition xml:lang="en">Hierarchical entity which hosts one or more Laboratories, including the virtual ones.</skos:definition>
     </owl:Class>
     
 
@@ -598,7 +632,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Identifiable Equipment that allows performing a Measurement and generated Raw Data in the course of an Experiment. Instrument is located in a Laboratory hosted by an Institution and used by one or more Research Users.  Instrument can be a software for computer simulation (a software module or/and a particular configuration of it).</skos:definition>
+        <skos:definition xml:lang="en">Identifiable piece of Equipment used by one or more Research Users to perform a Measurement and to generate Raw Data. Instrument is located in a Laboratory hosted by an Institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational Measurement).</skos:definition>
     </owl:Class>
     
 
@@ -613,7 +647,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Institution"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Place where the instrument is located and the experiment is performed (could be also virtual)</skos:definition>
+        <skos:definition xml:lang="en">Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the Equipment, are located and the Measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational Experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments).</skos:definition>
     </owl:Class>
     
 
@@ -647,7 +681,7 @@
                 <owl:onClass rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">The act of generating a single self-consistent unit of Raw data for a Sample or a set of Samples which may be supported by a sample carrier during the Experiment using a particular Instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to Instrument: a research on the same Sample using a different Instrument implies a separate Measurement. Measurement can be a computer simulation, e.g. a particular run of a program using a particular model, configuration, or input(s).</skos:definition>
+        <skos:definition xml:lang="en">Identifiable and reproducible activity, performed by one or more Research Users, who generate a single self-consistent unit of Raw Data about a Sample or a set of them using an Instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to Instrument: an investigation on the same Sample conducted using a different Instrument implies a different Measurement. A Measurement may also be performed during the Sample Component Synthesis and/or the Sample Preparation, e.g., to characterize the resulting Sample or Sample Component(s). A computational Measurement may be a part of a simulation (computational Experiment), e.g., a simulation run using a particular model, configuration or input(s).</skos:definition>
     </owl:Class>
     
 
@@ -655,7 +689,7 @@
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MeasurementTechnique -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MeasurementTechnique">
-        <skos:definition xml:lang="en">A technique or technology corresponding to the method used to acquire Raw Data with a specific Instrument.</skos:definition>
+        <skos:definition xml:lang="en">Technique or technology corresponding to the method used during a Measurement to collect Raw Data about a Sample or a set of them with an Instrument.</skos:definition>
     </owl:Class>
     
 
@@ -676,7 +710,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MetadataRepository"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">A set of descriptive, structural and contextual information describing the context, content and structure of Research Data and/or Datasets, and their management through time. It describes information pertaining to research Projects, including (but not limited to) Research Users, Studies, Laboratories, Instruments, Measurements, Samples, Experiments, and corresponding Data Analyses. Metadata may include descriptions of how data and files are named, physically structured, and stored.</skos:definition>
+        <skos:definition xml:lang="en">Any descriptive data intended to help contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Depending on the mode of use, Metadata describes information pertaining to the research Projects, including (but not limited to) Research Users, Studies, Experiments, Measurements, Instruments, Samples, and corresponding Data Analysis Lifecycle. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository.</skos:definition>
     </owl:Class>
     
 
@@ -684,7 +718,7 @@
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MetadataRepository -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MetadataRepository">
-        <skos:definition xml:lang="en">Service for storing, managing, and organizing metadata</skos:definition>
+        <skos:definition xml:lang="en">Information system used to store, manage and provide access to Metadata, following a policy or a set of rules that define storage and access norms. Metadata Repositories may be associated with an Institution or a group of them, or may be run by a third party. Metadata Repositories may or may not be directly used by Research Users.</skos:definition>
     </owl:Class>
     
 
@@ -705,8 +739,7 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataProcessing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Research data resulting from any kind of processing or
-manipulation of raw data – however minimal – in order to prepare them for analysis. Examples of processed data are anonymized data (which no longer contain personal details), cleaned data, annotated data, etc</skos:definition>
+        <skos:definition xml:lang="en">Research Data which is the primary output of any kind of Data Processing or manipulation of Raw Data performed by one or more Research Users, possibly using Research Software, in order to prepare it for another step of the Data Analysis Lifecycle, e.g., Data Analysis or Data Interpretation. Processed Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Processed Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Processed Data may be part of a Dataset.</skos:definition>
     </owl:Class>
     
 
@@ -751,7 +784,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataRepository"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Research Data intended to appear in a scientific publication.</skos:definition>
+        <skos:definition xml:lang="en">Dataset(s) generated by a Research User in a Study, that has undergone quality assessment and can be referred to as citations (i.e., a Persistent Identifier is assigned to it), e.g., to validate the results and/or the Conclusions presented in a Scientific Publication or appearing in it. Publication Data may include Raw Data, Processed Data and/or Analysed Data, as well as the relevant Metadata about the Experiment(s) and the Data Analysis Lifecycle.</skos:definition>
     </owl:Class>
     
 
@@ -766,7 +799,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">The primary output of a Measurement, generated using a particular Instrument and collected by a Research User, before any subsequent processing, during an Experiment. Raw data is typically in the form of a data file but it can be potentially a data stream, or other form of data relevant in a particular data management context. Raw Data can be a result of a computer experiment (simulation). Raw Data can be a part of a Dataset.</skos:definition>
+        <skos:definition xml:lang="en">Research Data which is the primary output of a Measurement, collected by one or more Research Users using an Instrument, before any subsequent Data Processing. Raw Data may be the output of a simulation run (computational Measurement). Raw Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Raw Data may be part of a Dataset.</skos:definition>
     </owl:Class>
     
 
@@ -787,7 +820,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Reference Data is Research data which is not produced during the current Study, used as reference to compare and/or to validate the output of the Study, typically during the Data Analysis Lifecycle.</skos:definition>
+        <skos:definition xml:lang="en">Research Data not produced during the current Study, which is used as reference to compare and/or to validate the outputs of the Study, typically during the Data Analysis Lifecycle.</skos:definition>
     </owl:Class>
     
 
@@ -803,7 +836,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Research data is the data in the research context.</rdfs:comment>
-        <skos:definition xml:lang="en">Data examined and considered as a basis for reasoning, discussion, or calculation in a research context. Examples of Research data include statistics, results of experiments, measurements, observations resulting from fieldwork, survey results, recordings and images. Within this definition, Raw data and Analysed Data are particular types of Research Data.</skos:definition>
+        <skos:definition xml:lang="en">Data collected, created or examined by one or more Research Users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., Conclusions). Examples of Research Data include statistics, output of Experiments and/or Measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, Raw Data, Processed Data, Analysed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may be part of a Dataset.</skos:definition>
     </owl:Class>
     
 
@@ -812,9 +845,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchSoftware">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
-        <rdfs:comment xml:lang="en">Depending on the research context, Data Analysis Software can be used during Data Processing, Data Analysis, or Data Interpretation, taking as input Raw Data, Processed Data, or Analysed Data respectively, and giving as output Processed Data, Analysed Data or conclusions, respectively.</rdfs:comment>
-        <rdfs:comment xml:lang="en">If Software is used for simulation (computer experiment), is it considered an Instrument and should be described as such.</rdfs:comment>
-        <skos:definition xml:lang="en">The Software used on Research Data during each of the processes included in the Data Analysis Lifecycle (possibly including data rendering, visualisation, plotting) and yelding to Research Data as an output.</skos:definition>
+        <skos:definition xml:lang="en">Software used to generate, process, analyse or access Research Data during any of the processes included in the Data Analysis Lifecycle (possibly including data rendering, visualization, plotting). Depending on the research context, Research Software can be used during Data Processing, Data Analysis or Data Interpretation taking as input Raw Data, Processed Data or Analysed Data, respectively, and giving as output Processed Data, Analysed Data or any kind of synthesized knowledge (e.g., Conclusions), respectively. Any acquisition software used during Measurements is considered part of the Instrument and should be described as such. Any software used to perform simulation runs (computational Measurements) and to generate Raw Data, it is considered an Instrument and should be described as such.</skos:definition>
     </owl:Class>
     
 
@@ -823,7 +854,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <skos:definition xml:lang="en">A person, a group of them, or an Institution (organization) who, within a Project, conducts Experiment on one or more Laboratories using one or more Instruments in order to collect and analyze Research Data, or is interested in data collected or analyzed by other Research Users on the same or other Facilities. Research User may be assigned with a role, e.g. to designate the user as a Principal Investigator.</skos:definition>
+        <skos:definition xml:lang="en">Person, usually member of a Project, who conducts any part of the Experiment(s), or performs any of the steps of the Data Analysis Lifecycle during the course of one or more Studies, in order to collect and/or analyse Research Data, or is interested in reusing Research Data collected by a third party (e.g., Reference Data) with the final aim to extract insights that support the answer to some specific research question (i.e., Conclusions). Research Users may be assigned with a role (e.g., principal investigator, Instrument scientist, Project member).</skos:definition>
     </owl:Class>
     
 
@@ -856,7 +887,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleCarrier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Identifiable piece of material with distinctive properties (structural, chemical, dimensional and others), composed by one or more Sample Components, exposed to Instrument during a Measurement within a defined period of time. Sample may stand for a model or configuration or data input (or any combination of these) in computer simulations.</skos:definition>
+        <skos:definition xml:lang="en">Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a simulation run (computational Measurement).</skos:definition>
     </owl:Class>
     
 
@@ -871,7 +902,13 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">A structure used for carrying one or more samples, helpful for referencing, height adjustment, handling. It can be naked wafer, glass slide, sample holder, or an individually designed metal frame</skos:definition>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#holds"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleHolder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition xml:lang="en">A piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders, helpful, e.g., for referencing, handling or height adjustment. Sample Carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame.</skos:definition>
     </owl:Class>
     
 
@@ -883,7 +920,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentSynthesis"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentFabrication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -892,22 +929,67 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Identifiable piece of material with distinctive properties (structural, chemical, dimensional and others), which constitutes a Sample. It may include substrate, layer, mask, evaporants, coating, and the molecule(s) itself.</skos:definition>
+        <skos:definition xml:lang="en">Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Sample Component Fabrication and is used during the Sample Preparation to produce a Sample. It may include substrate, layer, mask, evaporation material, coating, and the molecule itself.</skos:definition>
     </owl:Class>
     
 
 
-    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentSynthesis -->
+    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentFabrication -->
 
-    <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentSynthesis">
-        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
+    <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentFabrication">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Laboratory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Production of each single Sample Component in controlled conditions, performed by a commercial enterprise, a Research User or someone else</skos:definition>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Instrument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition xml:lang="en">Fabrication of a Sample Component in controlled conditions, performed by a commercial enterprise, a Research User or a third party. Sample Component Fabrication may require the use of Equipment and Instrument(s). A Measurement may also be performed during the Sample Component Synthesis, e.g., to characterize the resulting Sample Component.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleHolder -->
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleHolder">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleCarrier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition xml:lang="en">A piece of Equipment that makes one or more Samples accessible for a Measurement, or holds them in place in the predefined position to be mounted inside the Instrument (e.g., glass slide, TEM grid, tilting support). Sample Holder(s) may be carried by a Sample Carrier.</skos:definition>
     </owl:Class>
     
 
@@ -915,7 +997,13 @@ manipulation of raw data – however minimal – in order to prepare them for an
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SamplePreparation -->
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SamplePreparation">
-        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Laboratory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
@@ -928,7 +1016,31 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponent"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">Preliminary actions (physical changes or chemical reactions) typically carried out by a Research User on (or between) one or more Sample Components to produce a Sample, in order to perform a Measurement.</skos:definition>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Instrument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <skos:definition xml:lang="en">Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more Research Users to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement. The actions may be performed on (or between) one or more Sample Components, or on a Sample. Sample Preparation may require the use of Equipment and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the resulting Sample or Sample Component(s).</skos:definition>
     </owl:Class>
     
 
@@ -955,7 +1067,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">A set of one or more experiments performed by one or more Research Users in one or more Laboratories using one or more Instruments for taking one or more Measurements of one or more Samples and corresponding Data analyses, which are part of the same Project.</skos:definition>
+        <skos:definition xml:lang="en">Set of one or more Experiments and corresponding Data Analysis Lifecycle performed by one or more Research Users who are part of the same Project.</skos:definition>
     </owl:Class>
     
 
@@ -976,7 +1088,7 @@ manipulation of raw data – however minimal – in order to prepare them for an
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Study"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <skos:definition xml:lang="en">An enterprise (potentially individual but typically collaborative) of one or more Research Users, planned to perform one or more Studies in one or more Laboratories using one or more Instruments for taking one or more Measurements of one or more Samples during one or more Experiments, and corresponding Data Analyses. Laboratory, Instrument, Measurement, Experiment, and Sample can refer to computer simulation environment.</skos:definition>
+        <skos:definition xml:lang="en">An enterprise (potentially individual but typically collaborative) of one or more Research Users, planned to perform one or more Studies.</skos:definition>
     </owl:Class>
 </rdf:RDF>
 

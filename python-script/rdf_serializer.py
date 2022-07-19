@@ -1,5 +1,6 @@
 from ctypes import Structure
 from curses import raw
+from random import sample
 from rdflib import Graph, Literal
 from rdflib.namespace import  Namespace, RDF, XSD, DCTERMS, PROV
 
@@ -101,7 +102,40 @@ def rdf_serializer(iri):
     g.add((reference_dataset_1, PROV.wasAttributedTo, STRAS_research_group))
     g.add((VT_STM_meas_1998_1, PROV.wasAssociatedWith, STRAS_research_group))
     g.add((VT_STM_meas_1998_1, PROV.wasAssociatedWith, VT_STM_Microscopy))
-    
+
+    Jane = example['Jane']
+    sample_1_component_Ni = example['sample_1_component_Ni']
+    sample_holder_1 = example['sample_holder_1']
+    Graphene_growth_sample_preparation = example['Graphene_growth_sample_preparation']
+    graphene_Ni_sample = example['graphe_sample']
+    sputter_gun_1 = example['sputter_gun_1']
+    heating_stage_1 = example['heating_gun_1']
+    ethylene_1 = example['ethylene_1']
+    gas_line_1 = example['gas_line_1']
+    sample_quality_check_1 = example['sample_quality_check']
+    LEED_instrument = example['LEED_instrument']
+    g.add((Jane, RDF.type, MDMC.ResearchUser))
+    g.add((sample_1_component_Ni, RDF.type, MDMC.SampleComponent))
+    g.add((sample_holder_1, RDF.type, MDMC.SampleHolder))
+    g.add((Graphene_growth_sample_preparation, RDF.type, MDMC.SamplePreparation))
+    g.add((graphene_Ni_sample, RDF.type, MDMC.Sample))
+    g.add((sputter_gun_1, RDF.type, MDMC.Equipment))
+    g.add((heating_stage_1,RDF.type, MDMC.Equipment))
+    g.add((ethylene_1,RDF.type, MDMC.SampleComponent))
+    g.add((gas_line_1,RDF.type, MDMC.Equipment))
+    g.add((LEED_instrument, RDF.type, MDMC.Instrument))
+    g.add((sample_quality_check_1,RDF.type,MDMC.Measurement))
+    g.add((sample_1_component_Ni, MDMC.isHeldBy, sample_holder_1))
+    g.add((graphene_Ni_sample, PROV.wasGeneratedBy, Graphene_growth_sample_preparation))
+    g.add((Graphene_growth_sample_preparation, PROV.used, sample_1_component_Ni))
+    g.add((Graphene_growth_sample_preparation, PROV.used, ethylene_1))
+    g.add((Graphene_growth_sample_preparation, PROV.wasAssociatedWith, sputter_gun_1))
+    g.add((Graphene_growth_sample_preparation, PROV.wasAssociatedWith, heating_stage_1))
+    g.add((Graphene_growth_sample_preparation, PROV.wasAssociatedWith, gas_line_1))
+    g.add((sample_quality_check_1, PROV.wasAssociatedWith, LEED_instrument))
+    g.add((sample_quality_check_1, PROV.used, graphene_Ni_sample))
+    g.add((VT_STM_meas_1998_1, PROV.used, graphene_Ni_sample))
+    g.add((STM_experiment_1998, MDMC.hasSamplePreparation, Graphene_growth_sample_preparation))    
     
     return g
 
