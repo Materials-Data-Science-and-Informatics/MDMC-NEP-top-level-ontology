@@ -1,7 +1,7 @@
 # MDMC glossary of terms
 -----
 This glossary, compiled by the MDMC Metadata Working Group, defines and explains the high-level terms used in the context of the MDMC (meta)data management. 
-The definitions make use in a consistent way of glossary terms, which are written in bold with Capital Initial Letters.  
+The definitions make use in a consistent way of glossary terms, which are written with Capital Initial Letters and linked to their respective definitions.  
 This glossary is intended to be a living document, subject to updates if required by the community. For any inquire, please contact Dr. Rossella Aversa (rossella.aversa@kit.edu).
 
 ### Analysed Data
