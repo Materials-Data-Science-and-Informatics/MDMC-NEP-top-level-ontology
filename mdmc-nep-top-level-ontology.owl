@@ -39,6 +39,20 @@
     
 
 
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasPart">
+        <owl:inverseOf rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isPartOf"/>
+    
+
+
     <!-- http://purl.org/dc/terms/isReferencedBy -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isReferencedBy"/>
@@ -202,12 +216,6 @@
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf -->
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf"/>
-    
-
-
-    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMemberOf -->
-
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMemberOf"/>
     
 
 
@@ -378,6 +386,12 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
             </owl:Restriction>
@@ -394,12 +408,6 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMemberOf"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <skos:definition xml:lang="en">Data treatment performed by one or more Research Users, who collect, model and analyse Research Data, typically Processed Data, to extract insights that support the answer to some specific research question (i.e., Conclusions). Data Analysis may include: linear combination, data fitting, data modeling, pattern extraction. Data Analysis may be performed using Research Software. The output of Data Analysis is Analysed Data.</skos:definition>
     </owl:Class>
     
@@ -409,6 +417,24 @@
 
     <owl:Class rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataInterpretation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataProcessing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
@@ -446,6 +472,12 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
             </owl:Restriction>
@@ -460,12 +492,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMemberOf"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">Process performed by one or more Research Users, who assign meaning to Research Data, typically Analysed Data, and determine the Conclusions of the Study, possibly in comparison with Reference Data. Data Interpretation supports decision-making about the next steps of the Study or about future work. Data Interpretation may be performed using Research Software.</skos:definition>
@@ -479,6 +505,12 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
             </owl:Restriction>
@@ -493,12 +525,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMemberOf"/>
-                <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:definition xml:lang="en">Data treatment performed by one or more Research Users on Research Data, typically Raw Data, to prepare it for another step of the Data Analysis Lifecycle, e.g., Data Analysis or Data Interpretation. Data Processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion or compression of existing Research Data, as well as calibration, normalization, statistical data reduction, background subtraction, correction of artifacts. Data Processing may be performed using Research Software. The output of Data Processing is Processed Data.</skos:definition>
