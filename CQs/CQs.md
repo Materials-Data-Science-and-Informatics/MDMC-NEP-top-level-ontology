@@ -148,6 +148,156 @@
 
 ## Answer to CQs via SPARQL
 
+CQ39. Which Data Analysis Lifecycles have been performed in the Study?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?data_analysis_lifecycle ?study WHERE{
+	?study mdmc:hasDataAnalysisLifeCycle ?data_analysis_lifecycle
+
+}
+```
+CQ40. Which Research Data have been produced in the Study?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?research_data ?study WHERE{
+	?study mdmc:hasExperiment ?experiment. 
+	?experiment mdmc:hasMeasurement ?measurement.
+	?research_data prov:wasGeneratedBy ?measurement.
+	?research_data a mdmc:ResearchData.
+	
+}
+```
+CQ43. Which Project has the Experiment been attributed to?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?project ?experiment WHERE{
+	?project mdmc:hasStudy ?study.
+	?study mdmc:hasExperiment ?experiment.
+	?experiment a mdmc:Experiment.
+	
+}
+```
+CQ44. Which Study is the Experiment part of?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?study ?experiment WHERE{
+	?study mdmc:hasExperiment ?experiment.
+	?experiment a mdmc:Experiment.
+	
+}
+```
+CQ46. Which Equipment has been used in the Experiment?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?equipment ?experiment WHERE{
+	?experiment mdmc:hasMeasurement ?measurement. 
+	?measurement prov:wasAssociatedWith ?equipment. 
+	?equipment a mdmc:Equipment. 	
+}
+```
+CQ47. Which Instruments have been used in the Experiment?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?instrument ?experiment WHERE{
+	?experiment mdmc:hasMeasurement ?measurement. 
+	?measurement prov:wasAssociatedWith ?instrument. 
+	?instrument a mdmc:Instrument. 	
+}
+```
+CQ53. When has the Experiment been performed?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  
+
+SELECT  ?experiment ?start_time ?end_time WHERE{
+	?experiment prov:startedAtTime ?start_time ;
+	prov:endedAtTime ?end_time.	
+}
+```
+CQ55. Which Raw Data have been produced in the Experiment?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?raw_data ?experiment WHERE{
+	?experiment mdmc:hasMeasurement ?measurement.
+	?raw_data prov:wasGeneratedBy ?measurement;
+	 a mdmc:RawData.
+}
+```
+CQ56. Which Project has the Measurement been attributed to?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?measurement ?project WHERE{
+	?project mdmc:hasStudy ?study.
+	?study mdmc:hasExperiment ?experiment.
+	?experiment mdmc:hasMeasurement ?measurement.
+}
+```
+CQ57. Which Study is the Measurement part of?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT    ?study ?measurement WHERE{
+	?study mdmc:hasExperiment ?experiment.
+	?experiment mdmc:hasMeasurement ?measurement.
+}
+```
+CQ58. Which Experiment is the Measurement part of?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT    ?experiment ?measurement WHERE{
+	?experiment mdmc:hasMeasurement ?measurement.
+}
+```
+CQ59. Which Equipment has been used in the Measurement?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?equipment ?measurement WHERE{ 
+	?measurement prov:wasAssociatedWith ?equipment. 
+	?equipment a mdmc:Equipment. 	
+}
+```
+CQ60. Which Instrument has been used in the Measurement?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?instrument ?measurement WHERE{ 
+	?measurement prov:wasAssociatedWith ?instrument. 
+	?instrument a mdmc:Instrument. 	
+}
+```
+CQ65. Which Raw Data have been produced in the Measurement?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?equipment ?measurement WHERE{ 
+	?measurement prov:wasAssociatedWith ?equipment. 
+	?equipment a mdmc:Equipment. 	
+}
+```
 CQ84. Which Project has the Data Analysis Lifecycle been attributed to?
 ```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
