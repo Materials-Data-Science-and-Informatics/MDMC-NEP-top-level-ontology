@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MDMC-NEP PROV Ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "MDMC-NEP PROV Ontology"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.3</span>
+  </div>
+  <h1>MDMC-NEP PROV Ontology</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Ahmad Zainul Ihsan<br/>
+            Mehrdad Jalali<br/>
+            Rossella Aversa<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Elda Osmenaj<br/>
+            Mirco Panighel<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/created">Created</a></dt>
+        <dd>2022-10-16</dd>
+        <dt>Version Information</dt>
+        <dd>1.0</dd>
+        <dt>License</dt>
+        <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
+    </dl>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <div style="width:500px; height:50px; background-color: lightgrey; border:solid 2px grey; padding:10px;margin-bottom:5px; text-align:center;">Pictures say 1,000 words</div>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#Activity">Activity</a></li>
+        <li><a href="#Agent">Agent</a></li>
+        <li><a href="#AnalysedData">AnalysedData</a></li>
+        <li><a href="#Collection">Collection</a></li>
+        <li><a href="#Conclusion">Conclusion</a></li>
+        <li><a href="#DataAnalysis">DataAnalysis</a></li>
+        <li><a href="#DataAnalysisLifeCycle">DataAnalysisLifeCycle</a></li>
+        <li><a href="#DataCollaborationPlatform">DataCollaborationPlatform</a></li>
+        <li><a href="#DataInterpretation">DataInterpretation</a></li>
+        <li><a href="#DataProcessing">DataProcessing</a></li>
+        <li><a href="#DataRepository">DataRepository</a></li>
+        <li><a href="#Dataset">Dataset</a></li>
+        <li><a href="#Entity">Entity</a></li>
+        <li><a href="#Equipment">Equipment</a></li>
+        <li><a href="#Experiment">Experiment</a></li>
+        <li><a href="#Institution">Institution</a></li>
+        <li><a href="#Instrument">Instrument</a></li>
+        <li><a href="#Laboratory">Laboratory</a></li>
+        <li><a href="#Location">Location</a></li>
+        <li><a href="#Measurement">Measurement</a></li>
+        <li><a href="#MeasurementTechnique">MeasurementTechnique</a></li>
+        <li><a href="#Metadata">Metadata</a></li>
+        <li><a href="#MetadataRepository">MetadataRepository</a></li>
+        <li><a href="#Organization">Organization</a></li>
+        <li><a href="#ProcessedData">ProcessedData</a></li>
+        <li><a href="#ProcessedDataOrAnalysedData">ProcessedDataOrAnalysedData</a></li>
+        <li><a href="#Project">Project</a></li>
+        <li><a href="#PublicationData">PublicationData</a></li>
+        <li><a href="#RawData">RawData</a></li>
+        <li><a href="#ReferenceData">ReferenceData</a></li>
+        <li><a href="#ResearchData">ResearchData</a></li>
+        <li><a href="#ResearchSoftware">ResearchSoftware</a></li>
+        <li><a href="#ResearchUser">ResearchUser</a></li>
+        <li><a href="#Sample">Sample</a></li>
+        <li><a href="#SampleCarrier">SampleCarrier</a></li>
+        <li><a href="#SampleComponent">SampleComponent</a></li>
+        <li><a href="#SampleComponentFabrication">SampleComponentFabrication</a></li>
+        <li><a href="#SampleHolder">SampleHolder</a></li>
+        <li><a href="#SamplePreparation">SamplePreparation</a></li>
+        <li><a href="#SoftwareAgent">SoftwareAgent</a></li>
+        <li><a href="#Study">Study</a></li>
+    </ul>
+    <div class="entity class" id="Activity">
+        <h3>Activity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Activity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#SampleComponentFabrication">mdmc-nep-top-level-ontology:SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataInterpretation">mdmc-nep-top-level-ontology:DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SamplePreparation">mdmc-nep-top-level-ontology:SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataProcessing">mdmc-nep-top-level-ontology:DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataAnalysis">mdmc-nep-top-level-ontology:DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Experiment">mdmc-nep-top-level-ontology:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Measurement">mdmc-nep-top-level-ontology:Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Agent">
+        <h3>Agent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Agent</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Equipment">mdmc-nep-top-level-ontology:Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Collection">
+        <h3>Collection<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Collection</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Dataset">mdmc-nep-top-level-ontology:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Entity">
+        <h3>Entity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Entity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Study">mdmc-nep-top-level-ontology:Study</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PublicationData">mdmc-nep-top-level-ontology:PublicationData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Project">https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Project</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Conclusion">mdmc-nep-top-level-ontology:Conclusion</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleComponent">mdmc-nep-top-level-ontology:SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Metadata">mdmc-nep-top-level-ontology:Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sample">mdmc-nep-top-level-ontology:Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Location">
+        <h3>Location<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Location</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Laboratory">mdmc-nep-top-level-ontology:Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Organization">
+        <h3>Organization<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Organization</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Institution">mdmc-nep-top-level-ontology:Institution</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoftwareAgent">
+        <h3>SoftwareAgent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#SoftwareAgent</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ResearchSoftware">mdmc-nep-top-level-ontology:ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AnalysedData">
+        <h3>AnalysedData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#AnalysedData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research Data which is the primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data, by one or more Research Users, possibly using Research Software. Analysed Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Analysed Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Analysed Data may be part of a Dataset.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ProcessedDataOrAnalysedData">mdmc-nep-top-level-ontology:ProcessedDataOrAnalysedData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">mdmc-nep-top-level-ontology:DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Conclusion">
+        <h3>Conclusion<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Conclusion</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The primary output of Data Interpretation performed by one or more Research Users on Research Data, typically on Analysed Data, possibly using Research Software. Conclusions are any kind of insight that support the answer to some specific research question, such as the significance and implications of the research findings of a Study, possibly in comparison with Reference Data, along with recommendations which may support decision-making about the next steps of a Study or about future work. Conclusions form an important part of a Study debrief and are usually reported in Scientific Publications.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataInterpretation">mdmc-nep-top-level-ontology:DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Conclusion">mdmc-nep-top-level-ontology:Conclusion</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataAnalysis">
+        <h3>DataAnalysis<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysis</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data treatment performed by one or more Research Users, who collect, model and analyse Research Data, typically Processed Data, to extract insights that support the answer to some specific research question (i.e., Conclusions). Data Analysis may include: linear combination, data fitting, data modeling, pattern extraction. Data Analysis may be performed using Research Software. The output of Data Analysis is Analysed Data.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">mdmc-nep-top-level-ontology:ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataAnalysisLifeCycle">
+        <h3>DataAnalysisLifeCycle<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Set of processes carried out by one or more Research Users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on Research Data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the Conclusions of the Study. Data Analysis Lifecycle includes (but is not limited to): Data Processing, Data Analysis, Data Interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data Analysis Lifecycle may be performed using Research Software.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">mdmc-nep-top-level-ontology:DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataInterpretation">mdmc-nep-top-level-ontology:DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">mdmc-nep-top-level-ontology:ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">mdmc-nep-top-level-ontology:DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataCollaborationPlatform">
+        <h3>DataCollaborationPlatform<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataCollaborationPlatform</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Operational information system which allows Research Users to keep their Research Data, Datasets and related documents (e.g., drafts of Scientific Publications) synchronized and up to date, and to exchange them with other Research Users, who are typically members of the same Project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a Data Collaboration Platform offers versioning of all ingested files but does not usually assign Persistent Identifiers to them.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataInterpretation">
+        <h3>DataInterpretation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataInterpretation</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Process performed by one or more Research Users, who assign meaning to Research Data, typically Analysed Data, and determine the Conclusions of the Study, possibly in comparison with Reference Data. Data Interpretation supports decision-making about the next steps of the Study or about future work. Data Interpretation may be performed using Research Software.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">mdmc-nep-top-level-ontology:ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataProcessing">
+        <h3>DataProcessing<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataProcessing</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data treatment performed by one or more Research Users on Research Data, typically Raw Data, to prepare it for another step of the Data Analysis Lifecycle, e.g., Data Analysis or Data Interpretation. Data Processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion or compression of existing Research Data, as well as calibration, normalization, statistical data reduction, background subtraction, correction of artifacts. Data Processing may be performed using Research Software. The output of Data Processing is Processed Data.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">mdmc-nep-top-level-ontology:ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataRepository">
+        <h3>DataRepository<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataRepository</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A Data Repository is particularly suitable for Research Data (especially Datasets and/or Publication Data) which are not likely to be altered again. Many Data Repositories automatically assign globally unique Persistent Identifiers to deposited resources. Data Repositories may be associated with an Institution or a group of them, with an Instrument or a group of them, or with a Measurement Technique or a group of them, or may be run by a third party. Data Repositories may or may not be directly used by Research Users.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Dataset">
+        <h3>Dataset<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Dataset</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of Raw Data (including the output of computational Experiments), Processed Data, Analysed Data, or other Datasets. The components of a Dataset remain individually identifiable.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isStoredIn">mdmc-nep-top-level-ontology:isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataCollaborationPlatform">mdmc-nep-top-level-ontology:DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">mdmc-nep-top-level-ontology:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasMetadata">mdmc-nep-top-level-ontology:hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">mdmc-nep-top-level-ontology:Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isStoredIn">mdmc-nep-top-level-ontology:isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">mdmc-nep-top-level-ontology:DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Equipment">
+        <h3>Equipment<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Equipment</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Sample Component Syntheses, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution. According to this definition, an Instrument is a particular type of Equipment.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">mdmc-nep-top-level-ontology:Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#SampleCarrier">mdmc-nep-top-level-ontology:SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleHolder">mdmc-nep-top-level-ontology:SampleHolder</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Instrument">mdmc-nep-top-level-ontology:Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Experiment">
+        <h3>Experiment<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more Sample Component Syntheses, Sample Preparations and/or Measurements, performed by one or more Research Users. An Experiment may be a simulation (computational Experiment) or a combination of computational and physical Measurement.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hasSamplePreparation">mdmc-nep-top-level-ontology:hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">mdmc-nep-top-level-ontology:SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasSampleComponentFabrication">mdmc-nep-top-level-ontology:hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">mdmc-nep-top-level-ontology:SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">mdmc-nep-top-level-ontology:Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasMeasurement">mdmc-nep-top-level-ontology:hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">mdmc-nep-top-level-ontology:Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Institution">
+        <h3>Institution<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Institution</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Hierarchical entity which hosts one or more Laboratories, including the virtual ones.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hosts">mdmc-nep-top-level-ontology:hosts</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">mdmc-nep-top-level-ontology:Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Instrument">
+        <h3>Instrument<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Instrument</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifiable piece of Equipment used by one or more Research Users to perform a Measurement and to generate Raw Data. Instrument is located in a Laboratory hosted by an Institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational Measurement).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Equipment">mdmc-nep-top-level-ontology:Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy">https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Laboratory">
+        <h3>Laboratory<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Laboratory</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the Equipment, are located and the Measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational Experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Location">prov:Location</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isHostedBy">mdmc-nep-top-level-ontology:isHostedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Institution">mdmc-nep-top-level-ontology:Institution</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Measurement">
+        <h3>Measurement<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifiable and reproducible activity, performed by one or more Research Users, who generate a single self-consistent unit of Raw Data about a Sample or a set of them using an Instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to Instrument: an investigation on the same Sample conducted using a different Instrument implies a different Measurement. A Measurement may also be performed during the Sample Component Synthesis and/or the Sample Preparation, e.g., to characterize the resulting Sample or Sample Component(s). A computational Measurement may be a part of a simulation (computational Experiment), e.g., a simulation run using a particular model, configuration or input(s).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">mdmc-nep-top-level-ontology:Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isMeasurementOf">mdmc-nep-top-level-ontology:isMeasurementOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Experiment">mdmc-nep-top-level-ontology:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Instrument">mdmc-nep-top-level-ontology:Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasMeasurementTechnique">mdmc-nep-top-level-ontology:hasMeasurementTechnique</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#MeasurementTechnique">mdmc-nep-top-level-ontology:MeasurementTechnique</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MeasurementTechnique">
+        <h3>MeasurementTechnique<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MeasurementTechnique</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Technique or technology corresponding to the method used during a Measurement to collect Raw Data about a Sample or a set of them with an Instrument.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Metadata">
+        <h3>Metadata<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Metadata</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Any descriptive data intended to help contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Depending on the mode of use, Metadata describes information pertaining to the research Projects, including (but not limited to) Research Users, Studies, Experiments, Measurements, Instruments, Samples, and corresponding Data Analysis Lifecycle. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isStoredIn">mdmc-nep-top-level-ontology:isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#MetadataRepository">mdmc-nep-top-level-ontology:MetadataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MetadataRepository">
+        <h3>MetadataRepository<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MetadataRepository</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Information system used to store, manage and provide access to Metadata, following a policy or a set of rules that define storage and access norms. Metadata Repositories may be associated with an Institution or a group of them, or may be run by a third party. Metadata Repositories may or may not be directly used by Research Users.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ProcessedData">
+        <h3>ProcessedData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ProcessedData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research Data which is the primary output of any kind of Data Processing or manipulation of Raw Data performed by one or more Research Users, possibly using Research Software, in order to prepare it for another step of the Data Analysis Lifecycle, e.g., Data Analysis or Data Interpretation. Processed Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Processed Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Processed Data may be part of a Dataset.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ProcessedDataOrAnalysedData">mdmc-nep-top-level-ontology:ProcessedDataOrAnalysedData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">mdmc-nep-top-level-ontology:DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ProcessedDataOrAnalysedData">
+        <h3>ProcessedDataOrAnalysedData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ProcessedDataOrAnalysedData</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#AnalysedData">mdmc-nep-top-level-ontology:AnalysedData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ProcessedData">mdmc-nep-top-level-ontology:ProcessedData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="PublicationData">
+        <h3>PublicationData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#PublicationData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Dataset(s) generated by a Research User in a Study, that has undergone quality assessment and can be referred to as citations (i.e., a Persistent Identifier is assigned to it), e.g., to validate the results and/or the Conclusions presented in a Scientific Publication or appearing in it. Publication Data may include Raw Data, Processed Data and/or Analysed Data, as well as the relevant Metadata about the Experiment(s) and the Data Analysis Lifecycle.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isStoredIn">mdmc-nep-top-level-ontology:isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">mdmc-nep-top-level-ontology:DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">mdmc-nep-top-level-ontology:Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasMetadata">mdmc-nep-top-level-ontology:hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">mdmc-nep-top-level-ontology:Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RawData">
+        <h3>RawData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#RawData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research Data which is the primary output of a Measurement, collected by one or more Research Users using an Instrument, before any subsequent Data Processing. Raw Data may be the output of a simulation run (computational Measurement). Raw Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw Data may be stored in a Data Collaboration Platform and/or in a Data Repository. Raw Data may be part of a Dataset.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">mdmc-nep-top-level-ontology:Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ReferenceData">
+        <h3>ReferenceData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ReferenceData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research Data not produced during the current Study, which is used as reference to compare and/or to validate the outputs of the Study, typically during the Data Analysis Lifecycle.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/isReferencedBy">terms:isReferencedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Conclusion">mdmc-nep-top-level-ontology:Conclusion</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isReferencedBy">terms:isReferencedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchData">mdmc-nep-top-level-ontology:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchData">
+        <h3>ResearchData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research data is the data in the research context.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hasMetadata">mdmc-nep-top-level-ontology:hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">mdmc-nep-top-level-ontology:Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ProcessedDataOrAnalysedData">mdmc-nep-top-level-ontology:ProcessedDataOrAnalysedData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RawData">mdmc-nep-top-level-ontology:RawData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ReferenceData">mdmc-nep-top-level-ontology:ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchSoftware">
+        <h3>ResearchSoftware<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchSoftware</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Software used to generate, process, analyse or access Research Data during any of the processes included in the Data Analysis Lifecycle (possibly including data rendering, visualization, plotting). Depending on the research context, Research Software can be used during Data Processing, Data Analysis or Data Interpretation taking as input Raw Data, Processed Data or Analysed Data, respectively, and giving as output Processed Data, Analysed Data or any kind of synthesized knowledge (e.g., Conclusions), respectively. Any acquisition software used during Measurements is considered part of the Instrument and should be described as such. Any software used to perform simulation runs (computational Measurements) and to generate Raw Data, it is considered an Instrument and should be described as such.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchUser">
+        <h3>ResearchUser<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Person, usually member of a Project, who conducts any part of the Experiment(s), or performs any of the steps of the Data Analysis Lifecycle during the course of one or more Studies, in order to collect and/or analyse Research Data, or is interested in reusing Research Data collected by a third party (e.g., Reference Data) with the final aim to extract insights that support the answer to some specific research question (i.e., Conclusions). Research Users may be assigned with a role (e.g., principal investigator, Instrument scientist, Project member).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Sample">
+        <h3>Sample<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Sample</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a simulation run (computational Measurement).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">mdmc-nep-top-level-ontology:SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">mdmc-nep-top-level-ontology:Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isCarriedBy">mdmc-nep-top-level-ontology:isCarriedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleCarrier">mdmc-nep-top-level-ontology:SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasSampleComponent">mdmc-nep-top-level-ontology:hasSampleComponent</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">mdmc-nep-top-level-ontology:SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleCarrier">
+        <h3>SampleCarrier<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleCarrier</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders, helpful, e.g., for referencing, handling or height adjustment. Sample Carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Equipment">mdmc-nep-top-level-ontology:Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#carries">mdmc-nep-top-level-ontology:carries</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">mdmc-nep-top-level-ontology:Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#holds">mdmc-nep-top-level-ontology:holds</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleHolder">mdmc-nep-top-level-ontology:SampleHolder</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleComponent">
+        <h3>SampleComponent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Sample Component Fabrication and is used during the Sample Preparation to produce a Sample. It may include substrate, layer, mask, evaporation material, coating, and the molecule itself.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isSampleComponentOf">mdmc-nep-top-level-ontology:isSampleComponentOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">mdmc-nep-top-level-ontology:Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">mdmc-nep-top-level-ontology:SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleComponentFabrication">
+        <h3>SampleComponentFabrication<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentFabrication</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Fabrication of a Sample Component in controlled conditions, performed by a commercial enterprise, a Research User or a third party. Sample Component Fabrication may require the use of Equipment and Instrument(s). A Measurement may also be performed during the Sample Component Synthesis, e.g., to characterize the resulting Sample Component.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">mdmc-nep-top-level-ontology:Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">mdmc-nep-top-level-ontology:Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">mdmc-nep-top-level-ontology:Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasMeasurement">mdmc-nep-top-level-ontology:hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">mdmc-nep-top-level-ontology:Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">mdmc-nep-top-level-ontology:SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleHolder">
+        <h3>SampleHolder<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleHolder</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A piece of Equipment that makes one or more Samples accessible for a Measurement, or holds them in place in the predefined position to be mounted inside the Instrument (e.g., glass slide, TEM grid, tilting support). Sample Holder(s) may be carried by a Sample Carrier.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Equipment">mdmc-nep-top-level-ontology:Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isHeldBy">mdmc-nep-top-level-ontology:isHeldBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleCarrier">mdmc-nep-top-level-ontology:SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SamplePreparation">
+        <h3>SamplePreparation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SamplePreparation</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more Research Users to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement. The actions may be performed on (or between) one or more Sample Components, or on a Sample. Sample Preparation may require the use of Equipment and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the resulting Sample or Sample Component(s).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hasMeasurement">mdmc-nep-top-level-ontology:hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">mdmc-nep-top-level-ontology:Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">mdmc-nep-top-level-ontology:Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">mdmc-nep-top-level-ontology:SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">mdmc-nep-top-level-ontology:Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">mdmc-nep-top-level-ontology:Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">mdmc-nep-top-level-ontology:Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Study">
+        <h3>Study<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Study</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Set of one or more Experiments and corresponding Data Analysis Lifecycle performed by one or more Research Users who are part of the same Project.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hasExperiment">mdmc-nep-top-level-ontology:hasExperiment</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Experiment">mdmc-nep-top-level-ontology:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasDataAnalysisLifeCycle">mdmc-nep-top-level-ontology:hasDataAnalysisLifeCycle</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysisLifeCycle">mdmc-nep-top-level-ontology:DataAnalysisLifeCycle</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Project">
+        <h3>Project<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Project</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>An enterprise (potentially individual but typically collaborative) of one or more Research Users, planned to perform one or more Studies.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hasStudy">mdmc-nep-top-level-ontology:hasStudy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Study">mdmc-nep-top-level-ontology:Study</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchUser">mdmc-nep-top-level-ontology:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#hasPart">hasPart</a></li>
+        <li><a href="#isPartOf">isPartOf</a></li>
+        <li><a href="#isReferencedBy">isReferencedBy</a></li>
+        <li><a href="#atLocation">atLocation</a></li>
+        <li><a href="#hadMember">hadMember</a></li>
+        <li><a href="#used">used</a></li>
+        <li><a href="#wasAssociatedWith">wasAssociatedWith</a></li>
+        <li><a href="#wasAttributedTo">wasAttributedTo</a></li>
+        <li><a href="#wasDerivedFrom">wasDerivedFrom</a></li>
+        <li><a href="#wasGeneratedBy">wasGeneratedBy</a></li>
+        <li><a href="#wasInfluencedBy">wasInfluencedBy</a></li>
+        <li><a href="#wasInformedBy">wasInformedBy</a></li>
+        <li><a href="#carries">carries</a></li>
+        <li><a href="#hasDataAnalysisLifeCycle">hasDataAnalysisLifeCycle</a></li>
+        <li><a href="#hasExperiment">hasExperiment</a></li>
+        <li><a href="#hasMeasurement">hasMeasurement</a></li>
+        <li><a href="#hasMeasurementTechnique">hasMeasurementTechnique</a></li>
+        <li><a href="#hasMetadata">hasMetadata</a></li>
+        <li><a href="#hasSampleComponent">hasSampleComponent</a></li>
+        <li><a href="#hasSampleComponentFabrication">hasSampleComponentFabrication</a></li>
+        <li><a href="#hasSamplePreparation">hasSamplePreparation</a></li>
+        <li><a href="#hasStudy">hasStudy</a></li>
+        <li><a href="#holds">holds</a></li>
+        <li><a href="#hosts">hosts</a></li>
+        <li><a href="#isCarriedBy">isCarriedBy</a></li>
+        <li><a href="#isHeldBy">isHeldBy</a></li>
+        <li><a href="#isHostedBy">isHostedBy</a></li>
+        <li><a href="#isMeasurementOf">isMeasurementOf</a></li>
+        <li><a href="#isSampleComponentOf">isSampleComponentOf</a></li>
+        <li><a href="#isStoredIn">isStoredIn</a></li>
+        <li><a href="#prepares">prepares</a></li>
+        <li><a href="#stores">stores</a></li>
+        <li><a href="#wasOperatedBy">wasOperatedBy</a></li>
+    </ul>
+    <div class="entity property" id="hasPart">
+        <h3>hasPart<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/hasPart</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isPartOf">
+        <h3>isPartOf<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/isPartOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isReferencedBy">
+        <h3>isReferencedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/isReferencedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="atLocation">
+        <h3>atLocation<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#atLocation</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hadMember">
+        <h3>hadMember<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#hadMember</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="used">
+        <h3>used<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#used</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasAssociatedWith">
+        <h3>wasAssociatedWith<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAssociatedWith</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasAttributedTo">
+        <h3>wasAttributedTo<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAttributedTo</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasDerivedFrom">
+        <h3>wasDerivedFrom<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasDerivedFrom</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasGeneratedBy">
+        <h3>wasGeneratedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasGeneratedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasInfluencedBy">
+        <h3>wasInfluencedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasInfluencedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasInformedBy">
+        <h3>wasInformedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasInformedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="carries">
+        <h3>carries<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#carries</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#isCarriedBy">mdmc-nep-top-level-ontology:isCarriedBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasDataAnalysisLifeCycle">
+        <h3>hasDataAnalysisLifeCycle<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasDataAnalysisLifeCycle</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasExperiment">
+        <h3>hasExperiment<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasExperiment</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasMeasurement">
+        <h3>hasMeasurement<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurement</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#isMeasurementOf">mdmc-nep-top-level-ontology:isMeasurementOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasMeasurementTechnique">
+        <h3>hasMeasurementTechnique<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurementTechnique</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasMetadata">
+        <h3>hasMetadata<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMetadata</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasSampleComponent">
+        <h3>hasSampleComponent<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponent</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#isSampleComponentOf">mdmc-nep-top-level-ontology:isSampleComponentOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasSampleComponentFabrication">
+        <h3>hasSampleComponentFabrication<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasSamplePreparation">
+        <h3>hasSamplePreparation<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasStudy">
+        <h3>hasStudy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasStudy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="holds">
+        <h3>holds<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#holds</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#isHeldBy">mdmc-nep-top-level-ontology:isHeldBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hosts">
+        <h3>hosts<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hosts</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#isHostedBy">mdmc-nep-top-level-ontology:isHostedBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isCarriedBy">
+        <h3>isCarriedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isHeldBy">
+        <h3>isHeldBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isHostedBy">
+        <h3>isHostedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHostedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isMeasurementOf">
+        <h3>isMeasurementOf<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isSampleComponentOf">
+        <h3>isSampleComponentOf<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isSampleComponentOf</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#topObjectProperty">owl:topObjectProperty</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isStoredIn">
+        <h3>isStoredIn<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isStoredIn</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#topObjectProperty">owl:topObjectProperty</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#stores">mdmc-nep-top-level-ontology:stores</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="prepares">
+        <h3>prepares<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#prepares</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="stores">
+        <h3>stores<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#stores</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasOperatedBy">
+        <h3>wasOperatedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasInfluencedBy">prov:wasInfluencedBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#endedAtTime">endedAtTime</a></li>
+        <li><a href="#startedAtTime">startedAtTime</a></li>
+    </ul>
+    <div class="entity property" id="endedAtTime">
+        <h3>endedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#endedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="startedAtTime">
+        <h3>startedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#startedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#created">created</a></li>
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#license">license</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#definition">definition</a></li>
+        <li><a href="#preferredNamespacePrefix">preferredNamespacePrefix</a></li>
+    </ul>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="created">
+        <h3>created<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/created</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="license">
+        <h3>license<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/license</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="title">
+        <h3>title<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/title</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="definition">
+        <h3>definition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#definition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespacePrefix">
+        <h3>preferredNamespacePrefix<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#preferredNamespacePrefix</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+    </ul>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>mdmc-nep-top-level-ontology</dt>
+        <dd><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>terms</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>
