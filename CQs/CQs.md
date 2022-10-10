@@ -298,6 +298,138 @@ SELECT  ?equipment ?measurement WHERE{
 	?equipment a mdmc:Equipment. 	
 }
 ```
+CQ66. Which Project has the Sample been attributed to?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?project WHERE{
+	?project mdmc:hasStudy ?study.
+	?study mdmc:hasExperiment ?experiment.
+	?experiment mdmc:hasMeasurement ?measurement. 
+	?measurement prov:used ?sample.
+	?sample a mdmc:Sample.
+}
+```
+CQ67. In which Studies has the Sample been prepared?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?study WHERE{
+	?study mdmc:hasExperiment ?experiment.
+	?experiment mdmc:hasSamplePreparation ?sample_preparation. 
+	?sample prov:wasGeneratedBy ?sample_preparation.
+	?sample a mdmc:Sample.
+}
+```
+CQ68. In which Studies has the Sample been used?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?study WHERE{
+        {
+	?study mdmc:hasExperiment ?experiment.
+	?experiment mdmc:hasSamplePreparation ?sample_preparation;
+                mdmc:hasMeasurement ?measurement.
+        ?measurement prov:used ?sample.
+	?sample a mdmc:Sample.} 
+	UNION
+        {
+            ?study mdmc:hasExperiment ?experiment.
+	?experiment mdmc:hasSamplePreparation ?sample_preparation;
+                mdmc:hasMeasurement ?measurement.
+	?sample_preparation prov:used ?sample.
+	?sample a mdmc:Sample.    
+        }
+}
+```
+CQ69. In which Experiment has the Sample been prepared?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?experiment WHERE{
+	?experiment mdmc:hasSamplePreparation ?sample_preparation. 
+	?sample prov:wasGeneratedBy ?sample_preparation.
+	?sample a mdmc:Sample.
+}
+```
+CQ70.
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?experiment WHERE{
+        {
+	?experiment mdmc:hasSamplePreparation ?sample_preparation;
+                mdmc:hasMeasurement ?measurement.
+        ?measurement prov:used ?sample.
+	?sample a mdmc:Sample.} 
+	UNION
+        {
+	?experiment mdmc:hasSamplePreparation ?sample_preparation;
+                mdmc:hasMeasurement ?measurement.
+	?sample_preparation prov:used ?sample.
+	?sample a mdmc:Sample.    
+        }
+}
+```
+CQ71. Which Measurements has the Sample been prepared for?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?measurement WHERE{
+	?measurement prov:used ?sample.
+        ?sample prov:wasGeneratedBy ?sample_preparation.
+        ?sample_preparation a mdmc:SamplePreparation.
+	?sample a mdmc:Sample.
+}
+```
+CQ72. In which Measurements has the Sample been used?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?measurement WHERE{
+        ?measurement prov:used ?sample.
+	?sample a mdmc:Sample.
+}
+```
+CQ73. How has the Sample been prepared? TODO:edit when the preparation is more granular
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?preparation WHERE{
+        ?sample prov:wasGeneratedBy ?preparation.
+        ?preparation a mdmc:SamplePreparation.
+}
+```
+CQ77. Which Sample Components have been used in the Sample Preparation?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample_component ?preparation WHERE{
+         ?preparation  prov:used ?sample_component.
+        ?preparation a mdmc:SamplePreparation.
+}
+```
+CQ79. Which Equipment has been used to prepare the Sample?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT   ?sample ?equipment WHERE{
+         ?sample prov:wasGeneratedBy ?sample_preparation.
+         ?sample_preparation a mdmc:SamplePreparation; 
+                prov:wasAssociatedWith ?equipment. 
+        ?equipment a mdmc:Equipment.
+}
+```
 CQ84. Which Project has the Data Analysis Lifecycle been attributed to?
 ```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
