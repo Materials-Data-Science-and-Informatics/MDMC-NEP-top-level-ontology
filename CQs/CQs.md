@@ -159,6 +159,54 @@ SELECT  ?Project ?ResearchUser WHERE{
 
 ```
 
+CQ25. Which Studies have been attributed to the Project?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Study ?Project WHERE{
+        ?Study rdf:type mdmc:Study .
+	?Study prov:wasAttributedTo ?Project. 
+	?Project rdf:type mdmc:Project .
+}
+
+```
+CQ26. Which Experiments have been attributed to the Project?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Experiment ?Project WHERE{
+	?Experiment rdf:type mdmc:Experiment .
+                  ?Experiment prov:wasAttributedTo ?Project. 
+	?Project rdf:type mdmc:Project .
+}
+
+```
+
+CQ27. Which Measurements have been attributed to the Project?
+```
+SELECT  ?Measurement ?Project WHERE{
+	? Measurement rdf:type mdmc: Measurement .
+                  ? Measurement prov:wasAttributedTo ?Project. 
+	?Project rdf:type mdmc:Project .
+}
+
+```
+
+CQ30.	Which Data Analysis Lifecycles have been attributed to the Project?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+   SELECT  ?DataAnalysisLifeCycle ?Project WHERE{
+	?DataAnalysisLifeCycle rdf:type mdmc:DataAnalysisLifeCycle .
+                  ?DataAnalysisLifeCycle prov:wasAttributedTo ?Project. 
+	?Project rdf:type mdmc:Project .
+}
+
+```
+
 CQ39. Which Data Analysis Lifecycles have been performed in the Study?
 ```
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
