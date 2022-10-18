@@ -206,6 +206,85 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 }
 
 ```
+CQ31.	Which Research Data have been attributed to the Project?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+   SELECT  ?ResearchData ?Project WHERE{
+	?ResearchData rdf:type mdmc:ResearchData .
+                  ?ResearchData prov:wasAttributedTo ?Project. 
+	?Project rdf:type mdmc:Project .
+}
+
+```
+CQ33.	Which Project has the Study been attributed to?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Project ?Study WHERE{
+             ?Project rdf:type mdmc:Project .
+             ?Project prov:wasAttributedTo ?Study. 
+             ?Study rdf:type mdmc:Study .
+}
+
+```
+CQ35.	Which Experiments have been performed in the Study?
+
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Experiment ?Study WHERE{
+             ?Experiment rdf:type mdmc:Experiment .
+             ?Experiment mdmc:isPerformedIn ?Study. 
+             ?Study rdf:type mdmc:Study .
+}
+```
+
+CQ36.	Which Measurements have been performed in the Study?
+
+```
+ PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Measurement ?Study WHERE{
+             ?Measurement rdf:type mdmc:Measurement .
+             ?Measurement mdmc:isPerformedIn ?Study. 
+             ?Study rdf:type mdmc:Study .
+}
+
+```
+CQ37.	Which Instruments have been used in the Study?
+
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+   SELECT  ?Instrument ?Study WHERE{
+	?Instrument rdf:type mdmc:Instrument .
+                  ?Instrument prov:used ?Study. 
+	?Study rdf:type mdmc:Study .
+}
+
+```
+CQ38.	Which Samples have been used in the Study?
+
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+   SELECT  ?Sample ?Study WHERE{
+	?Sample rdf:type mdmc:Sample .
+                  ?Sample prov:used ?Study. 
+	?Study rdf:type mdmc:Study .
+}
+
+```
+
+
+
 
 CQ39. Which Data Analysis Lifecycles have been performed in the Study?
 ```
