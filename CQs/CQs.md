@@ -147,6 +147,17 @@
 
 
 ## Answer to CQs via SPARQL
+CQ24. Which Research Users are member of the Project?
+```
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Project ?ResearchUser WHERE{
+	?ResearchUser mdmc:isMemberOf ?Project .
+	?Project rdf:type mdmc:Project .
+}
+
+```
 
 CQ39. Which Data Analysis Lifecycles have been performed in the Study?
 ```
