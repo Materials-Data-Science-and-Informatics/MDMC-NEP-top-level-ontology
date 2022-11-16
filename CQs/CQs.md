@@ -237,22 +237,23 @@ PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Infor
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
 SELECT  ?Experiment ?Study WHERE{
+			?Study rdf:type mdmc:Study ;
+             mdmc:hasExperiment ?Experiment. 
              ?Experiment rdf:type mdmc:Experiment .
-             ?Experiment mdmc:isPerformedIn ?Study. 
-             ?Study rdf:type mdmc:Study .
 }
 ```
 
 CQ36.	Which Measurements have been performed in the Study?
 
 ```
- PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
+PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
 SELECT  ?Measurement ?Study WHERE{
+             ?Study rdf:type mdmc:Study ;
+             mdmc:hasExperiment ?Experiment. 
+			 ?Experiment mdmc:hasMeasurement ?Measurement.
              ?Measurement rdf:type mdmc:Measurement .
-             ?Measurement mdmc:isPerformedIn ?Study. 
-             ?Study rdf:type mdmc:Study .
 }
 
 ```
@@ -361,9 +362,11 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>  
 
 SELECT  ?experiment ?start_time ?end_time WHERE{
-	?experiment prov:startedAtTime ?start_time ;
+	?experiment a mdmc:Experiment ;
+		prov:startedAtTime ?start_time ;
 	prov:endedAtTime ?end_time.	
 }
+
 ```
 CQ55. Which Raw Data have been produced in the Experiment?
 ```
@@ -431,9 +434,10 @@ CQ65. Which Raw Data have been produced in the Measurement?
 PREFIX mdmc: <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
-SELECT  ?equipment ?measurement WHERE{ 
-	?measurement prov:wasAssociatedWith ?equipment. 
-	?equipment a mdmc:Equipment. 	
+SELECT  ?rawdata ?measurement WHERE{ 
+	?rawdata a mdmc:RawData;
+		prov:wasGeneratedBy ?measurement. 
+	?measurement a mdmc:Measurement. 	
 }
 ```
 CQ66. Which Project has the Sample been attributed to?
