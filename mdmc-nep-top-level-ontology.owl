@@ -174,19 +174,33 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#carries">
         <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleCarrier"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Sample"/>
+        <rdfs:comment xml:lang="en">carries represents the relationship between sample carrier to sample.</rdfs:comment>
+        <rdfs:label xml:lang="en">carries</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasDataAnalysisLifeCycle -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasDataAnalysisLifeCycle"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasDataAnalysisLifeCycle">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Study"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataAnalysisLifeCycle"/>
+        <rdfs:comment xml:lang="en">hasDataAnalysisLifecycle represents the relationship between study to data analysis life cycle</rdfs:comment>
+        <rdfs:label xml:lang="en">has data analysis life cycle</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasExperiment -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasExperiment"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasExperiment">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Study"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
+        <rdfs:comment xml:lang="en">hasExperiment represents the relationship between study to experiment.</rdfs:comment>
+        <rdfs:label xml:lang="en">has experiment</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -194,19 +208,41 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurement">
         <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement"/>
+        <rdfs:comment xml:lang="en">hasMeasurement represents the relationship between experiment to measurement.</rdfs:comment>
+        <rdfs:label xml:lang="en">has measurement</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurementTechnique -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurementTechnique"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMeasurementTechnique">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Measurement"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MeasurementTechnique"/>
+        <rdfs:comment xml:lang="en">hasMeasurementTechnique represents the relationship between measurement to measurement technique.</rdfs:comment>
+        <rdfs:label xml:lang="en">has measurement technique</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMetadata -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMetadata"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasMetadata">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Dataset"/>
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#PublicationData"/>
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Metadata"/>
+        <rdfs:comment xml:lang="en">hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata</rdfs:comment>
+        <rdfs:label xml:lang="en">has metadata</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -214,25 +250,44 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponent">
         <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isSampleComponentOf"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Sample"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponent"/>
+        <rdfs:comment xml:lang="en">hasSampleComponent represents the relationship between sample to sample component</rdfs:comment>
+        <rdfs:label xml:lang="en">has sample component</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSampleComponentFabrication">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleComponentFabrication"/>
+        <rdfs:comment xml:lang="en">hasSampleComponentFabrication represents the relationship between experiment to sample component fabrication activity.</rdfs:comment>
+        <rdfs:label xml:lang="en">has sample component fabrication</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasSamplePreparation">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Experiment"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SamplePreparation"/>
+        <rdfs:comment xml:lang="en">hasSamplePreparation represents the relationship between experiment to sample preparation activity.</rdfs:comment>
+        <rdfs:label xml:lang="en">has sample preparation</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasStudy -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasStudy"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hasStudy">
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/Project"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Study"/>
+        <rdfs:comment xml:lang="en">hasStudy represents the relationship between project to study.</rdfs:comment>
+        <rdfs:label xml:lang="en">has study</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -240,6 +295,10 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#holds">
         <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleCarrier"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#SampleHolder"/>
+        <rdfs:comment xml:lang="en">holds represents the relationship between sample carrier to sample holder.</rdfs:comment>
+        <rdfs:label xml:lang="en">holds</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -248,31 +307,47 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#hosts">
         <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHostedBy"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Institution"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Laboratory"/>
+        <rdfs:comment xml:lang="en">hosts represents the relationship between institution to laboratory.</rdfs:comment>
+        <rdfs:label xml:lang="en">hosts</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isCarriedBy">
+        <rdfs:comment xml:lang="en">isCarriedBy is the inverse property of carries.</rdfs:comment>
+        <rdfs:label xml:lang="en">is carried by</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHeldBy">
+        <rdfs:comment xml:lang="en">isHeldBy is the inverse property of holds.</rdfs:comment>
+        <rdfs:label xml:lang="en">is held by</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHostedBy -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHostedBy"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isHostedBy">
+        <rdfs:comment xml:lang="en">isHostedBy is the inverse property of hosts.</rdfs:comment>
+        <rdfs:label xml:lang="en">is hosted by</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isMeasurementOf">
+        <rdfs:comment xml:lang="en">isMeasurementOf is the inverse property of hasMeasurement.</rdfs:comment>
+        <rdfs:label xml:lang="en">is measurement of</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -280,6 +355,8 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isSampleComponentOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">isSampleComponentOf is the inverse property of hasSampleComponent.</rdfs:comment>
+        <rdfs:label xml:lang="en">is sample component of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -289,19 +366,35 @@
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#isStoredIn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#stores"/>
+        <rdfs:comment xml:lang="en">isStoredIn is the inverse property of stores.</rdfs:comment>
+        <rdfs:label xml:lang="en">is stored in</rdfs:label>
     </owl:ObjectProperty>
-    
-
-
-    <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#prepares -->
-
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#prepares"/>
     
 
 
     <!-- https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#stores -->
 
-    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#stores"/>
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#stores">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataCollaborationPlatform"/>
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#DataRepository"/>
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#MetadataRepository"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Dataset"/>
+                    <rdf:Description rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Metadata"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata.</rdfs:comment>
+        <rdfs:label xml:lang="en">stores</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -309,6 +402,10 @@
 
     <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInfluencedBy"/>
+        <rdfs:domain rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#Instrument"/>
+        <rdfs:range rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ResearchUser"/>
+        <rdfs:comment xml:lang="en">wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user.</rdfs:comment>
+        <rdfs:label xml:lang="en">was operated by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -405,7 +502,6 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ReferenceData"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
@@ -847,7 +943,6 @@
                 <owl:someValuesFrom rdf:resource="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl#ReferenceData"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
