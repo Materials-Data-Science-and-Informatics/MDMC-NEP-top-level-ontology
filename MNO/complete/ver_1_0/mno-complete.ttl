@@ -1,0 +1,45 @@
+@prefix : <https://purls.helmholtz-metadaten.de/mno/complete#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+terms:contributor a owl:AnnotationProperty .
+
+terms:created a owl:AnnotationProperty .
+
+terms:creator a owl:AnnotationProperty .
+
+terms:description a owl:AnnotationProperty .
+
+terms:license a owl:AnnotationProperty .
+
+terms:title a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+<http://www.w3.org/ns/prov#endedAtTime> a owl:DatatypeProperty .
+
+<http://www.w3.org/ns/prov#startedAtTime> a owl:DatatypeProperty .
+
+<https://purls.helmholtz-metadaten.de/mno/complete> a owl:Ontology ;
+    rdfs:label "MDMC-NEP PROV Ontology"@en ;
+    terms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    terms:created "2022-10-16"@en ;
+    terms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    terms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    terms:title "MDMC-NEP PROV Ontology - Complete"@en ;
+    vann:preferredNamespacePrefix "MNO"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:imports <https://purls.helmholtz-metadaten.de/mno/core>,
+        <https://purls.helmholtz-metadaten.de/mno/dal>,
+        <https://purls.helmholtz-metadaten.de/mno/dataset>,
+        <https://purls.helmholtz-metadaten.de/mno/experiment> ;
+    owl:versionInfo "1.0"@en .
+
+:preferredNamespacePrefix a owl:AnnotationProperty .
+
