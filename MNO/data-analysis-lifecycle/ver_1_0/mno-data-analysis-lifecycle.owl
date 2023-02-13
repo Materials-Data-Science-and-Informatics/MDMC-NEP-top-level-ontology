@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://purls.helmholtz-metadaten.de/mno/dal#"
-     xml:base="https://purls.helmholtz-metadaten.de/mno/dal#"
+     xml:base="https://purls.helmholtz-metadaten.de/mno/dal"
+     xmlns:dal="https://purls.helmholtz-metadaten.de/mno/dal#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://purls.helmholtz-metadaten.de/mno/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:core="https://purls.helmholtz-metadaten.de/mno/core#"
-     xmlns:dal="https://purls.helmholtz-metadaten.de/mno/dal#">
+     xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/mno/dal">
         <terms:contributor xml:lang="en">Elda Osmenaj</terms:contributor>
         <terms:contributor xml:lang="en">Mirco Panighel</terms:contributor>
@@ -84,6 +84,12 @@
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/mno/core#MDMCNEPGlossaryDefinition -->
+
+    <owl:AnnotationProperty rdf:about="https://purls.helmholtz-metadaten.de/mno/core#MDMCNEPGlossaryDefinition"/>
     
 
 
@@ -216,6 +222,78 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataAnalysis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataInterpretation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataProcessing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Set of processes carried out by one or more research users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study. Data analysis lifecycle includes (but is not limited to): data processing, data analysis, data interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data analysis lifecycle may be performed using research software.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchData -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchUser -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:comment xml:lang="en">Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member).</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/mno/dal#AnalysedData -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/dal#AnalysedData">
@@ -240,13 +318,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataAnalysis"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataAnalysis"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software.</rdfs:comment>
@@ -302,63 +380,17 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Data analysis is data treatment activity performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions).</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Data treatment performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions). Data analysis may include: linear combination, data fitting, data modeling, pattern extraction. Data analysis may be performed using research software. The output of data analysis is analysed data.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataAnalysis"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataInterpretation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#DataProcessing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Set of processes carried out by one or more research users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study. Data analysis lifecycle includes (but is not limited to): data processing, data analysis, data interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data analysis lifecycle may be performed using research software.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -382,13 +414,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Data interpretation is process or activity performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data.</rdfs:comment>
@@ -416,13 +448,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Data processing is a data treatment activity performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation.</rdfs:comment>
@@ -479,23 +511,8 @@
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/dal#ReferenceData">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
+        <rdfs:comment xml:lang="en">Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle.</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchData -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -506,16 +523,6 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
         <rdfs:comment xml:lang="en">Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting).</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting). Depending on the research context, research software can be used during data processing, data analysis or data interpretation taking as input raw data, processed data or analysed data, respectively, and giving as output processed data, analysed data or any kind of synthesized knowledge (e.g., conclusions), respectively. Any acquisition software used during measurements is considered part of the instrument and should be described as such. Any software used to perform simulation runs (computational measurements) and to generate raw data, it is considered an instrument and should be described as such.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchUser -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <rdfs:comment xml:lang="en">Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member).</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
 </rdf:RDF>
 

@@ -328,8 +328,8 @@
                 <th>Sub-classes</th>
                 <td>
                     <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -357,8 +357,8 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -434,6 +434,12 @@
                 <td><code>https://purls.helmholtz-metadaten.de/mno/dataset#Dataset</code></td>
             </tr>
             <tr>
+                <th>Description</th>
+                <td>
+                    <p>Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.</p>
+                </td>
+            </tr>
+            <tr>
                 <th>Super-classes</th>
                 <td>
                     <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
@@ -442,11 +448,11 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataCollaborationPlatform">DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataCollaborationPlatform">DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -529,9 +535,9 @@
                 <th>Restrictions</th>
                 <td>
                     <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -590,7 +596,7 @@
             <tr>
                 <th>Domain(s)</th>
                 <td>
-                    (<a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup> or <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup> or <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup>)
+                    (<a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup> or <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup> or <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup>)
                 </td>
             </tr>
             <tr>

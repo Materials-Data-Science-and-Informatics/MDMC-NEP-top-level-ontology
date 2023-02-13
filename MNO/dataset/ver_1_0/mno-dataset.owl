@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://purls.helmholtz-metadaten.de/mno/dataset#"
-     xml:base="https://purls.helmholtz-metadaten.de/mno/dataset#"
+     xml:base="https://purls.helmholtz-metadaten.de/mno/dataset"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://purls.helmholtz-metadaten.de/mno/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:core="https://purls.helmholtz-metadaten.de/mno/core#"
      xmlns:dataset="https://purls.helmholtz-metadaten.de/mno/dataset#">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/mno/dataset">
         <terms:contributor xml:lang="en">Elda Osmenaj</terms:contributor>
@@ -130,9 +130,9 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/mno/dataset#Dataset"/>
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/mno/dataset#PublicationData"/>
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -234,6 +234,38 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchData -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#hasMetadata"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#Metadata"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchUser -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:comment>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member).</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/mno/dataset#DataCollaborationPlatform -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/dataset#DataCollaborationPlatform">
@@ -271,13 +303,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#hadMember"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#Dataset"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#hadMember"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchData"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#Dataset"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -298,6 +330,7 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#DataRepository"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
@@ -370,38 +403,6 @@
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Publication data is data generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it.</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Dataset(s) generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it. Publication data may include raw data, processed data and/or analysed data, as well as the relevant metadata about the experiment(s) and the data analysis lifecycle.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchData -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#hasMetadata"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/mno/dataset#Metadata"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/mno/core#ResearchUser -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <rdfs:comment>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member).</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
 </rdf:RDF>
 
