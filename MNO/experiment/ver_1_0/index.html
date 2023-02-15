@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MDMC-NEP PROV Ontology - Experiment Module</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/mno/experiment",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>This is the experiment module of the MDMC-NEP PROV Ontology</p>"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "MDMC-NEP PROV Ontology - Experiment Module"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.3</span>
+  </div>
+  <h1>MDMC-NEP PROV Ontology - Experiment Module</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/experiment</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Ahmad Zainul Ihsan<br/>
+            Mehrdad Jalali<br/>
+            Rossella Aversa<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Elda Osmenaj<br/>
+            Mirco Panighel<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/created">Created</a></dt>
+        <dd>2022-10-16</dd>
+        <dt>Version Information</dt>
+        <dd>1.0</dd>
+        <dt>License</dt>
+        <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>This is the experiment module of the MDMC-NEP PROV Ontology</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <iframe width="100%" height ="800px" src="webvowl/index.html#mno-experiment"></iframe>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#Activity">Activity</a></li>
+        <li><a href="#Agent">Agent</a></li>
+        <li><a href="#Entity">Entity</a></li>
+        <li><a href="#Equipment">Equipment</a></li>
+        <li><a href="#Experiment">Experiment</a></li>
+        <li><a href="#Experiment1">Experiment</a></li>
+        <li><a href="#Institution">Institution</a></li>
+        <li><a href="#Instrument">Instrument</a></li>
+        <li><a href="#Laboratory">Laboratory</a></li>
+        <li><a href="#Location">Location</a></li>
+        <li><a href="#Measurement">Measurement</a></li>
+        <li><a href="#MeasurementTechnique">MeasurementTechnique</a></li>
+        <li><a href="#Organization">Organization</a></li>
+        <li><a href="#ResearchUser">ResearchUser</a></li>
+        <li><a href="#Sample">Sample</a></li>
+        <li><a href="#SampleCarrier">SampleCarrier</a></li>
+        <li><a href="#SampleComponent">SampleComponent</a></li>
+        <li><a href="#SampleComponentFabrication">SampleComponentFabrication</a></li>
+        <li><a href="#SampleHolder">SampleHolder</a></li>
+        <li><a href="#SamplePreparation">SamplePreparation</a></li>
+    </ul>
+    <div class="entity class" id="Activity">
+        <h3>Activity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Activity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Agent">
+        <h3>Agent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Agent</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Entity">
+        <h3>Entity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Entity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#MeasurementTechnique">MeasurementTechnique</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/dal#Experiment">dal:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Location">
+        <h3>Location<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Location</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Organization">
+        <h3>Organization<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Organization</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Institution">Institution</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Experiment">
+        <h3>Experiment<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#Experiment</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hassamplepreparation">hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hassamplepreparation">hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchUser">
+        <h3>ResearchUser<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#ResearchUser</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy">https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Experiment1">
+        <h3>Experiment<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#Experiment</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Equipment">
+        <h3>Equipment<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#Equipment</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Equipment is any kind of item, device, machine or other tool (also virtual) used by one or more research users to perform one or more sample component syntheses, sample preparations and/or measurements.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleHolder">SampleHolder</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Institution">
+        <h3>Institution<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#Institution</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Hierarchical entity which hosts one or more laboratories, including the virtual ones.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hosts">hosts</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#hosts">hosts</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Instrument">
+        <h3>Instrument<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#Instrument</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy">https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy">https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Laboratory">
+        <h3>Laboratory<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#Laboratory</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Location">prov:Location</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hosts">hosts</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Measurement">
+        <h3>Measurement<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#Measurement</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Measurement is identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmeasurementtechnique">hasMeasurementTechnique</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#MeasurementTechnique">MeasurementTechnique</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ismeasurementof">isMeasurementOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#hasmeasurementtechnique">hasMeasurementTechnique</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MeasurementTechnique">
+        <h3>MeasurementTechnique<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#MeasurementTechnique</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hasmeasurementtechnique">hasMeasurementTechnique</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Sample">
+        <h3>Sample<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#Sample</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Sample is identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more sample components, exposed to the Instrument during a measurement.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hassamplecomponent">hasSampleComponent</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#iscarriedby">isCarriedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#hassamplecomponent">hasSampleComponent</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#carries">carries</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleCarrier">
+        <h3>SampleCarrier<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#SampleCarrier</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#holds">holds</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleHolder">SampleHolder</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#carries">carries</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#holds">holds</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#carries">carries</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleComponent">
+        <h3>SampleComponent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#SampleComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Sample component is identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the sample component fabrication and is used during the sample preparation to produce a sample.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#issamplecomponentof">isSampleComponentOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hassamplecomponent">hasSampleComponent</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleComponentFabrication">
+        <h3>SampleComponentFabrication<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#SampleComponentFabrication</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Sample component fabrication is fabrication activity of a sample component in controlled conditions, performed by a commercial enterprise, a research user or a third party.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SampleHolder">
+        <h3>SampleHolder<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#SampleHolder</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isheldby">isHeldBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#holds">holds</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SamplePreparation">
+        <h3>SamplePreparation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#SamplePreparation</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) fit to perform a measurement.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hassamplepreparation">hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#atLocation">atLocation</a></li>
+        <li><a href="#used">used</a></li>
+        <li><a href="#wasAssociatedWith">wasAssociatedWith</a></li>
+        <li><a href="#wasDerivedFrom">wasDerivedFrom</a></li>
+        <li><a href="#wasGeneratedBy">wasGeneratedBy</a></li>
+        <li><a href="#wasInfluencedBy">wasInfluencedBy</a></li>
+        <li><a href="#carries">carries</a></li>
+        <li><a href="#hasmeasurement">has measurement</a></li>
+        <li><a href="#hasmeasurementtechnique">has measurement technique</a></li>
+        <li><a href="#hassamplecomponent">has sample component</a></li>
+        <li><a href="#hassamplecomponentfabrication">has sample component fabrication</a></li>
+        <li><a href="#hassamplepreparation">has sample preparation</a></li>
+        <li><a href="#holds">holds</a></li>
+        <li><a href="#hosts">hosts</a></li>
+        <li><a href="#iscarriedby">is carried by</a></li>
+        <li><a href="#isheldby">is held by</a></li>
+        <li><a href="#ismeasurementof">is measurement of</a></li>
+        <li><a href="#issamplecomponentof">is sample component of</a></li>
+        <li><a href="#wasoperatedby">was operated by</a></li>
+    </ul>
+    <div class="entity property" id="atLocation">
+        <h3>atLocation<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#atLocation</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="used">
+        <h3>used<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#used</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasAssociatedWith">
+        <h3>wasAssociatedWith<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAssociatedWith</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasDerivedFrom">
+        <h3>wasDerivedFrom<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasDerivedFrom</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasGeneratedBy">
+        <h3>wasGeneratedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasGeneratedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasInfluencedBy">
+        <h3>wasInfluencedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasInfluencedBy</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="carries">
+        <h3>carries<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#carries</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    carries represents the relationship between sample carrier to sample.
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#iscarriedby">isCarriedBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasmeasurement">
+        <h3>has measurement<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#hasMeasurement</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hasMeasurement represents the relationship between experiment to measurement.
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#ismeasurementof">isMeasurementOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasmeasurementtechnique">
+        <h3>has measurement technique<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#hasMeasurementTechnique</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hasMeasurementTechnique represents the relationship between measurement to measurement technique.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#MeasurementTechnique">MeasurementTechnique</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hassamplecomponent">
+        <h3>has sample component<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#hasSampleComponent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hasSampleComponent represents the relationship between sample to sample component
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#issamplecomponentof">isSampleComponentOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hassamplecomponentfabrication">
+        <h3>has sample component fabrication<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#hasSampleComponentFabrication</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hasSampleComponentFabrication represents the relationship between experiment to sample component fabrication activity.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hassamplepreparation">
+        <h3>has sample preparation<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#hasSamplePreparation</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hasSamplePreparation represents the relationship between experiment to sample preparation activity.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="holds">
+        <h3>holds<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#holds</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    holds represents the relationship between sample carrier to sample holder.
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#isheldby">isHeldBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#SampleHolder">SampleHolder</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hosts">
+        <h3>hosts<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#hosts</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hosts represents the relationship between institution to laboratory.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Institution">Institution</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="iscarriedby">
+        <h3>is carried by<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#isCarriedBy</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    isCarriedBy is the inverse property of carries.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isheldby">
+        <h3>is held by<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#isHeldBy</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    isHeldBy is the inverse property of holds.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="ismeasurementof">
+        <h3>is measurement of<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#isMeasurementOf</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    isMeasurementOf is the inverse property of hasMeasurement.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="issamplecomponentof">
+        <h3>is sample component of<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/experiment#isSampleComponentOf</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    isSampleComponentOf is the inverse property of hasSampleComponent.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#topObjectProperty">owl:topObjectProperty</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasoperatedby">
+        <h3>was operated by<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasInfluencedBy">prov:wasInfluencedBy</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#endedAtTime">endedAtTime</a></li>
+        <li><a href="#startedAtTime">startedAtTime</a></li>
+    </ul>
+    <div class="entity property" id="endedAtTime">
+        <h3>endedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#endedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="startedAtTime">
+        <h3>startedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#startedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#created">created</a></li>
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#license">license</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#preferredNamespacePrefix">preferredNamespacePrefix</a></li>
+        <li><a href="#definition">definition</a></li>
+        <li><a href="#MDMCNEPGlossaryDefinition">MDMCNEPGlossaryDefinition</a></li>
+        <li><a href="#coreMDMCNEPGlossaryDefinition">coreMDMCNEPGlossaryDefinition</a></li>
+    </ul>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="created">
+        <h3>created<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/created</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="license">
+        <h3>license<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/license</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="title">
+        <h3>title<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/title</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespacePrefix">
+        <h3>preferredNamespacePrefix<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann/preferredNamespacePrefix</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="definition">
+        <h3>definition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#definition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="MDMCNEPGlossaryDefinition">
+        <h3>MDMCNEPGlossaryDefinition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#MDMCNEPGlossaryDefinition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="coreMDMCNEPGlossaryDefinition">
+        <h3>coreMDMCNEPGlossaryDefinition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/coreMDMCNEPGlossaryDefinition</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#definition">skos:definition</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+    </ul>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/experiment#</code></dd>
+        <dt>core</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/core#</code></dd>
+        <dt>dal</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/dal#</code></dd>
+        <dt>mno</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>terms</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>vann</dt>
+        <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>

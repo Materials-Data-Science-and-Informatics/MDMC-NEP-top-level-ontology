@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MDMC-NEP PROV Ontology - Data Analysis Lifecycle Module</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/mno/dal",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>This is the data analysis lifecycle module of the MDMC-NEP PROV Ontology.</p>"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "MDMC-NEP PROV Ontology - Data Analysis Lifecycle Module"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.3</span>
+  </div>
+  <h1>MDMC-NEP PROV Ontology - Data Analysis Lifecycle Module</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/dal</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Ahmad Zainul Ihsan<br/>
+            Mehrdad Jalali<br/>
+            Rossella Aversa<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Elda Osmenaj<br/>
+            Mirco Panighel<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/created">Created</a></dt>
+        <dd>2022-10-16</dd>
+        <dt>Version Information</dt>
+        <dd>1.0</dd>
+        <dt>License</dt>
+        <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>This is the data analysis lifecycle module of the MDMC-NEP PROV Ontology.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <iframe width="100%" height ="800px" src="webvowl/index.html#mno-dal"></iframe>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#Activity">Activity</a></li>
+        <li><a href="#Agent">Agent</a></li>
+        <li><a href="#AnalysedData">AnalysedData</a></li>
+        <li><a href="#Conclusion">Conclusion</a></li>
+        <li><a href="#DataAnalysis">DataAnalysis</a></li>
+        <li><a href="#DataAnalysisLifecycle">DataAnalysisLifecycle</a></li>
+        <li><a href="#DataInterpretation">DataInterpretation</a></li>
+        <li><a href="#DataProcessing">DataProcessing</a></li>
+        <li><a href="#Entity">Entity</a></li>
+        <li><a href="#ProcessedData">ProcessedData</a></li>
+        <li><a href="#RawData">RawData</a></li>
+        <li><a href="#ReferenceData">ReferenceData</a></li>
+        <li><a href="#ResearchData">ResearchData</a></li>
+        <li><a href="#ResearchSoftware">ResearchSoftware</a></li>
+        <li><a href="#ResearchUser">ResearchUser</a></li>
+        <li><a href="#SoftwareAgent">SoftwareAgent</a></li>
+    </ul>
+    <div class="entity class" id="Activity">
+        <h3>Activity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Activity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataInterpretation">DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Agent">
+        <h3>Agent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Agent</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Entity">
+        <h3>Entity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Entity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Conclusion">Conclusion</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SoftwareAgent">
+        <h3>SoftwareAgent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#SoftwareAgent</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataAnalysisLifecycle">
+        <h3>DataAnalysisLifecycle<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataInterpretation">DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchData">
+        <h3>ResearchData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#ResearchData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ProcessedData">ProcessedData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#AnalysedData">AnalysedData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#RawData">RawData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchUser">
+        <h3>ResearchUser<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#ResearchUser</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="AnalysedData">
+        <h3>AnalysedData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#AnalysedData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    (<a href="#ProcessedData">ProcessedData</a><sup class="sup-c" title="class">c</sup> or <a href="ub110bL49C42">ub110bL49C42</a><sup class="sup-c" title="class">c</sup>)<br/>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Conclusion">
+        <h3>Conclusion<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#Conclusion</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataInterpretation">DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Conclusion">Conclusion</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataAnalysis">
+        <h3>DataAnalysis<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#DataAnalysis</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data analysis is data treatment activity performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataInterpretation">
+        <h3>DataInterpretation<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#DataInterpretation</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data interpretation is process or activity performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataProcessing">
+        <h3>DataProcessing<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#DataProcessing</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data processing is a data treatment activity performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ProcessedData">
+        <h3>ProcessedData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#ProcessedData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/mno/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#RawData">RawData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RawData">
+        <h3>RawData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#RawData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ReferenceData">
+        <h3>ReferenceData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#ReferenceData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/mno/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchSoftware">
+        <h3>ResearchSoftware<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#ResearchSoftware</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#SoftwareAgent">prov:SoftwareAgent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#hasPart">hasPart</a></li>
+        <li><a href="#isPartOf">isPartOf</a></li>
+        <li><a href="#references">references</a></li>
+        <li><a href="#used">used</a></li>
+        <li><a href="#wasAssociatedWith">wasAssociatedWith</a></li>
+        <li><a href="#wasAttributedTo">wasAttributedTo</a></li>
+        <li><a href="#wasDerivedFrom">wasDerivedFrom</a></li>
+        <li><a href="#wasGeneratedBy">wasGeneratedBy</a></li>
+    </ul>
+    <div class="entity property" id="hasPart">
+        <h3>hasPart<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/hasPart</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isPartOf">
+        <h3>isPartOf<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/isPartOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="references">
+        <h3>references<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/references</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="used">
+        <h3>used<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#used</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasAssociatedWith">
+        <h3>wasAssociatedWith<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAssociatedWith</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasAttributedTo">
+        <h3>wasAttributedTo<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAttributedTo</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasDerivedFrom">
+        <h3>wasDerivedFrom<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasDerivedFrom</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasGeneratedBy">
+        <h3>wasGeneratedBy<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasGeneratedBy</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#endedAtTime">endedAtTime</a></li>
+        <li><a href="#startedAtTime">startedAtTime</a></li>
+    </ul>
+    <div class="entity property" id="endedAtTime">
+        <h3>endedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#endedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="startedAtTime">
+        <h3>startedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#startedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#created">created</a></li>
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#license">license</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#preferredNamespacePrefix">preferredNamespacePrefix</a></li>
+        <li><a href="#definition">definition</a></li>
+        <li><a href="#MDMCNEPGlossaryDefinition">MDMCNEPGlossaryDefinition</a></li>
+        <li><a href="#MDMCNEPGlossaryDefinition1">MDMCNEPGlossaryDefinition</a></li>
+    </ul>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="created">
+        <h3>created<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/created</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="license">
+        <h3>license<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/license</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="title">
+        <h3>title<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/title</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespacePrefix">
+        <h3>preferredNamespacePrefix<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann/preferredNamespacePrefix</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="definition">
+        <h3>definition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#definition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="MDMCNEPGlossaryDefinition">
+        <h3>MDMCNEPGlossaryDefinition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/core#MDMCNEPGlossaryDefinition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="MDMCNEPGlossaryDefinition1">
+        <h3>MDMCNEPGlossaryDefinition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/mno/dal#MDMCNEPGlossaryDefinition</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#definition">skos:definition</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+    </ul>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/dal#</code></dd>
+        <dt>core</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/mno/core#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>terms</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>vann</dt>
+        <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>
