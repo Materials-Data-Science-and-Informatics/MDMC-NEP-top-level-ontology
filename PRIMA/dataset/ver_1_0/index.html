@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PRIMA Ontology - Dataset Module</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology</p>"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "PRIMA Ontology - Dataset Module"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.3</span>
+  </div>
+  <h1>PRIMA Ontology - Dataset Module</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/prima/dataset</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Ahmad Zainul Ihsan<br/>
+            Mehrdad Jalali<br/>
+            Rossella Aversa<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Elda Osmenaj<br/>
+            Mirco Panighel<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/created">Created</a></dt>
+        <dd>2022-10-16</dd>
+        <dt>Version Information</dt>
+        <dd>1.0</dd>
+        <dt>License</dt>
+        <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <iframe width="100%" height ="800px" src="webvowl/index.html#prima-dataset"></iframe>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#Agent">Agent</a></li>
+        <li><a href="#Collection">Collection</a></li>
+        <li><a href="#DataCollaborationPlatform">DataCollaborationPlatform</a></li>
+        <li><a href="#DataRepository">DataRepository</a></li>
+        <li><a href="#Dataset">Dataset</a></li>
+        <li><a href="#Entity">Entity</a></li>
+        <li><a href="#Metadata">Metadata</a></li>
+        <li><a href="#MetadataRepository">MetadataRepository</a></li>
+        <li><a href="#PublicationData">PublicationData</a></li>
+        <li><a href="#ResearchData">ResearchData</a></li>
+        <li><a href="#ResearchUser">ResearchUser</a></li>
+    </ul>
+    <div class="entity class" id="Agent">
+        <h3>Agent<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Agent</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Collection">
+        <h3>Collection<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Collection</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Entity">
+        <h3>Entity<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#Entity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchData">
+        <h3>ResearchData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/core#ResearchData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResearchUser">
+        <h3>ResearchUser<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/core#ResearchUser</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataCollaborationPlatform">
+        <h3>DataCollaborationPlatform<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data collaboration platform is an operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#stores">stores</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataRepository">
+        <h3>DataRepository<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#stores">stores</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Dataset">
+        <h3>Dataset<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#Dataset</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataCollaborationPlatform">DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Metadata">
+        <h3>Metadata<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#Metadata</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#MetadataRepository">MetadataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MetadataRepository">
+        <h3>MetadataRepository<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Metadata repository is an information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#stores">stores</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="PublicationData">
+        <h3>PublicationData<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Publication data is data generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#hadMember">hadMember</a></li>
+        <li><a href="#wasAttributedTo">wasAttributedTo</a></li>
+        <li><a href="#wasDerivedFrom">wasDerivedFrom</a></li>
+        <li><a href="#hasmetadata">has metadata</a></li>
+        <li><a href="#isstoredin">is stored in</a></li>
+        <li><a href="#stores">stores</a></li>
+    </ul>
+    <div class="entity property" id="hadMember">
+        <h3>hadMember<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#hadMember</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasAttributedTo">
+        <h3>wasAttributedTo<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasAttributedTo</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wasDerivedFrom">
+        <h3>wasDerivedFrom<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#wasDerivedFrom</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasmetadata">
+        <h3>has metadata<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    (<a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup> or <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup> or <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup>)
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="isstoredin">
+        <h3>is stored in<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    isStoredIn is the inverse property of stores.
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#topObjectProperty">owl:topObjectProperty</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="#stores">stores</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="stores">
+        <h3>stores<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/dataset#stores</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    (<a href="#DataCollaborationPlatform">DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup> or <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup> or <a href="#MetadataRepository">MetadataRepository</a><sup class="sup-c" title="class">c</sup>)
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup>
+                    <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#endedAtTime">endedAtTime</a></li>
+        <li><a href="#startedAtTime">startedAtTime</a></li>
+    </ul>
+    <div class="entity property" id="endedAtTime">
+        <h3>endedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#endedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="startedAtTime">
+        <h3>startedAtTime<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/ns/prov#startedAtTime</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#created">created</a></li>
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#license">license</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#preferredNamespacePrefix">preferredNamespacePrefix</a></li>
+        <li><a href="#definition">definition</a></li>
+        <li><a href="#MDMCNEPGlossaryDefinition">MDMCNEPGlossaryDefinition</a></li>
+    </ul>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="created">
+        <h3>created<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/created</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="license">
+        <h3>license<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/license</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="title">
+        <h3>title<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/terms/title</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespacePrefix">
+        <h3>preferredNamespacePrefix<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann/preferredNamespacePrefix</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="definition">
+        <h3>definition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#definition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="MDMCNEPGlossaryDefinition">
+        <h3>MDMCNEPGlossaryDefinition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#definition">skos:definition</a><sup class="sup-ap" title="annotation property">ap</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+    </ul>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/prima/dataset#</code></dd>
+        <dt>core</dt>
+        <dd><code>https://purls.helmholtz-metadaten.de/prima/core#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>terms</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>vann</dt>
+        <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>

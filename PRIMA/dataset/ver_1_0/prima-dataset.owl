@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purls.helmholtz-metadaten.de/prima/dataset#"
+     xml:base="https://purls.helmholtz-metadaten.de/prima/dataset"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://purls.helmholtz-metadaten.de/prima/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:dataset="https://purls.helmholtz-metadaten.de/prima/dataset#">
+    <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset">
+        <terms:contributor xml:lang="en">Elda Osmenaj</terms:contributor>
+        <terms:contributor xml:lang="en">Mirco Panighel</terms:contributor>
+        <terms:created xml:lang="en">2022-10-16</terms:created>
+        <terms:creator xml:lang="en">Ahmad Zainul Ihsan</terms:creator>
+        <terms:creator xml:lang="en">Mehrdad Jalali</terms:creator>
+        <terms:creator xml:lang="en">Rossella Aversa</terms:creator>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <terms:title xml:lang="en">PRIMA Ontology - Dataset Module</terms:title>
+        <vann:preferredNamespacePrefix xml:lang="en">PRIMA</vann:preferredNamespacePrefix>
+        <rdfs:comment xml:lang="en">This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology"/>
+        <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition -->
+
+    <owl:AnnotationProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#definition"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/prov#hadMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#hadMember"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasDerivedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchData"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"/>
+        <rdfs:comment xml:lang="en">hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata</rdfs:comment>
+        <rdfs:label xml:lang="en">has metadata</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#stores"/>
+        <rdfs:comment xml:lang="en">isStoredIn is the inverse property of stores.</rdfs:comment>
+        <rdfs:label xml:lang="en">is stored in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#stores -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#stores">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata.</rdfs:comment>
+        <rdfs:label xml:lang="en">stores</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/prov#endedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#endedAtTime"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#startedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#startedAtTime"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Agent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Collection -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Collection">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#ResearchData -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#ResearchUser -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:comment>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member).</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#stores"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Data collaboration platform is an operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a data collaboration platform offers versioning of all ingested files but does not usually assign persistent identifiers to them.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#stores"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources. Data repositories may be associated with an institution or a group of them, with an instrument or a group of them, or with a measurement technique or a group of them, or may be run by a third party. Data repositories may or may not be directly used by research users.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#Dataset -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Collection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#hadMember"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#hadMember"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#Metadata -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time. Depending on the mode of use, metadata describes information pertaining to the research projects, including (but not limited to) research users, studies, experiments, measurements, instruments, samples, and corresponding data analysis lifecycle. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a metadata repository.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#stores"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Metadata repository is an information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms. Metadata repositories may be associated with an institution or a group of them, or may be run by a third party. Metadata repositories may or may not be directly used by research users.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Publication data is data generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Dataset(s) generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it. Publication data may include raw data, processed data and/or analysed data, as well as the relevant metadata about the experiment(s) and the data analysis lifecycle.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
