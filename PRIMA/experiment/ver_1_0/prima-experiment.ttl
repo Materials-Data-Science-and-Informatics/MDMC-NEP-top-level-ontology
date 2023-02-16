@@ -27,9 +27,7 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
 <http://www.w3.org/ns/prov#startedAtTime> a owl:DatatypeProperty .
 
-core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty .
-
-prima:coreMDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
+core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:definition .
 
 dal:Experiment a owl:Class ;
@@ -118,7 +116,7 @@ skos:definition a owl:AnnotationProperty .
     rdfs:domain :Institution ;
     rdfs:range :Laboratory .
 
-<https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy> a owl:ObjectProperty ;
+:wasOperatedBy a owl:ObjectProperty ;
     rdfs:label "was operated by"@en ;
     rdfs:comment "wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user."@en ;
     rdfs:domain :Instrument ;
@@ -161,15 +159,6 @@ skos:definition a owl:AnnotationProperty .
 :SampleComponentFabrication a owl:Class ;
     rdfs:comment "Sample component fabrication is fabrication activity of a sample component in controlled conditions, performed by a commercial enterprise, a research user or a third party."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom :Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom :Instrument ],
-        [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
             owl:someValuesFrom :Laboratory ],
         [ a owl:Restriction ;
@@ -178,32 +167,41 @@ skos:definition a owl:AnnotationProperty .
         [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#used> ;
             owl:someValuesFrom :SampleComponent ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :Equipment ],
         <http://www.w3.org/ns/prov#Activity> ;
     core:MDMCNEPGlossaryDefinition "Fabrication of a sample component in controlled conditions, performed by a commercial enterprise, a research user or a third party. Sample component fabrication may require the use of equipment and instrument(s). A measurement may also be performed during the sample component synthesis, e.g., to characterize the resulting sample component."@en .
 
 :SamplePreparation a owl:Class ;
     rdfs:comment "Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) fit to perform a measurement."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom :Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom :Instrument ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#used> ;
-            owl:someValuesFrom :SampleComponent ],
-        [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
             owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMeasurement ;
+            owl:someValuesFrom :Measurement ],
         [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#used> ;
             owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
-            owl:onProperty :hasMeasurement ;
-            owl:someValuesFrom :Measurement ],
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#used> ;
+            owl:someValuesFrom :SampleComponent ],
         <http://www.w3.org/ns/prov#Activity> ;
     core:MDMCNEPGlossaryDefinition "Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) fit to perform a measurement. The actions may be performed on (or between) one or more sample components, or on a sample. Sample preparation may require the use of equipment and Instrument(s). A Measurement may also be performed during the sample preparation, e.g., to characterize the resulting sample or sample component(s)."@en .
 
@@ -225,27 +223,27 @@ skos:definition a owl:AnnotationProperty .
 core:Experiment a owl:Class ;
     rdfs:comment "Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users." ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
-            owl:someValuesFrom :Laboratory ],
+            owl:onProperty :hasSampleComponentFabrication ;
+            owl:someValuesFrom :SampleComponentFabrication ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :hasMeasurement ;
             owl:someValuesFrom :Measurement ],
         [ a owl:Restriction ;
-            owl:onProperty :hasSampleComponentFabrication ;
-            owl:someValuesFrom :SampleComponentFabrication ],
+            owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
+            owl:someValuesFrom :Laboratory ],
         [ a owl:Restriction ;
             owl:onProperty :hasSamplePreparation ;
             owl:someValuesFrom :SamplePreparation ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom core:ResearchUser ],
         <http://www.w3.org/ns/prov#Activity> ;
     core:MDMCNEPGlossaryDefinition "Identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users. An experiment may be a simulation (computational experiment) or a combination of computational and physical measurement."@en .
 
 :Instrument a owl:Class ;
     rdfs:comment "Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/mdmc-nep-top-level-ontology.owl/wasOperatedBy> ;
+            owl:onProperty :wasOperatedBy ;
             owl:someValuesFrom core:ResearchUser ],
         :Equipment ;
     core:MDMCNEPGlossaryDefinition "Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement)."@en .
@@ -293,15 +291,15 @@ core:ResearchUser a owl:Class ;
 :Measurement a owl:Class ;
     rdfs:comment "Measurement is identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasMeasurementTechnique ;
+            owl:someValuesFrom :MeasurementTechnique ],
+        [ a owl:Restriction ;
             owl:onClass :Instrument ;
             owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:onProperty :isMeasurementOf ;
             owl:someValuesFrom core:Experiment ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasMeasurementTechnique ;
-            owl:someValuesFrom :MeasurementTechnique ],
         [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#used> ;
             owl:someValuesFrom :Sample ],
@@ -311,14 +309,14 @@ core:ResearchUser a owl:Class ;
 :Sample a owl:Class ;
     rdfs:comment "Sample is identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more sample components, exposed to the Instrument during a measurement."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasDerivedFrom> ;
-            owl:someValuesFrom :Sample ],
+            owl:onProperty :hasSampleComponent ;
+            owl:someValuesFrom :SampleComponent ],
         [ a owl:Restriction ;
             owl:onProperty :isCarriedBy ;
             owl:someValuesFrom :SampleCarrier ],
         [ a owl:Restriction ;
-            owl:onProperty :hasSampleComponent ;
-            owl:someValuesFrom :SampleComponent ],
+            owl:onProperty <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+            owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
             owl:someValuesFrom :SamplePreparation ],
