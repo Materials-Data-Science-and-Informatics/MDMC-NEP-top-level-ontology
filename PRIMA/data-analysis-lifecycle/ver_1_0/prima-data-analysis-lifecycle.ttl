@@ -1,0 +1,225 @@
+@prefix : <https://purls.helmholtz-metadaten.de/prima/dal#> .
+@prefix core: <https://purls.helmholtz-metadaten.de/prima/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+terms:contributor a owl:AnnotationProperty .
+
+terms:created a owl:AnnotationProperty .
+
+terms:creator a owl:AnnotationProperty .
+
+terms:description a owl:AnnotationProperty .
+
+terms:license a owl:AnnotationProperty .
+
+terms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+<http://www.w3.org/ns/prov#endedAtTime> a owl:DatatypeProperty .
+
+<http://www.w3.org/ns/prov#startedAtTime> a owl:DatatypeProperty .
+
+core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty .
+
+<https://purls.helmholtz-metadaten.de/prima/dal> a owl:Ontology ;
+    terms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    terms:created "2022-10-16"@en ;
+    terms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    terms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    terms:title "PRIMA Ontology- Data Analysis Lifecycle Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the data analysis lifecycle module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "1.0"@en .
+
+:AnalysedData a owl:Class ;
+    rdfs:comment "Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:unionOf ( :ProcessedData [ a owl:Restriction ;
+                        owl:onProperty <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+                        owl:someValuesFrom :RawData ] ) ],
+        [ a owl:Restriction ;
+            owl:onProperty terms:references ;
+            owl:someValuesFrom :ReferenceData ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:someValuesFrom :DataAnalysis ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:someValuesFrom core:DataAnalysisLifecycle ],
+        core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software. Analysed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Analysed data may be stored in a data collaboration platform and/or in a data repository. Analysed data may be part of a dataset."@en .
+
+:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
+    rdfs:subPropertyOf skos:definition .
+
+skos:definition a owl:AnnotationProperty .
+
+<http://www.w3.org/ns/prov#SoftwareAgent> a owl:Class ;
+    rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> .
+
+<http://www.w3.org/ns/prov#wasAttributedTo> a owl:ObjectProperty .
+
+:Conclusion a owl:Class ;
+    rdfs:comment "Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:someValuesFrom :DataInterpretation ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:someValuesFrom :Conclusion ],
+        [ a owl:Restriction ;
+            owl:onProperty terms:references ;
+            owl:someValuesFrom :ReferenceData ],
+        <http://www.w3.org/ns/prov#Entity> ;
+    core:MDMCNEPGlossaryDefinition "The primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software. Conclusions are any kind of insight that support the answer to some specific research question, such as the significance and implications of the research findings of a study, possibly in comparison with reference data, along with recommendations which may support decision-making about the next steps of a study or about future work. Conclusions form an important part of a study debrief and are usually reported in scientific publications."@en .
+
+:ProcessedData a owl:Class ;
+    rdfs:comment "Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty terms:references ;
+            owl:someValuesFrom :ReferenceData ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:someValuesFrom :DataProcessing ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+            owl:someValuesFrom :RawData ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:someValuesFrom core:DataAnalysisLifecycle ],
+        core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation. Processed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Processed data may be stored in a data collaboration platform and/or in a data repository. Processed data may be part of a dataset."@en .
+
+<http://www.w3.org/ns/prov#Agent> a owl:Class .
+
+<http://www.w3.org/ns/prov#Entity> a owl:Class .
+
+<http://www.w3.org/ns/prov#wasDerivedFrom> a owl:ObjectProperty .
+
+:DataAnalysis a owl:Class ;
+    rdfs:comment "Data analysis is data treatment activity performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty terms:isPartOf ;
+            owl:someValuesFrom core:DataAnalysisLifecycle ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#used> ;
+            owl:someValuesFrom core:ResearchData ],
+        <http://www.w3.org/ns/prov#Activity> ;
+    core:MDMCNEPGlossaryDefinition "Data treatment performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions). Data analysis may include: linear combination, data fitting, data modeling, pattern extraction. Data analysis may be performed using research software. The output of data analysis is analysed data."@en .
+
+:DataInterpretation a owl:Class ;
+    rdfs:comment "Data interpretation is process or activity performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty terms:isPartOf ;
+            owl:someValuesFrom core:DataAnalysisLifecycle ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#used> ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :ResearchSoftware ],
+        <http://www.w3.org/ns/prov#Activity> ;
+    core:MDMCNEPGlossaryDefinition "Process performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data. Data interpretation supports decision-making about the next steps of the study or about future work. Data interpretation may be performed using research software."@en .
+
+:DataProcessing a owl:Class ;
+    rdfs:comment "Data processing is a data treatment activity performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#used> ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty terms:isPartOf ;
+            owl:someValuesFrom core:DataAnalysisLifecycle ],
+        <http://www.w3.org/ns/prov#Activity> ;
+    core:MDMCNEPGlossaryDefinition "Data treatment performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation. Data processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion or compression of existing research Data, as well as calibration, normalization, statistical data reduction, background subtraction, correction of artifacts. Data processing may be performed using research software. The output of data processing is processed data."@en .
+
+:RawData a owl:Class ;
+    rdfs:comment "Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing."@en ;
+    rdfs:subClassOf core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Research Data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing. Raw data may be the output of a simulation run (computational measurement). Raw data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw data may be stored in a data collaboration platform and/or in a data repository. Raw data may be part of a dataset."@en .
+
+terms:hasPart a owl:ObjectProperty ;
+    owl:inverseOf terms:isPartOf .
+
+terms:references a owl:ObjectProperty .
+
+:ReferenceData a owl:Class ;
+    rdfs:comment "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en ;
+    rdfs:subClassOf core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en .
+
+terms:isPartOf a owl:ObjectProperty .
+
+<http://www.w3.org/ns/prov#Activity> a owl:Class .
+
+<http://www.w3.org/ns/prov#used> a owl:ObjectProperty .
+
+:ResearchSoftware a owl:Class ;
+    rdfs:comment "Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting)."@en ;
+    rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ;
+    core:MDMCNEPGlossaryDefinition "Software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting). Depending on the research context, research software can be used during data processing, data analysis or data interpretation taking as input raw data, processed data or analysed data, respectively, and giving as output processed data, analysed data or any kind of synthesized knowledge (e.g., conclusions), respectively. Any acquisition software used during measurements is considered part of the instrument and should be described as such. Any software used to perform simulation runs (computational measurements) and to generate raw data, it is considered an instrument and should be described as such."@en .
+
+core:DataAnalysisLifecycle a owl:Class ;
+    rdfs:comment "Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#used> ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty terms:hasPart ;
+            owl:someValuesFrom :DataProcessing ],
+        [ a owl:Restriction ;
+            owl:onProperty terms:hasPart ;
+            owl:someValuesFrom :DataAnalysis ],
+        [ a owl:Restriction ;
+            owl:onProperty terms:hasPart ;
+            owl:someValuesFrom :DataInterpretation ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :ResearchSoftware ],
+        <http://www.w3.org/ns/prov#Activity> ;
+    core:MDMCNEPGlossaryDefinition "Set of processes carried out by one or more research users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study. Data analysis lifecycle includes (but is not limited to): data processing, data analysis, data interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data analysis lifecycle may be performed using research software."@en .
+
+core:ResearchUser a owl:Class ;
+    rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."@en ;
+    rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+    core:MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member)."@en .
+
+<http://www.w3.org/ns/prov#wasGeneratedBy> a owl:ObjectProperty .
+
+<http://www.w3.org/ns/prov#wasAssociatedWith> a owl:ObjectProperty .
+
+core:ResearchData a owl:Class ;
+    rdfs:comment "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAttributedTo> ;
+            owl:someValuesFrom core:ResearchUser ],
+        <http://www.w3.org/ns/prov#Entity> ;
+    core:MDMCNEPGlossaryDefinition "Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset."@en .
+
