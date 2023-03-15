@@ -95,6 +95,7 @@
     </owl:AnnotationProperty>
     
 
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -317,6 +318,15 @@
     
 
 
+    <!-- http://w3id.org/STREAM/MSLE#Equipment -->
+
+    <owl:Class rdf:about="http://w3id.org/STREAM/MSLE#Equipment">
+        <owl:equivalentClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
+        <rdfs:label>equipment</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/prov#Activity -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
@@ -399,22 +409,6 @@
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/prima/dal#Experiment -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#Experiment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Research Data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing. Raw data may be the output of a simulation run (computational measurement). Raw data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw data may be stored in a data collaboration platform and/or in a data repository. Raw data may be part of a dataset.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Equipment -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment">
@@ -479,8 +473,20 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -630,12 +636,6 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Sample component fabrication is fabrication activity of a sample component in controlled conditions, performed by a commercial enterprise, a research user or a third party.</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Fabrication of a sample component in controlled conditions, performed by a commercial enterprise, a research user or a third party. Sample component fabrication may require the use of equipment and instrument(s). A measurement may also be performed during the sample component synthesis, e.g., to characterize the resulting sample component.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
@@ -695,12 +695,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) fit to perform a measurement.</rdfs:comment>

@@ -240,10 +240,8 @@
         <dd>1.0</dd>
         <dt>License</dt>
         <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
-        <!-- <dt>Ontology RDF</dt>
-        <dd><a href="data_file.ttl">RDF (turtle)</a></dd> -->
-        <dt>Download serialization</dt>
-        <dd><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/experiment/ver_1_0/prima-experiment.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/experiment/ver_1_0/prima-experiment.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/experiment/ver_1_0/prima-experiment.owl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
     </dl>
     <h2>Description</h2>
     <div id="description">
@@ -276,7 +274,6 @@
         <li><a href="#Entity">Entity</a></li>
         <li><a href="#Equipment">Equipment</a></li>
         <li><a href="#Experiment">Experiment</a></li>
-        <li><a href="#Experiment1">Experiment</a></li>
         <li><a href="#Institution">Institution</a></li>
         <li><a href="#Instrument">Instrument</a></li>
         <li><a href="#Laboratory">Laboratory</a></li>
@@ -291,7 +288,17 @@
         <li><a href="#SampleComponentFabrication">SampleComponentFabrication</a></li>
         <li><a href="#SampleHolder">SampleHolder</a></li>
         <li><a href="#SamplePreparation">SamplePreparation</a></li>
+        <li><a href="#equipment">equipment</a></li>
     </ul>
+    <div class="entity class" id="equipment">
+        <h3>equipment<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://w3id.org/STREAM/MSLE#Equipment</code></td>
+            </tr>
+        </table>
+    </div>
     <div class="entity class" id="Activity">
         <h3>Activity<sup title="class" class="sup-c">c</sup></h3>
         <table>
@@ -302,10 +309,10 @@
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="https://purls.helmholtz-metadaten.de/prima/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/prima/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -321,8 +328,8 @@
                 <th>Sub-classes</th>
                 <td>
                     <a href="http://www.w3.org/ns/prov#Organization">prov:Organization</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -337,10 +344,9 @@
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="https://purls.helmholtz-metadaten.de/prima/dal#Experiment">dal:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#MeasurementTechnique">MeasurementTechnique</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -403,18 +409,18 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#hassamplepreparation">hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hassamplepreparation">hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#hassamplepreparation">hasSamplePreparation</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#hassamplecomponentfabrication">hasSampleComponentFabrication</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
@@ -443,33 +449,6 @@
                 <th>In range of</th>
                 <td>
                     <a href="#wasoperatedby">wasOperatedBy</a><sup class="sup-op" title="object property">op</sup><br/>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="entity class" id="Experiment1">
-        <h3>Experiment<sup title="class" class="sup-c">c</sup></h3>
-        <table>
-            <tr>
-                <th>URI</th>
-                <td><code>https://purls.helmholtz-metadaten.de/prima/dal#Experiment</code></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>
-                    <p>Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing.</p>
-                </td>
-            </tr>
-            <tr>
-                <th>Super-classes</th>
-                <td>
-                    <a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a><sup class="sup-c" title="class">c</sup><br/>
-                </td>
-            </tr>
-            <tr>
-                <th>Restrictions</th>
-                <td>
-                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -503,8 +482,8 @@
                 <th>Sub-classes</th>
                 <td>
                     <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#SampleHolder">SampleHolder</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -624,10 +603,12 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#ismeasurementof">isMeasurementOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#hasmeasurementtechnique">hasMeasurementTechnique</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#MeasurementTechnique">MeasurementTechnique</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmeasurementtechnique">hasMeasurementTechnique</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#MeasurementTechnique">MeasurementTechnique</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ismeasurementof">isMeasurementOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#Experiment">core:Experiment</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -693,9 +674,9 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#iscarriedby">isCarriedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hassamplecomponent">hasSampleComponent</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#iscarriedby">isCarriedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleCarrier">SampleCarrier</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SamplePreparation">SamplePreparation</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -735,15 +716,15 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#carries">carries</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#holds">holds</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleHolder">SampleHolder</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#carries">carries</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>In domain of</th>
                 <td>
-                    <a href="#holds">holds</a><sup class="sup-op" title="object property">op</sup><br/>
                     <a href="#carries">carries</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#holds">holds</a><sup class="sup-op" title="object property">op</sup><br/>
                 </td>
             </tr>
         </table>
@@ -770,8 +751,8 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#issamplecomponentof">isSampleComponentOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponentFabrication">SampleComponentFabrication</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#issamplecomponentof">isSampleComponentOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -804,12 +785,11 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -869,13 +849,12 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#atLocation">prov:atLocation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Laboratory">Laboratory</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Instrument">Instrument</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Sample">Sample</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#hasmeasurement">hasMeasurement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Measurement">Measurement</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Equipment">Equipment</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#SampleComponent">SampleComponent</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
@@ -1447,8 +1426,6 @@
         <dd><code>https://purls.helmholtz-metadaten.de/prima/experiment#</code></dd>
         <dt>core</dt>
         <dd><code>https://purls.helmholtz-metadaten.de/prima/core#</code></dd>
-        <dt>dal</dt>
-        <dd><code>https://purls.helmholtz-metadaten.de/prima/dal#</code></dd>
         <dt>owl</dt>
         <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
         <dt>prima</dt>

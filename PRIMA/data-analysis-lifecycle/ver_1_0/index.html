@@ -240,12 +240,8 @@
         <dd>1.0</dd>
         <dt>License</dt>
         <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
-        <!-- <dt>Ontology RDF</dt>
-        <dd><a href="data_file.ttl">RDF (turtle)</a></dd> -->
-        <dt>Download serialization</dt>
-        <dd><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/data-analysis-lifecycle/ver_1_0/prima-data-analysis-lifecycle.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/data-analysis-lifecycle/ver_1_0/prima-data-analysis-lifecycle.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/data-analysis-lifecycle/ver_1_0/prima-data-analysis-lifecycle.owl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd>
-               
-        
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
     </dl>
     <h2>Description</h2>
     <div id="description">
@@ -302,10 +298,10 @@
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#DataInterpretation">DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -385,12 +381,12 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataInterpretation">DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/hasPart">terms:hasPart</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -423,9 +419,9 @@
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#RawData">RawData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#AnalysedData">AnalysedData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#ProcessedData">ProcessedData</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -468,16 +464,17 @@
             <tr>
                 <th>Super-classes</th>
                 <td>
-                    (<a href="#ProcessedData">ProcessedData</a><sup class="sup-c" title="class">c</sup> or <a href="ub125bL49C42">ub125bL49C42</a><sup class="sup-c" title="class">c</sup>)<br/>
                     <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataAnalysis">DataAnalysis</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#RawData">RawData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ProcessedData">ProcessedData</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -505,7 +502,6 @@
                 <th>Restrictions</th>
                 <td>
                     <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataInterpretation">DataInterpretation</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Conclusion">Conclusion</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -533,9 +529,9 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
@@ -563,10 +559,10 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -593,10 +589,10 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ResearchSoftware">ResearchSoftware</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://purl.org/dc/terms/isPartOf">terms:isPartOf</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#used">prov:used</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAssociatedWith">prov:wasAssociatedWith</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -623,10 +619,10 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#RawData">RawData</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasGeneratedBy">prov:wasGeneratedBy</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataProcessing">DataProcessing</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/dc/terms/references">terms:references</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#ReferenceData">ReferenceData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#RawData">RawData</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>

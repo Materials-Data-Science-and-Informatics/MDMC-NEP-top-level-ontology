@@ -35,12 +35,12 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "en",
-        "value" : "Ahmad Zainul Ihsan",
+        "value" : "Rossella Aversa",
         "type" : "label"
       }, {
         "identifier" : "creator",
         "language" : "en",
-        "value" : "Rossella Aversa",
+        "value" : "Ahmad Zainul Ihsan",
         "type" : "label"
       }, {
         "identifier" : "creator",
@@ -51,12 +51,12 @@
       "contributor" : [ {
         "identifier" : "contributor",
         "language" : "en",
-        "value" : "Elda Osmenaj",
+        "value" : "Mirco Panighel",
         "type" : "label"
       }, {
         "identifier" : "contributor",
         "language" : "en",
-        "value" : "Mirco Panighel",
+        "value" : "Elda Osmenaj",
         "type" : "label"
       } ],
       "created" : [ {
@@ -93,8 +93,8 @@
   },
   "namespace" : [ ],
   "class" : [ {
-    "id" : "2",
-    "type" : "rdfs:Literal"
+    "id" : "1",
+    "type" : "owl:Thing"
   }, {
     "id" : "3",
     "type" : "owl:Class"
@@ -105,22 +105,19 @@
     "id" : "8",
     "type" : "owl:Class"
   }, {
-    "id" : "1",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "19",
+    "id" : "17",
     "type" : "owl:Class"
   }, {
-    "id" : "13",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "35",
+    "id" : "15",
     "type" : "owl:Class"
   }, {
     "id" : "36",
     "type" : "owl:Class"
   }, {
-    "id" : "29",
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
     "type" : "owl:Class"
   }, {
     "id" : "6",
@@ -129,13 +126,13 @@
     "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "27",
+    "id" : "28",
     "type" : "owl:Class"
   }, {
-    "id" : "14",
+    "id" : "12",
     "type" : "owl:Class"
   }, {
-    "id" : "20",
+    "id" : "21",
     "type" : "owl:Class"
   }, {
     "id" : "10",
@@ -147,15 +144,18 @@
     "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "25",
+    "id" : "26",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "2",
     "type" : "rdfs:Literal"
   } ],
   "classAttribute" : [ {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "2",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "1",
     "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+      "undefined" : "Thing"
     }
   }, {
     "iri" : "http://www.w3.org/ns/prov#Activity",
@@ -198,13 +198,6 @@
     "attributes" : [ "external" ],
     "id" : "8"
   }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "1",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/dal#ProcessedData",
     "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dal",
     "instances" : 0,
@@ -222,7 +215,7 @@
     "comment" : {
       "en" : "Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."
     },
-    "id" : "19",
+    "id" : "17",
     "superClasses" : [ "9" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/dal#AnalysedData",
@@ -239,12 +232,10 @@
     "label" : {
       "IRI-based" : "AnalysedData"
     },
-    "union" : [ "19" ],
     "comment" : {
       "en" : "Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software."
     },
-    "attributes" : [ "union" ],
-    "id" : "13",
+    "id" : "15",
     "superClasses" : [ "9" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Agent",
@@ -253,9 +244,9 @@
     "label" : {
       "IRI-based" : "Agent"
     },
-    "subClasses" : [ "36", "29" ],
+    "subClasses" : [ "37", "30" ],
     "attributes" : [ "external" ],
-    "id" : "35"
+    "id" : "36"
   }, {
     "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -263,10 +254,10 @@
     "label" : {
       "IRI-based" : "SoftwareAgent"
     },
-    "subClasses" : [ "27" ],
+    "subClasses" : [ "28" ],
     "attributes" : [ "external" ],
-    "id" : "36",
-    "superClasses" : [ "35" ]
+    "id" : "37",
+    "superClasses" : [ "36" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
     "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
@@ -286,8 +277,8 @@
       "en" : "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."
     },
     "attributes" : [ "external" ],
-    "id" : "29",
-    "superClasses" : [ "35" ]
+    "id" : "30",
+    "superClasses" : [ "36" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis",
     "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dal",
@@ -323,7 +314,7 @@
     "label" : {
       "IRI-based" : "ResearchData"
     },
-    "subClasses" : [ "14", "20", "19", "13" ],
+    "subClasses" : [ "12", "21", "17", "15" ],
     "comment" : {
       "en" : "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"
     },
@@ -348,8 +339,8 @@
     "comment" : {
       "en" : "Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting)."
     },
-    "id" : "27",
-    "superClasses" : [ "36" ]
+    "id" : "28",
+    "superClasses" : [ "37" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/dal#ReferenceData",
     "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dal",
@@ -368,7 +359,7 @@
     "comment" : {
       "en" : "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."
     },
-    "id" : "14",
+    "id" : "12",
     "superClasses" : [ "9" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/dal#RawData",
@@ -388,7 +379,7 @@
     "comment" : {
       "en" : "Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing."
     },
-    "id" : "20",
+    "id" : "21",
     "superClasses" : [ "9" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/dal#Conclusion",
@@ -453,7 +444,14 @@
     "superClasses" : [ "3" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "25",
+    "id" : "26",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "2",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -466,22 +464,22 @@
     "id" : "11",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "12",
+    "id" : "13",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "15",
+    "id" : "14",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "16",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "17",
-    "type" : "owl:someValuesFrom"
-  }, {
     "id" : "18",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "21",
+    "id" : "19",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "20",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "22",
@@ -491,15 +489,15 @@
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "24",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "25",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "26",
+    "id" : "27",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "28",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "30",
+    "id" : "29",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "31",
@@ -514,7 +512,7 @@
     "id" : "34",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "37",
+    "id" : "35",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "38",
@@ -526,7 +524,7 @@
     "id" : "40",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "42",
+    "id" : "41",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "43",
@@ -554,7 +552,7 @@
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "51",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:someValuesFrom"
   }, {
     "id" : "52",
     "type" : "rdfs:SubClassOf"
@@ -591,6 +589,9 @@
   }, {
     "id" : "63",
     "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:SubClassOf"
   } ],
   "propertyAttribute" : [ {
     "iri" : "http://www.w3.org/ns/prov#startedAtTime",
@@ -600,48 +601,18 @@
       "IRI-based" : "startedAtTime"
     },
     "domain" : "1",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "0"
   }, {
-    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "10",
+    "iri" : "http://purl.org/dc/terms/references",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "12",
     "label" : {
-      "IRI-based" : "wasGeneratedBy"
+      "IRI-based" : "references"
     },
     "domain" : "10",
-    "attributes" : [ "external", "someValues", "object" ],
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "11"
-  }, {
-    "iri" : "http://purl.org/dc/terms/references",
-    "baseIri" : "http://purl.org/dc/terms",
-    "range" : "14",
-    "label" : {
-      "IRI-based" : "references"
-    },
-    "domain" : "13",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "12"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "6",
-    "label" : {
-      "IRI-based" : "wasGeneratedBy"
-    },
-    "domain" : "13",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "15"
-  }, {
-    "iri" : "http://purl.org/dc/terms/references",
-    "baseIri" : "http://purl.org/dc/terms",
-    "range" : "14",
-    "label" : {
-      "IRI-based" : "references"
-    },
-    "domain" : "10",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "16"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -650,28 +621,58 @@
       "IRI-based" : "wasGeneratedBy"
     },
     "domain" : "10",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "17"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "13"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "wasGeneratedBy"
+    },
+    "domain" : "15",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "14"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "20",
+    "range" : "17",
     "label" : {
       "IRI-based" : "wasDerivedFrom"
     },
-    "domain" : "19",
-    "attributes" : [ "external", "someValues", "object" ],
+    "domain" : "15",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "16"
+  }, {
+    "iri" : "http://purl.org/dc/terms/references",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "references"
+    },
+    "domain" : "15",
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "18"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "5",
+    "range" : "6",
     "label" : {
       "IRI-based" : "wasGeneratedBy"
     },
-    "domain" : "19",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "21"
+    "domain" : "15",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "19"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "wasDerivedFrom"
+    },
+    "domain" : "17",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "20"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -679,49 +680,59 @@
     "label" : {
       "IRI-based" : "wasGeneratedBy"
     },
-    "domain" : "13",
-    "attributes" : [ "external", "someValues", "object" ],
+    "domain" : "17",
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "22"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "wasDerivedFrom"
+    },
+    "domain" : "15",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "23"
   }, {
     "iri" : "http://purl.org/dc/terms/references",
     "baseIri" : "http://purl.org/dc/terms",
-    "range" : "14",
+    "range" : "12",
     "label" : {
       "IRI-based" : "references"
     },
-    "domain" : "19",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "23"
+    "domain" : "17",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "24"
   }, {
     "iri" : "http://www.w3.org/ns/prov#endedAtTime",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "25",
+    "range" : "26",
     "label" : {
       "IRI-based" : "endedAtTime"
     },
     "domain" : "1",
-    "attributes" : [ "external", "datatype" ],
-    "id" : "24"
+    "attributes" : [ "datatype", "external" ],
+    "id" : "25"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "27",
+    "range" : "28",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
     "domain" : "6",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "26"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "27"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "29",
+    "range" : "30",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
     "domain" : "6",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "28"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "29"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -729,9 +740,9 @@
     "label" : {
       "IRI-based" : "wasGeneratedBy"
     },
-    "domain" : "19",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "30"
+    "domain" : "17",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "31"
   }, {
     "iri" : "http://www.w3.org/ns/prov#used",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -740,18 +751,18 @@
       "IRI-based" : "used"
     },
     "domain" : "4",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "31"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "32"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "27",
+    "range" : "28",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
     "domain" : "4",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "32"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "33"
   }, {
     "iri" : "http://www.w3.org/ns/prov#used",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -760,17 +771,7 @@
       "IRI-based" : "used"
     },
     "domain" : "6",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "33"
-  }, {
-    "iri" : "http://purl.org/dc/terms/isPartOf",
-    "baseIri" : "http://purl.org/dc/terms",
-    "range" : "5",
-    "label" : {
-      "IRI-based" : "isPartOf"
-    },
-    "domain" : "6",
-    "attributes" : [ "external", "someValues", "object" ],
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "34"
   }, {
     "iri" : "http://purl.org/dc/terms/isPartOf",
@@ -779,9 +780,19 @@
     "label" : {
       "IRI-based" : "isPartOf"
     },
+    "domain" : "6",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://purl.org/dc/terms/isPartOf",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "isPartOf"
+    },
     "domain" : "7",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "37"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "38"
   }, {
     "iri" : "http://purl.org/dc/terms/isPartOf",
     "baseIri" : "http://purl.org/dc/terms",
@@ -790,70 +801,70 @@
       "IRI-based" : "isPartOf"
     },
     "domain" : "4",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "38"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "39"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "29",
+    "range" : "30",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
     "domain" : "4",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "39"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "40"
   }, {
     "iri" : "http://purl.org/dc/terms/hasPart",
-    "inverse" : "41",
+    "inverse" : "42",
     "baseIri" : "http://purl.org/dc/terms",
     "range" : "6",
     "label" : {
       "IRI-based" : "hasPart"
     },
     "domain" : "5",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "40"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "41"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "29",
+    "range" : "30",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
     "domain" : "5",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "42"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "27",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "5",
-    "attributes" : [ "external", "someValues", "object" ],
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "43"
   }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "wasAssociatedWith"
+    },
+    "domain" : "5",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "44"
+  }, {
     "iri" : "http://purl.org/dc/terms/hasPart",
-    "inverse" : "41",
+    "inverse" : "42",
     "baseIri" : "http://purl.org/dc/terms",
     "range" : "4",
     "label" : {
       "IRI-based" : "hasPart"
     },
     "domain" : "5",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "44"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "45"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "29",
+    "range" : "30",
     "label" : {
       "IRI-based" : "wasAttributedTo"
     },
     "domain" : "9",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "45"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "46"
   }, {
     "iri" : "http://www.w3.org/ns/prov#used",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -862,39 +873,39 @@
       "IRI-based" : "used"
     },
     "domain" : "7",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "46"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "29",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "7",
-    "attributes" : [ "external", "someValues", "object" ],
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "47"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "27",
+    "range" : "30",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
     "domain" : "7",
-    "attributes" : [ "external", "someValues", "object" ],
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "48"
   }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "wasAssociatedWith"
+    },
+    "domain" : "7",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "49"
+  }, {
     "iri" : "http://purl.org/dc/terms/hasPart",
-    "inverse" : "41",
+    "inverse" : "42",
     "baseIri" : "http://purl.org/dc/terms",
     "range" : "7",
     "label" : {
       "IRI-based" : "hasPart"
     },
     "domain" : "5",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "49"
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "50"
   }, {
     "iri" : "http://www.w3.org/ns/prov#used",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -903,66 +914,61 @@
       "IRI-based" : "used"
     },
     "domain" : "5",
-    "attributes" : [ "external", "someValues", "object" ],
-    "id" : "50"
-  }, {
-    "range" : "9",
-    "domain" : "19",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "object", "someValues", "external" ],
     "id" : "51"
   }, {
     "range" : "9",
-    "domain" : "20",
+    "domain" : "21",
     "attributes" : [ "object", "anonymous" ],
     "id" : "52"
   }, {
     "range" : "9",
-    "domain" : "13",
+    "domain" : "12",
     "attributes" : [ "object", "anonymous" ],
     "id" : "53"
   }, {
     "range" : "9",
-    "domain" : "14",
+    "domain" : "15",
     "attributes" : [ "object", "anonymous" ],
     "id" : "54"
   }, {
-    "range" : "36",
-    "domain" : "27",
+    "range" : "9",
+    "domain" : "17",
     "attributes" : [ "object", "anonymous" ],
     "id" : "55"
   }, {
-    "range" : "35",
-    "domain" : "29",
+    "range" : "37",
+    "domain" : "28",
     "attributes" : [ "object", "anonymous" ],
     "id" : "56"
   }, {
-    "range" : "8",
-    "domain" : "9",
+    "range" : "36",
+    "domain" : "30",
     "attributes" : [ "object", "anonymous" ],
     "id" : "57"
+  }, {
+    "range" : "36",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "58"
   }, {
     "range" : "3",
     "domain" : "7",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "58"
-  }, {
-    "range" : "35",
-    "domain" : "36",
-    "attributes" : [ "object", "anonymous" ],
     "id" : "59"
+  }, {
+    "range" : "3",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "60"
   }, {
     "range" : "8",
     "domain" : "10",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "60"
-  }, {
-    "range" : "3",
-    "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
     "id" : "61"
   }, {
-    "range" : "3",
-    "domain" : "6",
+    "range" : "8",
+    "domain" : "9",
     "attributes" : [ "object", "anonymous" ],
     "id" : "62"
   }, {
@@ -970,5 +976,10 @@
     "domain" : "5",
     "attributes" : [ "object", "anonymous" ],
     "id" : "63"
+  }, {
+    "range" : "3",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "64"
   } ]
 }

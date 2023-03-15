@@ -240,10 +240,8 @@
         <dd>1.0</dd>
         <dt>License</dt>
         <dd><a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></dd>
-        <!-- <dt>Ontology RDF</dt>
-        <dd><a href="data_file.ttl">RDF (turtle)</a></dd> -->
-        <dt>Download serialization</dt>
-        <dd><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/dataset/ver_1_0/prima-dataset.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/dataset/ver_1_0/prima-dataset.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/dataset/ver_1_0/prima-dataset.owl.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
     </dl>
     <h2>Description</h2>
     <div id="description">
@@ -329,10 +327,10 @@
             <tr>
                 <th>Sub-classes</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -359,8 +357,8 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -424,6 +422,7 @@
                 <th>Restrictions</th>
                 <td>
                     <a href="#stores">stores</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#stores">stores</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#PublicationData">PublicationData</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -450,11 +449,11 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataCollaborationPlatform">DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataCollaborationPlatform">DataCollaborationPlatform</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#hadMember">prov:hadMember</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>
@@ -536,10 +535,10 @@
             <tr>
                 <th>Restrictions</th>
                 <td>
-                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
-                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="#isstoredin">isStoredIn</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#DataRepository">DataRepository</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/ns/prov#wasDerivedFrom">prov:wasDerivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dataset">Dataset</a><sup class="sup-c" title="class">c</sup><br/>
                     <a href="http://www.w3.org/ns/prov#wasAttributedTo">prov:wasAttributedTo</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#hasmetadata">hasMetadata</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Metadata">Metadata</a><sup class="sup-c" title="class">c</sup><br/>
                 </td>
             </tr>
         </table>

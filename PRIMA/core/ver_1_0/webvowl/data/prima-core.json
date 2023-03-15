@@ -18,7 +18,7 @@
     "title" : {
       "en" : "PRIMA Ontology - Core Module"
     },
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#",
+    "iri" : "https://purls.helmholtz-metadaten.de/prima/core",
     "version" : "1.0",
     "author" : [ "Mehrdad Jalali", "Rossella Aversa", "Ahmad Zainul Ihsan" ],
     "comments" : {
@@ -119,7 +119,7 @@
     "id" : "2",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "12",
+    "id" : "13",
     "type" : "owl:Class"
   }, {
     "id" : "5",
@@ -242,7 +242,7 @@
     "label" : {
       "IRI-based" : "Agent"
     },
-    "subClasses" : [ "12" ],
+    "subClasses" : [ "13" ],
     "attributes" : [ "external" ],
     "id" : "25"
   }, {
@@ -270,7 +270,7 @@
     "comment" : {
       "en" : "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."
     },
-    "id" : "12",
+    "id" : "13",
     "superClasses" : [ "25" ]
   }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/core#Study",
@@ -316,7 +316,7 @@
     "id" : "11",
     "type" : "owl:someValuesFrom"
   }, {
-    "id" : "13",
+    "id" : "12",
     "type" : "owl:someValuesFrom"
   }, {
     "id" : "14",
@@ -414,16 +414,6 @@
     "attributes" : [ "object", "someValues" ],
     "id" : "10"
   }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "12",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "5",
-    "attributes" : [ "object", "someValues", "external" ],
-    "id" : "11"
-  }, {
     "iri" : "https://purls.helmholtz-metadaten.de/prima/core#hasDataAnalysisLifeCycle",
     "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
     "range" : "8",
@@ -436,7 +426,17 @@
       "en" : "hasDataAnalysisLifecycle represents the relationship between study to data analysis life cycle"
     },
     "attributes" : [ "object", "someValues" ],
-    "id" : "13"
+    "id" : "11"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "wasAttributedTo"
+    },
+    "domain" : "5",
+    "attributes" : [ "object", "someValues", "external" ],
+    "id" : "12"
   }, {
     "iri" : "http://www.w3.org/ns/prov#used",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -450,7 +450,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "12",
+    "range" : "13",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
@@ -460,7 +460,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "12",
+    "range" : "13",
     "label" : {
       "IRI-based" : "wasAttributedTo"
     },
@@ -470,7 +470,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "12",
+    "range" : "13",
     "label" : {
       "IRI-based" : "wasAssociatedWith"
     },
@@ -480,7 +480,7 @@
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "12",
+    "range" : "13",
     "label" : {
       "IRI-based" : "wasAttributedTo"
     },
@@ -513,7 +513,7 @@
     "id" : "22"
   }, {
     "range" : "25",
-    "domain" : "12",
+    "domain" : "13",
     "attributes" : [ "object", "anonymous" ],
     "id" : "24"
   }, {

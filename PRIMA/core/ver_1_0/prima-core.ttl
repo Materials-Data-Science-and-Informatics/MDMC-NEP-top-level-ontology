@@ -23,7 +23,7 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
 <http://www.w3.org/ns/prov#startedAtTime> a owl:DatatypeProperty .
 
-: a owl:Ontology ;
+<https://purls.helmholtz-metadaten.de/prima/core> a owl:Ontology ;
     terms:contributor "Elda Osmenaj"@en,
         "Mirco Panighel"@en ;
     terms:created "2022-10-16"@en ;
@@ -85,16 +85,16 @@ skos:definition a owl:AnnotationProperty .
 
 <http://www.w3.org/ns/prov#Activity> a owl:Class .
 
-<http://www.w3.org/ns/prov#wasAttributedTo> a owl:ObjectProperty .
+<http://www.w3.org/ns/prov#wasAssociatedWith> a owl:ObjectProperty .
 
 :DataAnalysisLifecycle a owl:Class ;
     rdfs:comment "Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom :ResearchUser ],
-        [ a owl:Restriction ;
             owl:onProperty <http://www.w3.org/ns/prov#used> ;
             owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:someValuesFrom :ResearchUser ],
         <http://www.w3.org/ns/prov#Activity> ;
     :MDMCNEPGlossaryDefinition "Set of processes carried out by one or more research users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study. Data analysis lifecycle includes (but is not limited to): data processing, data analysis, data Interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data analysis lifecycle may be performed using research software."@en .
 
@@ -108,12 +108,12 @@ skos:definition a owl:AnnotationProperty .
 
 <http://www.w3.org/ns/prov#Entity> a owl:Class .
 
-<http://www.w3.org/ns/prov#wasAssociatedWith> a owl:ObjectProperty .
+<http://www.w3.org/ns/prov#wasAttributedTo> a owl:ObjectProperty .
 
 :Study a owl:Class ;
     rdfs:comment "Study is a set of one or more experiments and corresponding data analysis lifecycle performed by one or more research users who are part of the same project." ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:onProperty <http://www.w3.org/ns/prov#wasAttributedTo> ;
             owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :hasExperiment ;
