@@ -10,7 +10,6 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
-     xmlns:prima="https://purls.helmholtz-metadaten.de/prima/"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment">
         <terms:contributor xml:lang="en">Elda Osmenaj</terms:contributor>
@@ -163,6 +162,17 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Experiment"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
+        <rdfs:comment xml:lang="en">hasFabrication represents the relationship between experiment to fabrication activity.</rdfs:comment>
+        <rdfs:label xml:lang="en">has fabrication</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement">
@@ -201,17 +211,6 @@
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"/>
         <rdfs:comment xml:lang="en">hasSampleComponent represents the relationship between sample to sample component</rdfs:comment>
         <rdfs:label xml:lang="en">has sample component</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponentFabrication -->
-
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponentFabrication">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Experiment"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
-        <rdfs:comment xml:lang="en">hasFabrication represents the relationship between experiment to fabrication activity.</rdfs:comment>
-        <rdfs:label xml:lang="en">has fabrication</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -392,14 +391,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponentFabrication"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
