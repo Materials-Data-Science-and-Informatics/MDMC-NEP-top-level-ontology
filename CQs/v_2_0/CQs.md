@@ -1,7 +1,7 @@
 # Competency Questions of PRIMA
 Below is competency questions (CQs) modularized according to PRIMA modules. 
 
-## PRIMA-Core
+## [PRIMA-Core](#prima-core-sparql)
 1. Which project is researcher(s) member of?
 2. Which study has researcher(s) performed?
 3. Which experiment has researcher(s) performed?
@@ -9,7 +9,7 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 5. Which data analysis lifecycle used in a study and which data are used?
 6. Which studies are done by a project and list all experiments are done in those studies?
 
-## PRIMA-Data analysis lifecycle
+## [PRIMA-Data analysis lifecycle](#prima-data-analysis-lifecycle-sparql)
 1. Which results have been obtained from the data analysis lifecycle?
 2. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
 3. Which data have been used and produced in a data analysis/processing/intreptation?
@@ -17,7 +17,7 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 5. Which researcher(s) have performed the data analysis/processing/interpretation?
 6. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
 
-## PRIMA-Dataset
+## [PRIMA-Dataset](#prima-dataset-sparql)
 1. Which project have the data been attributed to?
 2. Which data does the dataset collects?
 3. In which data collaboration platform is the data stored?
@@ -25,7 +25,7 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 5. Which dataset has been the publication data derived from?
 5. Which metadata has described the data?
 
-## PRIMA-Experiment
+## [PRIMA-Experiment](#prima-experiment-sparql)
 1. Which measurements/sample preparation/fabrication have been performed in an experiment?
 2. Which equipment/instrument has been used in an experiment/in a measurement/in a sample preparation?
 3. Which measurement techniques have been used in a measurement?
@@ -196,7 +196,8 @@ SELECT  ?Data_analysis ?input ?output WHERE{
         pmd:output ?output.	
 }
 ```
-3b. Data processing
+
+Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -210,7 +211,8 @@ SELECT  ?Data_processing ?input ?output WHERE{
         pmd:output ?output.	
 }
 ```
-3b. Data interpretation
+
+Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -225,7 +227,8 @@ SELECT  ?Data_interpretation ?input ?output WHERE{
 }
 ```
 4. Which software has been used in a data analysis/processing/interpretation?
-4a. Data analysis
+
+Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -238,7 +241,8 @@ SELECT  ?Data_analysis ?software WHERE{
         dal:usesResearchSoftware ?software.	
 }
 ```
-4b. Data processing
+
+Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -252,7 +256,7 @@ SELECT  ?Data_processing ?software WHERE{
 }
 ```
 
-4c. Data interpretation
+Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -267,8 +271,8 @@ SELECT  ?Data_interpretation ?software WHERE{
 ```
 
 5. Which researcher(s) have performed the data analysis/processing/interpretation?
-```
-5a. Data analysis
+
+Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -282,7 +286,8 @@ SELECT  ?Data_analysis ?research_user WHERE{
     ?research_user a core:ResearchUser.	
 }
 ```
-5b. Data processing
+
+Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -297,7 +302,7 @@ SELECT  ?Data_processing ?research_user WHERE{
 }
 ```
 
-5c. Data interpretation
+Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -315,3 +320,9 @@ SELECT  ?Data_interpretation ?software WHERE{
 6. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
 ```
 ```
+
+## PRIMA-Dataset SPARQL
+
+
+## PRIMA-Experiment SPARQL
+
