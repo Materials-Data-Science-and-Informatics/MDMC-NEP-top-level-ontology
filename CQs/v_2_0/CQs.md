@@ -36,3 +36,282 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 8. Who has prepared the samples?
 9. What process sequence taken for doing an experiment/measurement/sample preparation?
 10. Which sample componets is the sample made of?
+
+
+# Answer to CQs via SPARQL
+
+## PRIMA-Core SPARQL
+1. Which project is researcher(s) member of?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Project ?ResearchUser WHERE{
+	?Project a core:Project ; 
+		prov:wasAttributedTo ?ResearchUser .
+	?ResearchUser a core:ResearchUser ; 
+		core:performsAgentRole ?role . 
+	?role a core:ProjectMemberRole .
+}
+```
+
+2. Which study has researcher(s) performed?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Study ?ResearchUser WHERE{
+	?Project a core:Project ; 
+		core:hasStudy ?Study.
+	?Study prov:wasAttributedTo ?ResearchUser.
+	?ResearchUser a core:ResearchUser .
+}
+```
+
+3. Which experiment has researcher(s) performed?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?Experiment ?ResearchUser WHERE{
+	?Experiment a core:Experiment ; 
+		prov:wasAssociatedWith ?ResearchUser.
+}
+```
+4. Which research data that is attributed to (e.g., created by) the researcher(s)?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?ResearchData ?ResearchUser WHERE{
+	?ResearchData a core:ResearchData ; 
+		prov:wasAttributedTo ?ResearchUser.
+	?ResearchUser a core:ResearchUser . 
+}
+```
+5. Which data analysis lifecycle used in a study and which data are used?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Study ?DataAnalysisLifecycle ?ResearchData WHERE{
+	?Study a core:Study; 
+		core:hasDataAnalysisLifecycle ?DataAnalysisLifecycle.
+	?DataAnalysisLifecycle pmd:input ?ResearchData .
+	?ResearchData a core:ResearchData.
+}
+```
+6. Which studies are done by a project and list all experiments are done in those studies?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Project ?Study ?Experiment WHERE{
+	?Project  core:hasStudy ?Study . 
+	?Study core:hasExperiment  ?Experiment . 
+}
+```
+
+## PRIMA-Data analysis lifecycle SPARQL
+
+1. Which research data resulted from the data analysis lifecycle?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_analysis_lifecycle ?Research_data WHERE{
+	{	
+		?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;  
+		    pmd:output ?Research_data.
+		?Research_data a core:ResearchData.
+	}
+	UNION
+	{	
+		?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;
+			dal:hasDataProcessing ?data_processing . 
+		?data_processing pmd:output ?Research_data . 
+		?Research_data a core:ResearchData . 
+		
+	}
+	UNION
+	{   
+        ?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;
+		    dal:hasDataAnalysis ?data_analysis. 
+		?data_analysis pmd:output ?Research_data.
+		?Research_data a core:ResearchData . 
+	}
+	UNION
+	{
+		?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;
+            dal:hasDataInterpretation ?data_interpretation. 
+		?data_interpretation pmd:output ?Research_data.
+		?Research_data a core:ResearchData . 
+	}
+
+}
+```
+2. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_analysis_lifecycle ?data_processing ?data_analysis ?data_interpretation  WHERE{	
+	
+	{
+		?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;
+			dal:hasDataProcessing ?data_processing . 
+	}
+	UNION
+	{   
+        ?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;
+		    dal:hasDataAnalysis ?data_analysis. 
+	}
+	UNION
+	{
+		?Data_analysis_lifecycle a core:DataAnalysisLifecycle ;
+            dal:hasDataInterpretation ?data_interpretation. 
+	}
+}
+```
+3. Which data have been used and produced in a data analysis/processing/intreptation?
+3a. Data analysis
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_analysis ?input ?output WHERE{	
+	?Data_analysis a dal:DataAnalysis ; 
+        pmd:input ?input ;
+        pmd:output ?output.	
+}
+```
+3b. Data processing
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_processing ?input ?output WHERE{	
+	?Data_processing a dal:DataProcessing ; 
+        pmd:input ?input ;
+        pmd:output ?output.	
+}
+```
+3b. Data interpretation
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_interpretation ?input ?output WHERE{	
+	?Data_interpretation a dal:DataInterpretation ; 
+        pmd:input ?input ;
+        pmd:output ?output.	
+}
+```
+4. Which software has been used in a data analysis/processing/interpretation?
+4a. Data analysis
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_analysis ?software WHERE{	
+	?Data_analysis a dal:DataAnalysis ; 
+        dal:usesResearchSoftware ?software.	
+}
+```
+4b. Data processing
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_processing ?software WHERE{	
+	?Data_processing a dal:DataProcessing ; 
+        dal:usesResearchSoftware ?software.	
+}
+```
+
+4c. Data interpretation
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_interpretation ?software WHERE{	
+	?Data_interpretation a dal:DataInterpretation ; 
+        dal:usesResearchSoftware ?software.	
+}
+```
+
+5. Which researcher(s) have performed the data analysis/processing/interpretation?
+```
+5a. Data analysis
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_analysis ?research_user WHERE{	
+	?Data_analysis a dal:DataAnalysis ; 
+        prov:wasAssociatedWith ?research_user.
+    ?research_user a core:ResearchUser.	
+}
+```
+5b. Data processing
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_processing ?research_user WHERE{	
+	?Data_processing a dal:DataProcessing ; 
+        prov:wasAssociatedWith ?research_user.
+    ?research_user a core:ResearchUser.	
+}
+```
+
+5c. Data interpretation
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Data_interpretation ?software WHERE{	
+	?Data_interpretation a dal:DataInterpretation ; 
+        prov:wasAssociatedWith ?research_user.
+    ?research_user a core:ResearchUser.		
+}
+```
+
+6. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
+```
+```
