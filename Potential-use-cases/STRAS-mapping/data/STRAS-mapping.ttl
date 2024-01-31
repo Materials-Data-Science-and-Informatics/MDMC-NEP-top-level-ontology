@@ -1,0 +1,1039 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <http://example.org/STRAS_RESEARCH_GROUP/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix prima-core: <https://purls.helmholtz-metadaten.de/prima/core#> .
+@prefix prima-dal: <https://purls.helmholtz-metadaten.de/prima/dal#> .
+@prefix prima-dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#> .
+@prefix prima-exp: <https://purls.helmholtz-metadaten.de/prima/experiment#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Analysis_Software a prima-dal:ResearchSoftware .
+
+ex:filtered_image a prima-dataset:ProcessedData ;
+    prov:wasAttributedTo ex:Alice ;
+    prov:wasDerivedFrom ex:Structured_and_FAIR_dataset_1 ;
+    pmd:outputOf ex:metadata_selection_1 .
+
+ex:sample_quality_check a prima-exp:Measurement ;
+    prov:wasAssociatedWith ex:LEED_instrument ;
+    pmd:input ex:graphe_sample .
+
+ex:towards_fairification_stm_data a prima-core:Project ;
+    prov:wasAttributedTo ex:Alice,
+        ex:Bob,
+        ex:STRAS_Research_Group ;
+    prima-core:hasStudy ex:study_1,
+        ex:study_2 .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:created a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+<http://qudt.org/schema/qudt/numericValue> a owl:DatatypeProperty .
+
+<http://qudt.org/schema/qudt/value> a owl:DatatypeProperty .
+
+<http://w3id.org/STREAM/MSLE#Equipment> a owl:Class ;
+    rdfs:label "equipment" ;
+    owl:equivalentClass prima-exp:Equipment .
+
+prov:endedAtTime a owl:DatatypeProperty .
+
+prov:generated a owl:ObjectProperty ;
+    owl:inverseOf prov:wasGeneratedBy .
+
+prov:startedAtTime a owl:DatatypeProperty .
+
+<https://purls.helmholtz-metadaten.de/prima/core> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2024-01-26"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Core Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the core module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "2.0"@en .
+
+prima-core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
+    rdfs:subPropertyOf skos:definition .
+
+<https://purls.helmholtz-metadaten.de/prima/dal> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2024-01-29"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology- Data Analysis Lifecycle Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the data analysis lifecycle module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "2.0"@en .
+
+prima-dal:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
+    rdfs:subPropertyOf skos:definition .
+
+prima-dal:hasDataAnalysis a owl:ObjectProperty ;
+    rdfs:label "has data analysis"@en ;
+    rdfs:comment "hasDataAnalysis relates DataAnalysisLifecycle with DataAnalysis"@en ;
+    rdfs:domain prima-core:DataAnalysisLifecycle ;
+    rdfs:range prima-dal:DataAnalysis ;
+    owl:inverseOf prima-dal:isDataAnalysisOf .
+
+prima-dal:hasDataInterpretation a owl:ObjectProperty ;
+    rdfs:label "has data interpretation"@en ;
+    rdfs:comment "hasDataInterpretation relates DataAnalysisLifecycle with DataInterpretation"@en ;
+    rdfs:domain prima-core:DataAnalysisLifecycle ;
+    rdfs:range prima-dal:DataInterpretation ;
+    owl:inverseOf prima-dal:isDataRepresentationOf .
+
+prima-dal:hasDataProcessing a owl:ObjectProperty ;
+    rdfs:label "has data processing"@en ;
+    rdfs:comment "hasDataProcessing relates DataAnalysisLifecycle with DataProcessing"@en ;
+    rdfs:domain prima-core:DataAnalysisLifecycle ;
+    rdfs:range prima-dal:DataProcessing ;
+    owl:inverseOf prima-dal:isDataProcessingOf .
+
+prima-dal:isUsedByResearchSoftware a owl:ObjectProperty ;
+    owl:inverseOf prima-dal:usesResearchSoftware .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2024-01-26"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Dataset Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "2.0"@en .
+
+<https://purls.helmholtz-metadaten.de/prima/experiment> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2024-01-29"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Experiment Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "2.0"@en .
+
+pmd:composes a owl:ObjectProperty ;
+    rdfs:domain pmd:Object ;
+    rdfs:range pmd:Object .
+
+ex:LEED_instrument a prima-exp:Instrument .
+
+ex:STM_experiment_1998 a prima-core:Experiment ;
+    prov:endedAtTime "1998-05-20"^^xsd:date ;
+    prov:startedAtTime "1998-04-20"^^xsd:date ;
+    prima-exp:hasMeasurement ex:VT_STM_measurement_1998_1,
+        ex:VT_STM_measurement_1998_2 ;
+    prima-exp:hasSamplePreparation ex:Graphene_growth_sample_preparation .
+
+ex:STM_experiment_2010 a prima-core:Experiment ;
+    prov:startedAtTime "2010-04-20"^^xsd:date,
+        "2010-05-20"^^xsd:date .
+
+ex:VT_STM_Microscopy a prima-exp:Instrument .
+
+ex:ethylene_1 a prima-exp:SampleComponent .
+
+ex:gas_line_1 a prima-exp:Equipment .
+
+ex:heating_gun_1 a prima-exp:Equipment .
+
+ex:image_labelling_process_1 a prima-core:DataAnalysisLifecycle ;
+    prov:wasAssociatedWith ex:Bob,
+        ex:STRAS_Research_Group ;
+    prima-dal:hasDataProcessing ex:image_selection_and_retrievement_1,
+        ex:image_selection_and_retrievement_2,
+        ex:metadata_selection_1 ;
+    pmd:input ex:Reference_Dataset_1 ;
+    pmd:output ex:Structured_and_FAIR_dataset_1 .
+
+ex:image_selection_and_retrievement_1 a prima-dal:DataProcessing ;
+    prov:wasAssociatedWith ex:Bob ;
+    pmd:input ex:raw_data_1998_1,
+        ex:raw_data_1998_2 ;
+    pmd:output ex:Reference_Dataset_1 .
+
+ex:image_selection_and_retrievement_2 a prima-dal:DataProcessing .
+
+ex:raw_data_1998_1 a prima-dataset:RawData ;
+    pmd:outputOf ex:VT_STM_measurement_1998_1 .
+
+ex:raw_data_1998_2 a prima-dataset:RawData ;
+    pmd:outputOf ex:VT_STM_measurement_1998_2 .
+
+ex:sample_1_component_Ni a prima-exp:SampleComponent ;
+    prima-exp:isHeldBy ex:sample_holder_1 .
+
+ex:sample_holder_1 a prima-exp:SampleHolder .
+
+ex:sputter_gun_1 a prima-exp:Equipment .
+
+ex:study_1 a prima-core:Study ;
+    prima-core:hasDataAnalysisLifecycle ex:image_labelling_process_1 ;
+    prima-core:hasExperiment ex:STM_experiment_1998 .
+
+ex:study_2 a prima-core:Study ;
+    prima-core:hasExperiment ex:STM_experiment_2010 .
+
+<http://nfdi.fiz-karlsruhe.de/ontology/Specification> a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+<http://qudt.org/schema/qudt/Quantity> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityKind> ;
+            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
+            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
+            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityKind> ;
+            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ] .
+
+prov:Activity a owl:Class .
+
+prov:Collection a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+prov:Location a owl:Class .
+
+prov:Organization a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:SoftwareAgent a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:used a owl:ObjectProperty .
+
+prov:wasInfluencedBy a owl:ObjectProperty .
+
+prov:wasInformedBy a owl:ObjectProperty .
+
+prima-core:ProjectMemberRole a owl:Class ;
+    rdfs:comment "Project member role is an agent role that has role of project member"@en ;
+    rdfs:subClassOf prima-core:AgentRole .
+
+prima-core:hasDataAnalysisLifeCycle a owl:ObjectProperty ;
+    rdfs:label "has data analysis life cycle"@en ;
+    rdfs:comment "hasDataAnalysisLifecycle represents the relationship between study to data analysis life cycle"@en ;
+    rdfs:domain prima-core:Study ;
+    rdfs:range prima-core:DataAnalysisLifecycle .
+
+prima-core:hasExperiment a owl:ObjectProperty ;
+    rdfs:label "has experiment"@en ;
+    rdfs:comment "hasExperiment represents the relationship between study to experiment."@en ;
+    rdfs:domain prima-core:Study ;
+    rdfs:range prima-core:Experiment .
+
+prima-core:hasStudy a owl:ObjectProperty ;
+    rdfs:label "has study"@en ;
+    rdfs:comment "hasStudy represents the relationship between project to study."@en ;
+    rdfs:domain prima-core:Project ;
+    rdfs:range prima-core:Study .
+
+prima-dal:Conclusion a owl:Class ;
+    rdfs:comment "Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom prima-dal:DataInterpretation ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom prima-dataset:ReferenceData ],
+        prov:Entity ;
+    prima-core:MDMCNEPGlossaryDefinition "The primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software. Conclusions are any kind of insight that support the answer to some specific research question, such as the significance and implications of the research findings of a study, possibly in comparison with reference data, along with recommendations which may support decision-making about the next steps of a study or about future work. Conclusions form an important part of a study debrief and are usually reported in scientific publications."@en .
+
+prima-dal:isDataAnalysisOf a owl:ObjectProperty .
+
+prima-dal:isDataProcessingOf a owl:ObjectProperty .
+
+prima-dal:isDataRepresentationOf a owl:ObjectProperty .
+
+prima-dal:usesResearchSoftware a owl:ObjectProperty ;
+    rdfs:label "uses research sofware"@en ;
+    rdfs:comment "usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, or data processing with research software"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prima-core:DataAnalysisLifecycle prima-dal:DataAnalysis prima-dal:DataInterpretation prima-dal:DataProcessing ) ] ;
+    rdfs:range prima-dal:ResearchSoftware .
+
+prima-exp:Institution a owl:Class ;
+    rdfs:comment "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:hosts ;
+            owl:someValuesFrom prima-exp:Laboratory ],
+        prov:Organization ;
+    prima-core:MDMCNEPGlossaryDefinition "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en .
+
+prima-exp:carries a owl:ObjectProperty ;
+    rdfs:label "carries"@en ;
+    rdfs:comment "carries represents the relationship between sample carrier to sample."@en ;
+    rdfs:domain prima-exp:SampleCarrier ;
+    rdfs:range prima-exp:Sample ;
+    owl:inverseOf prima-exp:isCarriedBy .
+
+prima-exp:hasFabrication a owl:ObjectProperty ;
+    rdfs:label "has fabrication"@en ;
+    rdfs:comment "hasFabrication represents the relationship between experiment to fabrication activity."@en ;
+    rdfs:domain prima-core:Experiment ;
+    rdfs:range prima-exp:Fabrication .
+
+prima-exp:hasMeasurementTechnique a owl:ObjectProperty ;
+    rdfs:label "has measurement technique"@en ;
+    rdfs:comment "hasMeasurementTechnique represents the relationship between measurement to measurement technique."@en ;
+    rdfs:domain prima-exp:Measurement ;
+    rdfs:range prima-exp:MeasurementTechnique .
+
+prima-exp:hasSampleComponent a owl:ObjectProperty ;
+    rdfs:label "has sample component"@en ;
+    rdfs:comment "hasSampleComponent represents the relationship between sample to sample component"@en ;
+    rdfs:domain prima-exp:Sample ;
+    rdfs:range prima-exp:SampleComponent ;
+    owl:inverseOf prima-exp:isSampleComponentOf .
+
+prima-exp:hasSamplePreparation a owl:ObjectProperty ;
+    rdfs:label "has sample preparation"@en ;
+    rdfs:comment "hasSamplePreparation represents the relationship between experiment to sample preparation activity."@en ;
+    rdfs:domain prima-core:Experiment ;
+    rdfs:range prima-exp:SamplePreparation .
+
+prima-exp:holds a owl:ObjectProperty ;
+    rdfs:label "holds"@en ;
+    rdfs:comment "holds represents the relationship between sample carrier to sample holder."@en ;
+    rdfs:domain prima-exp:SampleCarrier ;
+    rdfs:range prima-exp:SampleHolder ;
+    owl:inverseOf prima-exp:isHeldBy .
+
+prima-exp:hosts a owl:ObjectProperty ;
+    rdfs:label "hosts"@en ;
+    rdfs:comment "hosts represents the relationship between institution to laboratory."@en ;
+    rdfs:domain prima-exp:Institution ;
+    rdfs:range prima-exp:Laboratory .
+
+prima-exp:wasOperatedBy a owl:ObjectProperty ;
+    rdfs:label "was operated by"@en ;
+    rdfs:comment "wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user."@en ;
+    rdfs:domain prima-exp:Instrument ;
+    rdfs:range prima-core:ResearchUser ;
+    rdfs:subPropertyOf prov:wasInfluencedBy .
+
+pmd:characteristicOf a owl:ObjectProperty .
+
+pmd:inputOf a owl:ObjectProperty .
+
+pmd:outputOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+pmd:participantOf a owl:ObjectProperty .
+
+pmd:previousProcess a owl:ObjectProperty .
+
+ex:Graphene_growth_sample_preparation a prima-exp:SamplePreparation ;
+    prov:wasAssociatedWith ex:gas_line_1,
+        ex:heating_gun_1,
+        ex:sputter_gun_1 ;
+    pmd:input ex:ethylene_1,
+        ex:sample_1_component_Ni .
+
+ex:Reference_Dataset_1 a prima-core:ResearchData ;
+    prov:wasAssociatedWith ex:Bob,
+        ex:STRAS_Research_Group ;
+    prov:wasAttributedTo ex:STRAS_Research_Group .
+
+ex:VT_STM_measurement_1998_1 a prima-exp:Measurement ;
+    prov:endedAtTime "1998-05-20"^^xsd:date ;
+    prov:startedAtTime "1998-04-20"^^xsd:date ;
+    prov:wasAssociatedWith ex:STRAS_Research_Group,
+        ex:VT_STM_Microscopy ;
+    pmd:input ex:graphe_sample .
+
+ex:VT_STM_measurement_1998_2 a prima-exp:Measurement ;
+    prov:endedAtTime "1998-05-21"^^xsd:date ;
+    prov:startedAtTime "1998-04-21"^^xsd:date .
+
+ex:graphe_sample a prima-exp:Sample ;
+    pmd:outputOf ex:Graphene_growth_sample_preparation .
+
+ex:metadata_selection_1 a prima-dal:DataProcessing ;
+    prov:wasAttributedTo ex:Alice ;
+    pmd:input ex:Structured_and_FAIR_dataset_1 .
+
+ex:project_member_role a prima-core:ProjectMemberRole .
+
+<http://qudt.org/schema/qudt/QuantityKind> a owl:Class .
+
+<http://qudt.org/schema/qudt/QuantityValue> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/Unit> ;
+            owl:onProperty <http://qudt.org/schema/qudt/unit> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/Unit> ;
+            owl:onProperty <http://qudt.org/schema/qudt/unit> ] .
+
+<http://qudt.org/schema/qudt/Unit> a owl:Class .
+
+<http://qudt.org/schema/qudt/hasQuantityKind> a owl:ObjectProperty .
+
+<http://qudt.org/schema/qudt/quantityValue> a owl:ObjectProperty .
+
+<http://qudt.org/schema/qudt/unit> a owl:ObjectProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+prov:hadMember a owl:ObjectProperty .
+
+prima-core:Project a owl:Class ;
+    rdfs:comment "Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-core:hasStudy ;
+            owl:someValuesFrom prima-core:Study ],
+        prov:Entity ;
+    prima-core:MDMCNEPGlossaryDefinition "Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies."@en .
+
+prima-core:performsAgentRole a owl:ObjectProperty ;
+    rdfs:label "performs agent role"@en ;
+    rdfs:comment "performsAgentRole relates prov:Agent with AgentRole"@en ;
+    rdfs:domain prov:Agent ;
+    rdfs:range prima-core:AgentRole .
+
+prima-dataset:AnalysedData a owl:Class ;
+    rdfs:comment "Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software.",
+        "Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom prima-dataset:RawData ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom prima-dataset:ReferenceData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom prima-dal:DataAnalysis ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom prima-core:DataAnalysisLifecycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom prima-dataset:ProcessedData ],
+        prima-core:ResearchData ;
+    prima-core:MDMCNEPGlossaryDefinition "Research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software. Analysed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Analysed data may be stored in a data collaboration platform and/or in a data repository. Analysed data may be part of a dataset."@en .
+
+prima-dataset:DataCollaborationPlatform a owl:Class ;
+    rdfs:comment "Data collaboration platform is an operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-dataset:stores ;
+            owl:someValuesFrom prima-dataset:Dataset ] ;
+    prima-core:MDMCNEPGlossaryDefinition "Operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a data collaboration platform offers versioning of all ingested files but does not usually assign persistent identifiers to them."@en .
+
+prima-dataset:MetadataRepository a owl:Class ;
+    rdfs:comment "Metadata repository is an information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-dataset:stores ;
+            owl:someValuesFrom prima-dataset:Metadata ] ;
+    prima-core:MDMCNEPGlossaryDefinition "Information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms. Metadata repositories may be associated with an institution or a group of them, or may be run by a third party. Metadata repositories may or may not be directly used by research users."@en .
+
+prima-dataset:PublicationData a owl:Class ;
+    rdfs:comment "Publication data is data generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom prima-dataset:Dataset ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-dataset:hasMetadata ;
+            owl:someValuesFrom prima-dataset:Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-dataset:isStoredIn ;
+            owl:someValuesFrom prima-dataset:DataRepository ],
+        pmd:DigitalEntity ;
+    prima-core:MDMCNEPGlossaryDefinition "Dataset(s) generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it. Publication data may include raw data, processed data and/or analysed data, as well as the relevant metadata about the experiment(s) and the data analysis lifecycle."@en .
+
+prima-exp:MeasurementTechnique a owl:Class ;
+    rdfs:comment "Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument."@en ;
+    rdfs:subClassOf <http://nfdi.fiz-karlsruhe.de/ontology/Specification> ;
+    prima-core:MDMCNEPGlossaryDefinition "Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument."@en .
+
+prima-exp:Precursor a owl:Class ;
+    rdfs:comment "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom prima-exp:Fabrication ],
+        pmd:Object ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings, and molecules. A single Precursor might itself become the only SampleComponent of a Sample in case it undergoes Measurement. E.g. Precursor1 is ethylene and Precursor2 is a Ni substrate. Ethylene reacts with Ni substrate converting into graphene (SampleComponent1). The result of Sample Preparation is a Sample composed of a graphene layer (SampleComponent1) and the same Ni substrate (SampleComponent2)."@en .
+
+prima-exp:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "has measurement"@en ;
+    rdfs:comment "hasMeasurement represents the relationship between experiment to measurement."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prima-core:Experiment prima-exp:Fabrication ) ] ;
+    rdfs:range prima-exp:Measurement ;
+    owl:inverseOf prima-exp:isMeasurementOf .
+
+prima-exp:isCarriedBy a owl:ObjectProperty ;
+    rdfs:label "is carried by"@en ;
+    rdfs:comment "isCarriedBy is the inverse property of carries."@en .
+
+prima-exp:isHeldBy a owl:ObjectProperty ;
+    rdfs:label "is held by"@en ;
+    rdfs:comment "isHeldBy is the inverse property of holds."@en .
+
+prima-exp:isMeasurementOf a owl:ObjectProperty ;
+    rdfs:label "is measurement of"@en ;
+    rdfs:comment "isMeasurementOf is the inverse property of hasMeasurement."@en .
+
+prima-exp:isSampleComponentOf a owl:ObjectProperty ;
+    rdfs:label "is sample component of"@en ;
+    rdfs:comment "isSampleComponentOf is the inverse property of hasSampleComponent."@en ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+pmd:nextProcess a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range pmd:Process ;
+    rdfs:subPropertyOf prov:wasInformedBy ;
+    owl:inverseOf pmd:previousProcess .
+
+pmd:participant a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( pmd:DigitalEntity pmd:Object pmd:ValueObject ) ],
+        [ a owl:Class ;
+            owl:unionOf ( pmd:DigitalEntity pmd:Object pmd:ValueObject ) ] ;
+    owl:inverseOf pmd:participantOf .
+
+pmd:subordinateProcess a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range pmd:Process .
+
+ex:Alice a prima-core:ResearchUser ;
+    prima-core:performsAgentRole ex:project_member_role .
+
+ex:Structured_and_FAIR_dataset_1 a prima-core:ResearchData ;
+    prov:wasAttributedTo ex:Bob,
+        ex:STRAS_Research_Group .
+
+dcterms:references a owl:ObjectProperty .
+
+prima-dal:DataAnalysis a owl:Class ;
+    rdfs:comment "Data analysis is data treatment activity performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-dataset:AnalysedData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-dal:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Data treatment performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions). Data analysis may include: linear combination, data fitting, data modeling, pattern extraction. Data analysis may be performed using research software. The output of data analysis is analysed data."@en .
+
+prima-dal:DataInterpretation a owl:Class ;
+    rdfs:comment "Data interpretation is process or activity performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-dal:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-dal:Conclusion ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Process performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data. Data interpretation supports decision-making about the next steps of the study or about future work. Data interpretation may be performed using research software."@en .
+
+prima-dataset:DataRepository a owl:Class ;
+    rdfs:comment "Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-dataset:stores ;
+            owl:someValuesFrom prima-dataset:PublicationData ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-dataset:stores ;
+            owl:someValuesFrom prima-dataset:Dataset ] ;
+    prima-core:MDMCNEPGlossaryDefinition "Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources. Data repositories may be associated with an institution or a group of them, with an instrument or a group of them, or with a measurement technique or a group of them, or may be run by a third party. Data repositories may or may not be directly used by research users."@en .
+
+prima-dataset:ReferenceData a owl:Class ;
+    rdfs:comment "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en ;
+    rdfs:subClassOf prima-core:ResearchData ;
+    prima-core:MDMCNEPGlossaryDefinition "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en .
+
+prima-dataset:hasMetadata a owl:ObjectProperty ;
+    rdfs:label "has metadata"@en ;
+    rdfs:comment "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prima-core:ResearchData prima-dataset:Dataset prima-dataset:PublicationData ) ] ;
+    rdfs:range prima-dataset:Metadata .
+
+prima-exp:Consumable a owl:Class ;
+    rdfs:comment "Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc."@en ;
+    rdfs:subClassOf pmd:Object ;
+    prima-core:MDMCNEPGlossaryDefinition "Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc."@en .
+
+prima-exp:SampleHolder a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:isHeldBy ;
+            owl:someValuesFrom prima-exp:SampleCarrier ],
+        prima-exp:Equipment ;
+    prima-core:MDMCNEPGlossaryDefinition "A piece of equipment that makes one or more samples accessible for a measurement, or holds them in place in the predefined position to be mounted inside the instrument (e.g., glass slide, TEM grid, tilting support). Sample holder(s) may be carried by a sample carrier."@en .
+
+prima-exp:SamplePreparation a owl:Class ;
+    rdfs:comment "Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) or precursor(s) fit to perform a measurement."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:Precursor ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom prima-exp:Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-exp:Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:usesEquipment ;
+            owl:someValuesFrom prima-exp:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:usesEquipment ;
+            owl:someValuesFrom prima-exp:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:Sample ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more Research Users to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement. The actions may be performed on (or between) one or more Precursors or Sample(s). Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s)."@en .
+
+prov:atLocation a owl:ObjectProperty .
+
+prima-core:AgentRole a owl:Class .
+
+prima-dataset:ProcessedData a owl:Class ;
+    rdfs:comment "Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom prima-core:DataAnalysisLifecycle ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom prima-dataset:ReferenceData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom prima-dal:DataProcessing ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom prima-dataset:RawData ],
+        prima-core:ResearchData ;
+    prima-core:MDMCNEPGlossaryDefinition "Research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation. Processed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Processed data may be stored in a data collaboration platform and/or in a data repository. Processed data may be part of a dataset."@en .
+
+prima-dataset:isStoredIn a owl:ObjectProperty ;
+    rdfs:label "is stored in"@en ;
+    rdfs:comment "isStoredIn is the inverse property of stores."@en ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf prima-dataset:stores .
+
+prima-exp:Fabrication a owl:Class ;
+    rdfs:comment "The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-exp:Precursor ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:hasMeasurement ;
+            owl:someValuesFrom prima-exp:Measurement ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:usesEquipment ;
+            owl:someValuesFrom prima-exp:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:usesEquipment ;
+            owl:someValuesFrom prima-exp:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:SampleComponent ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s)."@en .
+
+prima-exp:SampleCarrier a owl:Class ;
+    rdfs:comment "Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:holds ;
+            owl:someValuesFrom prima-exp:SampleHolder ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:carries ;
+            owl:someValuesFrom prima-exp:Sample ],
+        prima-exp:Equipment ;
+    prima-core:MDMCNEPGlossaryDefinition "A piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment. Sample carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame."@en .
+
+pmd:characteristic a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( pmd:Object pmd:Process pmd:ValueObject ) ],
+        [ a owl:Class ;
+            owl:unionOf ( pmd:Object pmd:Process pmd:ValueObject ) ] ;
+    rdfs:range pmd:ValueObject ;
+    owl:inverseOf pmd:characteristicOf .
+
+ex:Bob a prima-core:ResearchUser ;
+    prima-core:performsAgentRole ex:project_member_role .
+
+prov:Agent a owl:Class .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
+
+prima-dataset:RawData a owl:Class ;
+    rdfs:comment "Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing."@en ;
+    rdfs:subClassOf prima-core:ResearchData ;
+    prima-core:MDMCNEPGlossaryDefinition "Research Data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing. Raw data may be the output of a simulation run (computational measurement). Raw data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw data may be stored in a data collaboration platform and/or in a data repository. Raw data may be part of a dataset."@en .
+
+prima-dataset:stores a owl:ObjectProperty ;
+    rdfs:label "stores"@en ;
+    rdfs:comment "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prima-dataset:DataCollaborationPlatform prima-dataset:DataRepository prima-dataset:MetadataRepository ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( prima-dataset:Dataset prima-dataset:Metadata ) ] .
+
+prima-exp:SampleComponent a owl:Class ;
+    rdfs:comment "Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:isSampleComponentOf ;
+            owl:someValuesFrom prima-exp:Sample ],
+        pmd:Object ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others)."@en .
+
+prima-exp:usesEquipment a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range prima-exp:Equipment .
+
+ex:STRAS_Research_Group a prima-core:ResearchUser .
+
+prima-core:Study a owl:Class ;
+    rdfs:comment "Study is a set of one or more experiments and corresponding data analysis lifecycle performed by one or more research users who are part of the same project." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-core:hasExperiment ;
+            owl:someValuesFrom prima-core:Experiment ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-core:hasDataAnalysisLifeCycle ;
+            owl:someValuesFrom prima-core:DataAnalysisLifecycle ],
+        prov:Entity ;
+    prima-core:MDMCNEPGlossaryDefinition "Study is a set of one or more experiments and corresponding data analysis lifecycle performed by one or more research users who are part of the same project."@en .
+
+prima-dal:DataProcessing a owl:Class ;
+    rdfs:comment "Data processing is a data treatment activity performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-dataset:ProcessedData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-dal:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Data treatment performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation. Data processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion or compression of existing research Data, as well as calibration, normalization, statistical data reduction, background subtraction, correction of artifacts. Data processing may be performed using research software. The output of data processing is processed data."@en .
+
+prima-dal:ResearchSoftware a owl:Class ;
+    rdfs:comment "Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting)."@en ;
+    rdfs:subClassOf prov:SoftwareAgent ;
+    prima-core:MDMCNEPGlossaryDefinition "Software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting). Depending on the research context, research software can be used during data processing, data analysis or data interpretation taking as input raw data, processed data or analysed data, respectively, and giving as output processed data, analysed data or any kind of synthesized knowledge (e.g., conclusions), respectively. Any acquisition software used during measurements is considered part of the instrument and should be described as such. Any software used to perform simulation runs (computational measurements) and to generate raw data, it is considered an instrument and should be described as such."@en .
+
+prima-dataset:Dataset a owl:Class ;
+    rdfs:comment "Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-dataset:isStoredIn ;
+            owl:someValuesFrom prima-dataset:DataRepository ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-dataset:isStoredIn ;
+            owl:someValuesFrom prima-dataset:DataCollaborationPlatform ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:hadMember ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-dataset:hasMetadata ;
+            owl:someValuesFrom prima-dataset:Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:hadMember ;
+            owl:someValuesFrom prima-dataset:Dataset ],
+        prov:Collection,
+        pmd:DigitalEntity ;
+    prima-core:MDMCNEPGlossaryDefinition "Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable."@en .
+
+prima-dataset:Metadata a owl:Class ;
+    rdfs:comment "Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-dataset:isStoredIn ;
+            owl:someValuesFrom prima-dataset:MetadataRepository ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        pmd:DigitalEntity ;
+    prima-core:MDMCNEPGlossaryDefinition "Any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time. Depending on the mode of use, metadata describes information pertaining to the research projects, including (but not limited to) research users, studies, experiments, measurements, instruments, samples, and corresponding data analysis lifecycle. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a metadata repository."@en .
+
+prima-exp:Instrument a owl:Class ;
+    rdfs:comment "Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:wasOperatedBy ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        prima-exp:Equipment ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement)."@en .
+
+prima-exp:Laboratory a owl:Class ;
+    rdfs:comment "Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed."@en ;
+    rdfs:subClassOf prov:Location ;
+    prima-core:MDMCNEPGlossaryDefinition "Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments)."@en .
+
+pmd:DigitalEntity a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+prov:wasAttributedTo a owl:ObjectProperty .
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+
+prima-exp:Measurement a owl:Class ;
+    rdfs:comment "Measurement is identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:hasMeasurementTechnique ;
+            owl:someValuesFrom prima-exp:MeasurementTechnique ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom prima-exp:Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:isMeasurementOf ;
+            owl:someValuesFrom prima-core:Experiment ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-dataset:RawData ],
+        [ a owl:Restriction ;
+            owl:onClass prima-exp:Instrument ;
+            owl:onProperty prima-exp:usesEquipment ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-exp:Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to instrument: an investigation on the same sample conducted using a different instrument implies a different measurement. A measurement may also be performed during the sample component synthesis and/or the sample preparation, e.g., to characterize the resulting sample or sample component(s). A computational measurement may be a part of a simulation (computational experiment), e.g., a simulation run using a particular model, configuration or input(s)."@en .
+
+prov:Entity a owl:Class .
+
+prima-core:Experiment a owl:Class ;
+    rdfs:comment "Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users.",
+        "Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:hasFabrication ;
+            owl:someValuesFrom prima-exp:Fabrication ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:hasSamplePreparation ;
+            owl:someValuesFrom prima-exp:SamplePreparation ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:hasMeasurement ;
+            owl:someValuesFrom prima-exp:Measurement ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom prima-exp:Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users. An experiment may be a simulation (computational experiment) or a combination of computational and physical measurement."@en .
+
+prima-core:DataAnalysisLifecycle a owl:Class ;
+    rdfs:comment "Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-dataset:ProcessedData ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-dataset:AnalysedData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:used ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima-core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima-dal:ResearchSoftware ],
+        pmd:Process ;
+    prima-core:MDMCNEPGlossaryDefinition "Set of processes carried out by one or more research users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study. Data analysis lifecycle includes (but is not limited to): data processing, data analysis, data Interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data analysis lifecycle may be performed using research software."@en,
+        "Set of processes carried out by one or more research users, who systematically perform actions and apply methods, e.g., statistical and/or logical techniques, on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study. Data analysis lifecycle includes (but is not limited to): data processing, data analysis, data interpretation. These processes may consist of different steps, may be iterative and may be combined in chains or workflows. Data analysis lifecycle may be performed using research software."@en .
+
+prima-exp:Sample a owl:Class ;
+    rdfs:comment "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-exp:isCarriedBy ;
+            owl:someValuesFrom prima-exp:SampleCarrier ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-exp:hasSampleComponent ;
+            owl:someValuesFrom prima-exp:SampleComponent ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom prima-exp:Sample ],
+        pmd:Object ;
+    prima-core:MDMCNEPGlossaryDefinition "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation."@en .
+
+pmd:ValueObject a owl:Class ;
+    rdfs:subClassOf <http://qudt.org/schema/qudt/Quantity>,
+        prov:Entity .
+
+prima-exp:Equipment a owl:Class ;
+    rdfs:comment "Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom prima-exp:Laboratory ],
+        prov:Agent ;
+    prima-core:MDMCNEPGlossaryDefinition "Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en .
+
+pmd:output a owl:ObjectProperty ;
+    rdfs:subPropertyOf pmd:participant ;
+    owl:inverseOf pmd:outputOf .
+
+prov:wasAssociatedWith a owl:ObjectProperty .
+
+pmd:Object a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:characteristic ;
+            owl:someValuesFrom pmd:ValueObject ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:characteristic ;
+            owl:someValuesFrom pmd:ValueObject ],
+        prov:Entity .
+
+pmd:input a owl:ObjectProperty ;
+    rdfs:subPropertyOf pmd:participant ;
+    owl:inverseOf pmd:inputOf .
+
+prima-core:ResearchData a owl:Class ;
+    rdfs:comment "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-dataset:hasMetadata ;
+            owl:someValuesFrom prima-dataset:Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima-core:ResearchUser ],
+        pmd:DigitalEntity ;
+    prima-core:MDMCNEPGlossaryDefinition "Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset."@en .
+
+pmd:Process a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:characteristic ;
+            owl:someValuesFrom pmd:ValueObject ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:characteristic ;
+            owl:someValuesFrom pmd:ValueObject ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:nextProcess ;
+            owl:someValuesFrom pmd:Process ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom pmd:Object ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:subordinateProcess ;
+            owl:someValuesFrom pmd:Process ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:subordinateProcess ;
+            owl:someValuesFrom pmd:Process ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:nextProcess ;
+            owl:someValuesFrom pmd:Process ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom pmd:Object ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom pmd:Object ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom pmd:Object ],
+        prov:Activity .
+
+prima-core:ResearchUser a owl:Class ;
+    rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.",
+        "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima-core:performsAgentRole ;
+            owl:someValuesFrom prima-core:AgentRole ],
+        [ a owl:Restriction ;
+            owl:onProperty prima-core:performsAgentRole ;
+            owl:someValuesFrom prima-core:AgentRole ],
+        prov:Agent ;
+    prima-core:MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member)."@en,
+        "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, instrument scientist, project member)."@en .
+
