@@ -197,7 +197,7 @@ SELECT  ?Data_analysis ?input ?output WHERE{
 }
 ```
 
-Data processing
+3b. Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -212,7 +212,7 @@ SELECT  ?Data_processing ?input ?output WHERE{
 }
 ```
 
-Data interpretation
+3c. Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -228,7 +228,7 @@ SELECT  ?Data_interpretation ?input ?output WHERE{
 ```
 4. Which software has been used in a data analysis/processing/interpretation?
 
-Data analysis
+4a. Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -242,7 +242,7 @@ SELECT  ?Data_analysis ?software WHERE{
 }
 ```
 
-Data processing
+4b. Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -256,7 +256,7 @@ SELECT  ?Data_processing ?software WHERE{
 }
 ```
 
-Data interpretation
+4c. Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -272,7 +272,7 @@ SELECT  ?Data_interpretation ?software WHERE{
 
 5. Which researcher(s) have performed the data analysis/processing/interpretation?
 
-Data analysis
+5a. Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -287,7 +287,7 @@ SELECT  ?Data_analysis ?research_user WHERE{
 }
 ```
 
-Data processing
+5b. Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -302,7 +302,7 @@ SELECT  ?Data_processing ?research_user WHERE{
 }
 ```
 
-Data interpretation
+5c. Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
