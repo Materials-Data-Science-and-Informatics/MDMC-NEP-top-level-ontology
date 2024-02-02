@@ -326,3 +326,169 @@ SELECT  ?Data_interpretation ?software WHERE{
 
 ## PRIMA-Experiment SPARQL
 
+1. Which measurements/sample preparation/fabrication have been performed in an experiment?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Experiment ?Measurement ?Sample_preparation ?Fabrication WHERE {
+    {
+        ?Experiment a core:Experiment;
+            exp:hasMeasurement ?Measurement .
+    }
+    UNION
+    {
+        ?Experiment a core:Experiment;
+            exp:hasSamplePreparation ?Sample_preparation .
+    }
+    UNION
+    {
+        ?Experiment a core:Experiment;
+            exp:hasFabrication ?Fabrication .
+    }
+
+}
+```
+2. Which equipment/instrument has been used in an experiment/in a measurement/in a sample preparation?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Equipment ?Experiment ?Measurement ?Sample_preparation  WHERE {
+    {
+        ?Experiment a core:Experiment;
+            exp:usesEquipment ?Equipment.
+        ?Equipment a exp:Equipment.
+    }
+    UNION
+    {
+        ?Measurement a exp:Measurement;
+            exp:usesEquipment ?Equipment.
+        ?Equipment a exp:Equipment.
+    }
+    UNION
+    {
+        ?Sample_preparation a exp:SamplePreparation;
+            exp:usesEquipment ?Equipment.
+        ?Equipment a exp:Equipment.
+    }
+}
+```
+3. Which measurement techniques have been used in a measurement?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Measurement ?Measurement_technique  WHERE {
+  ?Measurement a exp:Measurement;
+    exp:hasMeasurementTechnique ?Measurement_technique.
+}
+```
+4. Where and when has the experiment been performed?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Experiment ?Start_time ?End_time ?Location  WHERE {
+    {
+	?Experiment a core:Experiment;
+    	prov:startedAtTime ?Start_time;
+        prov:endedAtTime ?End_time.}
+    OPTIONAL
+    {
+        ?Experiment  prov:atLocation ?Location.
+    }
+}
+```
+5. Which researcher(s) have performed an experiment?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Experiment ?Research_user WHERE{
+	?Experiment a core:Experiment ; 
+		prov:wasAssociatedWith ?Research_user .
+	?Research_user a core:Research_user . 
+}
+
+```
+6. Which samples have been used in a measurement?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Measurement ?Sample WHERE{
+	?Measurement a exp:Measurement ; 
+		pmd:input ?Sample .
+}
+```
+7. Which raw data have been produced in a measurement?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Measurement ?Raw_data WHERE{
+	?Measurement a exp:Measurement ; 
+		pmd:output ?Raw_data .
+}
+```
+8. Who has prepared the samples in the sample preparation step?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Sample_preparation ?Research_user WHERE{
+	?Sample_preparation a exp:SamplePreparation ; 
+		prov:wasAssociatedWith ?Research_user . 
+	?Research_user a core:ResearchUser .
+}
+```
+9. What process sequence taken for doing an experiment/measurement/sample preparation?
+```
+```
+10. Which sample componets is the sample made of?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Sample ?Sample_component WHERE{
+	?Sample a exp:Sample ; 
+		exp:hasSampleComponent Sample_component . 
+}
+```
