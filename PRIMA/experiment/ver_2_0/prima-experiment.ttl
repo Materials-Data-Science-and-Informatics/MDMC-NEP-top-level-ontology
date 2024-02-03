@@ -1,24 +1,25 @@
 @prefix : <https://purls.helmholtz-metadaten.de/prima/experiment#> .
 @prefix core: <https://purls.helmholtz-metadaten.de/prima/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix terms: <http://purl.org/dc/terms/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-terms:contributor a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
 
-terms:created a owl:AnnotationProperty .
+dcterms:created a owl:AnnotationProperty .
 
-terms:creator a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
 
-terms:description a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
 
-terms:license a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
 
-terms:title a owl:AnnotationProperty .
+dcterms:title a owl:AnnotationProperty .
 
 vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
@@ -38,27 +39,27 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
     rdfs:label "equipment" ;
     owl:equivalentClass :Equipment .
 
-<http://www.w3.org/ns/prov#endedAtTime> a owl:DatatypeProperty .
+prov:endedAtTime a owl:DatatypeProperty .
 
-<http://www.w3.org/ns/prov#generated> a owl:ObjectProperty ;
-    owl:inverseOf <http://www.w3.org/ns/prov#wasGeneratedBy> .
+prov:generated a owl:ObjectProperty ;
+    owl:inverseOf prov:wasGeneratedBy .
 
-<http://www.w3.org/ns/prov#startedAtTime> a owl:DatatypeProperty .
+prov:startedAtTime a owl:DatatypeProperty .
 
-<http://www.w3.org/ns/prov#used> a owl:ObjectProperty .
+prov:used a owl:ObjectProperty .
 
 core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:definition .
 
 <https://purls.helmholtz-metadaten.de/prima/experiment> a owl:Ontology ;
-    terms:contributor "Elda Osmenaj"@en,
+    dcterms:contributor "Elda Osmenaj"@en,
         "Mirco Panighel"@en ;
-    terms:created "2024-01-29"@en ;
-    terms:creator "Ahmad Zainul Ihsan"@en,
+    dcterms:created "2024-01-29"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
         "Mehrdad Jalali"@en,
         "Rossella Aversa"@en ;
-    terms:license <http://creativecommons.org/licenses/by/3.0/> ;
-    terms:title "PRIMA Ontology - Experiment Module"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Experiment Module"@en ;
     vann:preferredNamespacePrefix "PRIMA"@en ;
     rdfs:comment "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
     rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
@@ -69,7 +70,7 @@ core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:range <https://w3id.org/pmd/co/Object> .
 
 <http://nfdi.fiz-karlsruhe.de/ontology/Specification> a owl:Class ;
-    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+    rdfs:subClassOf prov:Entity .
 
 <http://qudt.org/schema/qudt/QuantityKind> a owl:Class .
 
@@ -88,28 +89,31 @@ core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
 
 skos:definition a owl:AnnotationProperty .
 
-<http://www.w3.org/ns/prov#Activity> a owl:Class .
+prov:Activity a owl:Class .
 
-<http://www.w3.org/ns/prov#Location> a owl:Class .
+prov:Location a owl:Class .
 
-<http://www.w3.org/ns/prov#Organization> a owl:Class ;
-    rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> .
+prov:Organization a owl:Class ;
+    rdfs:subClassOf prov:Agent .
 
-<http://www.w3.org/ns/prov#wasDerivedFrom> a owl:ObjectProperty .
+prov:wasDerivedFrom a owl:ObjectProperty .
 
-<http://www.w3.org/ns/prov#wasInfluencedBy> a owl:ObjectProperty .
+prov:wasInfluencedBy a owl:ObjectProperty .
 
-<http://www.w3.org/ns/prov#wasInformedBy> a owl:ObjectProperty .
+prov:wasInformedBy a owl:ObjectProperty .
+
+core:ResearchData a owl:Class ;
+    rdfs:subClassOf <https://w3id.org/pmd/co/DigitalEntity> .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> a owl:Class ;
-    rdfs:subClassOf <https://w3id.org/pmd/co/DigitalEntity> .
+    rdfs:subClassOf core:ResearchData .
 
 :Institution a owl:Class ;
     rdfs:comment "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :hosts ;
             owl:someValuesFrom :Laboratory ],
-        <http://www.w3.org/ns/prov#Organization> ;
+        prov:Organization ;
     core:MDMCNEPGlossaryDefinition "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en .
 
 :carries a owl:ObjectProperty ;
@@ -162,7 +166,7 @@ skos:definition a owl:AnnotationProperty .
     rdfs:comment "wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user."@en ;
     rdfs:domain :Instrument ;
     rdfs:range core:ResearchUser ;
-    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInfluencedBy> .
+    rdfs:subPropertyOf prov:wasInfluencedBy .
 
 <https://w3id.org/pmd/co/characteristicOf> a owl:ObjectProperty .
 
@@ -171,7 +175,7 @@ skos:definition a owl:AnnotationProperty .
 <https://w3id.org/pmd/co/nextProcess> a owl:ObjectProperty ;
     rdfs:domain <https://w3id.org/pmd/co/Process> ;
     rdfs:range <https://w3id.org/pmd/co/Process> ;
-    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInformedBy> ;
+    rdfs:subPropertyOf prov:wasInformedBy ;
     owl:inverseOf <https://w3id.org/pmd/co/previousProcess> .
 
 <https://w3id.org/pmd/co/outputOf> a owl:ObjectProperty .
@@ -184,7 +188,7 @@ skos:definition a owl:AnnotationProperty .
     rdfs:domain <https://w3id.org/pmd/co/Process> ;
     rdfs:range <https://w3id.org/pmd/co/Process> .
 
-<http://www.w3.org/ns/prov#wasGeneratedBy> a owl:ObjectProperty .
+prov:wasGeneratedBy a owl:ObjectProperty .
 
 :MeasurementTechnique a owl:Class ;
     rdfs:comment "Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument."@en ;
@@ -194,7 +198,7 @@ skos:definition a owl:AnnotationProperty .
 :Precursor a owl:Class ;
     rdfs:comment "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            owl:onProperty prov:wasGeneratedBy ;
             owl:someValuesFrom :Fabrication ],
         <https://w3id.org/pmd/co/Object> ;
     core:MDMCNEPGlossaryDefinition "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings, and molecules. A single Precursor might itself become the only SampleComponent of a Sample in case it undergoes Measurement. E.g. Precursor1 is ethylene and Precursor2 is a Ni substrate. Ethylene reacts with Ni substrate converting into graphene (SampleComponent1). The result of Sample Preparation is a Sample composed of a graphene layer (SampleComponent1) and the same Ni substrate (SampleComponent2)."@en .
@@ -209,29 +213,29 @@ skos:definition a owl:AnnotationProperty .
 :SamplePreparation a owl:Class ;
     rdfs:comment "Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) or precursor(s) fit to perform a measurement."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Precursor ],
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom core:ResearchUser ],
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
-            owl:onProperty :usesEquipment ;
-            owl:someValuesFrom :Instrument ],
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :usesEquipment ;
             owl:someValuesFrom :Equipment ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
-            owl:someValuesFrom :Laboratory ],
+            owl:someValuesFrom :Precursor ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesEquipment ;
+            owl:someValuesFrom :Instrument ],
         <https://w3id.org/pmd/co/Process> ;
     core:MDMCNEPGlossaryDefinition "Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more Research Users to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement. The actions may be performed on (or between) one or more Precursors or Sample(s). Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s)."@en .
 
@@ -261,7 +265,7 @@ skos:definition a owl:AnnotationProperty .
     rdfs:subPropertyOf owl:topObjectProperty .
 
 <https://w3id.org/pmd/co/DigitalEntity> a owl:Class ;
-    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+    rdfs:subClassOf prov:Entity .
 
 <https://w3id.org/pmd/co/characteristic> a owl:ObjectProperty ;
     rdfs:domain [ a owl:Class ;
@@ -275,7 +279,7 @@ skos:definition a owl:AnnotationProperty .
             owl:unionOf ( <https://w3id.org/pmd/co/DigitalEntity> <https://w3id.org/pmd/co/Object> <https://w3id.org/pmd/co/ValueObject> ) ] ;
     owl:inverseOf <https://w3id.org/pmd/co/participantOf> .
 
-<http://www.w3.org/ns/prov#Agent> a owl:Class .
+prov:Agent a owl:Class .
 
 :Consumable a owl:Class ;
     rdfs:comment "Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc."@en ;
@@ -290,26 +294,26 @@ skos:definition a owl:AnnotationProperty .
         <https://w3id.org/pmd/co/Object> ;
     core:MDMCNEPGlossaryDefinition "Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others)."@en .
 
-<http://www.w3.org/ns/prov#Entity> a owl:Class .
+prov:Entity a owl:Class .
 
-<http://www.w3.org/ns/prov#atLocation> a owl:ObjectProperty .
+prov:atLocation a owl:ObjectProperty .
 
-<http://www.w3.org/ns/prov#wasAssociatedWith> a owl:ObjectProperty .
+prov:wasAssociatedWith a owl:ObjectProperty .
 
 core:Experiment a owl:Class ;
     rdfs:comment "Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users." ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
-            owl:someValuesFrom :Laboratory ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasFabrication ;
-            owl:someValuesFrom :Fabrication ],
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :hasSamplePreparation ;
             owl:someValuesFrom :SamplePreparation ],
         [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom core:ResearchUser ],
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasFabrication ;
+            owl:someValuesFrom :Fabrication ],
         [ a owl:Restriction ;
             owl:onProperty :hasMeasurement ;
             owl:someValuesFrom :Measurement ],
@@ -319,26 +323,26 @@ core:Experiment a owl:Class ;
 :Fabrication a owl:Class ;
     rdfs:comment "The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s)."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom :Precursor ],
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesEquipment ;
+            owl:someValuesFrom :Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :SampleComponent ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
-            owl:someValuesFrom core:ResearchUser ],
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom :Precursor ],
         [ a owl:Restriction ;
             owl:onProperty :usesEquipment ;
             owl:someValuesFrom :Instrument ],
         [ a owl:Restriction ;
             owl:onProperty :hasMeasurement ;
             owl:someValuesFrom :Measurement ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :SampleComponent ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesEquipment ;
-            owl:someValuesFrom :Equipment ],
         <https://w3id.org/pmd/co/Process> ;
     core:MDMCNEPGlossaryDefinition "The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s)."@en .
 
@@ -353,8 +357,11 @@ core:Experiment a owl:Class ;
 :Measurement a owl:Class ;
     rdfs:comment "Measurement is identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isMeasurementOf ;
-            owl:someValuesFrom core:Experiment ],
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
             owl:onClass :Instrument ;
             owl:onProperty :usesEquipment ;
@@ -363,31 +370,28 @@ core:Experiment a owl:Class ;
             owl:onProperty :hasMeasurementTechnique ;
             owl:someValuesFrom :MeasurementTechnique ],
         [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasAssociatedWith> ;
+            owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
-            owl:someValuesFrom :Laboratory ],
+            owl:onProperty :isMeasurementOf ;
+            owl:someValuesFrom core:Experiment ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Sample ],
         <https://w3id.org/pmd/co/Process> ;
     core:MDMCNEPGlossaryDefinition "Identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to instrument: an investigation on the same sample conducted using a different instrument implies a different measurement. A measurement may also be performed during the sample component synthesis and/or the sample preparation, e.g., to characterize the resulting sample or sample component(s). A computational measurement may be a part of a simulation (computational experiment), e.g., a simulation run using a particular model, configuration or input(s)."@en .
 
 :SampleCarrier a owl:Class ;
     rdfs:comment "Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :holds ;
-            owl:someValuesFrom :SampleHolder ],
-        [ a owl:Restriction ;
             owl:onProperty :carries ;
             owl:someValuesFrom :Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty :holds ;
+            owl:someValuesFrom :SampleHolder ],
         :Equipment ;
     core:MDMCNEPGlossaryDefinition "A piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment. Sample carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame."@en .
 
@@ -400,37 +404,37 @@ core:Experiment a owl:Class ;
     rdfs:range :Equipment .
 
 <https://w3id.org/pmd/co/ValueObject> a owl:Class ;
-    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> .
+    rdfs:subClassOf prov:Entity .
 
 core:ResearchUser a owl:Class ;
     rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."@en ;
-    rdfs:subClassOf <http://www.w3.org/ns/prov#Agent> ;
+    rdfs:subClassOf prov:Agent ;
     core:MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, instrument scientist, project member)."@en .
 
 :Laboratory a owl:Class ;
     rdfs:comment "Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed."@en ;
-    rdfs:subClassOf <http://www.w3.org/ns/prov#Location> ;
+    rdfs:subClassOf prov:Location ;
     core:MDMCNEPGlossaryDefinition "Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments)."@en .
 
 :Equipment a owl:Class ;
     rdfs:comment "Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#atLocation> ;
+            owl:onProperty prov:atLocation ;
             owl:someValuesFrom :Laboratory ],
-        <http://www.w3.org/ns/prov#Agent> ;
+        prov:Agent ;
     core:MDMCNEPGlossaryDefinition "Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en .
 
 :Sample a owl:Class ;
     rdfs:comment "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isCarriedBy ;
-            owl:someValuesFrom :SampleCarrier ],
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
             owl:onProperty :hasSampleComponent ;
             owl:someValuesFrom :SampleComponent ],
         [ a owl:Restriction ;
-            owl:onProperty <http://www.w3.org/ns/prov#wasDerivedFrom> ;
-            owl:someValuesFrom :Sample ],
+            owl:onProperty :isCarriedBy ;
+            owl:someValuesFrom :SampleCarrier ],
         <https://w3id.org/pmd/co/Object> ;
     core:MDMCNEPGlossaryDefinition "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation."@en .
 
@@ -442,23 +446,23 @@ core:ResearchUser a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
-        <http://www.w3.org/ns/prov#Entity> .
+        prov:Entity .
 
 <https://w3id.org/pmd/co/Process> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
+            owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
-        <http://www.w3.org/ns/prov#Activity> .
+        prov:Activity .
 
