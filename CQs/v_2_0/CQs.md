@@ -489,6 +489,6 @@ PREFIX pmd: <https://w3id.org/pmd/co/>
 
 SELECT ?Sample ?Sample_component WHERE{
 	?Sample a exp:Sample ; 
-		exp:hasSampleComponent Sample_component . 
+		exp:hasSampleComponent ?Sample_component . 
 }
 ```
