@@ -27,10 +27,10 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 
 ## [PRIMA-Experiment](#prima-experiment-sparql)
 1. Which measurements/sample preparation/fabrication have been performed in an experiment?
-2. Which equipment/instrument has been used in an experiment/in a measurement/in a sample preparation?
+2. Which equipment/instrument has been used in an experiment/in a measurement/in a sample preparation/in a fabrication?
 3. Which measurement techniques have been used in a measurement?
 4. Where and when has the experiment been performed?
-5. Which researcher(s) have performed an experiment?
+5. Which researcher(s) have performed an experiment/measurement/sample preparation/fabrication?
 6. Which samples have been used/prepared in a measurement?
 7. Which raw data have been produced in a measurement?
 8. Who has prepared the samples?
@@ -350,6 +350,7 @@ SELECT ?Experiment ?Measurement ?Sample_preparation ?Fabrication WHERE {
         ?Experiment a core:Experiment;
             exp:hasFabrication ?Fabrication .
     }
+	
 
 }
 ```
@@ -362,7 +363,7 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Equipment ?Experiment ?Measurement ?Sample_preparation  WHERE {
+SELECT ?Equipment ?Experiment ?Measurement ?Sample_preparation ?Fabrication  WHERE {
     {
         ?Experiment a core:Experiment;
             exp:usesEquipment ?Equipment.
@@ -380,7 +381,14 @@ SELECT ?Equipment ?Experiment ?Measurement ?Sample_preparation  WHERE {
             exp:usesEquipment ?Equipment.
         ?Equipment a exp:Equipment.
     }
+    UNION
+    {
+        ?Fabrication a exp:Fabrication; 
+        	exp:usesEquipment ?Equipment.
+        ?Equipment a exp:Equipment .
+    }
 }
+
 ```
 3. Which measurement techniques have been used in a measurement?
 ```
@@ -396,7 +404,9 @@ SELECT ?Measurement ?Measurement_technique  WHERE {
     exp:hasMeasurementTechnique ?Measurement_technique.
 }
 ```
-4. Where and when has the experiment been performed?
+4. Where and when has the experiment/measurement/sample preparation/fabrication been performed?
+
+4a. Experiment
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -405,17 +415,104 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Experiment ?Start_time ?End_time ?Location  WHERE {
+SELECT ?Experiment ?At_time ?Start_time ?End_time ?Location  WHERE {
     {
-	?Experiment a core:Experiment;
-    	prov:startedAtTime ?Start_time;
-        prov:endedAtTime ?End_time.}
+		?Experiment a core:Experiment;
+    		prov:startedAtTime ?Start_time;
+        	prov:endedAtTime ?End_time.
+	}
     OPTIONAL
     {
         ?Experiment  prov:atLocation ?Location.
     }
+	OPTIONAL
+	{
+		?Experiment a core:Experiment;
+    		prov:atTime ?At_time.
+	}
 }
 ```
+4b. Measurement
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Measurement ?At_time ?Start_time ?End_time ?Location  WHERE {
+    {
+		?Measurement  a exp:Measurement ;
+    		prov:startedAtTime ?Start_time;
+        	prov:endedAtTime ?End_time.
+	}
+    OPTIONAL
+    {
+        ?Measurement   prov:atLocation ?Location.
+    }
+	OPTIONAL
+	{
+		?Measurement t a exp:Measurement ;
+    		prov:atTime ?At_time.
+	}
+}
+```
+4c. Sample preparation
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Sample_preparation ?At_time ?Start_time ?End_time ?Location  WHERE {
+    {
+		?Sample_preparation   a exp:SamplePreparation ;
+    		prov:startedAtTime ?Start_time;
+        	prov:endedAtTime ?End_time.
+	}
+    OPTIONAL
+    {
+        ?Sample_preparation    prov:atLocation ?Location.
+    }
+	OPTIONAL
+	{
+		?Sample_preparation a exp:SamplePreparation ;
+    		prov:atTime ?At_time.
+	}
+}
+```
+4d. Fabrication
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
+PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?Fabrication ?At_time ?Start_time ?End_time ?Location  WHERE {
+    {
+		?Fabrication   a exp:Fabrication  .
+	}
+	OPTIONAL
+	{
+		?Fabrication prov:startedAtTime ?Start_time;
+        	prov:endedAtTime ?End_time.
+	}
+    OPTIONAL
+    {
+        ?Fabrication    prov:atLocation ?Location.
+    }
+	OPTIONAL
+	{
+    	?Fabrication	prov:atTime ?At_time.
+	}
+}
+```
+
 5. Which researcher(s) have performed an experiment?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
@@ -425,10 +522,30 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Experiment ?Research_user WHERE{
+SELECT ?Experiment ?Measurement ?Sample_preparation ?Fabrication ?Research_user WHERE{
+	{
 	?Experiment a core:Experiment ; 
 		prov:wasAssociatedWith ?Research_user .
-	?Research_user a core:Research_user . 
+	?Research_user a core:ResearchUser . 
+	}
+	UNION
+	{
+	?Measurement a exp:Measurement ; 
+		prov:wasAssociatedWith ?Research_user .
+	?Research_user a core:ResearchUser . 
+	}
+	UNION
+	{
+	?Sample_preparation a exp:SamplePreparation; 
+		prov:wasAssociatedWith ?Research_user .
+	?Research_user a core:ResearchUser . 
+	}
+	UNION
+	{
+	?Fabrication a exp:Fabrication ; 
+		prov:wasAssociatedWith ?Research_user .
+	?Research_user a core:ResearchUser . 
+	}
 }
 
 ```
