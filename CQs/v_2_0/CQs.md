@@ -35,7 +35,7 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 7. Which raw data have been produced in a measurement?
 8. Who has prepared the samples?
 9. What process sequence taken for doing an experiment/measurement/sample preparation?
-10. Which sample componets is the sample made of?
+10. Which sample components is the sample made of?
 
 
 # Answer to CQs via SPARQL
@@ -595,17 +595,23 @@ SELECT ?Sample_preparation ?Research_user WHERE{
 9. What process sequence taken for doing an experiment/measurement/sample preparation?
 ```
 ```
-10. Which sample componets is the sample made of?
+10. Which sample components is the sample made of?
 ```
-PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
-PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
-PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
 PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
-PREFIX prov: <http://www.w3.org/ns/prov#> 
-PREFIX pmd: <https://w3id.org/pmd/co/>
 
 SELECT ?Sample ?Sample_component WHERE{
 	?Sample a exp:Sample ; 
 		exp:hasSampleComponent ?Sample_component . 
+}
+```
+
+```
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+
+SELECT ?Sample ?Sample_name ?Sample_component ?Sample_comp_name WHERE{
+	?Sample a exp:Sample ; 
+	rdfs:label ?Sample_name ; 
+		exp:hasSampleComponent ?Sample_component . 
+	?Sample_component rdfs:label ?Sample_comp_name.
 }
 ```
