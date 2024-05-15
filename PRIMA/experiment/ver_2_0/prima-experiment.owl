@@ -174,6 +174,36 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasSetting -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasSetting"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasTechnique -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#operates -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#operates"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#usesEquipment -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#carries -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#carries">
@@ -189,7 +219,6 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Experiment"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
         <rdfs:comment xml:lang="en">hasFabrication represents the relationship between experiment to fabrication activity.</rdfs:comment>
         <rdfs:label xml:lang="en">has fabrication</rdfs:label>
@@ -201,14 +230,6 @@
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement">
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Experiment"/>
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
         <rdfs:comment xml:lang="en">hasMeasurement represents the relationship between experiment to measurement.</rdfs:comment>
         <rdfs:label xml:lang="en">has measurement</rdfs:label>
@@ -220,7 +241,6 @@
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique">
         <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#MeasurementTechnique"/>
         <rdfs:comment xml:lang="en">hasMeasurementTechnique represents the relationship between measurement to measurement technique.</rdfs:comment>
         <rdfs:label xml:lang="en">has measurement technique</rdfs:label>
     </owl:ObjectProperty>
@@ -242,7 +262,6 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Experiment"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"/>
         <rdfs:comment xml:lang="en">hasSamplePreparation represents the relationship between experiment to sample preparation activity.</rdfs:comment>
         <rdfs:label xml:lang="en">has sample preparation</rdfs:label>
@@ -306,27 +325,6 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:comment xml:lang="en">isSampleComponentOf is the inverse property of hasSampleComponent.</rdfs:comment>
         <rdfs:label xml:lang="en">is sample component of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment -->
-
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment">
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#wasOperatedBy -->
-
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#wasOperatedBy">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInfluencedBy"/>
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
-        <rdfs:comment xml:lang="en">wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user.</rdfs:comment>
-        <rdfs:label xml:lang="en">was operated by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -545,7 +543,7 @@
     <!-- http://w3id.org/STREAM/MSLE#Equipment -->
 
     <owl:Class rdf:about="http://w3id.org/STREAM/MSLE#Equipment">
-        <owl:equivalentClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
+        <owl:equivalentClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:label>equipment</rdfs:label>
     </owl:Class>
     
@@ -583,42 +581,34 @@
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/prima/core#Experiment -->
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition -->
 
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Experiment">
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Equipment -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Equipment">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users. An experiment may be a simulation (computational experiment) or a combination of computational and physical measurement.</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Instrument -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Instrument">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
+        <rdfs:comment xml:lang="en">Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement).</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -641,6 +631,30 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Setting -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Setting">
+        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#System -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#System">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Technique -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Technique">
+        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
+    </owl:Class>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/dataset#RawData -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#RawData">
@@ -652,25 +666,9 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Consumable -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:comment xml:lang="en">Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc.</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc.</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Equipment -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -687,20 +685,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -712,7 +710,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -721,8 +719,18 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s).</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s).</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Data Acquisition may be performed during the Fabrication, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s). The output of Fabrication is one or more Precursors</core:MDMCNEPGlossaryDefinition>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Input -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Input">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
+        <rdfs:comment>Physical System (typically a piece of material) which undergoes a Fabrication.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition>Physical System (typically a piece of material) which undergoes a Fabrication.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -743,22 +751,6 @@
     
 
 
-    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Instrument -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#wasOperatedBy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement).</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory">
@@ -772,7 +764,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Measurement -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
@@ -783,18 +775,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#MeasurementTechnique"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Experiment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -817,23 +797,13 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument"/>
+                <owl:onClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Measurement is identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to instrument: an investigation on the same sample conducted using a different instrument implies a different measurement. A measurement may also be performed during the sample component synthesis and/or the sample preparation, e.g., to characterize the resulting sample or sample component(s). A computational measurement may be a part of a simulation (computational experiment), e.g., a simulation run using a particular model, configuration or input(s).</core:MDMCNEPGlossaryDefinition>
-    </owl:Class>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#MeasurementTechnique -->
-
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#MeasurementTechnique">
-        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
-        <rdfs:comment xml:lang="en">Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument.</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -841,7 +811,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Precursor -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
@@ -857,7 +827,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Sample -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
@@ -885,7 +855,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#carries"/>
@@ -907,7 +877,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf"/>
@@ -923,7 +893,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"/>
@@ -953,14 +923,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Equipment"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Instrument"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
