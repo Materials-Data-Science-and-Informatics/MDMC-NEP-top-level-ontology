@@ -172,6 +172,27 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
+        <rdfs:comment xml:lang="en">usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, or data processing with research software</rdfs:comment>
+        <rdfs:label xml:lang="en">uses research sofware</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/dal#hasConclusion -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#hasConclusion">
@@ -239,29 +260,7 @@
 
     <!-- https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware -->
 
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#usesResearchSoftware"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://purls.helmholtz-metadaten.de/prima/dal#usesResearchSoftware -->
-
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#usesResearchSoftware">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"/>
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis"/>
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation"/>
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
-        <rdfs:comment xml:lang="en">usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, or data processing with research software</rdfs:comment>
-        <rdfs:label xml:lang="en">uses research sofware</rdfs:label>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware"/>
     
 
 
@@ -509,13 +508,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -613,13 +612,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -653,13 +652,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -693,13 +692,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
