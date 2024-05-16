@@ -282,6 +282,14 @@
     
 
 
+    <!-- http://nfdi.fiz-karlsruhe.de/ontology/Specification -->
+
+    <owl:Class rdf:about="http://nfdi.fiz-karlsruhe.de/ontology/Specification">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/prov#Activity -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
@@ -514,7 +522,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/core#Setting -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Setting">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
         <rdfs:comment xml:lang="en">Set of configuration parameters which may be involved, for example, in a data acquisition (e.g., settings of the instrument), in any of the processes included in the data analysis lifecycle (e.g., settings of the research software), or to describe a model (e.g., by specifying the type of solver used).</rdfs:comment>
         <MDMCNEPGlossaryDefinition xml:lang="en">Set of configuration parameters which may be involved, for example, in a Data Acquisition (e.g., Settings of the Instrument), in any of the processes included in the Data Analysis Lifecycle (e.g., Settings of the Research Software), or to describe a Model (e.g., by specifying the type of solver used).</MDMCNEPGlossaryDefinition>
     </owl:Class>
@@ -529,6 +537,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -556,7 +570,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/core#Technique -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Technique">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
         <rdfs:comment xml:lang="en">Any experimental, theoretical or computational method used during data acquisition or during any of the processes included in the data analysis lifecycle to acquire, process or analyze research data about a system or a set of them with an instrument.</rdfs:comment>
         <MDMCNEPGlossaryDefinition xml:lang="en">Any experimental, theoretical or computational method used during Data Acquisition or during any of the processes included in the Data Analysis Lifecycle to acquire, process or analyze Research Data about a System or a set of them with an Instrument.</MDMCNEPGlossaryDefinition>
     </owl:Class>
