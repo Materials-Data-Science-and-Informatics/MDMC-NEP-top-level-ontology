@@ -219,8 +219,9 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
-        <rdfs:comment xml:lang="en">hasFabrication represents the relationship between experiment to fabrication activity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">hasFabrication represents the relationship between study to fabrication activity.</rdfs:comment>
         <rdfs:label xml:lang="en">has fabrication</rdfs:label>
     </owl:ObjectProperty>
     
@@ -247,6 +248,17 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"/>
+        <rdfs:comment>has precursor represents the relationship between sample component to precursor</rdfs:comment>
+        <rdfs:label>has precursor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent">
@@ -262,8 +274,9 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"/>
-        <rdfs:comment xml:lang="en">hasSamplePreparation represents the relationship between experiment to sample preparation activity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">hasSamplePreparation represents the relationship between study to sample preparation activity.</rdfs:comment>
         <rdfs:label xml:lang="en">has sample preparation</rdfs:label>
     </owl:ObjectProperty>
     
@@ -639,6 +652,32 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Study -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Study">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/core#System -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#System">
@@ -667,8 +706,8 @@
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
-        <rdfs:comment xml:lang="en">Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc.</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Auxiliary entity used during fabrication, sample preparation or measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Auxiliary entity used during Fabrication, Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -720,7 +759,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Data Acquisition may be performed during the Fabrication, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s). The output of Fabrication is one or more Precursors</core:MDMCNEPGlossaryDefinition>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Data Acquisition may be performed during the Fabrication, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s). The output of Fabrication is one or more Precursors.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -818,8 +857,8 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings, and molecules. A single Precursor might itself become the only SampleComponent of a Sample in case it undergoes Measurement. E.g. Precursor1 is ethylene and Precursor2 is a Ni substrate. Ethylene reacts with Ni substrate converting into graphene (SampleComponent1). The result of Sample Preparation is a Sample composed of a graphene layer (SampleComponent1) and the same Ni substrate (SampleComponent2).</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Physical System (typically a piece of material) which is formed or manufactured during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings and/or molecules. A single Precursor might itself become the only Sample Component of a Sample in case it undergoes a Measurement.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -846,8 +885,8 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation.</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -884,8 +923,8 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others).</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others).</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules.</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
@@ -957,8 +996,8 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) or precursor(s) fit to perform a measurement.</rdfs:comment>
-        <core:MDMCNEPGlossaryDefinition xml:lang="en">Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more Research Users to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement. The actions may be performed on (or between) one or more Precursors or Sample(s). Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s).</core:MDMCNEPGlossaryDefinition>
+        <rdfs:comment xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings</rdfs:comment>
+        <core:MDMCNEPGlossaryDefinition xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, performed on (or between) one or more Precursor(s) or Sample(s) to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement under controlled conditions described by Settings. Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s). The output of Sample Preparation is one or more Samples.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
     
 
