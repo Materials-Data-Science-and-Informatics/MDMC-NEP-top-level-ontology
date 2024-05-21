@@ -230,6 +230,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement">
+        <rdfs:subPropertyOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
         <rdfs:comment xml:lang="en">hasMeasurement represents the relationship between experiment to measurement.</rdfs:comment>
@@ -658,14 +659,14 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>

@@ -4,10 +4,10 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 ## [PRIMA-Core](#prima-core-sparql)
 1. Which project is researcher(s) member of?
 2. Which study has researcher(s) performed?
-3. Which experiment has researcher(s) performed?
+3. Which data acqusition or data analysis lifecycle has researcher(s) performed?
 4. Which research data that is attributed to (e.g., created by) the researcher(s)?
 5. Which data analysis lifecycle used in a study and which data are used?
-6. Which studies are done by a project and list all experiments are done in those studies?
+6. Which studies are done by a project and  list all data acquisition and data analysis lifecycle are done in those studies?
 
 ## [PRIMA-Data analysis lifecycle](#prima-data-analysis-lifecycle-sparql)
 1. Which results have been obtained from the data analysis lifecycle?
@@ -26,15 +26,15 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 5. Which metadata has described the data?
 
 ## [PRIMA-Experiment](#prima-experiment-sparql)
-1. Which measurements/sample preparation/fabrication have been performed in an experiment?
-2. Which equipment/instrument has been used in an experiment/in a measurement/in a sample preparation/in a fabrication?
+1. Which fabrication/measurements/sample preparationhave been performed in an experiment?
+2. Which equipment/instrument has been used in an in a fabrication/in a measurement/in a sample preparation?
 3. Which measurement techniques have been used in a measurement?
-4. Where and when has the experiment been performed?
-5. Which researcher(s) have performed an experiment/measurement/sample preparation/fabrication?
+4. Where and when has the fabrication/measurement/sample preparation been performed?
+5. Which researcher(s) have performed an fabrication/measurement/sample preparation?
 6. Which samples have been used/prepared in a measurement?
 7. Which raw data have been produced in a measurement?
 8. Who has prepared the samples?
-9. What process sequence taken for doing an experiment/measurement/sample preparation?
+9. What process sequence taken for doing a fabrication/measurement/sample preparation?
 10. Which sample components is the sample made of?
 
 
@@ -68,14 +68,47 @@ SELECT  ?Study ?ResearchUser WHERE{
 }
 ```
 
-3. Which experiment has researcher(s) performed?
+3. Which data acqusition or data analysis lifecycle has researcher(s) performed?
+
+3a. Data acquisition
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 
-SELECT  ?Experiment ?ResearchUser WHERE{
-	?Experiment a core:Experiment ; 
+SELECT  ?DataAcquisition ?ResearchUser WHERE{
+	
+	?DataAcquisition a core:DataAcquisition ; 
 		prov:wasAssociatedWith ?ResearchUser.
+	
+}
+```
+
+3b. Data analysis lifecycle
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT ?DataAnalysisLifecycle ?ResearchUser WHERE{
+	
+	?DataAcquisition a core:DataAcquisition ; 
+		prov:wasAssociatedWith ?ResearchUser.
+	
+}
+```
+
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+
+SELECT  ?DataAcquisition ?DataAnalysisLifecycle ?ResearchUser WHERE{
+	{
+		?DataAcquisition a core:DataAcquisition ; 
+			prov:wasAssociatedWith ?ResearchUser.
+	}
+	UNION
+	{
+		?DataAnalysisLifecycle a core:DataAnalysisLifecycle ; 
+			prov:wasAssociatedWith ?ResearchUser.
+	}
 }
 ```
 4. Which research data that is attributed to (e.g., created by) the researcher(s)?
@@ -89,7 +122,9 @@ SELECT  ?ResearchData ?ResearchUser WHERE{
 	?ResearchUser a core:ResearchUser . 
 }
 ```
-5. Which data analysis lifecycle used in a study and which data are used?
+5. Which data analysis lifecycle or data acquisition used in a study and which data are used?
+
+5a. Data analysis lifecycle 
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
@@ -102,15 +137,36 @@ SELECT  ?Study ?DataAnalysisLifecycle ?ResearchData WHERE{
 	?ResearchData a core:ResearchData.
 }
 ```
-6. Which studies are done by a project and list all experiments are done in those studies?
+
+5b. Data acqusition
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT  ?Project ?Study ?Experiment WHERE{
+SELECT  ?Study ?DataAcquisition ?ResearchData WHERE{
+	?Study a core:Study; 
+		core:hasDataAcquisition ?DataAcquisition.
+	?DataAcquisition pmd:input ?ResearchData .
+	?ResearchData a core:ResearchData.
+}
+```
+6. Which studies are done by a project and list all data acquisition and data analysis lifecycle are done in those studies?
+```
+PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#> 
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT  ?Project ?Study ?DataAnalysisLifecycle ?DataAcquisition WHERE{
 	?Project  core:hasStudy ?Study . 
-	?Study core:hasExperiment  ?Experiment . 
+	?Study a core:Study.
+	{
+		?Study core:hasDataAnalysisLifecycle  ?DataAnalysisLifecycle . 
+	}
+	UNION
+	{	
+		?Study core:hasDataAcquisition  ?DataAcquisition . 
+	}
 }
 ```
 
@@ -326,7 +382,7 @@ SELECT  ?Data_interpretation ?software WHERE{
 
 ## PRIMA-Experiment SPARQL
 
-1. Which measurements/sample preparation/fabrication have been performed in an experiment?
+1. Which measurements/sample preparation/fabrication have been performed in a study?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -337,24 +393,24 @@ PREFIX pmd: <https://w3id.org/pmd/co/>
 
 SELECT ?Experiment ?Measurement ?Sample_preparation ?Fabrication WHERE {
     {
-        ?Experiment a core:Experiment;
+        ?Study a core:Study;
             exp:hasMeasurement ?Measurement .
     }
     UNION
     {
-        ?Experiment a core:Experiment;
+        ?Study a core:Study;
             exp:hasSamplePreparation ?Sample_preparation .
     }
     UNION
     {
-        ?Experiment a core:Experiment;
+        ?Study a core:Study;
             exp:hasFabrication ?Fabrication .
     }
 	
 
 }
 ```
-2. Which equipment/instrument has been used in an experiment/in a measurement/in a sample preparation?
+2. Which equipment/instrument has been used in an Fabrication/in a measurement/in a sample preparation?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -363,9 +419,9 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Equipment ?Experiment ?Measurement ?Sample_preparation ?Fabrication  WHERE {
+SELECT ?Equipment ?Fabrication ?Measurement ?Sample_preparation WHERE {
     {
-        ?Experiment a core:Experiment;
+        ?Fabrication a exp:Fabrication;
             exp:usesEquipment ?Equipment.
         ?Equipment a exp:Equipment.
     }
@@ -381,12 +437,7 @@ SELECT ?Equipment ?Experiment ?Measurement ?Sample_preparation ?Fabrication  WHE
             exp:usesEquipment ?Equipment.
         ?Equipment a exp:Equipment.
     }
-    UNION
-    {
-        ?Fabrication a exp:Fabrication; 
-        	exp:usesEquipment ?Equipment.
-        ?Equipment a exp:Equipment .
-    }
+   
 }
 
 ```
@@ -399,14 +450,14 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Measurement ?Measurement_technique  WHERE {
+SELECT ?Measurement ?Technique  WHERE {
   ?Measurement a exp:Measurement;
-    exp:hasMeasurementTechnique ?Measurement_technique.
+    core:hasTechnique ?Technique.
 }
 ```
-4. Where and when has the experiment/measurement/sample preparation/fabrication been performed?
+4. Where and when has the fabrication/measurement/sample preparation been performed?
 
-4a. Experiment
+4a. Fabrication
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -415,23 +466,26 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Experiment ?At_time ?Start_time ?End_time ?Location  WHERE {
+SELECT ?Fabrication ?At_time ?Start_time ?End_time ?Location  WHERE {
     {
-		?Experiment a core:Experiment;
-    		prov:startedAtTime ?Start_time;
+		?Fabrication   a exp:Fabrication  .
+	}
+	OPTIONAL
+	{
+		?Fabrication prov:startedAtTime ?Start_time;
         	prov:endedAtTime ?End_time.
 	}
     OPTIONAL
     {
-        ?Experiment  prov:atLocation ?Location.
+        ?Fabrication    prov:atLocation ?Location.
     }
 	OPTIONAL
 	{
-		?Experiment a core:Experiment;
-    		prov:atTime ?At_time.
+    	?Fabrication	prov:atTime ?At_time.
 	}
 }
 ```
+
 4b. Measurement
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
@@ -484,34 +538,7 @@ SELECT ?Sample_preparation ?At_time ?Start_time ?End_time ?Location  WHERE {
 	}
 }
 ```
-4d. Fabrication
-```
-PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
-PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
-PREFIX dataset: <https://purls.helmholtz-metadaten.de/prima/dataset#>
-PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
-PREFIX prov: <http://www.w3.org/ns/prov#> 
-PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Fabrication ?At_time ?Start_time ?End_time ?Location  WHERE {
-    {
-		?Fabrication   a exp:Fabrication  .
-	}
-	OPTIONAL
-	{
-		?Fabrication prov:startedAtTime ?Start_time;
-        	prov:endedAtTime ?End_time.
-	}
-    OPTIONAL
-    {
-        ?Fabrication    prov:atLocation ?Location.
-    }
-	OPTIONAL
-	{
-    	?Fabrication	prov:atTime ?At_time.
-	}
-}
-```
 
 5. Which researcher(s) have performed an experiment?
 ```
@@ -522,13 +549,7 @@ PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 PREFIX prov: <http://www.w3.org/ns/prov#> 
 PREFIX pmd: <https://w3id.org/pmd/co/>
 
-SELECT ?Experiment ?Measurement ?Sample_preparation ?Fabrication ?Research_user WHERE{
-	{
-	?Experiment a core:Experiment ; 
-		prov:wasAssociatedWith ?Research_user .
-	?Research_user a core:ResearchUser . 
-	}
-	UNION
+SELECT ?Fabrication ?Measurement ?Sample_preparation  ?Research_user WHERE{
 	{
 	?Measurement a exp:Measurement ; 
 		prov:wasAssociatedWith ?Research_user .
@@ -604,6 +625,8 @@ SELECT ?Sample ?Sample_component WHERE{
 		exp:hasSampleComponent ?Sample_component . 
 }
 ```
+
+OR 
 
 ```
 PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
