@@ -1,0 +1,261 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix extrusion: <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/extrusion/> .
+@prefix herbie: <http://purls.helmholtz-metadaten.de/herbie/mb/> .
+@prefix mb: <http://purls.helmholtz-metadaten.de/herbie/mb/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/> {
+    <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/publication/>
+            a                   herbie:DocumentPublication ;
+            prov:endedAtTime    "2023-08-04T08:15:19"^^xsd:dateTime ;
+            prov:generated      <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/> ;
+            prov:startedAtTime  "2023-08-04T08:13:36"^^xsd:dateTime ;
+            prov:wasEndedBy     <http://herbie.example.org/api/authors/10/> ;
+            prov:wasStartedBy   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/>
+            a                     herbie:Document ;
+            prov:wasAttributedTo  <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/>
+            a                      herbie:DocumentVersion ;
+            dcterms:conformsTo     <http://herbie.example.org/api/ont/mb/extrusion/1.0.0/> ;
+            prov:generatedAtTime   "2023-08-04T08:13:36"^^xsd:dateTime ;
+            prov:hadMember         <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/generated/> ;
+            prov:hadMember         <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/persisted/> ;
+            prov:specializationOf  <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/> ;
+            prov:wasAttributedTo   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/authors/10/>
+            a           herbie:Author ;
+            a           herbie:Clerk ;
+            a           herbie:Client ;
+            rdfs:label  "Fabian Kirchner" .
+}
+
+<http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/persisted/> {
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/>
+            a                       extrusion:Extrusion ;
+            herbie:clerk            <http://herbie.example.org/api/authors/7/> ;
+            herbie:client           <http://herbie.example.org/api/authors/9/> ;
+            herbie:client           <http://herbie.example.org/api/departments/1/> ;
+            herbie:performedOn      "2023-08-02"^^xsd:date ;
+            extrusion:diameterMaterialsUsed  _:b0 ;
+            extrusion:extruder      <http://herbie.example.org/api/equipments/49/> ;
+            extrusion:pass          <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/> ;
+            extrusion:processType   extrusion:direct ;
+            extrusion:targetTorque  _:b1 ;
+            rdfs:label              "extrusion_1" .
+    <http://herbie.example.org/api/authors/7/>
+            a       herbie:Clerk .
+    <http://herbie.example.org/api/authors/9/>
+            a       herbie:Client .
+    <http://herbie.example.org/api/departments/1/>
+            a       herbie:Client .
+    <http://herbie.example.org/api/dies/2/>
+            a       mb:Die .
+    <http://herbie.example.org/api/equipments/49/>
+            a       mb:Extruder .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/>
+            a       herbie:Material .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/>
+            a                             extrusion:Pass ;
+            extrusion:die                 <http://herbie.example.org/api/dies/2/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/3FSqc52eAoLnwmMZcg4mvA/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/JfNbLtzMzeBzNBMLnH5sz7/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/KZpeDWMXQZmvHc36rK6mXQ/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/kCmcDahGwhx7MR8MjmhVGZ/> ;
+            extrusion:materialUsed        <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/> ;
+            extrusion:materialUsedLength  _:b2 ;
+            extrusion:position            1 ;
+            extrusion:preheatingTemperature  _:b3 ;
+            extrusion:preheatingTime      _:b4 ;
+            extrusion:ramSpeed            _:b5 .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/3FSqc52eAoLnwmMZcg4mvA/>
+            a                   extrusion:ExtrudedMaterial ;
+            herbie:publicId     "230002.D1.S3" ;
+            extrusion:length    _:b6 ;
+            extrusion:position  3 ;
+            extrusion:quality   true .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/JfNbLtzMzeBzNBMLnH5sz7/>
+            a                   extrusion:ExtrudedMaterial ;
+            herbie:publicId     "230002.D1.S2" ;
+            extrusion:length    _:b7 ;
+            extrusion:position  2 ;
+            extrusion:quality   true .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/KZpeDWMXQZmvHc36rK6mXQ/>
+            a                   extrusion:ExtrudedMaterial ;
+            herbie:publicId     "230002.D1.S4" ;
+            extrusion:length    _:b8 ;
+            extrusion:position  4 ;
+            extrusion:quality   true .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/iterations/DTvYwwtTkA2HDJ7zspHG4x/materials/kCmcDahGwhx7MR8MjmhVGZ/>
+            a                   extrusion:ExtrudedMaterial ;
+            herbie:publicId     "230002.D1.S1" ;
+            extrusion:length    _:b9 ;
+            extrusion:position  1 ;
+            extrusion:quality   true .
+    extrusion:direct  a  extrusion:ProcessType .
+    _:b0    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  30 .
+    _:b9    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+    _:b1    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/N-M> ;
+            qudt:value  1 .
+    _:b2    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  78 .
+    _:b3    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value  120 .
+    _:b4    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MIN> ;
+            qudt:value  60 .
+    _:b5    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM-PER-SEC> ;
+            qudt:value  2.0 .
+    _:b6    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+    _:b7    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+    _:b8    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+}
+
+<http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/> {
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/>
+            a                       extrusion:Extrusion ;
+            herbie:clerk            <http://herbie.example.org/api/authors/7/> ;
+            herbie:client           <http://herbie.example.org/api/authors/9/> ;
+            herbie:client           <http://herbie.example.org/api/departments/1/> ;
+            herbie:performedOn      "2023-08-02"^^xsd:date ;
+            extrusion:diameterMaterialsUsed  _:b0 ;
+            extrusion:extruder      <http://herbie.example.org/api/equipments/49/> ;
+            extrusion:pass          <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/> ;
+            extrusion:processType   extrusion:direct ;
+            extrusion:targetTorque  _:b1 .
+    <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/publication/>
+            a                   herbie:DocumentPublication ;
+            prov:endedAtTime    "2023-08-04T08:15:19"^^xsd:dateTime ;
+            prov:generated      <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/> ;
+            prov:startedAtTime  "2023-08-04T08:13:36"^^xsd:dateTime ;
+            prov:wasEndedBy     <http://herbie.example.org/api/authors/10/> ;
+            prov:wasStartedBy   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/authors/7/>
+            a       herbie:Clerk .
+    <http://herbie.example.org/api/authors/9/>
+            a       herbie:Client .
+    <http://herbie.example.org/api/departments/1/>
+            a       herbie:Client .
+    <http://herbie.example.org/api/dies/2/>
+            a       mb:Die .
+    <http://herbie.example.org/api/equipments/49/>
+            a       mb:Extruder .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/>
+            a       herbie:Material .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/>
+            a                             extrusion:Pass ;
+            rdfs:label                    "230002" ;
+            extrusion:die                 <http://herbie.example.org/api/dies/2/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/3FSqc52eAoLnwmMZcg4mvA/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/JfNbLtzMzeBzNBMLnH5sz7/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/KZpeDWMXQZmvHc36rK6mXQ/> ;
+            extrusion:materialGenerated   <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/kCmcDahGwhx7MR8MjmhVGZ/> ;
+            extrusion:materialUsed        <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/> ;
+            extrusion:materialUsedLength  _:b2 ;
+            extrusion:position            1 ;
+            extrusion:preheatingTemperature  _:b3 ;
+            extrusion:preheatingTime      _:b4 ;
+            extrusion:ramSpeed            _:b5 .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/3FSqc52eAoLnwmMZcg4mvA/>
+            a                   extrusion:ExtrudedMaterial ;
+            rdfs:label          "230002.D1.S3" ;
+            herbie:publicId     "230002.D1.S3" ;
+            extrusion:length    _:b6 ;
+            extrusion:position  3 ;
+            extrusion:quality   true .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/JfNbLtzMzeBzNBMLnH5sz7/>
+            a                   extrusion:ExtrudedMaterial ;
+            rdfs:label          "230002.D1.S2" ;
+            herbie:publicId     "230002.D1.S2" ;
+            extrusion:length    _:b7 ;
+            extrusion:position  2 ;
+            extrusion:quality   true .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/KZpeDWMXQZmvHc36rK6mXQ/>
+            a                   extrusion:ExtrudedMaterial ;
+            rdfs:label          "230002.D1.S4" ;
+            herbie:publicId     "230002.D1.S4" ;
+            extrusion:length    _:b8 ;
+            extrusion:position  4 ;
+            extrusion:quality   true .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/kCmcDahGwhx7MR8MjmhVGZ/>
+            a                   extrusion:ExtrudedMaterial ;
+            rdfs:label          "230002.D1.S1" ;
+            herbie:publicId     "230002.D1.S1" ;
+            extrusion:length    _:b9 ;
+            extrusion:position  1 ;
+            extrusion:quality   true .
+    extrusion:direct  a  extrusion:ProcessType .
+    <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/>
+            a                      herbie:DocumentVersion ;
+            dcterms:conformsTo     <http://herbie.example.org/api/ont/mb/extrusion/1.0.0/> ;
+            prov:generatedAtTime   "2023-08-04T08:13:36"^^xsd:dateTime ;
+            prov:hadMember         <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/generated/> ;
+            prov:hadMember         <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/persisted/> ;
+            prov:specializationOf  <http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/> ;
+            prov:wasAttributedTo   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/authors/10/>
+            a           herbie:Author ;
+            a           herbie:Clerk ;
+            a           herbie:Client ;
+            rdfs:label  "Fabian Kirchner" .
+    _:b0    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  30 .
+    _:b9    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+    _:b1    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/N-M> ;
+            qudt:value  1 .
+    _:b2    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  78 .
+    _:b3    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value  120 .
+    _:b4    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MIN> ;
+            qudt:value  60 .
+    _:b5    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM-PER-SEC> ;
+            qudt:value  2.0 .
+    _:b6    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+    _:b7    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+    _:b8    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/MilliM> ;
+            qudt:value  2000 .
+}
+
+<http://herbie.example.org/api/triples/a1f97c8c-d9f5-4190-9429-7b6b25fdcf73/versions/1/generated/> {
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/>
+            rdfs:label  "230002.Pass" .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/3FSqc52eAoLnwmMZcg4mvA/>
+            rdfs:label  "230002.Pass.D1.S3" .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/JfNbLtzMzeBzNBMLnH5sz7/>
+            rdfs:label  "230002.Pass.D1.S2" .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/KZpeDWMXQZmvHc36rK6mXQ/>
+            rdfs:label  "230002.Pass.D1.S4" .
+    <http://herbie.example.org/api/graph/extrusions/dmiHQz3A3FcvMupdY8WMxe/passes/DTvYwwtTkA2HDJ7zspHG4x/materials/kCmcDahGwhx7MR8MjmhVGZ/>
+            rdfs:label  "230002.Pass.D1.S1" .
+}

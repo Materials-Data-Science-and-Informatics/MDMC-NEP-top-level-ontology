@@ -1,0 +1,265 @@
+@prefix : <http://purls.helmholtz-metadaten.de/herbie/core/> .
+@prefix herbie: <http://purls.helmholtz-metadaten.de/herbie/core/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prima_core: <https://purls.helmholtz-metadaten.de/prima/core#> .
+@prefix prima_experiment: <https://purls.helmholtz-metadaten.de/prima/experiment#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+  rdfs:label "Herbie's Core Ontology"@en ;
+  rdfs:label "Herbies Hauptontologie"@de ;
+  rdfs:comment "This ontology defines all core terms used in Herbie, the electronic laboratory notebook and material database at Hereon."@en ;
+.
+
+herbie: a owl:Ontology ;
+  owl:versionIRI <http://purls.helmholtz-metadaten.de/herbie/core/1.0.0/> ;
+  owl:versionInfo "1.0.0" ;
+  rdfs:label "Herbie's Core Ontology"@en ;
+  rdfs:label "Herbies Hauptontologie"@de ;
+  rdfs:comment "This ontology defines all core terms used in Herbie, the electronic laboratory notebook and material database at Hereon."@en ;
+  rdfs:isDefinedBy herbie: ;
+  terms:creator "Fabian Kirchner", "Catriona Eschke" ;
+  vann:preferredNamespacePrefix "herbie" ;
+.
+
+:Client
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Agent ;
+  rdfs:label "client"@en ;
+  rdfs:label "Auftraggeber/-in"@de ;
+  rdfs:comment "One or more persons, departments, institutes or projects that have requested the process this protocol belongs to and will use the resulting materials/samples and data. All clients are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Clerk
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Agent ;
+  rdfs:label "clerk"@en ;
+  rdfs:label "Bearbeiter/-in"@de ;
+  rdfs:comment "One or more persons who perform the current process this protocol belongs to. All clerks are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Author
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Agent, prov:Person, prima_core:ResearchUser ;
+  rdfs:subClassOf :Client, :Clerk ;
+  rdfs:label "author"@en ;
+  rdfs:label "Autor/-in"@de ;
+  rdfs:comment "The person who created and submitted the current entry."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Department
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Agent, prov:Organization, prima_experiment:Institution;
+  rdfs:subClassOf :Client ;
+  rdfs:label "department"@en ;
+  rdfs:label "Abteilung"@de ;
+  rdfs:comment "An institute is divided into several smaller organizational units with distinct research topics."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Project
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Agent, prima_core:Project;
+  rdfs:subClassOf :Client ;
+  rdfs:label "project"@en ;
+  rdfs:label "Projekt"@de ;
+  rdfs:comment "A project usually contains one or several similar research questions that are planned to be examined in a set of experiments. A certain group of people belongs to a project and is allowed to view any information relevant for the project. A project originate from third party funding, a thesis or any other research question of interest."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Material
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity, prima_experiment:Input, prima_experiment:Precursor ;
+  rdfs:label "material"@en ;
+  rdfs:label "Material"@de ;
+  rdfs:comment "A material represents the totality of a substance created by some process."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+  :hasPublicId
+    a rdf:Property ;
+    rdfs:label "material ID"@en ;
+    rdfs:label "Material ID"@de ;
+    rdfs:comment "The unique identifier of a material is automatically generated within Herbie depending on the manufacturing process."@en ;
+    rdfs:domain :Material ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy herbie: ;
+  .
+
+:SampleSet
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "sample set"@en ;
+  rdfs:label "Probenset"@de ;
+  rdfs:comment "A sample set represents a set of samples made from some material. All samples within a sample set have the same shape."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Sample
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity, prima_experiment:Sample ;
+  rdfs:label "sample"@en ;
+  rdfs:label "Probe"@de ;
+  rdfs:comment "A sample represents a specific piece of a material in a certain shape which is made suitable for the measurement."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Cell
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "cell"@en ;
+  rdfs:label "Zelle"@de ;
+  rdfs:comment "The smallest structural and functional unit of an organism, which is typically microscopic."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:Equipment
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Agent, prima_core:Equipment ;
+  rdfs:label "equipment"@en ;
+  rdfs:label "Equipment"@de ;
+  rdfs:comment "Equipment is any machine, device, instrument or part of that, that is used in the lab for fabricating, preparing or measuring a sample or material. Every piece of equipment is uniquely identifiable. Equipment does not include consumables."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+  :hasClient
+    a rdf:Property ;
+    rdfs:subPropertyOf prov:wasAssociatedWith ;
+    rdfs:label "client"@en ;
+    rdfs:label "Auftraggeber/-in"@de ;
+    rdfs:comment "One or more persons, departments, institutes or projects that have requested the process this protocol belongs to and will use the resulting materials/samples and data. All clients are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+    rdfs:isDefinedBy herbie: ;
+  .
+
+  :hasClerk
+    a rdf:Property ;
+    rdfs:subPropertyOf prov:wasAssociatedWith ;
+    rdfs:label "clerk"@en ;
+    rdfs:label "Bearbeiter/-in"@de ;
+    rdfs:comment "One or more persons who perform the current process this protocol belongs to. All clerks are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+    rdfs:isDefinedBy herbie: ;
+  .
+
+  :isPerformedOn
+    a rdf:Property ;
+    rdfs:label "performed on"@en ;
+    rdfs:label "durchgeführt am"@de ;
+    rdfs:comment "Date on which process has been performed on."@en ;
+    rdfs:isDefinedBy herbie: ;
+  .
+
+  prov:startedAtTime
+    a rdf:Property ;
+    rdfs:label "started at"@en ;
+    rdfs:label "gestartet um"@de ;
+    rdfs:comment "Time at which process has been started."@en ;
+  .
+
+  prov:endedAtTime
+    a rdf:Property ;
+    rdfs:label "ended at"@en ;
+    rdfs:label "beendet um"@de ;
+    rdfs:comment "Time at which process has ended."@en ;
+  .
+
+:OrganizationalGroup
+  a sh:PropertyGroup ;
+  sh:order -1 ;
+  rdfs:label "organizational"@en ;
+  rdfs:label "Organisatorisches"@de ;
+  rdfs:comment "General information which is not specific to process."@en ;
+.
+  :HasClientShape
+    a sh:PropertyShape ;
+    sh:path :hasClient ;
+    sh:group :OrganizationalGroup ;
+    sh:order 0 ;
+    sh:class :Client ;
+    dash:editor dash:InstancesSelectEditor ;
+    # FIXME add TripleRule to generated qualifiedAssociation
+    sh:minCount 1 ;
+  .
+  :HasClerkShape
+    a sh:PropertyShape ;
+    sh:path :hasClerk ;
+    sh:group :OrganizationalGroup ;
+    sh:order 1 ;
+    sh:class :Clerk ;
+    dash:editor dash:InstancesSelectEditor ;
+    # FIXME add TripleRule to generated qualifiedAssociation
+    sh:minCount 1 ;
+  .
+  :IsPerformedOnShape
+    a sh:PropertyShape ;
+    sh:path :isPerformedOn ;
+    sh:group :OrganizationalGroup ;
+    sh:order 2 ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  .
+  :StartedAtTimeShape
+    a sh:PropertyShape ;
+    sh:path prov:startedAtTime ;
+    sh:group :OrganizationalGroup ;
+    sh:order 3 ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  .
+  :EndedAtTimeShape
+    a sh:PropertyShape ;
+    sh:path prov:endedAtTime ;
+    sh:group :OrganizationalGroup ;
+    sh:order 4 ;
+    sh:datatype xsd:dateTime ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  .
+
+
+
+:Document
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "document"@en ;
+  rdfs:label "Dokument"@de ;
+  rdfs:comment "A document is a container for different versions of a graph."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:DocumentDraft
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "document draft"@en ;
+  rdfs:label "Dokumentenentwurf"@de ;
+  rdfs:comment "A document draft is a concrete graph which has not been published, yet.  It can contain information about protocols, materials, experiments etc.."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:DocumentVersion
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Entity ;
+  rdfs:label "document version"@en ;
+  rdfs:label "Dokumentenversion"@de ;
+  rdfs:comment "A document version is a concrete graph.  It can contain information about protocols, materials, experiments etc.."@en ;
+  rdfs:isDefinedBy herbie: ;
+.
+
+:DocumentPublication
+  a rdfs:Class ;
+  rdfs:subClassOf prov:Activity ;
+  rdfs:label "publication"@en ;
+  rdfs:label "Veröffentlichung"@de ;
+  rdfs:comment "A publication is an activity which starts when a user creates a draft for a document, and ends when the user publishes this document."@en ;
+  rdfs:isDefinedBy herbie: ;
+.

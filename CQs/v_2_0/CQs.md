@@ -10,32 +10,32 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 6. Which studies are done by a project and  list all data acquisition and data analysis lifecycle are done in those studies?
 
 ## [PRIMA-Data analysis lifecycle](#prima-data-analysis-lifecycle-sparql)
-1. Which results have been obtained from the data analysis lifecycle?
-2. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
-3. Which data have been used and produced in a data analysis/processing/intreptation?
-4. Which software has been used in a data analysis/processing/interpretation?
-5. Which researcher(s) have performed the data analysis/processing/interpretation?
-6. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
+7. Which results have been obtained from the data analysis lifecycle?
+8. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
+9. Which data have been used and produced in a data analysis/processing/intreptation?
+10. Which software has been used in a data analysis/processing/interpretation?
+11. Which researcher(s) have performed the data analysis/processing/interpretation?
+12. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
 
 ## [PRIMA-Dataset](#prima-dataset-sparql)
-1. Which project have the data been attributed to?
-2. Which data does the dataset collects?
-3. In which data collaboration platform is the data stored?
-4. In which data repository is the data stored?
-5. Which dataset has been the publication data derived from?
-5. Which metadata has described the data?
+13. Which project have the data been attributed to?
+14. Which data does the dataset collects?
+15. In which data collaboration platform is the data stored?
+16. In which data repository is the data stored?
+17. Which dataset has been the publication data derived from?
+18. Which metadata has described the data?
 
 ## [PRIMA-Experiment](#prima-experiment-sparql)
-1. Which fabrication/measurements/sample preparationhave been performed in an experiment?
-2. Which equipment/instrument has been used in an in a fabrication/in a measurement/in a sample preparation?
-3. Which measurement techniques have been used in a measurement?
-4. Where and when has the fabrication/measurement/sample preparation been performed?
-5. Which researcher(s) have performed an fabrication/measurement/sample preparation?
-6. Which samples have been used/prepared in a measurement?
-7. Which raw data have been produced in a measurement?
-8. Who has prepared the samples?
-9. What process sequence taken for doing a fabrication/measurement/sample preparation?
-10. Which sample components is the sample made of?
+19. Which fabrication/measurements/sample preparationhave been performed in an experiment?
+20. Which equipment/instrument has been used in an in a fabrication/in a measurement/in a sample preparation?
+21. Which measurement techniques have been used in a measurement?
+22. Where and when has the fabrication/measurement/sample preparation been performed?
+23. Which researcher(s) have performed an fabrication/measurement/sample preparation?
+24. Which samples have been used/prepared in a measurement?
+25. Which raw data have been produced in a measurement?
+26. Who has prepared the samples?
+27. What process sequence taken for doing a fabrication/measurement/sample preparation?
+28. Which sample components is the sample made of?
 
 
 # Answer to CQs via SPARQL
@@ -96,21 +96,6 @@ SELECT ?DataAnalysisLifecycle ?ResearchUser WHERE{
 }
 ```
 
-PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
-PREFIX prov: <http://www.w3.org/ns/prov#> 
-
-SELECT  ?DataAcquisition ?DataAnalysisLifecycle ?ResearchUser WHERE{
-	{
-		?DataAcquisition a core:DataAcquisition ; 
-			prov:wasAssociatedWith ?ResearchUser.
-	}
-	UNION
-	{
-		?DataAnalysisLifecycle a core:DataAnalysisLifecycle ; 
-			prov:wasAssociatedWith ?ResearchUser.
-	}
-}
-```
 4. Which research data that is attributed to (e.g., created by) the researcher(s)?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
@@ -172,7 +157,7 @@ SELECT  ?Project ?Study ?DataAnalysisLifecycle ?DataAcquisition WHERE{
 
 ## PRIMA-Data analysis lifecycle SPARQL
 
-1. Which research data resulted from the data analysis lifecycle?
+7. Which research data resulted from the data analysis lifecycle?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -211,7 +196,7 @@ SELECT  ?Data_analysis_lifecycle ?Research_data WHERE{
 
 }
 ```
-2. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
+8. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -237,8 +222,8 @@ SELECT  ?Data_analysis_lifecycle ?data_processing ?data_analysis ?data_interpret
 	}
 }
 ```
-3. Which data have been used and produced in a data analysis/processing/intreptation?
-3a. Data analysis
+9. Which data have been used and produced in a data analysis/processing/intreptation?
+9a. Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -253,7 +238,7 @@ SELECT  ?Data_analysis ?input ?output WHERE{
 }
 ```
 
-3b. Data processing
+9b. Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -268,7 +253,7 @@ SELECT  ?Data_processing ?input ?output WHERE{
 }
 ```
 
-3c. Data interpretation
+9c. Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -282,9 +267,9 @@ SELECT  ?Data_interpretation ?input ?output WHERE{
         pmd:output ?output.	
 }
 ```
-4. Which software has been used in a data analysis/processing/interpretation?
+10. Which software has been used in a data analysis/processing/interpretation?
 
-4a. Data analysis
+10a. Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -298,7 +283,7 @@ SELECT  ?Data_analysis ?software WHERE{
 }
 ```
 
-4b. Data processing
+10b. Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -312,7 +297,7 @@ SELECT  ?Data_processing ?software WHERE{
 }
 ```
 
-4c. Data interpretation
+10c. Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -326,9 +311,9 @@ SELECT  ?Data_interpretation ?software WHERE{
 }
 ```
 
-5. Which researcher(s) have performed the data analysis/processing/interpretation?
+11. Which researcher(s) have performed the data analysis/processing/interpretation?
 
-5a. Data analysis
+11a. Data analysis
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -343,7 +328,7 @@ SELECT  ?Data_analysis ?research_user WHERE{
 }
 ```
 
-5b. Data processing
+11b. Data processing
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -358,7 +343,7 @@ SELECT  ?Data_processing ?research_user WHERE{
 }
 ```
 
-5c. Data interpretation
+11c. Data interpretation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -373,7 +358,7 @@ SELECT  ?Data_interpretation ?software WHERE{
 }
 ```
 
-6. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
+12. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
 ```
 ```
 
@@ -382,7 +367,7 @@ SELECT  ?Data_interpretation ?software WHERE{
 
 ## PRIMA-Experiment SPARQL
 
-1. Which measurements/sample preparation/fabrication have been performed in a study?
+19. Which measurements/sample preparation/fabrication have been performed in a study?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -410,7 +395,7 @@ SELECT ?Experiment ?Measurement ?Sample_preparation ?Fabrication WHERE {
 
 }
 ```
-2. Which equipment/instrument has been used in an Fabrication/in a measurement/in a sample preparation?
+20. Which equipment/instrument has been used in an Fabrication/in a measurement/in a sample preparation?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -441,7 +426,7 @@ SELECT ?Equipment ?Fabrication ?Measurement ?Sample_preparation WHERE {
 }
 
 ```
-3. Which measurement techniques have been used in a measurement?
+21. Which measurement techniques have been used in a measurement?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -455,9 +440,9 @@ SELECT ?Measurement ?Technique  WHERE {
     core:hasTechnique ?Technique.
 }
 ```
-4. Where and when has the fabrication/measurement/sample preparation been performed?
+22. Where and when has the fabrication/measurement/sample preparation been performed?
 
-4a. Fabrication
+22a. Fabrication
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -486,7 +471,7 @@ SELECT ?Fabrication ?At_time ?Start_time ?End_time ?Location  WHERE {
 }
 ```
 
-4b. Measurement
+22b. Measurement
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -512,7 +497,7 @@ SELECT ?Measurement ?At_time ?Start_time ?End_time ?Location  WHERE {
 	}
 }
 ```
-4c. Sample preparation
+22c. Sample preparation
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -540,7 +525,7 @@ SELECT ?Sample_preparation ?At_time ?Start_time ?End_time ?Location  WHERE {
 ```
 
 
-5. Which researcher(s) have performed an experiment?
+23. Which researcher(s) have performed an experiment?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -570,7 +555,7 @@ SELECT ?Fabrication ?Measurement ?Sample_preparation  ?Research_user WHERE{
 }
 
 ```
-6. Which samples have been used in a measurement?
+24. Which samples have been used in a measurement?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -584,7 +569,7 @@ SELECT ?Measurement ?Sample WHERE{
 		pmd:input ?Sample .
 }
 ```
-7. Which raw data have been produced in a measurement?
+25. Which raw data have been produced in a measurement?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -598,7 +583,7 @@ SELECT ?Measurement ?Raw_data WHERE{
 		pmd:output ?Raw_data .
 }
 ```
-8. Who has prepared the samples in the sample preparation step?
+26. Who has prepared the samples in the sample preparation step?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -613,10 +598,23 @@ SELECT ?Sample_preparation ?Research_user WHERE{
 	?Research_user a core:ResearchUser .
 }
 ```
-9. What process sequence taken for doing an experiment/measurement/sample preparation?
+27. What process sequence taken for doing an Fabrication/measurement/sample preparation?
+
+27.a Fabrication
 ```
+PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+
+SELECT ?last_action_lbl ?current_action_lbl  WHERE{ 
+	?last_action a exp:Fabrication; 
+		pmd:nextProcess ?action ;
+		rdfs:label ?last_action_lbl. 
+
+	?action rdfs:label ?current_action_lbl . 
+	
+}
 ```
-10. Which sample components is the sample made of?
+28. Which sample components is the sample made of?
 ```
 PREFIX exp: <https://purls.helmholtz-metadaten.de/prima/experiment#>
 

@@ -63,11 +63,11 @@ prov:SoftwareAgent a owl:Class ;
 :Project a owl:Class ;
     rdfs:comment "Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies." ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasStudy ;
-            owl:someValuesFrom :Study ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasAttributedTo ;
             owl:someValuesFrom :ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasStudy ;
+            owl:someValuesFrom :Study ],
         prov:Entity ;
     :MDMCNEPGlossaryDefinition "Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies."@en .
 
@@ -129,11 +129,11 @@ prov:wasAssociatedWith a owl:ObjectProperty .
             owl:onProperty :hasDataAcquisition ;
             owl:someValuesFrom :DataAcquisition ],
         [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom :ResearchUser ],
-        [ a owl:Restriction ;
             owl:onProperty :hasDataAnalysisLifeCycle ;
             owl:someValuesFrom :DataAnalysisLifecycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom :ResearchUser ],
         prov:Entity ;
     :MDMCNEPGlossaryDefinition "Set of all the processes and activities performed by one or more research users, who are part of the same project, with the purpose of verifying, falsifying or establishing the validity of a hypothesis and supporting the answer to some scientific research question (i.e., Conclusions). The output of a study is usually reported in one or more scientific publications and may be supplemented by publication data."@en .
 
@@ -163,23 +163,23 @@ prov:wasAttributedTo a owl:ObjectProperty .
 :DataAcquisition a owl:Class ;
     rdfs:comment "Set of actions carried out by one or more research users, performed on a system or a set of them to generate a single self-consistent unit of raw data using a technique, an instrument and other equipment under constant or varying controlled conditions described by setting(s), depending on the particular research context."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :System ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :ResearchData ],
         [ a owl:Restriction ;
-            owl:onProperty :usesEquipment ;
-            owl:someValuesFrom :Equipment ],
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom :ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :System ],
         [ a owl:Restriction ;
             owl:onProperty :hasTechnique ;
             owl:someValuesFrom :Technique ],
         [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom :ResearchUser ],
+            owl:onProperty :usesEquipment ;
+            owl:someValuesFrom :Equipment ],
         <https://w3id.org/pmd/co/Process> ;
     :MDMCNEPGlossaryDefinition "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and other Equipment under constant or varying controlled conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data." .
 
@@ -208,6 +208,9 @@ prov:Agent a owl:Class .
 :DataAnalysisLifecycle a owl:Class ;
     rdfs:comment "Set of processes carried out by one or more research users, performed on research data using one or more techniques and/or research software in order to produce synthesized knowledge (e.g., to detect patterns, determine relationships, develop explanations, test hypotheses and/or prove theories) and to eventually suggest the conclusions of a study."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasTechnique ;
+            owl:someValuesFrom :Technique ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :ResearchData ],
         [ a owl:Restriction ;
@@ -216,9 +219,6 @@ prov:Agent a owl:Class .
         [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom :ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasTechnique ;
-            owl:someValuesFrom :Technique ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom :ResearchData ],
@@ -246,11 +246,11 @@ prov:Entity a owl:Class .
 :ResearchUser a owl:Class ;
     rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :operates ;
-            owl:someValuesFrom :Equipment ],
-        [ a owl:Restriction ;
             owl:onProperty :performsAgentRole ;
             owl:someValuesFrom :AgentRole ],
+        [ a owl:Restriction ;
+            owl:onProperty :operates ;
+            owl:someValuesFrom :Equipment ],
         prov:Agent ;
     :MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member)."@en .
 

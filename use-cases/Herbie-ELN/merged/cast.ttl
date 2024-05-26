@@ -1,0 +1,2132 @@
+@prefix cast: <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/cast/> .
+@prefix castCurrent: <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/cast/1.0.0/> .
+@prefix current: <http://purls.helmholtz-metadaten.de/herbie/mb/1.0.0/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix exper: <https://purls.helmholtz-metadaten.de/prima/experiment#> .
+@prefix hash: <http://purls.helmholtz-metadaten.de/herbie/hash/> .
+@prefix herbie: <http://purls.helmholtz-metadaten.de/herbie/core/> .
+@prefix mb: <http://purls.helmholtz-metadaten.de/herbie/mb/> .
+@prefix mbf: <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix prima_core: <https://purls.helmholtz-metadaten.de/prima/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shared: <http://purls.helmholtz-metadaten.de/herbie/mb/shared/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+herbie:Author a rdfs:Class ;
+    rdfs:label "Autor/-in"@de,
+        "author"@en ;
+    rdfs:comment "The person who created and submitted the current entry."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf herbie:Clerk,
+        herbie:Client,
+        prov:Agent,
+        prov:Person,
+        prima_core:ResearchUser .
+
+herbie:Cell a rdfs:Class ;
+    rdfs:label "Zelle"@de,
+        "cell"@en ;
+    rdfs:comment "The smallest structural and functional unit of an organism, which is typically microscopic."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity .
+
+herbie:Clerk a rdfs:Class ;
+    rdfs:label "Bearbeiter/-in"@de,
+        "clerk"@en ;
+    rdfs:comment "One or more persons who perform the current process this protocol belongs to. All clerks are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Agent .
+
+herbie:Client a rdfs:Class ;
+    rdfs:label "Auftraggeber/-in"@de,
+        "client"@en ;
+    rdfs:comment "One or more persons, departments, institutes or projects that have requested the process this protocol belongs to and will use the resulting materials/samples and data. All clients are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Agent .
+
+herbie:Department a rdfs:Class ;
+    rdfs:label "Abteilung"@de,
+        "department"@en ;
+    rdfs:comment "An institute is divided into several smaller organizational units with distinct research topics."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf herbie:Client,
+        prov:Agent,
+        prov:Organization,
+        exper:Institution .
+
+herbie:Document a rdfs:Class ;
+    rdfs:label "Dokument"@de,
+        "document"@en ;
+    rdfs:comment "A document is a container for different versions of a graph."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity .
+
+herbie:DocumentDraft a rdfs:Class ;
+    rdfs:label "Dokumentenentwurf"@de,
+        "document draft"@en ;
+    rdfs:comment "A document draft is a concrete graph which has not been published, yet.  It can contain information about protocols, materials, experiments etc.."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity .
+
+herbie:DocumentPublication a rdfs:Class ;
+    rdfs:label "Veröffentlichung"@de,
+        "publication"@en ;
+    rdfs:comment "A publication is an activity which starts when a user creates a draft for a document, and ends when the user publishes this document."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Activity .
+
+herbie:DocumentVersion a rdfs:Class ;
+    rdfs:label "Dokumentenversion"@de,
+        "document version"@en ;
+    rdfs:comment "A document version is a concrete graph.  It can contain information about protocols, materials, experiments etc.."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity .
+
+herbie:Equipment a rdfs:Class ;
+    rdfs:label "Equipment"@de,
+        "equipment"@en ;
+    rdfs:comment "Equipment is any machine, device, instrument or part of that, that is used in the lab for fabricating, preparing or measuring a sample or material. Every piece of equipment is uniquely identifiable. Equipment does not include consumables."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Agent,
+        prima_core:Equipment .
+
+herbie:Material a rdfs:Class ;
+    rdfs:label "Material"@de,
+        "material"@en ;
+    rdfs:comment "A material represents the totality of a substance created by some process."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity,
+        exper:Input,
+        exper:Precursor .
+
+herbie:Project a rdfs:Class ;
+    rdfs:label "Projekt"@de,
+        "project"@en ;
+    rdfs:comment "A project usually contains one or several similar research questions that are planned to be examined in a set of experiments. A certain group of people belongs to a project and is allowed to view any information relevant for the project. A project originate from third party funding, a thesis or any other research question of interest."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf herbie:Client,
+        prov:Agent,
+        prima_core:Project .
+
+herbie:Sample a rdfs:Class ;
+    rdfs:label "Probe"@de,
+        "sample"@en ;
+    rdfs:comment "A sample represents a specific piece of a material in a certain shape which is made suitable for the measurement."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity,
+        exper:Sample .
+
+herbie:SampleSet a rdfs:Class ;
+    rdfs:label "Probenset"@de,
+        "sample set"@en ;
+    rdfs:comment "A sample set represents a set of samples made from some material. All samples within a sample set have the same shape."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subClassOf prov:Entity .
+
+mb:AlloyingElement a rdfs:Class ;
+    rdfs:label "Legierungselement"@de,
+        "alloying element"@en ;
+    rdfs:comment "An alloying element is a chemical element which can forms a stable alloy when mixed with other alloying elements during casting due to its physical and chemical properties. It can also be a pre-manufactured alloy."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf prov:Entity .
+
+mb:Characterization a rdfs:Class ;
+    rdfs:label "Charakterisierung"@de,
+        "characterization"@en ;
+    rdfs:comment "Method to analyse the properties of the cells, media, and material samples used in the experiment."@en .
+
+mb:ChemicalElement a rdfs:Class ;
+    rdfs:label "chemisches Element"@de,
+        "chemical element"@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf prov:Entity .
+
+mb:Die a rdfs:Class ;
+    rdfs:label "Matrize"@de,
+        "die"@en ;
+    rdfs:comment "Metal block with one or several holes in certain shape and size through which the heated material is pushed."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf prov:Agent,
+        prima_core:Equipment .
+
+mb:Extruder a rdfs:Class ;
+    rdfs:label "Extruder"@de,
+        "extruder"@en ;
+    rdfs:comment "Machine used for extruding metal ingots into bars of different shape and diameter."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+mb:Furnace a rdfs:Class ;
+    rdfs:label "Ofen"@de,
+        "furnace"@en ;
+    rdfs:comment "Furnace used for heating materials but not melting them."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+mb:FurnaceCasting a rdfs:Class ;
+    rdfs:label "Gießofen"@de,
+        "casting furnace"@en ;
+    rdfs:comment "In a casting furnace, one or more alloying elements are heated and molten into liquid state. From the furnace, the melt is poured into casting moulds."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+mb:JoltingVolumeter a rdfs:Class ;
+    rdfs:label "Stampfvolumeter"@de,
+        "jolting volumeter"@en ;
+    rdfs:comment "Jolting volumeter used for determining bulk and tap density of a powder."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+mb:Medium a rdfs:Class ;
+    rdfs:label "Medium"@de,
+        "medium"@en ;
+    rdfs:comment "A cell culture medium is a water-based fluid in which cells are incubated.It contians nutrients and different growth factors that will be specific to each cell or bacterium and necessary for their growth."@en .
+
+mb:Microscope a rdfs:Class ;
+    rdfs:label "Mikroskop"@de,
+        "microscope"@en ;
+    rdfs:comment "Microscope."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+mb:Mould a rdfs:Class ;
+    rdfs:label "Gussform"@de,
+        "mould"@en ;
+    rdfs:comment "A mould is a hollowed-out block that is filled with liquid metal which hardens or sets inside the mould, adopting its shape. Various types of mould exist which define the method of the casting process."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf prov:Agent,
+        prima_core:Equipment .
+
+mb:Powder a rdfs:Class ;
+    rdfs:label "Pulver"@de,
+        "powder"@en ;
+    rdfs:comment "A metal powder."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Material .
+
+mb:Roll a rdfs:Class ;
+    rdfs:label "Walze"@de,
+        "roll"@en ;
+    rdfs:comment "Roll."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+mb:WellPlate a rdfs:Class ;
+    rdfs:label "Wellplate"@de,
+        "well plate"@en ;
+    rdfs:comment "A well plate is a plastic plate with several containers (wells) in which cells and materials can be incubated to test the cells' and materials' behaviour."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf prov:Agent,
+        prima_core:Equipment .
+
+mb:WireDrawingMachine a rdfs:Class ;
+    rdfs:label "Drahtziehmaschine"@de,
+        "wire drawing machine"@en ;
+    rdfs:comment "Wire drawing machine."@en ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:subClassOf herbie:Equipment .
+
+cast:Cast a rdfs:Class ;
+    rdfs:label "Gießen"@de,
+        "casting"@en ;
+    rdfs:comment "Casting is usually the frist process in the material fabrication chain at Hereon. Different alloying elements are molten, mixed, and cast into different shapes."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf exper:Fabrication .
+
+cast:CastMaterial a rdfs:Class ;
+    rdfs:label "Gießmaterial"@de,
+        "casting material"@en ;
+    rdfs:comment "Each cast ingot is an individual material with a unique identifier."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf herbie:Material .
+
+cast:Component a rdfs:Class ;
+    rdfs:label "Komponente"@de,
+        "component"@en ;
+    rdfs:comment "Alloying element that is mixed with other alloying elements to create an alloy."@en ;
+    rdfs:isDefinedBy castCurrent: .
+
+cast:Cooling a rdfs:Class ;
+    rdfs:label "Kühlmedium"@de,
+        "cooling medium"@en ;
+    rdfs:comment "Surrounding medium of moulds with cast ingots during cooling."@en ;
+    rdfs:isDefinedBy castCurrent: .
+
+cast:CoolingAir a rdfs:Class ;
+    rdfs:label "Luftkühlung"@de,
+        "air cooling"@en ;
+    rdfs:comment "The ingots are just left to cool in the moulds at room temperature."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf cast:Cooling .
+
+cast:CoolingCustom a rdfs:Class ;
+    rdfs:label "Anderes Abkühlen"@de,
+        "custom cooling"@en ;
+    rdfs:comment "Custom method of cooling."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf cast:Cooling .
+
+cast:CoolingWater a rdfs:Class ;
+    rdfs:label "Wasserkühlung"@de,
+        "water cooling"@en ;
+    rdfs:comment "The ingots in the moulds are inserted into water at room temperature to cool."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf cast:Cooling .
+
+cast:Stirring a rdfs:Class ;
+    rdfs:label "Rühren"@de,
+        "stirring"@en ;
+    rdfs:comment "Melt can be stirred to make it more homogeneous."@en ;
+    rdfs:isDefinedBy castCurrent: .
+
+cast:StirringCustom a rdfs:Class ;
+    rdfs:label "Anderes Rühren"@de,
+        "custom stirring"@en ;
+    rdfs:comment "Custom method of stirring."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf cast:Stirring .
+
+cast:StirringManual a rdfs:Class ;
+    rdfs:label "händisches Rühren"@de,
+        "manual stirring"@en ;
+    rdfs:comment "The melt is stirred by hand with a simple metal bar."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf cast:Stirring .
+
+cast:StirringWithTool a rdfs:Class ;
+    rdfs:label "Rühren mit Werkzeug"@de,
+        "stirring with tool"@en ;
+    rdfs:comment "Electric tools can be used to thorougly stir the melt."@en ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:subClassOf cast:Stirring .
+
+<file:///Users/a.z.ihsan/Documents/mb/explorations/prima/herbie.ttl> rdfs:label "Herbies Hauptontologie"@de,
+        "Herbie's Core Ontology"@en ;
+    rdfs:comment "This ontology defines all core terms used in Herbie, the electronic laboratory notebook and material database at Hereon."@en .
+
+<file:///Users/a.z.ihsan/Documents/mb/src/mb/1.0.0.ttl> rdfs:label "MB-Ontologie"@de,
+        "MB Ontology"@en .
+
+<file:///Users/a.z.ihsan/Documents/mb/src/mbf/shapes/cast/1.0.0.ttl> a owl:Ontology ;
+    rdfs:label "Guß-Ontologie"@de,
+        "Cast Ontology"@en ;
+    rdfs:comment "This document contains SHACL shapes which describe all information regarding the casting process."@en ;
+    owl:imports <http://purls.helmholtz-metadaten.de/herbie/core/1.0.0/>,
+        current:,
+        <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/1.0.0/>,
+        <http://purls.helmholtz-metadaten.de/herbie/mb/shared/1.0.0/> ;
+    sh:declare [ sh:namespace "http://qudt.org/schema/qudt/"^^xsd:anyURI ;
+            sh:prefix "qudt" ],
+        [ sh:namespace "http://purls.helmholtz-metadaten.de/herbie/core/#"^^xsd:anyURI ;
+            sh:prefix "herbie" ],
+        [ sh:namespace "http://purls.helmholtz-metadaten.de/herbie/mb/#"^^xsd:anyURI ;
+            sh:prefix "mb" ],
+        [ sh:namespace "http://purls.helmholtz-metadaten.de/herbie/mb/mbf/cast/#"^^xsd:anyURI ;
+            sh:prefix "" ] .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/> a cast:Cast ;
+    rdfs:label "casting 1" ;
+    mb:hasClerk <http://herbie.example.org/api/authors/8/> ;
+    mb:hasClient <http://herbie.example.org/api/authors/7/> ;
+    mb:isPerformedOn "2023-08-01"^^xsd:date ;
+    cast:alloyName "Mg-1Ca-2Ag" ;
+    cast:ambientHumidity [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/PERCENT> ;
+            qudt:value 55.0 ] ;
+    cast:ambientTemperature [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value 21.0 ] ;
+    cast:castingMethod cast:permanentMouldCasting ;
+    cast:component <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/BPG7xFjth8GFiqMBgRNGeQ/>,
+        <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/TdKceWsffyCnGbjhzonKus/> ;
+    cast:coolingType cast:air ;
+    cast:filterType cast:ceramicCoarse ;
+    cast:furnace <http://herbie.example.org/api/equipments/39/> ;
+    cast:hpAlloy false ;
+    cast:mainAlloyingElement <http://herbie.example.org/api/alloying-elements/1/> ;
+    cast:mainAlloyingElementAmount [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/KiloGM> ;
+            qudt:value 3.0 ] ;
+    cast:material <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/>,
+        <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/adqtQMxPppSLKSCd5UkuxH/>,
+        <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/ipHxVHobpZ7KqAatauLwsz/> ;
+    cast:meltTemperature [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value 786 ] ;
+    cast:mouldReleaseAgent "Some mould release agent" ;
+    cast:mouldTemperature [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value 867 ] ;
+    cast:pouringTemperature [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value 978 ] ;
+    cast:stirringTool cast:manual .
+
+<http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/publication/> a mb:DocumentPublication ;
+    prov:endedAtTime "2023-08-04T07:36:05"^^xsd:dateTime ;
+    prov:generated <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/> ;
+    prov:startedAtTime "2023-08-04T07:31:29"^^xsd:dateTime ;
+    prov:wasEndedBy <http://herbie.example.org/api/authors/10/> ;
+    prov:wasStartedBy <http://herbie.example.org/api/authors/10/> .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:created a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+herbie:EndedAtTimeShape a sh:PropertyShape ;
+    sh:datatype xsd:dateTime ;
+    sh:group herbie:OrganizationalGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 4 ;
+    sh:path prov:endedAtTime .
+
+herbie:StartedAtTimeShape a sh:PropertyShape ;
+    sh:datatype xsd:dateTime ;
+    sh:group herbie:OrganizationalGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 3 ;
+    sh:path prov:startedAtTime .
+
+mb:hasDiameter a rdf:Property ;
+    rdfs:label "Durchmesser"@de,
+        "diameter"@en ;
+    rdfs:comment "Diameter of holes in die."@en ;
+    rdfs:domain mb:Die ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:range xsd:decimal .
+
+mb:hasNumberNewMaterials a rdf:Property ;
+    rdfs:label "Anzahl der neuen Materialien"@de,
+        "number of new materials"@en ;
+    rdfs:comment "One used material can be split into several new ones, depending on the number of holes in a die."@en ;
+    rdfs:domain mb:Die ;
+    rdfs:isDefinedBy mb: ;
+    rdfs:range xsd:integer .
+
+cast:CastShape a sh:NodeShape ;
+    hash:documentRoot true ;
+    sh:property herbie:HasClerkShape,
+        herbie:HasClientShape,
+        herbie:IsPerformedOnShape,
+        cast:CastShape_alloyName,
+        cast:CastShape_alloyNameCustom,
+        cast:CastShape_ambientHumidity,
+        cast:CastShape_ambientTemperature,
+        cast:CastShape_castingMethod,
+        cast:CastShape_comment,
+        cast:CastShape_component,
+        cast:CastShape_cooling,
+        cast:CastShape_filterType,
+        cast:CastShape_furnace,
+        cast:CastShape_grainRefinement,
+        cast:CastShape_hasProtocolNumber,
+        cast:CastShape_hpAlloy,
+        cast:CastShape_mainAlloyingElement,
+        cast:CastShape_mainAlloyingElementAmount,
+        cast:CastShape_material,
+        cast:CastShape_meltTemperature,
+        cast:CastShape_mouldReleaseAgent,
+        cast:CastShape_mouldTemperature,
+        cast:CastShape_pouringTemperature,
+        cast:CastShape_shieldingGas,
+        cast:CastShape_stirring,
+        cast:CastShape_ultrasound ;
+    sh:rule cast:CastShape_alloyNameRule,
+        cast:CastShape_hasProtocolNumberRule ;
+    sh:targetClass cast:Cast .
+
+mb:wellPlateColumn a rdf:Property ;
+    rdfs:label "column"@en ;
+    rdfs:isDefinedBy mb: .
+
+mb:wellPlateRow a rdf:Property ;
+    rdfs:label "row"@en ;
+    rdfs:isDefinedBy mb: .
+
+qudt:numericValue a owl:DatatypeProperty .
+
+qudt:value a owl:DatatypeProperty .
+
+<http://w3id.org/STREAM/MSLE#Equipment> a owl:Class ;
+    rdfs:label "equipment" ;
+    owl:equivalentClass prima_core:Equipment .
+
+prov:wasInfluencedBy a owl:ObjectProperty .
+
+<https://purls.helmholtz-metadaten.de/prima/core> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2024-01-26"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Core Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the core module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "2.0"@en .
+
+prima_core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
+    rdfs:subPropertyOf skos:definition .
+
+prima_core:ProjectMemberRole a owl:Class ;
+    rdfs:comment "Project member role is an agent role that has role of project member"@en ;
+    rdfs:subClassOf prima_core:AgentRole .
+
+<https://purls.helmholtz-metadaten.de/prima/experiment> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2024-01-29"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Experiment Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:versionInfo "2.0"@en .
+
+exper:hasMeasurementTechnique a owl:ObjectProperty ;
+    rdfs:label "has measurement technique"@en ;
+    rdfs:comment "hasMeasurementTechnique represents the relationship between measurement to measurement technique."@en ;
+    rdfs:domain exper:Measurement .
+
+exper:hasPrecursor a owl:ObjectProperty ;
+    rdfs:label "has precursor" ;
+    rdfs:comment "has precursor represents the relationship between sample component to precursor" ;
+    rdfs:domain exper:SampleComponent ;
+    rdfs:range exper:Precursor .
+
+pmd:composes a owl:ObjectProperty ;
+    rdfs:domain pmd:Object ;
+    rdfs:range pmd:Object .
+
+<http://herbie.example.org/api/alloying-elements/1/> a mb:AlloyingElement .
+
+<http://herbie.example.org/api/alloying-elements/3/> a mb:AlloyingElement .
+
+<http://herbie.example.org/api/alloying-elements/5/> a mb:AlloyingElement .
+
+<http://herbie.example.org/api/authors/7/> a mb:Client .
+
+<http://herbie.example.org/api/authors/8/> a mb:Clerk .
+
+<http://herbie.example.org/api/equipments/39/> a mb:FurnaceCasting .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/BPG7xFjth8GFiqMBgRNGeQ/> a cast:Component ;
+    rdfs:label "Ca" ;
+    cast:alloyingElement <http://herbie.example.org/api/alloying-elements/3/> ;
+    cast:amount [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/KiloGM> ;
+            qudt:value 0.03 ] ;
+    cast:nominal [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/PERCENT> ;
+            qudt:value 1.0 ] .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/TdKceWsffyCnGbjhzonKus/> a cast:Component ;
+    rdfs:label "Ag" ;
+    cast:alloyingElement <http://herbie.example.org/api/alloying-elements/5/> ;
+    cast:amount [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/KiloGM> ;
+            qudt:value 0.06 ] ;
+    cast:nominal [ a qudt:Quantity ;
+            qudt:unit <http://qudt.org/vocab/unit/PERCENT> ;
+            qudt:value 2.0 ] .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/> a cast:CastMaterial ;
+    rdfs:label "230002" ;
+    cast:mould <http://herbie.example.org/api/moulds/1/> ;
+    cast:position 2 ;
+    cast:quality false ;
+    mb:publicId "230002" ;
+    rdfs:comment "Ingot stuck in mould." .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/adqtQMxPppSLKSCd5UkuxH/> a cast:CastMaterial ;
+    rdfs:label "230003" ;
+    cast:mould <http://herbie.example.org/api/moulds/3/> ;
+    cast:position 3 ;
+    cast:quality true ;
+    mb:publicId "230003" .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/ipHxVHobpZ7KqAatauLwsz/> a cast:CastMaterial ;
+    rdfs:label "230001" ;
+    cast:mould <http://herbie.example.org/api/moulds/1/> ;
+    cast:position 1 ;
+    cast:quality true ;
+    mb:publicId "230001" .
+
+<http://herbie.example.org/api/moulds/3/> a mb:Mould .
+
+<http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/> a mb:Document ;
+    prov:wasAttributedTo <http://herbie.example.org/api/authors/10/> .
+
+<http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/> a mb:DocumentVersion ;
+    dcterms:conformsTo cast: ;
+    prov:generatedAtTime "2023-08-04T07:31:29"^^xsd:dateTime ;
+    prov:hadMember <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/generated/>,
+        <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/persisted/> ;
+    prov:specializationOf <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/> ;
+    prov:wasAttributedTo <http://herbie.example.org/api/authors/10/> .
+
+herbie:HasClerkShape a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class herbie:Clerk ;
+    sh:group herbie:OrganizationalGroup ;
+    sh:minCount 1 ;
+    sh:order 1 ;
+    sh:path herbie:hasClerk .
+
+herbie:HasClientShape a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class herbie:Client ;
+    sh:group herbie:OrganizationalGroup ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path herbie:hasClient .
+
+herbie:IsPerformedOnShape a sh:PropertyShape ;
+    sh:datatype xsd:date ;
+    sh:group herbie:OrganizationalGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 2 ;
+    sh:path herbie:isPerformedOn .
+
+herbie:hasClerk a rdf:Property ;
+    rdfs:label "Bearbeiter/-in"@de,
+        "clerk"@en ;
+    rdfs:comment "One or more persons who perform the current process this protocol belongs to. All clerks are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
+
+herbie:hasClient a rdf:Property ;
+    rdfs:label "Auftraggeber/-in"@de,
+        "client"@en ;
+    rdfs:comment "One or more persons, departments, institutes or projects that have requested the process this protocol belongs to and will use the resulting materials/samples and data. All clients are related to the institution where the Herbie instance, in which the current protocol is created, is being used."@en ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
+
+mb:hasAbbreviation a rdf:Property ;
+    rdfs:label "Abkürzung"@de,
+        "abbreviation"@en ;
+    rdfs:comment "Alloying elements are usually chemical elements or a mixture of them, so the abbreviation of those is used here for generating the alloy name."@en,
+        "Chemical elements all have a standard abbreviation."@en ;
+    rdfs:isDefinedBy mb: .
+
+cast:CastImportShape a sh:NodeShape ;
+    sh:class cast:Cast ;
+    sh:property [ sh:path cast:hasProtocolNumber ] .
+
+cast:CastShape_alloyName a sh:PropertyShape ;
+    hash:generated true ;
+    hash:readonly true ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_alloyingElementsGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:alloyName .
+
+cast:CastShape_alloyNameCustom a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_alloyingElementsGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:order 1 ;
+    sh:path cast:alloyNameCustom .
+
+cast:CastShape_alloyNameRule a sh:SPARQLRule ;
+    hash:import cast:AlloyingElementImportShape ;
+    sh:condition [ sh:property [ sh:minCount 1 ;
+                    sh:path cast:mainAlloyingElement ] ] ;
+    sh:construct """
+    CONSTRUCT {
+      $this :alloyName ?alloyName .
+    }
+    WHERE {
+      $this :mainAlloyingElement / mb:hasAbbreviation ?mainAlloyingElementAbbreviation .
+      {
+        SELECT (GROUP_CONCAT(?otherAlloyingElementSegment ; SEPARATOR="-") AS ?otherAlloyingElementSegments)
+        WHERE {
+          $this :component ?component .
+          ?component :alloyingElement / mb:hasAbbreviation ?otherAlloyingElementAbbreviation .
+          ?component :nominal / qudt:value ?otherAlloyingElementNominal .
+          BIND(REPLACE(STR(?otherAlloyingElementNominal), "\\\\.0*$", "") AS ?otherAlloyingElementNominalString)
+          BIND(CONCAT(?otherAlloyingElementNominalString, ?otherAlloyingElementAbbreviation) AS ?otherAlloyingElementSegment)
+        }
+        ORDER BY DESC(?otherAlloyingElementNominal)
+      }
+      BIND(CONCAT(?mainAlloyingElementAbbreviation, "-", ?otherAlloyingElementSegments) AS ?alloyNameMany)
+      BIND(IF(?otherAlloyingElementSegments = "", ?mainAlloyingElementAbbreviation, CONCAT(?mainAlloyingElementAbbreviation, "-", ?otherAlloyingElementSegments)) AS ?alloyName)
+    }
+  """ ;
+    sh:prefixes mb:,
+        cast:,
+        qudt: .
+
+cast:CastShape_ambientHumidity a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:group cast:CastShape_ambientParametersGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "humidity"@en ;
+    sh:node shared:Decimal_PERCENT ;
+    sh:order 1 ;
+    sh:path cast:ambientHumidity .
+
+cast:CastShape_ambientTemperature a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:group cast:CastShape_ambientParametersGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "temperature"@en ;
+    sh:node shared:Decimal_DEG_C ;
+    sh:order 0 ;
+    sh:path cast:ambientTemperature .
+
+cast:CastShape_castingMethod a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mbf:CastingMethod ;
+    sh:group cast:CastShape_castTypeAndIngotsGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:castingMethod .
+
+cast:CastShape_comment a sh:PropertyShape ;
+    dash:editor dash:TextAreaEditor ;
+    dash:singleLine false ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_miscellaneousGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:order 0 ;
+    sh:path cast:comment .
+
+cast:CastShape_component a sh:PropertyShape ;
+    dash:editor dash:DetailsEditor ;
+    dash:viewer dash:ValueTableViewer ;
+    sh:class cast:Component ;
+    sh:group cast:CastShape_alloyingElementsGroup ;
+    sh:node cast:ComponentShape ;
+    sh:order 3 ;
+    sh:path cast:component .
+
+cast:CastShape_cooling a sh:PropertyShape ;
+    dash:editor dash:DetailsEditor ;
+    sh:class cast:Cooling ;
+    sh:group cast:CastShape_coolingGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:node cast:CoolingShape ;
+    sh:order 0 ;
+    sh:path cast:cooling .
+
+cast:CastShape_coolingGroup a sh:PropertyGroup ;
+    rdfs:label "Abkühlung"@de,
+        "cooling"@en ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:order 5 .
+
+cast:CastShape_filterGroup a sh:PropertyGroup ;
+    rdfs:label "Filter"@de,
+        "filter"@en ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:order 0 .
+
+cast:CastShape_filterType a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mbf:FilterType ;
+    sh:group cast:CastShape_filterGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:order 0 ;
+    sh:path cast:filterType .
+
+cast:CastShape_furnace a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mb:FurnaceCasting ;
+    sh:group cast:CastShape_furnaceGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:furnace .
+
+cast:CastShape_furnaceGroup a sh:PropertyGroup ;
+    rdfs:label "Ofen"@de,
+        "furnace"@en ;
+    sh:order 2 .
+
+cast:CastShape_grainRefinement a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_miscellaneousPropertiesGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:order 1 ;
+    sh:path cast:grainRefinement .
+
+cast:CastShape_hasProtocolNumber a sh:PropertyShape ;
+    hash:generated true ;
+    hash:persisted true ;
+    hash:readonly true ;
+    sh:datatype xsd:integer ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:hasProtocolNumber .
+
+cast:CastShape_hasProtocolNumberRule a sh:SPARQLRule ;
+    hash:import cast:CastImportShape ;
+    hash:persist true ;
+    sh:condition [ sh:property [ sh:maxCount 0 ;
+                    sh:path cast:hasProtocolNumber ] ] ;
+    sh:construct """
+    CONSTRUCT {
+      $this :hasProtocolNumber ?hasProtocolNumber .
+    }
+    WHERE {
+      {
+        SELECT (COALESCE(MAX(?hasProtocolNumberOther), 0) AS ?hasProtocolNumberMax)
+        WHERE {
+          ?protocolOther a :Cast .
+          ?protocolOther :hasProtocolNumber ?hasProtocolNumberOther
+        }
+      }
+      BIND(?hasProtocolNumberMax + 1 AS ?hasProtocolNumber)
+    }
+  """ ;
+    sh:prefixes cast: .
+
+cast:CastShape_hpAlloy a sh:PropertyShape ;
+    sh:datatype xsd:boolean ;
+    sh:group cast:CastShape_miscellaneousPropertiesGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:hpAlloy .
+
+cast:CastShape_mainAlloyingElement a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mb:AlloyingElement ;
+    sh:group cast:CastShape_mainAlloyingElementGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "Legierungselemente"@de,
+        "alloying element"@en ;
+    sh:order 0 ;
+    sh:path cast:mainAlloyingElement .
+
+cast:CastShape_mainAlloyingElementAmount a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:group cast:CastShape_mainAlloyingElementGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "Menge"@de,
+        "amount"@en ;
+    sh:node shared:Decimal_KiloGM ;
+    sh:order 1 ;
+    sh:path cast:mainAlloyingElementAmount .
+
+cast:CastShape_material a sh:PropertyShape ;
+    dash:editor dash:DetailsEditor ;
+    dash:viewer dash:ValueTableViewer ;
+    hash:detailsEditorOrderPath cast:position ;
+    sh:class cast:CastMaterial ;
+    sh:group cast:CastShape_castTypeAndIngotsGroup ;
+    sh:minCount 1 ;
+    sh:node cast:MaterialShape ;
+    sh:order 1 ;
+    sh:path cast:material .
+
+cast:CastShape_meltTemperature a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:group cast:CastShape_temperaturesGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "melt"@en ;
+    sh:node shared:Integer_DEG_C ;
+    sh:order 1 ;
+    sh:path cast:meltTemperature .
+
+cast:CastShape_miscellaneousGroup a sh:PropertyGroup ;
+    rdfs:label "Sonstiges"@de,
+        "miscellaneous"@en ;
+    sh:order 4 .
+
+cast:CastShape_mouldReleaseAgent a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 1 ;
+    sh:path cast:mouldReleaseAgent .
+
+cast:CastShape_mouldTemperature a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:group cast:CastShape_temperaturesGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "mould"@en ;
+    sh:node shared:Integer_DEG_C ;
+    sh:order 0 ;
+    sh:path cast:mouldTemperature .
+
+cast:CastShape_pouringTemperature a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:group cast:CastShape_temperaturesGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:name "pouring"@en ;
+    sh:node shared:Integer_DEG_C ;
+    sh:order 2 ;
+    sh:path cast:pouringTemperature .
+
+cast:CastShape_shieldingGas a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:order 2 ;
+    sh:path cast:shieldingGas .
+
+cast:CastShape_stirring a sh:PropertyShape ;
+    dash:editor dash:DetailsEditor ;
+    sh:class cast:Stirring ;
+    sh:group cast:CastShape_stirringGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:node cast:StirringShape ;
+    sh:order 0 ;
+    sh:path cast:stirring .
+
+cast:CastShape_stirringGroup a sh:PropertyGroup ;
+    rdfs:label "Rühren"@de,
+        "stirring"@en ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:order 4 .
+
+cast:CastShape_ultrasound a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:order 3 ;
+    sh:path cast:ultrasound .
+
+cast:ComponentShape a sh:NodeShape ;
+    sh:class cast:Component ;
+    sh:property cast:ComponentShape_alloyingElement,
+        cast:ComponentShape_amount,
+        cast:ComponentShape_nominal .
+
+cast:ComponentShape_alloyingElement a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mb:AlloyingElement ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:alloyingElement .
+
+cast:ComponentShape_amount a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:node shared:Decimal_KiloGM ;
+    sh:order 2 ;
+    sh:path cast:amount .
+
+cast:ComponentShape_labelRule a sh:SPARQLRule ;
+    hash:import cast:AlloyingElementImportShape ;
+    sh:condition [ sh:property [ sh:minCount 1 ;
+                    sh:path cast:alloyingElement ] ] ;
+    sh:construct """
+    CONSTRUCT {
+      $this rdfs:label ?label .
+    }
+    WHERE {
+      $this :alloyingElement / mb:hasAbbreviation ?label .
+    }
+  """ ;
+    sh:prefixes mb:,
+        cast:,
+        rdfs: .
+
+cast:ComponentShape_nominal a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node shared:Decimal_PERCENT ;
+    sh:order 1 ;
+    sh:path cast:nominal .
+
+cast:CoolingAirShape a sh:NodeShape ;
+    sh:class cast:CoolingAir .
+
+cast:CoolingCustomShape a sh:NodeShape ;
+    sh:class cast:CoolingCustom ;
+    sh:property cast:CoolingCustomShape_coolingMethod .
+
+cast:CoolingCustomShape_coolingMethod a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:coolingMethod .
+
+cast:CoolingShape a sh:NodeShape ;
+    sh:class cast:Cooling ;
+    sh:or ( cast:CoolingWaterShape cast:CoolingAirShape cast:CoolingCustomShape ) .
+
+cast:CoolingWaterShape a sh:NodeShape ;
+    sh:class cast:CoolingWater ;
+    sh:property cast:CoolingWaterShape_holdingTime,
+        cast:CoolingWaterShape_immersionSpeed .
+
+cast:CoolingWaterShape_holdingTime a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node shared:Integer_MIN ;
+    sh:order 0 ;
+    sh:path cast:holdingTime .
+
+cast:CoolingWaterShape_immersionSpeed a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node shared:Integer_MilliM-PER-MIN ;
+    sh:order 1 ;
+    sh:path cast:immersionSpeed .
+
+cast:MaterialImportShape a sh:NodeShape ;
+    sh:class herbie:Material ;
+    sh:property [ sh:path herbie:hasPublicId ] .
+
+cast:MaterialShape a sh:NodeShape ;
+    sh:class cast:CastMaterial ;
+    sh:property cast:MaterialShape_comment,
+        cast:MaterialShape_hasPublicId,
+        cast:MaterialShape_mould,
+        cast:MaterialShape_quality .
+
+cast:MaterialShape_comment a sh:PropertyShape ;
+    dash:singleLine false ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:order 3 ;
+    sh:path cast:comment .
+
+cast:MaterialShape_hasPublicId a sh:PropertyShape ;
+    hash:generated true ;
+    hash:persisted true ;
+    hash:readonly true ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path herbie:hasPublicId .
+
+cast:MaterialShape_hasPublicIdRule a sh:SPARQLRule ;
+    hash:import cast:MaterialImportShape ;
+    hash:persist true ;
+    sh:condition [ sh:property [ sh:minCount 1 ;
+                    sh:path cast:position ],
+                [ sh:maxCount 0 ;
+                    sh:path herbie:hasPublicId ],
+                [ sh:minCount 1 ;
+                    sh:path ( [ sh:inversePath cast:material ] herbie:isPerformedOn ) ] ] ;
+    sh:construct """
+    CONSTRUCT {
+      $this herbie:hasPublicId ?hasPublicId .
+    }
+    WHERE {
+      $this :position ?position .
+      $this ^:material ?cast .
+      ?cast herbie:isPerformedOn ?performedOn .
+      {
+        SELECT (COALESCE(MAX(?indexOther), 0) AS ?indexMaximum)
+        WHERE {
+          ?materialOther a :CastMaterial .
+          ?materialOther herbie:hasPublicId ?labelOther .
+          BIND(xsd:integer(REPLACE(SUBSTR(?labelOther, 3), "^0*", "")) AS ?indexOther)
+          FILTER NOT EXISTS {
+            ?cast :material ?materialOther
+          }
+        }
+      }
+      BIND(xsd:integer(?position) + ?indexMaximum AS ?index)
+      BIND(STR(?index) AS ?indexString)
+      BIND(STRLEN(STR(?indexString)) AS ?indexLength)
+      BIND(SUBSTR(STR(YEAR(?performedOn)), 3) AS ?prefix)
+      BIND(SUBSTR(CONCAT("000", STR(?indexString)), ?indexLength) AS ?indexPadded)
+      BIND(CONCAT(?prefix, ?indexPadded) AS ?hasPublicId)
+    }
+  """ ;
+    sh:prefixes herbie:,
+        cast:,
+        rdfs: .
+
+cast:MaterialShape_labelRule a sh:SPARQLRule ;
+    sh:condition [ sh:property [ sh:minCount 1 ;
+                    sh:path herbie:hasPublicId ] ] ;
+    sh:construct """
+    CONSTRUCT {
+      $this rdfs:label ?label .
+    }
+    WHERE {
+      $this herbie:hasPublicId ?label .
+    }
+  """ ;
+    sh:prefixes herbie:,
+        rdfs: .
+
+cast:MaterialShape_mould a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mb:Mould ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 1 ;
+    sh:path cast:mould .
+
+cast:MaterialShape_quality a sh:PropertyShape ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 2 ;
+    sh:path cast:quality .
+
+cast:StirringCustomShape a sh:NodeShape ;
+    sh:class cast:StirringCustom ;
+    sh:property cast:StirringCustomShape_stirringMethod .
+
+cast:StirringCustomShape_stirringMethod a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:stirringMethod .
+
+cast:StirringManualShape a sh:NodeShape ;
+    sh:class cast:StirringManual .
+
+cast:StirringShape a sh:NodeShape ;
+    sh:class cast:Stirring ;
+    sh:or ( cast:StirringWithToolShape cast:StirringManualShape cast:StirringCustomShape ) .
+
+cast:StirringWithToolShape a sh:NodeShape ;
+    sh:class cast:StirringWithTool ;
+    sh:property cast:StirringWithToolShape_rotationalSpeed,
+        cast:StirringWithToolShape_stirringTime,
+        cast:StirringWithToolShape_stirringTool .
+
+cast:StirringWithToolShape_rotationalSpeed a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node shared:Integer_REV-PER-MIN ;
+    sh:order 2 ;
+    sh:path cast:rotationalSpeed .
+
+cast:StirringWithToolShape_stirringTime a sh:PropertyShape ;
+    sh:class qudt:Quantity ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node shared:Integer_MIN ;
+    sh:order 1 ;
+    sh:path cast:stirringTime .
+
+cast:StirringWithToolShape_stirringTool a sh:PropertyShape ;
+    dash:editor dash:InstancesSelectEditor ;
+    sh:class mbf:StirringTool ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 0 ;
+    sh:path cast:stirringTool .
+
+cast:alloyName a rdf:Property ;
+    rdfs:label "Legierungsbezeichnung"@de,
+        "alloy name"@en ;
+    rdfs:comment "Name of the alloy generated in a standardized way by combining the abbreviations and amount of the added alloying elements."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:alloyNameCustom a rdf:Property ;
+    rdfs:label "Andere Legierungsbezeichnung"@de,
+        "custom alloy name"@en ;
+    rdfs:comment "Custom name for alloy that is used by individuals or the selling company."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:ambientHumidity a rdf:Property ;
+    rdfs:label "Relative Luftfeuchtigkeit der Umgebung"@de,
+        "ambient humidity"@en ;
+    rdfs:comment "The humidity of the surrounding air can influence the properties of the casting process."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:ambientTemperature a rdf:Property ;
+    rdfs:label "Umgebungstemperatur"@de,
+        "ambient temperature"@en ;
+    rdfs:comment "The temperature of the surrounding air can influence the properties of the casting process."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:amount a rdf:Property ;
+    rdfs:label "Menge"@de,
+        "amount"@en ;
+    rdfs:comment "Weight of added alloying elements."@en ;
+    rdfs:domain cast:Component ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:castingMethod a rdf:Property ;
+    rdfs:label "Gießverfahren"@de,
+        "casting method"@en ;
+    rdfs:comment "Classification of casting process regarding the used moulds, furnace, cooling methods and process parameters."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mbf:CastingMethod .
+
+cast:ceramicCoarse a cast:FilterType .
+
+cast:component a rdf:Property ;
+    rdfs:label "weiterer Legierungsbestandteil"@de,
+        "other alloy component"@en ;
+    rdfs:comment "Piece of powder of a material, usually an alloying element, that is mixed into the melt to create an alloy."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range cast:Component ;
+    rdfs:subPropertyOf prov:used,
+        pmd:input .
+
+cast:cooling a rdf:Property ;
+    rdfs:label "Kühlung"@de,
+        "cooling"@en ;
+    rdfs:comment "Cooling the cast ingots effects the microstructure and physical properties of the resulting material."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range cast:Cooling .
+
+cast:coolingMethod a rdf:Property ;
+    rdfs:label "Kühlmethode"@de,
+        "cooling method"@en ;
+    rdfs:comment "Method of cooling."@en ;
+    rdfs:domain cast:CoolingCustom ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:filterType a rdf:Property ;
+    rdfs:label "Filterart"@de,
+        "filter type"@en ;
+    rdfs:comment "Material and fineness of used filter."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mbf:FilterType .
+
+cast:furnace a rdf:Property ;
+    rdfs:label "Ofen"@de,
+        "furnace"@en ;
+    rdfs:comment "In a casting furnace, one or more alloying elements are heated and molten into liquid state. From the furnace, the melt is poured into casting moulds."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mb:FurnaceCasting ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
+
+cast:grainRefinement a rdf:Property ;
+    rdfs:label "Kornfeinung"@de,
+        "grain refinement"@en ;
+    rdfs:comment "There are possibilities to make the microstructure grains smaller, which can described in free text."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:holdingTime a rdf:Property ;
+    rdfs:label "Haltezeit"@de,
+        "holding time"@en ;
+    rdfs:comment "After pouring the melt into the moulds, the moulds are left to sit for some time so that everything can settle properly before cooling."@en ;
+    rdfs:domain cast:CoolingWater ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:hpAlloy a rdf:Property ;
+    rdfs:label "Hochreine Legierung"@de,
+        "HP alloy"@en ;
+    rdfs:comment "High purity of used Magnesium: Not unambiguously defined in literature and producing companies, but for Hereon we use contamination limits of Mg > 99,8 wt%, Fe <0,0050 wt%, Cu <0,0020 wt%, and Ni <0,0010 wt%."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:boolean .
+
+cast:immersionSpeed a rdf:Property ;
+    rdfs:label "Absenkgeschwindigkeit"@de,
+        "immersion speed"@en ;
+    rdfs:comment "Speed of lowering the moulds with melt inside into water for cooling."@en ;
+    rdfs:domain cast:CoolingWater ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:mainAlloyingElementAmount a rdf:Property ;
+    rdfs:label "Menge des Hauptlegierungselements"@de,
+        "amount of main alloying element"@en ;
+    rdfs:comment "Weight of main alloying elements."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity ;
+    rdfs:subPropertyOf pmd:input .
+
+cast:meltTemperature a rdf:Property ;
+    rdfs:label "Schmelzbadtemperatur"@de,
+        "melt temperature"@en ;
+    rdfs:comment "Temperature of melt inside furnace during mixing and creation of alloy."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:mould a rdf:Property ;
+    rdfs:label "Gussform"@de,
+        "mould"@en ;
+    rdfs:comment "Container in certain shape and material in which the melt is poured to adapt the shape after cooling."@en ;
+    rdfs:domain cast:CastMaterial ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mb:Mould .
+
+cast:mouldReleaseAgent a rdf:Property ;
+    rdfs:label "Trennmittel"@de,
+        "mould release agent"@en ;
+    rdfs:comment "The inside of the moulds is usually covered with an extra layer that helps getting the ingot out."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:mouldTemperature a rdf:Property ;
+    rdfs:label "Formtemperatur"@de,
+        "mould temperature"@en ;
+    rdfs:comment "Temperature of moulds before puring melt into them. This is relevant for the solidification behaviour and safety (cold moulds contain water which can explosively be transformed to hydrogen when liquid Magnesium is inserted)."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:nominal a rdf:Property ;
+    rdfs:label "Nominal"@de,
+        "nominal"@en ;
+    rdfs:comment "Desired weight percentage of alloying element in final alloy."@en ;
+    rdfs:domain cast:Component ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:permanentMouldCasting a cast:CastingMethod .
+
+cast:pouringTemperature a rdf:Property ;
+    rdfs:label "Gießtemperatur"@de,
+        "pouring temperature"@en ;
+    rdfs:comment "Right before pouring the melt into the moulds, the furnace temperature (and therefore the melt temperature) can be increased or decreased for safety or microstructure properties."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:quality a rdf:Property ;
+    rdfs:label "Qualität"@de,
+        "quality"@en ;
+    rdfs:comment "Selection of 'ok' and 'has issues' for simple kind of quality control. Ingots can be handled accordingly with extra care or they are disposed of."@en ;
+    rdfs:domain cast:CastMaterial ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:boolean .
+
+cast:rotationalSpeed a rdf:Property ;
+    rdfs:label "Drehzahl"@de,
+        "rotational speed"@en ;
+    rdfs:comment "Number of rotations per minute of stirring tool."@en ;
+    rdfs:domain cast:StirringWithTool ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:shieldingGas a rdf:Property ;
+    rdfs:label "Schutzgas"@de,
+        "shielding gas"@en ;
+    rdfs:comment "Gas (e.g. argon) usually is blown at the melt surface to avoid (dangerous) reactions between the melt and oxygen."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:stirring a rdf:Property ;
+    rdfs:label "Rühren"@de,
+        "stirring"@en ;
+    rdfs:comment "Melt can be stirred to make it more homogeneous."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range cast:Stirring .
+
+cast:stirringMethod a rdf:Property ;
+    rdfs:label "Rührmethode"@de,
+        "stirring method"@en ;
+    rdfs:comment "Method of stirring."@en ;
+    rdfs:domain cast:StirringCustom ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:stirringTime a rdf:Property ;
+    rdfs:label "Rührdauer"@de,
+        "stirring time"@en ;
+    rdfs:comment "Time of activated stirring tool."@en ;
+    rdfs:domain cast:StirringWithTool ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range qudt:Quantity .
+
+cast:stirringTool a rdf:Property ;
+    rdfs:label "Rühwerk"@de,
+        "stirring tool"@en ;
+    rdfs:comment "Device used for stirring the melt in the furnace for more homogeneous distribution of components."@en ;
+    rdfs:domain cast:StirringWithTool ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mbf:StirringTool .
+
+cast:ultrasound a rdf:Property ;
+    rdfs:label "Ultraschall"@de,
+        "ultrasound"@en ;
+    rdfs:comment "Directing ultrasound waves to the melt can influence the microstructure."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+qudt:QuantityKind a owl:Class .
+
+qudt:QuantityValue a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom qudt:Unit ;
+            owl:onProperty qudt:unit ] .
+
+qudt:Unit a owl:Class .
+
+qudt:hasQuantityKind a owl:ObjectProperty .
+
+qudt:quantityValue a owl:ObjectProperty .
+
+qudt:unit a owl:ObjectProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+prov:Location a owl:Class .
+
+prov:SoftwareAgent a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:endedAtTime a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "beendet um"@de,
+        "ended at"@en ;
+    rdfs:comment "Time at which process has ended."@en .
+
+prov:generated a owl:ObjectProperty ;
+    owl:inverseOf prov:wasGeneratedBy .
+
+prov:startedAtTime a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "gestartet um"@de,
+        "started at"@en ;
+    rdfs:comment "Time at which process has been started."@en .
+
+prov:used a owl:ObjectProperty .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
+
+prov:wasInformedBy a owl:ObjectProperty .
+
+prima_core:hasDataAnalysisLifeCycle a owl:ObjectProperty ;
+    rdfs:label "has data analysis life cycle"@en ;
+    rdfs:comment "hasDataAnalysisLifecycle represents the relationship between study to data analysis life cycle"@en ;
+    rdfs:range prima_core:DataAnalysisLifecycle .
+
+prima_core:hasStudy a owl:ObjectProperty ;
+    rdfs:label "has study"@en ;
+    rdfs:comment "hasStudy represents the relationship between project to study."@en ;
+    rdfs:domain prima_core:Project ;
+    rdfs:range prima_core:Study .
+
+prima_core:operates a owl:ObjectProperty ;
+    rdfs:label "operates"@en ;
+    rdfs:comment "operates represents the relationship between equipment to research user"@en ;
+    rdfs:domain prima_core:ResearchUser ;
+    rdfs:range prima_core:Equipment .
+
+prima_core:performsAgentRole a owl:ObjectProperty ;
+    rdfs:label "performs agent role"@en ;
+    rdfs:comment "performsAgentRole relates prov:Agent with AgentRole"@en ;
+    rdfs:domain prov:Agent ;
+    rdfs:range prima_core:AgentRole .
+
+prima_core:usesResearchSoftware a owl:ObjectProperty ;
+    rdfs:label "uses research software"@en ;
+    rdfs:comment "usesResearchSoftware represents the relationship between data analysis lifecycle to research software"@en ;
+    rdfs:domain prima_core:DataAnalysisLifecycle ;
+    rdfs:range prima_core:ResearchSoftware .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#RawData> a owl:Class ;
+    rdfs:subClassOf prima_core:ResearchData .
+
+exper:carries a owl:ObjectProperty ;
+    rdfs:label "carries"@en ;
+    rdfs:comment "carries represents the relationship between sample carrier to sample."@en ;
+    rdfs:domain exper:SampleCarrier ;
+    rdfs:range exper:Sample ;
+    owl:inverseOf exper:isCarriedBy .
+
+exper:hasFabrication a owl:ObjectProperty ;
+    rdfs:label "has fabrication"@en ;
+    rdfs:comment "hasFabrication represents the relationship between study to fabrication activity."@en ;
+    rdfs:domain prima_core:Study ;
+    rdfs:range exper:Fabrication .
+
+exper:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "has measurement"@en ;
+    rdfs:comment "hasMeasurement represents the relationship between experiment to measurement."@en ;
+    rdfs:range exper:Measurement ;
+    rdfs:subPropertyOf prima_core:hasDataAcquisition ;
+    owl:inverseOf exper:isMeasurementOf .
+
+exper:hasSampleComponent a owl:ObjectProperty ;
+    rdfs:label "has sample component"@en ;
+    rdfs:comment "hasSampleComponent represents the relationship between sample to sample component"@en ;
+    rdfs:domain exper:Sample ;
+    rdfs:range exper:SampleComponent ;
+    owl:inverseOf exper:isSampleComponentOf .
+
+exper:hasSamplePreparation a owl:ObjectProperty ;
+    rdfs:label "has sample preparation"@en ;
+    rdfs:comment "hasSamplePreparation represents the relationship between study to sample preparation activity."@en ;
+    rdfs:domain prima_core:Study ;
+    rdfs:range exper:SamplePreparation .
+
+exper:holds a owl:ObjectProperty ;
+    rdfs:label "holds"@en ;
+    rdfs:comment "holds represents the relationship between sample carrier to sample holder."@en ;
+    rdfs:domain exper:SampleCarrier ;
+    rdfs:range exper:SampleHolder ;
+    owl:inverseOf exper:isHeldBy .
+
+exper:hosts a owl:ObjectProperty ;
+    rdfs:label "hosts"@en ;
+    rdfs:comment "hosts represents the relationship between institution to laboratory."@en ;
+    rdfs:domain exper:Institution ;
+    rdfs:range exper:Laboratory .
+
+exper:isMeasurementOf a owl:ObjectProperty ;
+    rdfs:label "is measurement of"@en ;
+    rdfs:comment "isMeasurementOf is the inverse property of hasMeasurement."@en .
+
+pmd:characteristicOf a owl:ObjectProperty .
+
+pmd:inputOf a owl:ObjectProperty .
+
+pmd:nextProcess a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range pmd:Process ;
+    rdfs:subPropertyOf prov:wasInformedBy ;
+    owl:inverseOf pmd:previousProcess .
+
+pmd:outputOf a owl:ObjectProperty .
+
+pmd:participantOf a owl:ObjectProperty .
+
+pmd:previousProcess a owl:ObjectProperty .
+
+pmd:subordinateProcess a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range pmd:Process .
+
+<http://herbie.example.org/api/moulds/1/> a mb:Mould .
+
+<http://nfdi.fiz-karlsruhe.de/ontology/Specification> a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+herbie:isPerformedOn a rdf:Property ;
+    rdfs:label "durchgeführt am"@de,
+        "performed on"@en ;
+    rdfs:comment "Date on which process has been performed on."@en ;
+    rdfs:isDefinedBy herbie: .
+
+cast:AlloyingElementImportShape a sh:NodeShape ;
+    sh:class mb:AlloyingElement ;
+    sh:property [ sh:path mb:hasAbbreviation ] .
+
+cast:CastShape_ambientParametersGroup a sh:PropertyGroup ;
+    rdfs:label "Umgebung"@de,
+        "ambient parameters"@en ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:order 7 .
+
+cast:CastShape_castTypeAndIngotsGroup a sh:PropertyGroup ;
+    rdfs:label "Gussart und Barren"@de,
+        "cast type and ingots"@en ;
+    sh:order 0 .
+
+cast:CastShape_mainAlloyingElementGroup a sh:PropertyGroup ;
+    rdfs:label "Hauptlegierungselement"@de,
+        "main alloying element"@en ;
+    sh:group cast:CastShape_alloyingElementsGroup ;
+    sh:order 2 .
+
+cast:CastShape_miscellaneousPropertiesGroup a sh:PropertyGroup ;
+    rdfs:label "Sonstige Eigenschaften"@de,
+        "miscellaneous properties"@en ;
+    sh:group cast:CastShape_alloyingElementsGroup ;
+    sh:order 4 .
+
+cast:alloyingElement a rdf:Property ;
+    rdfs:label "Legierungselement"@de,
+        "alloying element"@en ;
+    rdfs:comment "Alloying element that is mixed with other alloying elements to create an alloy."@en ;
+    rdfs:domain cast:Component ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mb:AlloyingElement .
+
+cast:comment a rdf:Property ;
+    rdfs:label "Kommentar"@de,
+        "comment"@en ;
+    rdfs:comment "Additional comments to casting process."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:string .
+
+cast:mainAlloyingElement a rdf:Property ;
+    rdfs:label "Hauptlegierungselement"@de,
+        "main alloying element"@en ;
+    rdfs:comment "Main alloying element that is mixed with other alloying elements to create an alloy."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range mb:AlloyingElement ;
+    rdfs:subPropertyOf pmd:input .
+
+cast:material a rdf:Property ;
+    rdfs:label "Material"@de,
+        "material"@en ;
+    rdfs:comment "Each cast ingot is an individual material with a unique identifier."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range cast:CastMaterial ;
+    rdfs:subPropertyOf prov:generated,
+        pmd:output .
+
+cast:position a rdf:Property ;
+    rdfs:label "Position"@de,
+        "position"@en ;
+    rdfs:comment "Order of materials cast within this process."@en ;
+    rdfs:domain cast:CastMaterial ;
+    rdfs:isDefinedBy castCurrent: ;
+    rdfs:range xsd:integer .
+
+prov:Activity a owl:Class .
+
+prov:Organization a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+
+prima_core:Project a owl:Class ;
+    rdfs:comment "Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:hasStudy ;
+            owl:someValuesFrom prima_core:Study ],
+        prov:Entity ;
+    prima_core:MDMCNEPGlossaryDefinition "Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies."@en .
+
+prima_core:hasSetting a owl:ObjectProperty ;
+    rdfs:label "has setting"@en ;
+    rdfs:comment "hasSetting represents the relationship between equipment or research software to setting"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prima_core:Equipment prima_core:ResearchSoftware ) ] ;
+    rdfs:range prima_core:Setting .
+
+prima_core:hasTechnique a owl:ObjectProperty ;
+    rdfs:label "has technique"@en ;
+    rdfs:comment "hasTechnique represents the relationship between data acquisition or data analysis lifecycle to technique"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prima_core:DataAcquisition prima_core:DataAnalysisLifecycle ) ] ;
+    rdfs:range prima_core:Technique .
+
+exper:Input a owl:Class ;
+    rdfs:comment "Physical System (typically a piece of material) which undergoes a Fabrication." ;
+    rdfs:subClassOf prima_core:System ;
+    prima_core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which undergoes a Fabrication." .
+
+exper:Institution a owl:Class ;
+    rdfs:comment "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty exper:hosts ;
+            owl:someValuesFrom exper:Laboratory ],
+        prov:Organization ;
+    prima_core:MDMCNEPGlossaryDefinition "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en .
+
+exper:SampleHolder a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty exper:isHeldBy ;
+            owl:someValuesFrom exper:SampleCarrier ],
+        prima_core:Equipment ;
+    prima_core:MDMCNEPGlossaryDefinition "A piece of equipment that makes one or more samples accessible for a measurement, or holds them in place in the predefined position to be mounted inside the instrument (e.g., glass slide, TEM grid, tilting support). Sample holder(s) may be carried by a sample carrier."@en .
+
+exper:SamplePreparation a owl:Class ;
+    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima_core:usesEquipment ;
+            owl:someValuesFrom prima_core:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:usesEquipment ;
+            owl:someValuesFrom prima_core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom exper:Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom exper:Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Precursor ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Consumable ],
+        pmd:Process ;
+    prima_core:MDMCNEPGlossaryDefinition "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, performed on (or between) one or more Precursor(s) or Sample(s) to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement under controlled conditions described by Settings. Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s). The output of Sample Preparation is one or more Samples."@en .
+
+exper:isCarriedBy a owl:ObjectProperty ;
+    rdfs:label "is carried by"@en ;
+    rdfs:comment "isCarriedBy is the inverse property of carries."@en .
+
+exper:isHeldBy a owl:ObjectProperty ;
+    rdfs:label "is held by"@en ;
+    rdfs:comment "isHeldBy is the inverse property of holds."@en .
+
+exper:isSampleComponentOf a owl:ObjectProperty ;
+    rdfs:label "is sample component of"@en ;
+    rdfs:comment "isSampleComponentOf is the inverse property of hasSampleComponent."@en ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+pmd:DigitalEntity a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+pmd:characteristic a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( pmd:Object pmd:Process pmd:ValueObject ) ] ;
+    rdfs:range pmd:ValueObject ;
+    owl:inverseOf pmd:characteristicOf .
+
+pmd:participant a owl:ObjectProperty ;
+    rdfs:domain pmd:Process ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( pmd:DigitalEntity pmd:Object pmd:ValueObject ) ] ;
+    owl:inverseOf pmd:participantOf .
+
+cast:CastShape_temperaturesGroup a sh:PropertyGroup ;
+    rdfs:label "Temperaturen"@de,
+        "temperatures"@en ;
+    sh:group cast:CastShape_parametersGroup ;
+    sh:order 6 .
+
+cast:hasProtocolNumber a rdf:Property ;
+    rdfs:label "Protokollnummer"@de,
+        "protocol number"@en ;
+    rdfs:comment "Running number of all casting protocols."@en ;
+    rdfs:domain cast:Cast ;
+    rdfs:isDefinedBy castCurrent: .
+
+prov:atLocation a owl:ObjectProperty .
+
+prov:wasAttributedTo a owl:ObjectProperty .
+
+prima_core:AgentRole a owl:Class .
+
+prima_core:Instrument a owl:Class ;
+    rdfs:comment "Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data."@en,
+        "Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data."@en ;
+    rdfs:subClassOf prima_core:Equipment ;
+    prima_core:MDMCNEPGlossaryDefinition "Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement)."@en,
+        "Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a Laboratory hosted by an Institution and/or can be virtually or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations."@en .
+
+prima_core:ResearchSoftware a owl:Class ;
+    rdfs:comment "Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima_core:hasSetting ;
+            owl:someValuesFrom prima_core:Setting ],
+        prov:SoftwareAgent ;
+    prima_core:MDMCNEPGlossaryDefinition "Any software used to process, analyze or visualize Research Data (including data rendering and/or plotting). Depending on the research context, Research Software can be used during Model Preparation, Data Processing, Data Analysis or Data Interpretation. Any software used during Fabrication, Sample Preparation or Data Acquisition is considered part of the Instrument and should be described as such."@en .
+
+prima_core:Setting a owl:Class ;
+    rdfs:comment "Set of configuration parameters which may be involved, for example, in a data acquisition (e.g., settings of the instrument), in any of the processes included in the data analysis lifecycle (e.g., settings of the research software), or to describe a model (e.g., by specifying the type of solver used)."@en ;
+    rdfs:subClassOf <http://nfdi.fiz-karlsruhe.de/ontology/Specification> ;
+    prima_core:MDMCNEPGlossaryDefinition "Set of configuration parameters which may be involved, for example, in a Data Acquisition (e.g., Settings of the Instrument), in any of the processes included in the Data Analysis Lifecycle (e.g., Settings of the Research Software), or to describe a Model (e.g., by specifying the type of solver used)."@en .
+
+prima_core:Technique a owl:Class ;
+    rdfs:comment "Any experimental, theoretical or computational method used during data acquisition or during any of the processes included in the data analysis lifecycle to acquire, process or analyze research data about a system or a set of them with an instrument."@en ;
+    rdfs:subClassOf <http://nfdi.fiz-karlsruhe.de/ontology/Specification> ;
+    prima_core:MDMCNEPGlossaryDefinition "Any experimental, theoretical or computational method used during Data Acquisition or during any of the processes included in the Data Analysis Lifecycle to acquire, process or analyze Research Data about a System or a set of them with an Instrument."@en .
+
+prima_core:hasDataAcquisition a owl:ObjectProperty ;
+    rdfs:label "has data acquisition"@en ;
+    rdfs:comment "hasDataAcquisition represents the relationship between study to data acquisition"@en ;
+    rdfs:range prima_core:DataAcquisition .
+
+exper:Consumable a owl:Class ;
+    rdfs:comment "Auxiliary entity used during fabrication, sample preparation or measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."@en ;
+    rdfs:subClassOf prima_core:System ;
+    prima_core:MDMCNEPGlossaryDefinition "Auxiliary entity used during Fabrication, Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."@en .
+
+exper:Measurement a owl:Class ;
+    rdfs:comment "Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Sample ],
+        [ a owl:Restriction ;
+            owl:onClass prima_core:Instrument ;
+            owl:onProperty prima_core:usesEquipment ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom exper:Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Consumable ],
+        prima_core:DataAcquisition ;
+    prima_core:MDMCNEPGlossaryDefinition "Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables."@en .
+
+exper:SampleComponent a owl:Class ;
+    rdfs:comment "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty exper:isSampleComponentOf ;
+            owl:someValuesFrom exper:Sample ],
+        prima_core:System ;
+    prima_core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."@en .
+
+<http://herbie.example.org/api/authors/10/> a mb:Author,
+        mb:Clerk,
+        mb:Client ;
+    rdfs:label "Fabian Kirchner" .
+
+herbie:hasPublicId a rdf:Property ;
+    rdfs:label "Material ID"@de,
+        "material ID"@en ;
+    rdfs:comment "The unique identifier of a material is automatically generated within Herbie depending on the manufacturing process."@en ;
+    rdfs:domain herbie:Material ;
+    rdfs:isDefinedBy herbie: ;
+    rdfs:range xsd:string .
+
+prima_core:DataAnalysisLifecycle a owl:Class ;
+    rdfs:comment "Set of processes carried out by one or more research users, performed on research data using one or more techniques and/or research software in order to produce synthesized knowledge (e.g., to detect patterns, determine relationships, develop explanations, test hypotheses and/or prove theories) and to eventually suggest the conclusions of a study."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima_core:hasTechnique ;
+            owl:someValuesFrom prima_core:Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima_core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:usesResearchSoftware ;
+            owl:someValuesFrom prima_core:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima_core:ResearchData ],
+        pmd:Process ;
+    prima_core:MDMCNEPGlossaryDefinition "Set of processes carried out by one or more Research Users, performed on Research Data using one or more Techniques and/or Research Software in order to produce synthesized knowledge (e.g., to detect patterns, determine relationships, develop explanations, test hypotheses and/or prove theories) and to eventually suggest the Conclusions of a Study. Data Analysis Lifecycle includes (but is not limited to): Data Processing, Data Analysis and Data Interpretation. These processes may be iterative and may be combined in chains or workflows."@en .
+
+prima_core:Study a owl:Class ;
+    rdfs:comment "Study is a set of one or more experiments and corresponding data analysis lifecycle performed by one or more research users who are part of the same project." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty exper:hasMeasurement ;
+            owl:someValuesFrom exper:Measurement ],
+        [ a owl:Restriction ;
+            owl:onProperty exper:hasSamplePreparation ;
+            owl:someValuesFrom exper:SamplePreparation ],
+        [ a owl:Restriction ;
+            owl:onProperty exper:hasFabrication ;
+            owl:someValuesFrom exper:Fabrication ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:hasDataAcquisition ;
+            owl:someValuesFrom prima_core:DataAcquisition ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:hasDataAnalysisLifeCycle ;
+            owl:someValuesFrom prima_core:DataAnalysisLifecycle ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        prov:Entity ;
+    prima_core:MDMCNEPGlossaryDefinition "Set of all the processes and activities performed by one or more research users, who are part of the same project, with the purpose of verifying, falsifying or establishing the validity of a hypothesis and supporting the answer to some scientific research question (i.e., Conclusions). The output of a study is usually reported in one or more scientific publications and may be supplemented by publication data."@en .
+
+exper:Fabrication a owl:Class ;
+    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima_core:hasDataAcquisition ;
+            owl:someValuesFrom prima_core:DataAcquisition ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom exper:Input ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:usesEquipment ;
+            owl:someValuesFrom prima_core:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:usesEquipment ;
+            owl:someValuesFrom prima_core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom exper:Precursor ],
+        pmd:Process ;
+    prima_core:MDMCNEPGlossaryDefinition "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Data Acquisition may be performed during the Fabrication, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s). The output of Fabrication is one or more Precursors."@en .
+
+exper:Precursor a owl:Class ;
+    rdfs:comment "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom exper:Fabrication ],
+        prima_core:System ;
+    prima_core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which is formed or manufactured during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings and/or molecules. A single Precursor might itself become the only Sample Component of a Sample in case it undergoes a Measurement."@en .
+
+exper:SampleCarrier a owl:Class ;
+    rdfs:comment "Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty exper:holds ;
+            owl:someValuesFrom exper:SampleHolder ],
+        [ a owl:Restriction ;
+            owl:onProperty exper:carries ;
+            owl:someValuesFrom exper:Sample ],
+        prima_core:Equipment ;
+    prima_core:MDMCNEPGlossaryDefinition "A piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment. Sample carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame."@en .
+
+herbie:OrganizationalGroup a sh:PropertyGroup ;
+    rdfs:label "Organisatorisches"@de,
+        "organizational"@en ;
+    rdfs:comment "General information which is not specific to process."@en ;
+    sh:order -1 .
+
+cast: a owl:Ontology ;
+    rdfs:label "Guß-Ontologie"@de,
+        "Cast Ontology"@en ;
+    dcterms:creator "Catriona Eschke",
+        "Fabian Kirchner" ;
+    vann:preferredNamespacePrefix "cast" ;
+    rdfs:comment "This vocabulary defines all information recorded for a casting process when performed at the Institute of Metallic Biomaterials at Hereon."@en ;
+    owl:imports <http://purls.helmholtz-metadaten.de/herbie/core/1.0.0/>,
+        current:,
+        <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/1.0.0/>,
+        <http://purls.helmholtz-metadaten.de/herbie/mb/shared/1.0.0/> ;
+    owl:versionIRI castCurrent: ;
+    owl:versionInfo "1.0.0" .
+
+cast:CastShape_alloyingElementsGroup a sh:PropertyGroup ;
+    rdfs:label "Legierungselemente"@de,
+        "alloying elements"@en ;
+    sh:order 1 .
+
+prima_core:DataAcquisition a owl:Class ;
+    rdfs:comment "Set of actions carried out by one or more research users, performed on a system or a set of them to generate a single self-consistent unit of raw data using a technique, an instrument and other equipment under constant or varying controlled conditions described by setting(s), depending on the particular research context."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom prima_core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima_core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom prima_core:System ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:hasTechnique ;
+            owl:someValuesFrom prima_core:Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:usesEquipment ;
+            owl:someValuesFrom prima_core:Equipment ],
+        pmd:Process ;
+    prima_core:MDMCNEPGlossaryDefinition "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and other Equipment under constant or varying controlled conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data." .
+
+prima_core:ResearchData a owl:Class ;
+    rdfs:comment "Data collected, created or examined by one or more research users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom prima_core:ResearchUser ],
+        pmd:DigitalEntity ;
+    prima_core:MDMCNEPGlossaryDefinition "Data collected, created or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., Conclusions). Examples of Research Data include files containing the Settings of a Model, as well as any digital resource input or output of Data Acquisition, Data Processing or Data Analysis. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may be part of a Dataset."@en .
+
+exper:Laboratory a owl:Class ;
+    rdfs:comment "Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed."@en ;
+    rdfs:subClassOf prov:Location ;
+    prima_core:MDMCNEPGlossaryDefinition "Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments)."@en .
+
+pmd:ValueObject a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+prima_core:System a owl:Class ;
+    rdfs:comment "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional or others) which is the subject of one or more actions or investigations."@en ;
+    rdfs:subClassOf prov:Entity,
+        pmd:Object ;
+    prima_core:MDMCNEPGlossaryDefinition "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional or others) which is the subject of one or more actions or investigations. According to this definition, Input, Precursor, Sample, Sample Component, and Model are particular types of System."@en .
+
+prima_core:usesEquipment a owl:ObjectProperty ;
+    rdfs:label "uses equipment"@en ;
+    rdfs:comment "usesEquipment represents the relationship between data acquisition to equipment"@en ;
+    rdfs:range prima_core:Equipment .
+
+pmd:Object a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:characteristic ;
+            owl:someValuesFrom pmd:ValueObject ],
+        prov:Entity .
+
+pmd:output a owl:ObjectProperty ;
+    rdfs:subPropertyOf pmd:participant ;
+    owl:inverseOf pmd:outputOf .
+
+cast:CastShape_parametersGroup a sh:PropertyGroup ;
+    rdfs:label "Parameter"@de,
+        "parameters"@en ;
+    sh:order 3 .
+
+prov:wasAssociatedWith a owl:ObjectProperty .
+
+exper:Sample a owl:Class ;
+    rdfs:comment "Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty exper:hasSampleComponent ;
+            owl:someValuesFrom exper:SampleComponent ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom exper:Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty exper:isCarriedBy ;
+            owl:someValuesFrom exper:SampleCarrier ],
+        prima_core:System ;
+    prima_core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement."@en .
+
+prima_core:ResearchUser a owl:Class ;
+    rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prima_core:performsAgentRole ;
+            owl:someValuesFrom prima_core:AgentRole ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:operates ;
+            owl:someValuesFrom prima_core:Equipment ],
+        prov:Agent ;
+    prima_core:MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member)."@en,
+        "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, instrument scientist, project member)."@en .
+
+pmd:Process a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pmd:output ;
+            owl:someValuesFrom pmd:Object ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:subordinateProcess ;
+            owl:someValuesFrom pmd:Process ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:input ;
+            owl:someValuesFrom pmd:Object ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:characteristic ;
+            owl:someValuesFrom pmd:ValueObject ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:nextProcess ;
+            owl:someValuesFrom pmd:Process ],
+        prov:Activity .
+
+prov:Agent a owl:Class .
+
+pmd:input a owl:ObjectProperty ;
+    rdfs:subPropertyOf pmd:participant ;
+    owl:inverseOf pmd:inputOf .
+
+prima_core:Equipment a owl:Class ;
+    rdfs:comment "Any kind of physical or virtual item, device, machine or other tools used to perform one or more Fabrication(s), Sample Preparation(s), Model Preparation(s), Data Acquisition(s) and/or any of the processes included in the Data Analysis Lifecycle."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom exper:Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty prima_core:hasSetting ;
+            owl:someValuesFrom prima_core:Setting ],
+        prov:Agent ;
+    prima_core:MDMCNEPGlossaryDefinition "Any kind of physical or virtual item, device, machine or other tools used to perform one or more Fabrication(s), Sample Preparation(s), Model Preparation(s), Data Acquisition(s) and/or any of the processes included in the Data Analysis Lifecycle. Usually, the Equipment is located in a Laboratory hosted by an Institution and/or can be virtually or remotely accessed. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en .
+
+prov:Entity a owl:Class .
+
+mb: a owl:Ontology ;
+    rdfs:label "MB-Ontologie"@de,
+        "MB Ontology"@en ;
+    dcterms:creator "Catriona Eschke",
+        "Fabian Kirchner" ;
+    vann:preferredNamespacePrefix "mb" ;
+    rdfs:comment "This vocabulary defines all core terms used in Herbie for the Institute of Metallic Biomaterials at Hereon."@en ;
+    owl:imports <http://purls.helmholtz-metadaten.de/herbie/core/1.0.0/> ;
+    owl:versionIRI current: ;
+    owl:versionInfo "1.0.0" .
+
+herbie: a owl:Ontology ;
+    rdfs:label "Herbies Hauptontologie"@de,
+        "Herbie's Core Ontology"@en ;
+    dcterms:creator "Catriona Eschke",
+        "Fabian Kirchner" ;
+    vann:preferredNamespacePrefix "herbie" ;
+    rdfs:comment "This ontology defines all core terms used in Herbie, the electronic laboratory notebook and material database at Hereon."@en ;
+    rdfs:isDefinedBy herbie: ;
+    owl:versionIRI <http://purls.helmholtz-metadaten.de/herbie/core/1.0.0/> ;
+    owl:versionInfo "1.0.0" .
+
+qudt:Quantity a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom qudt:QuantityKind ;
+            owl:onProperty qudt:hasQuantityKind ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom qudt:QuantityValue ;
+            owl:onProperty qudt:quantityValue ] .
+
+[] a sh:NodeShape ;
+    sh:rule cast:MaterialShape_hasPublicIdRule,
+        cast:MaterialShape_labelRule ;
+    sh:targetClass cast:CastMaterial .
+
+[] a sh:NodeShape ;
+    sh:rule cast:ComponentShape_labelRule ;
+    sh:targetClass cast:Component .
+

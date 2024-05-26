@@ -43,25 +43,19 @@ core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
     owl:versionInfo "2.0"@en .
 
-:AnalysedData a owl:Class ;
-    rdfs:comment "Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software." ;
-    rdfs:subClassOf core:ResearchData ;
-    core:MDMCNEPGlossaryDefinition "Research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software. Analysed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Analysed data may be stored in a data collaboration platform and/or in a data repository. Analysed data may be part of a dataset."@en .
-
-:ProcessedData a owl:Class ;
-    rdfs:comment "Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."@en ;
-    rdfs:subClassOf core:ResearchData ;
-    core:MDMCNEPGlossaryDefinition "Research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation. Processed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Processed data may be stored in a data collaboration platform and/or in a data repository. Processed data may be part of a dataset."@en .
-
-:RawData a owl:Class ;
-    rdfs:comment "Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing."@en ;
-    rdfs:subClassOf core:ResearchData ;
-    core:MDMCNEPGlossaryDefinition "Research Data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing. Raw data may be the output of a simulation run (computational measurement). Raw data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw data may be stored in a data collaboration platform and/or in a data repository. Raw data may be part of a dataset."@en .
-
-:ReferenceData a owl:Class ;
-    rdfs:comment "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en ;
-    rdfs:subClassOf core:ResearchData ;
-    core:MDMCNEPGlossaryDefinition "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en .
+:AnalyzedData a owl:Class ;
+    rdfs:comment "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :RawData ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom :ReferenceData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :ProcessedData ],
+        core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."@en .
 
 skos:definition a owl:AnnotationProperty .
 
@@ -70,11 +64,22 @@ prov:Agent a owl:Class .
 prov:Collection a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
-prov:wasDerivedFrom a owl:ObjectProperty .
-
 core:AgentRole a owl:Class .
 
 core:performsAgentRole a owl:ObjectProperty .
+
+:ProcessedData a owl:Class ;
+    rdfs:comment "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data, typically Raw Data or Reference Data. Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation, Data Acquisition (in case of Calculations or Simulations), Data Analysis or Data Interpretation."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom :ReferenceData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :RawData ],
+        core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data, typically Raw Data or Reference Data. Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation, Data Acquisition (in case of Calculations or Simulations), Data Analysis or Data Interpretation."@en .
+
+dcterms:references a owl:ObjectProperty .
 
 prov:Entity a owl:Class .
 
@@ -95,40 +100,48 @@ prov:hadMember a owl:ObjectProperty .
     core:MDMCNEPGlossaryDefinition "Information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms. Metadata repositories may be associated with an institution or a group of them, or may be run by a third party. Metadata repositories may or may not be directly used by research users."@en .
 
 :PublicationData a owl:Class ;
-    rdfs:comment "Publication data is data generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it."@en ;
+    rdfs:comment "Dataset(s) generated in the course of a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasMetadata ;
+            owl:someValuesFrom :Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasDerivedFrom ;
             owl:someValuesFrom :Dataset ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasMetadata ;
-            owl:someValuesFrom :Metadata ],
         <https://w3id.org/pmd/co/DigitalEntity> ;
-    core:MDMCNEPGlossaryDefinition "Dataset(s) generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it. Publication data may include raw data, processed data and/or analysed data, as well as the relevant metadata about the experiment(s) and the data analysis lifecycle."@en .
+    core:MDMCNEPGlossaryDefinition "Dataset(s) generated in the course of a Study, that has undergone quality assessment and can be referred to as citations (i.e., a Persistent Identifier is assigned to it), e.g., to validate the results and/or the Conclusions presented in a Scientific Publication or appearing in it. Publication Data may include any kind of Research Data, as well as the relevant Metadata about the actions performed. Publication Data may be attributed to some or to all the Research Users who are members of the Project."@en .
+
+:RawData a owl:Class ;
+    rdfs:comment "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."@en ;
+    rdfs:subClassOf core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."@en .
+
+:ReferenceData a owl:Class ;
+    rdfs:comment "Research Data not produced during the current study, which is reused during the study (e.g., during the model preparation) or is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."@en ;
+    rdfs:subClassOf core:ResearchData ;
+    core:MDMCNEPGlossaryDefinition "Any Research Data not produced during the current Study, which is reused during the Study (e.g., during the Model Preparation) or is used as reference to compare and/or to validate the outputs of the Study, typically during the Data Analysis Lifecycle."@en .
 
 prov:wasAttributedTo a owl:ObjectProperty .
 
 core:ResearchUser a owl:Class ;
-    rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies." ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty core:performsAgentRole ;
             owl:someValuesFrom core:AgentRole ],
-        prov:Agent ;
-    core:MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member)."@en .
+        prov:Agent .
 
 :DataRepository a owl:Class ;
     rdfs:comment "Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :PublicationData ],
+            owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :Dataset ] ;
+            owl:someValuesFrom :PublicationData ] ;
     core:MDMCNEPGlossaryDefinition "Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources. Data repositories may be associated with an institution or a group of them, with an instrument or a group of them, or with a measurement technique or a group of them, or may be run by a third party. Data repositories may or may not be directly used by research users."@en .
 
 :hasMetadata a owl:ObjectProperty ;
@@ -137,6 +150,8 @@ core:ResearchUser a owl:Class ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( core:ResearchData :Dataset :PublicationData ) ] ;
     rdfs:range :Metadata .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
 
 :isStoredIn a owl:ObjectProperty ;
     rdfs:label "is stored in"@en ;
@@ -158,43 +173,43 @@ core:ResearchUser a owl:Class ;
 core:ResearchData a owl:Class ;
     rdfs:comment "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMetadata ;
-            owl:someValuesFrom :Metadata ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasAttributedTo ;
             owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMetadata ;
+            owl:someValuesFrom :Metadata ],
         <https://w3id.org/pmd/co/DigitalEntity> ;
     core:MDMCNEPGlossaryDefinition "Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset."@en .
 
 :Dataset a owl:Class ;
-    rdfs:comment "Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable." ;
+    rdfs:comment "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable." ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataRepository ],
+            owl:onProperty prov:hadMember ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:hadMember ;
+            owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
             owl:onProperty :hasMetadata ;
             owl:someValuesFrom :Metadata ],
         [ a owl:Restriction ;
-            owl:onProperty prov:hadMember ;
-            owl:someValuesFrom core:ResearchData ],
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataCollaborationPlatform ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:hadMember ;
-            owl:someValuesFrom :Dataset ],
         prov:Collection,
         <https://w3id.org/pmd/co/DigitalEntity> ;
-    core:MDMCNEPGlossaryDefinition "Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable."@en .
+    core:MDMCNEPGlossaryDefinition "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable."@en .
 
 :Metadata a owl:Class ;
     rdfs:comment "Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :MetadataRepository ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom core:ResearchUser ],
         <https://w3id.org/pmd/co/DigitalEntity> ;
-    core:MDMCNEPGlossaryDefinition "Any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time. Depending on the mode of use, metadata describes information pertaining to the research projects, including (but not limited to) research users, studies, experiments, measurements, instruments, samples, and corresponding data analysis lifecycle. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a metadata repository."@en .
+    core:MDMCNEPGlossaryDefinition "Any descriptive data intended to contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Depending on the mode of use, Metadata contains information pertaining to any aspect of the Study, including (but not limited to) processes, outputs, and Research Users involved in the Project. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository."@en .
 

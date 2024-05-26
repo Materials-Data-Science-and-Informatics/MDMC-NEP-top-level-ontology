@@ -1,0 +1,177 @@
+@prefix cast: <http://purls.helmholtz-metadaten.de/herbie/mb/mbf/cast/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix herbie: <http://purls.helmholtz-metadaten.de/herbie/mb/> .
+@prefix mb: <http://purls.helmholtz-metadaten.de/herbie/mb/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/>
+            a                               cast:Cast ;
+            herbie:hasClerk                    <http://herbie.example.org/api/authors/8/> ;
+            herbie:hasClient                   <http://herbie.example.org/api/authors/7/> ;
+            herbie:isPerformedOn              "2023-08-01"^^xsd:date ;
+            cast:alloyName                  "Mg-1Ca-2Ag" ;
+            cast:ambientHumidity            _:b0 ;
+            cast:ambientTemperature         _:b1 ;
+            cast:castingMethod              cast:permanentMouldCasting ;
+            cast:component                  <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/BPG7xFjth8GFiqMBgRNGeQ/> ;
+            cast:component                  <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/TdKceWsffyCnGbjhzonKus/> ;
+            cast:coolingType                cast:air ;
+            cast:filterType                 cast:ceramicCoarse ;
+            cast:furnace                    <http://herbie.example.org/api/equipments/39/> ;
+            cast:hpAlloy                    false ;
+            cast:mainAlloyingElement        <http://herbie.example.org/api/alloying-elements/1/> ;
+            cast:mainAlloyingElementAmount  _:b2 ;
+            cast:material                   <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/> ;
+            cast:material                   <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/adqtQMxPppSLKSCd5UkuxH/> ;
+            cast:material                   <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/ipHxVHobpZ7KqAatauLwsz/> ;
+            cast:meltTemperature            _:b3 ;
+            cast:mouldReleaseAgent          "Some mould release agent" ;
+            cast:mouldTemperature           _:b4 ;
+            cast:pouringTemperature         _:b5 ;
+            cast:stirringTool               cast:manual ;
+            rdfs:label                          "casting 1".
+    <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/publication/>
+            a                   herbie:DocumentPublication ;
+            prov:endedAtTime    "2023-08-04T07:36:05"^^xsd:dateTime ; # this will generate
+            prov:generated      <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/> ;
+            prov:startedAtTime  "2023-08-04T07:31:29"^^xsd:dateTime ;
+            prov:wasEndedBy     <http://herbie.example.org/api/authors/10/> ;
+            prov:wasStartedBy   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/alloying-elements/1/>
+            a       mb:AlloyingElement .
+    <http://herbie.example.org/api/alloying-elements/3/>
+            a       mb:AlloyingElement .
+    <http://herbie.example.org/api/alloying-elements/5/>
+            a       mb:AlloyingElement .
+    <http://herbie.example.org/api/authors/7/>
+            a       herbie:Client .
+    <http://herbie.example.org/api/authors/8/>
+            a       herbie:Clerk .
+    <http://herbie.example.org/api/equipments/39/>
+            a       mb:FurnaceCasting .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/BPG7xFjth8GFiqMBgRNGeQ/>
+            a                     cast:Component ;
+            rdfs:label            "Ca" ;
+            cast:alloyingElement  <http://herbie.example.org/api/alloying-elements/3/> ;
+            cast:amount           _:b6 ;
+            cast:nominal          _:b7 .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/TdKceWsffyCnGbjhzonKus/>
+            a                     cast:Component ;
+            rdfs:label            "Ag" ;
+            cast:alloyingElement  <http://herbie.example.org/api/alloying-elements/5/> ;
+            cast:amount           _:b8 ;
+            cast:nominal          _:b9 .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/>
+            a                cast:CastMaterial ;
+            rdfs:label       "230002" ;
+            herbie:publicId  "230002" ;
+            rdfs:comment     "Ingot stuck in mould." ;
+            cast:mould       <http://herbie.example.org/api/moulds/1/> ;
+            cast:position    2 ;
+            cast:quality     false .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/adqtQMxPppSLKSCd5UkuxH/>
+            a                cast:CastMaterial ;
+            rdfs:label       "230003" ;
+            herbie:publicId  "230003" ;
+            cast:mould       <http://herbie.example.org/api/moulds/3/> ;
+            cast:position    3 ;
+            cast:quality     true .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/ipHxVHobpZ7KqAatauLwsz/>
+            a                cast:CastMaterial ;
+            rdfs:label       "230001" ;
+            herbie:publicId  "230001" ;
+            cast:mould       <http://herbie.example.org/api/moulds/1/> ;
+            cast:position    1 ;
+            cast:quality     true .
+    <http://herbie.example.org/api/moulds/3/>
+            a       mb:Mould .
+    cast:ceramicCoarse
+            a       cast:FilterType .
+    cast:permanentMouldCasting
+            a       cast:CastingMethod .
+    <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/>
+            a                      herbie:DocumentVersion ;
+            dcterms:conformsTo     cast: ;
+            prov:generatedAtTime   "2023-08-04T07:31:29"^^xsd:dateTime ;
+            prov:hadMember         <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/generated/> ;
+            prov:hadMember         <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/persisted/> ;
+            prov:specializationOf  <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/> ;
+            prov:wasAttributedTo   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/moulds/1/>
+            a       mb:Mould .
+    <http://herbie.example.org/api/authors/10/>
+            a           herbie:Author ;
+            a           herbie:Clerk ;
+            a           herbie:Client ;
+            rdfs:label  "Fabian Kirchner" .
+    _:b0    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/PERCENT> ;
+            qudt:value  55.0 .
+    _:b9    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/PERCENT> ;
+            qudt:value  2.0 .
+    _:b1    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value  21.0 .
+    _:b2    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/KiloGM> ;
+            qudt:value  3.0 .
+    _:b3    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value  786 .
+    _:b4    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value  867 .
+    _:b5    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/DEG_C> ;
+            qudt:value  978 .
+    _:b6    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/KiloGM> ;
+            qudt:value  0.03 .
+    _:b7    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/PERCENT> ;
+            qudt:value  1.0 .
+    _:b8    a           qudt:Quantity ;
+            qudt:unit   <http://qudt.org/vocab/unit/KiloGM> ;
+            qudt:value  0.06 .
+
+<http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/>
+            cast:alloyName  "Mg-1Ca-2Ag" .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/BPG7xFjth8GFiqMBgRNGeQ/>
+            rdfs:label  "Ca" .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/components/TdKceWsffyCnGbjhzonKus/>
+            rdfs:label  "Ag" .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/XnBFcAHtQQETTeW3ZdTxPj/>
+            rdfs:label  "230002" .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/adqtQMxPppSLKSCd5UkuxH/>
+            rdfs:label  "230003" .
+    <http://herbie.example.org/api/graph/casts/LjtaBwp4bfBRZtenKKHU8o/materials/ipHxVHobpZ7KqAatauLwsz/>
+            rdfs:label  "230001" .
+
+<http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/publication/>
+            a                   herbie:DocumentPublication ;
+            prov:endedAtTime    "2023-08-04T07:36:05"^^xsd:dateTime ;
+            prov:generated      <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/> ;
+            prov:startedAtTime  "2023-08-04T07:31:29"^^xsd:dateTime ;
+            prov:wasEndedBy     <http://herbie.example.org/api/authors/10/> ;
+            prov:wasStartedBy   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/>
+            a                     herbie:Document ;
+            prov:wasAttributedTo  <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/>
+            a                      herbie:DocumentVersion ;
+            dcterms:conformsTo     cast: ;
+            prov:generatedAtTime   "2023-08-04T07:31:29"^^xsd:dateTime ;
+            prov:hadMember         <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/generated/> ;
+            prov:hadMember         <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/versions/1/persisted/> ;
+            prov:specializationOf  <http://herbie.example.org/api/triples/0f74eed1-9a9d-4794-b9fa-d256c2e2c779/> ;
+            prov:wasAttributedTo   <http://herbie.example.org/api/authors/10/> .
+    <http://herbie.example.org/api/authors/10/>
+            a           herbie:Author ;
+            a           herbie:Clerk ;
+            a           herbie:Client ;
+            rdfs:label  "Fabian Kirchner" .
