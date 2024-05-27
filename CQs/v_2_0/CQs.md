@@ -26,7 +26,7 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 18. Which metadata has described the data?
 
 ## [PRIMA-Experiment](#prima-experiment-sparql)
-19. Which fabrication/measurements/sample preparationhave been performed in an experiment?
+19. Which fabrication/measurements/sample preparation have been performed in a study?
 20. Which equipment/instrument has been used in an in a fabrication/in a measurement/in a sample preparation?
 21. Which measurement techniques have been used in a measurement?
 22. Where and when has the fabrication/measurement/sample preparation been performed?
@@ -525,7 +525,7 @@ SELECT ?Sample_preparation ?At_time ?Start_time ?End_time ?Location  WHERE {
 ```
 
 
-23. Which researcher(s) have performed an experiment?
+23. Which researcher(s) have performed a fabrication/measurement/sample preparation?
 ```
 PREFIX core: <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal: <https://purls.helmholtz-metadaten.de/prima/dal#>
