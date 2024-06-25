@@ -2,33 +2,33 @@
 Below is competency questions (CQs) modularized according to PRIMA modules. 
 
 ## [PRIMA-Core](#prima-core-sparql)
-1. Which project is researcher(s) member of?
-2. Which study has researcher(s) performed?
-3. Which data acqusition or data analysis lifecycle has researcher(s) performed?
-4. Which research data that is attributed to (e.g., created by) the researcher(s)?
-5. Which data analysis lifecycle used in a study and which data are used?
-6. Which studies are done by a project and  list all data acquisition and data analysis lifecycle are done in those studies?
+1. Which project(s) is the researcher member of?
+2. Which study(ies) has the researcher performed?
+3. Which data acquisition(s) or data analysis lifecycle(s) has the researcher performed?
+4. Which research data is attributed to (e.g., created by) the researcher?
+5. Which data analysis lifecycle(s) was used in a study and which data were used?
+6. Which studies were done by a project and list all data acquisition and data analysis lifecycle which were done in those studies?
 
 ## [PRIMA-Data analysis lifecycle](#prima-data-analysis-lifecycle-sparql)
-7. Which results have been obtained from the data analysis lifecycle?
-8. Which data analysis, data processing and data interpretation are part of a data analysis lifecycle?
-9. Which data have been used and produced in a data analysis/processing/intreptation?
-10. Which software has been used in a data analysis/processing/interpretation?
-11. Which researcher(s) have performed the data analysis/processing/interpretation?
+7. Which result(s) has been obtained from the data analysis lifecycle?
+8. Which data analysis(es), data processing(s) and data interpretation(s) are part of the data analysis lifecycle?
+9. Which data has been used and produced in the data analysis/processing/interpretation?
+10. Which software has been used in the data analysis/processing/interpretation?
+11. Which researcher(s) has performed the data analysis/processing/interpretation?
 12. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
 
 ## [PRIMA-Dataset](#prima-dataset-sparql)
-13. Which project have the data been attributed to?
+13. Which project has the data been attributed to?
 14. Which data does the dataset collects?
 15. In which data collaboration platform is the data stored?
-16. In which data repository is the data stored?
-17. Which dataset has been the publication data derived from?
-18. Which metadata has described the data?
+16. In which data repository is the data published?
+17. Which dataset was the publication data derived from?
+18. Which metadata describes the data?
 
 ## [PRIMA-Experiment](#prima-experiment-sparql)
-19. Which fabrication/measurements/sample preparation have been performed in a study?
-20. Which equipment/instrument has been used in an in a fabrication/in a measurement/in a sample preparation?
-21. Which measurement techniques have been used in a measurement?
+19. Which fabrication(s)/sample preparation(s)/measurement(s) have been performed in the study?
+20. Which equipment/instrument(s) has been used in the fabrication/sample preparation/measurement?
+21. Which technique(s) has been used in the measurement?
 22. Where and when has the fabrication/measurement/sample preparation been performed?
 23. Which researcher(s) have performed an fabrication/measurement/sample preparation?
 24. Which samples have been used/prepared in a measurement?
