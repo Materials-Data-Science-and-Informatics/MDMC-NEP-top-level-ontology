@@ -1,5 +1,5 @@
 # Competency Questions of PRIMA
-Below is competency questions (CQs) modularized according to PRIMA modules. 
+Below are the competency questions (CQs) modularized according to PRIMA modules. 
 
 ## [PRIMA-Core](#prima-core-sparql)
 1. Which project(s) is the researcher member of?
@@ -10,15 +10,15 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 6. Which studies were done by a project and list all data acquisition and data analysis lifecycle which were done in those studies?
 
 ## [PRIMA-Data analysis lifecycle](#prima-data-analysis-lifecycle-sparql)
-7. Which result(s) has been obtained from the data analysis lifecycle?
+7. Which result(s) were obtained from the data analysis lifecycle?
 8. Which data analysis(es), data processing(s) and data interpretation(s) are part of the data analysis lifecycle?
-9. Which data has been used and produced in the data analysis/processing/interpretation?
-10. Which software has been used in the data analysis/processing/interpretation?
-11. Which researcher(s) has performed the data analysis/processing/interpretation?
+9. Which data were used and produced in the data analysis/processing/interpretation?
+10. Which software was used in the data analysis/processing/interpretation?
+11. Which researcher(s) did perform the data analysis/processing/interpretation?
 12. Which process to do a data analysis lifecycle, data analysis, data processing, or data intepretation?
 
 ## [PRIMA-Dataset](#prima-dataset-sparql)
-13. Which project has the data been attributed to?
+13. Which project is the data attributed to?
 14. Which data does the dataset collects?
 15. In which data collaboration platform is the data stored?
 16. In which data repository is the data published?
@@ -26,16 +26,16 @@ Below is competency questions (CQs) modularized according to PRIMA modules.
 18. Which metadata describes the data?
 
 ## [PRIMA-Experiment](#prima-experiment-sparql)
-19. Which fabrication(s)/sample preparation(s)/measurement(s) have been performed in the study?
-20. Which equipment/instrument(s) has been used in the fabrication/sample preparation/measurement?
-21. Which technique(s) has been used in the measurement?
-22. Where and when has the fabrication/measurement/sample preparation been performed?
-23. Which researcher(s) have performed an fabrication/measurement/sample preparation?
-24. Which samples have been used/prepared in a measurement?
-25. Which raw data have been produced in a measurement?
-26. Who has prepared the samples?
-27. What process sequence taken for doing a fabrication/measurement/sample preparation?
-28. Which sample components is the sample made of?
+19. Which fabrication(s)/sample preparation(s)/measurement(s) were performed in the study?
+20. Which equipment/instrument(s) were used in the fabrication/sample preparation/measurement?
+21. Which technique(s) was used in the measurement?
+22. Where and when was the fabrication/sample preparation/measurement performed?
+23. Which researcher(s) did perform the fabrication/sample preparation/measurement?
+25. Which sample(s) was used in the measurement?
+26. Which raw data was produced in the measurement?
+27. Who did prepare the sample?
+28. What process sequence taken for doing a fabrication/measurement/sample preparation?
+29. Which sample component(s) is the sample made of?
 
 
 # Answer to CQs via SPARQL
