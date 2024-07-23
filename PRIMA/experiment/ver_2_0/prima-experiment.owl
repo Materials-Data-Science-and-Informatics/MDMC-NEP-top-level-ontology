@@ -716,7 +716,7 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Consumable -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
         <rdfs:comment xml:lang="en">Auxiliary entity used during fabrication, sample preparation or measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.</rdfs:comment>
         <core:MDMCNEPGlossaryDefinition xml:lang="en">Auxiliary entity used during Fabrication, Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.</core:MDMCNEPGlossaryDefinition>
     </owl:Class>
@@ -727,6 +727,12 @@
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
