@@ -85,12 +85,12 @@ def rdf_serializer(iri):
     towards_fairification_stm_data = example['towards_fairification_stm_data']
     g.add((towards_fairification_stm_data, RDF.type, CORE.Project))
     g.add((towards_fairification_stm_data, PROV.wasAttributedTo, STRAS_research_group))
-    g.add((towards_fairification_stm_data, PROV.wasAttributedTo, alice))
-    g.add((towards_fairification_stm_data, PROV.wasAttributedTo, bob))
+    g.add((towards_fairification_stm_data, CORE.hasProjectMember, alice))
+    g.add((towards_fairification_stm_data, CORE.hasProjectMember, bob))
     study_1 = example['study_1']
     study_2 = example['study_2']
-    g.add((towards_fairification_stm_data, CORE.hasStudy, study_1))
-    g.add((towards_fairification_stm_data, CORE.hasStudy, study_2))
+    g.add((study_1, PROV.wasAssociatedWith, towards_fairification_stm_data))
+    g.add((study_2, PROV.wasAssociatedWith, towards_fairification_stm_data))
     g.add((study_1, CORE.hasDataAnalysisLifecycle, image_labelling_process_1))
     g.add((study_1, RDF.type, CORE.Study))
     g.add((study_2, RDF.type, CORE.Study))

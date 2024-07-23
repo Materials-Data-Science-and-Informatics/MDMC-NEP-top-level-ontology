@@ -152,6 +152,16 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasProjectMember -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasProjectMember">
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#isMemberOfProject"/>
+        <rdfs:comment xml:lang="en">hasProjectMember represents the relationship between project and its member, which is research user.</rdfs:comment>
+        <rdfs:label xml:lang="en">has project member</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/core#hasSetting -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasSetting">
@@ -195,6 +205,15 @@
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Technique"/>
         <rdfs:comment xml:lang="en">hasTechnique represents the relationship between data acquisition or data analysis lifecycle to technique</rdfs:comment>
         <rdfs:label xml:lang="en">has technique</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#isMemberOfProject -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#isMemberOfProject">
+        <rdfs:comment xml:lang="en">isMemberOfProject is an inverse of hasProjectMember</rdfs:comment>
+        <rdfs:label xml:lang="en">is member of project</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -446,14 +465,8 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasProjectMember"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasStudy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Project is an enterprise (potentially individual but typically collaborative) of one or more research users, planned to perform one or more studies.</rdfs:comment>
@@ -539,6 +552,12 @@
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Study">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
