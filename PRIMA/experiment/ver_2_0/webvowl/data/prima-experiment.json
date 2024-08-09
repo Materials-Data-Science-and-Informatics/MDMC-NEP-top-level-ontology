@@ -1,2095 +1,3720 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
-  "header" : {
-    "languages" : [ "en", "undefined" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://qudt.org/schema/qudt", "https://purls.helmholtz-metadaten.de/prima/dataset", "https://purls.helmholtz-metadaten.de/prima/experiment", "http://nfdi.fiz-karlsruhe.de/ontology", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "https://purls.helmholtz-metadaten.de/prima/core", "http://www.w3.org/ns/prov", "https://w3id.org/pmd/co", "http://www.w3.org/2001/XMLSchema", "http://w3id.org/STREAM/MSLE" ],
-    "prefixList" : {
-      "owl" : "http://www.w3.org/2002/07/owl#",
-      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "vann" : "http://purl.org/vocab/vann/",
-      "dal" : "https://purls.helmholtz-metadaten.de/prima/dal#",
-      "terms" : "http://purl.org/dc/terms/",
-      "skos" : "http://www.w3.org/2004/02/skos/core#",
-      "xsd" : "http://www.w3.org/2001/XMLSchema#",
-      "" : "https://purls.helmholtz-metadaten.de/prima/experiment#",
-      "xml" : "http://www.w3.org/XML/1998/namespace",
-      "core" : "https://purls.helmholtz-metadaten.de/prima/core#",
-      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+  "_comment": "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org [Additional Information added by WebVOWL Exporter Version: 1.1.7]",
+  "header": {
+    "languages": [
+      "undefined",
+      "en"
+    ],
+    "baseIris": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+      "http://qudt.org/schema/qudt",
+      "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "http://nfdi.fiz-karlsruhe.de/ontology",
+      "http://www.w3.org/2002/07/owl",
+      "http://www.w3.org/2000/01/rdf-schema",
+      "https://purls.helmholtz-metadaten.de/prima/core",
+      "http://www.w3.org/ns/prov",
+      "https://w3id.org/pmd/co",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://w3id.org/STREAM/MSLE"
+    ],
+    "prefixList": {
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "vann": "http://purl.org/vocab/vann/",
+      "dal": "https://purls.helmholtz-metadaten.de/prima/dal#",
+      "terms": "http://purl.org/dc/terms/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "": "https://purls.helmholtz-metadaten.de/prima/experiment#",
+      "xml": "http://www.w3.org/XML/1998/namespace",
+      "core": "https://purls.helmholtz-metadaten.de/prima/core#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
     },
-    "title" : {
-      "en" : "PRIMA Ontology - Experiment Module"
+    "title": {
+      "en": "PRIMA Ontology - Experiment Module"
     },
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "version" : "2.0",
-    "author" : [ "Mehrdad Jalali", "Rossella Aversa", "Ahmad Zainul Ihsan" ],
-    "comments" : {
-      "en" : "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology"
+    "iri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+    "version": "2.0",
+    "author": [
+      "Mehrdad Jalali",
+      "Rossella Aversa",
+      "Ahmad Zainul Ihsan"
+    ],
+    "comments": {
+      "en": "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology"
     },
-    "other" : {
-      "license" : [ {
-        "identifier" : "license",
-        "language" : "undefined",
-        "value" : "http://creativecommons.org/licenses/by/3.0/",
-        "type" : "iri"
-      } ],
-      "creator" : [ {
-        "identifier" : "creator",
-        "language" : "en",
-        "value" : "Mehrdad Jalali",
-        "type" : "label"
-      }, {
-        "identifier" : "creator",
-        "language" : "en",
-        "value" : "Rossella Aversa",
-        "type" : "label"
-      }, {
-        "identifier" : "creator",
-        "language" : "en",
-        "value" : "Ahmad Zainul Ihsan",
-        "type" : "label"
-      } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "en",
-        "value" : "Elda Osmenaj",
-        "type" : "label"
-      }, {
-        "identifier" : "contributor",
-        "language" : "en",
-        "value" : "Mirco Panighel",
-        "type" : "label"
-      } ],
-      "created" : [ {
-        "identifier" : "created",
-        "language" : "en",
-        "value" : "2024-01-29",
-        "type" : "label"
-      } ],
-      "preferredNamespacePrefix" : [ {
-        "identifier" : "preferredNamespacePrefix",
-        "language" : "en",
-        "value" : "PRIMA",
-        "type" : "label"
-      } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "en",
-        "value" : "2.0",
-        "type" : "label"
-      } ],
-      "title" : [ {
-        "identifier" : "title",
-        "language" : "en",
-        "value" : "PRIMA Ontology - Experiment Module",
-        "type" : "label"
-      } ],
-      "seeAlso" : [ {
-        "identifier" : "seeAlso",
-        "language" : "undefined",
-        "value" : "https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology",
-        "type" : "iri"
-      } ]
+    "other": {
+      "license": [
+        {
+          "identifier": "license",
+          "language": "undefined",
+          "value": "http://creativecommons.org/licenses/by/3.0/",
+          "type": "iri"
+        }
+      ],
+      "creator": [
+        {
+          "identifier": "creator",
+          "language": "en",
+          "value": "Rossella Aversa",
+          "type": "label"
+        },
+        {
+          "identifier": "creator",
+          "language": "en",
+          "value": "Ahmad Zainul Ihsan",
+          "type": "label"
+        },
+        {
+          "identifier": "creator",
+          "language": "en",
+          "value": "Mehrdad Jalali",
+          "type": "label"
+        }
+      ],
+      "contributor": [
+        {
+          "identifier": "contributor",
+          "language": "en",
+          "value": "Mirco Panighel",
+          "type": "label"
+        },
+        {
+          "identifier": "contributor",
+          "language": "en",
+          "value": "Elda Osmenaj",
+          "type": "label"
+        }
+      ],
+      "created": [
+        {
+          "identifier": "created",
+          "language": "en",
+          "value": "2024-01-29",
+          "type": "label"
+        }
+      ],
+      "preferredNamespacePrefix": [
+        {
+          "identifier": "preferredNamespacePrefix",
+          "language": "en",
+          "value": "PRIMA",
+          "type": "label"
+        }
+      ],
+      "versionInfo": [
+        {
+          "identifier": "versionInfo",
+          "language": "en",
+          "value": "2.0",
+          "type": "label"
+        }
+      ],
+      "title": [
+        {
+          "identifier": "title",
+          "language": "en",
+          "value": "PRIMA Ontology - Experiment Module",
+          "type": "label"
+        }
+      ],
+      "seeAlso": [
+        {
+          "identifier": "seeAlso",
+          "language": "undefined",
+          "value": "https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology",
+          "type": "iri"
+        }
+      ]
     }
   },
-  "namespace" : [ ],
-  "class" : [ {
-    "id" : "0",
-    "type" : "owl:Class"
-  }, {
-    "id" : "8",
-    "type" : "owl:Class"
-  }, {
-    "id" : "10",
-    "type" : "owl:Class"
-  }, {
-    "id" : "1",
-    "type" : "owl:Class"
-  }, {
-    "id" : "9",
-    "type" : "owl:Class"
-  }, {
-    "id" : "48",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "2",
-    "type" : "owl:Class"
-  }, {
-    "id" : "17",
-    "type" : "owl:Class"
-  }, {
-    "id" : "62",
-    "type" : "owl:Class"
-  }, {
-    "id" : "54",
-    "type" : "owl:Class"
-  }, {
-    "id" : "25",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "50",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "5",
-    "type" : "owl:Class"
-  }, {
-    "id" : "67",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "61",
-    "type" : "owl:Class"
-  }, {
-    "id" : "42",
-    "type" : "owl:Class"
-  }, {
-    "id" : "75",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "11",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "77",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "85",
-    "type" : "owl:Class"
-  }, {
-    "id" : "89",
-    "type" : "owl:Class"
-  }, {
-    "id" : "22",
-    "type" : "owl:Class"
-  }, {
-    "id" : "23",
-    "type" : "owl:Class"
-  }, {
-    "id" : "16",
-    "type" : "owl:Class"
-  }, {
-    "id" : "19",
-    "type" : "owl:Class"
-  }, {
-    "id" : "47",
-    "type" : "owl:Class"
-  }, {
-    "id" : "38",
-    "type" : "owl:Class"
-  }, {
-    "id" : "79",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "31",
-    "type" : "owl:Class"
-  }, {
-    "id" : "69",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "40",
-    "type" : "owl:Class"
-  }, {
-    "id" : "28",
-    "type" : "owl:Class"
-  }, {
-    "id" : "87",
-    "type" : "owl:Class"
-  }, {
-    "id" : "37",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "30",
-    "type" : "owl:Class"
-  }, {
-    "id" : "15",
-    "type" : "owl:Class"
-  }, {
-    "id" : "63",
-    "type" : "owl:Class"
-  }, {
-    "id" : "35",
-    "type" : "owl:Class"
-  }, {
-    "id" : "4",
-    "type" : "owl:Class"
-  }, {
-    "id" : "20",
-    "type" : "owl:Class"
-  } ],
-  "classAttribute" : [ {
-    "iri" : "http://nfdi.fiz-karlsruhe.de/ontology/Specification",
-    "baseIri" : "http://nfdi.fiz-karlsruhe.de/ontology",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Specification"
+  "namespace": [],
+  "settings": {
+    "global": {
+      "zoom": "0.44",
+      "translation": [
+        732.1,
+        388.75
+      ],
+      "paused": false
     },
-    "subClasses" : [ "2" ],
-    "attributes" : [ "external" ],
-    "id" : "0",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Activity",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Activity"
+    "gravity": {
+      "classDistance": 200,
+      "datatypeDistance": 120
     },
-    "subClasses" : [ "9" ],
-    "attributes" : [ "external" ],
-    "id" : "8"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/Unit",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Unit"
+    "filter": {
+      "checkBox": [
+        {
+          "id": "datatypeFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "objectPropertyFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "subclassFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "disjointFilterCheckbox",
+          "checked": true
+        },
+        {
+          "id": "setoperatorFilterCheckbox",
+          "checked": false
+        }
+      ],
+      "degreeSliderValue": "0"
     },
-    "attributes" : [ "external" ],
-    "id" : "10"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Entity",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Entity"
-    },
-    "subClasses" : [ "15", "0", "16", "17" ],
-    "attributes" : [ "external" ],
-    "id" : "1"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/Process",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Process"
-    },
-    "subClasses" : [ "42", "47", "40", "4" ],
-    "attributes" : [ "external" ],
-    "id" : "9",
-    "superClasses" : [ "8" ]
-  }, {
-    "iri" : "http://w3id.org/STREAM/MSLE#Equipment",
-    "baseIri" : "http://w3id.org/STREAM/MSLE",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Equipment",
-      "undefined" : "equipment"
-    },
-    "attributes" : [ "equivalent", "external" ],
-    "id" : "48"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#MeasurementTechnique",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "MeasurementTechnique"
-    },
-    "comment" : {
-      "en" : "Measurement technique is techique or technology corresponding to the method used during a measurement to collect raw data about a sample or a set of them with an instrument."
-    },
-    "id" : "2",
-    "superClasses" : [ "0" ]
-  }, {
-    "iri" : "https://w3id.org/pmd/co/ValueObject",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "ValueObject"
-    },
-    "attributes" : [ "external" ],
-    "id" : "17",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Agent",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Agent"
-    },
-    "subClasses" : [ "63", "37", "31" ],
-    "attributes" : [ "external" ],
-    "id" : "62"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "RawData"
-    },
-    "attributes" : [ "external" ],
-    "id" : "54",
-    "superClasses" : [ "15" ]
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "25",
-    "label" : {
-      "undefined" : "Thing"
+    "modes": {
+      "checkBox": [
+        {
+          "id": "pickandpinModuleCheckbox",
+          "checked": false
+        },
+        {
+          "id": "nodescalingModuleCheckbox",
+          "checked": true
+        },
+        {
+          "id": "compactnotationModuleCheckbox",
+          "checked": false
+        },
+        {
+          "id": "colorexternalsModuleCheckbox",
+          "checked": true
+        }
+      ],
+      "colorSwitchState": false
     }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "50",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+  },
+  "class": [
+    {
+      "id": "0",
+      "type": "owl:Class"
+    },
+    {
+      "id": "8",
+      "type": "owl:Class"
+    },
+    {
+      "id": "10",
+      "type": "owl:Class"
+    },
+    {
+      "id": "12",
+      "type": "owl:Class"
+    },
+    {
+      "id": "1",
+      "type": "owl:Class"
+    },
+    {
+      "id": "25",
+      "type": "owl:Class"
+    },
+    {
+      "id": "9",
+      "type": "owl:Class"
+    },
+    {
+      "id": "52",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "26",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "21",
+      "type": "owl:Class"
+    },
+    {
+      "id": "67",
+      "type": "owl:Class"
+    },
+    {
+      "id": "64",
+      "type": "owl:Class"
+    },
+    {
+      "id": "22",
+      "type": "owl:Class"
+    },
+    {
+      "id": "74",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "75",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "44",
+      "type": "owl:Class"
+    },
+    {
+      "id": "76",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "39",
+      "type": "owl:Class"
+    },
+    {
+      "id": "70",
+      "type": "owl:Class"
+    },
+    {
+      "id": "29",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "14",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "54",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "83",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "88",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "11",
+      "type": "owl:Class"
+    },
+    {
+      "id": "90",
+      "type": "owl:Class"
+    },
+    {
+      "id": "36",
+      "type": "owl:Class"
+    },
+    {
+      "id": "41",
+      "type": "owl:Class"
+    },
+    {
+      "id": "6",
+      "type": "owl:Class"
+    },
+    {
+      "id": "50",
+      "type": "owl:Class"
+    },
+    {
+      "id": "20",
+      "type": "owl:Class"
+    },
+    {
+      "id": "47",
+      "type": "owl:Class"
+    },
+    {
+      "id": "51",
+      "type": "owl:Class"
+    },
+    {
+      "id": "3",
+      "type": "owl:Class"
+    },
+    {
+      "id": "33",
+      "type": "owl:Class"
+    },
+    {
+      "id": "24",
+      "type": "owl:Class"
+    },
+    {
+      "id": "135",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "58",
+      "type": "owl:Class"
+    },
+    {
+      "id": "45",
+      "type": "owl:Class"
+    },
+    {
+      "id": "94",
+      "type": "owl:Class"
+    },
+    {
+      "id": "2",
+      "type": "owl:Class"
+    },
+    {
+      "id": "19",
+      "type": "owl:Class"
+    },
+    {
+      "id": "68",
+      "type": "owl:Class"
+    },
+    {
+      "id": "42",
+      "type": "owl:Class"
+    },
+    {
+      "id": "5",
+      "type": "owl:Class"
+    },
+    {
+      "id": "48",
+      "type": "owl:Class"
     }
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others).",
-        "type" : "label"
-      } ]
+  ],
+  "classAttribute": [
+    {
+      "id": "0",
+      "iri": "http://nfdi.fiz-karlsruhe.de/ontology/Specification",
+      "baseIri": "http://nfdi.fiz-karlsruhe.de/ontology",
+      "label": {
+        "IRI-based": "Specification"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        1183.37,
+        1347.43
+      ]
     },
-    "label" : {
-      "IRI-based" : "SampleComponent"
+    {
+      "id": "8",
+      "iri": "http://www.w3.org/ns/prov#Activity",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Activity"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        518.94,
+        1266.7
+      ]
     },
-    "comment" : {
-      "en" : "Identifiable entity (typically a piece of material) which constitutes a part of a Sample, usually with distinctive properties (structural, chemical, dimensional, functional and others)."
+    {
+      "id": "10",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Input",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Input"
+      },
+      "comment": {
+        "undefined": "Physical System (typically a piece of material) which undergoes a Fabrication."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "undefined",
+            "value": "Physical System (typically a piece of material) which undergoes a Fabrication.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        405.52,
+        272.98
+      ]
     },
-    "id" : "5",
-    "superClasses" : [ "16" ]
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "67",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+    {
+      "id": "12",
+      "iri": "http://qudt.org/schema/qudt/Unit",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "Unit"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        -532.67,
+        -543.62
+      ]
+    },
+    {
+      "id": "1",
+      "iri": "http://www.w3.org/ns/prov#Entity",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Entity"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        649.52,
+        1159.7
+      ]
+    },
+    {
+      "id": "25",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#Instrument",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "Instrument"
+      },
+      "attributes": [
+        "external"
+      ],
+      "comment": {
+        "en": "Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement).",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1061.2,
+        -204.31
+      ]
+    },
+    {
+      "id": "9",
+      "iri": "https://w3id.org/pmd/co/Process",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "Process"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        412.61,
+        834.73
+      ]
+    },
+    {
+      "id": "26",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#Equipment",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "Equipment"
+      },
+      "attributes": [
+        "equivalent",
+        "external"
+      ]
+    },
+    {
+      "id": "52",
+      "iri": "http://w3id.org/STREAM/MSLE#Equipment",
+      "baseIri": "http://w3id.org/STREAM/MSLE",
+      "label": {
+        "IRI-based": "Equipment",
+        "undefined": "equipment"
+      },
+      "attributes": [
+        "equivalent",
+        "external"
+      ],
+      "equivalent": [
+        "26"
+      ],
+      "pos": [
+        1401.75,
+        -189.67
+      ]
+    },
+    {
+      "id": "21",
+      "iri": "https://w3id.org/pmd/co/ValueObject",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "ValueObject"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        228.48,
+        1327.81
+      ]
+    },
+    {
+      "id": "67",
+      "iri": "http://www.w3.org/ns/prov#Agent",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Agent"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        1841.38,
+        -47.09
+      ]
+    },
+    {
+      "id": "64",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "RawData"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        1113.55,
+        1239.93
+      ]
+    },
+    {
+      "id": "22",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#Study",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "Study"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        922.31,
+        587.79
+      ]
+    },
+    {
+      "id": "74",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": "Literal",
+      "attributes": [
+        "datatype"
+      ],
+      "pos": [
+        2043.63,
+        1660.15
+      ]
+    },
+    {
+      "id": "75",
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "label": {
+        "undefined": "Thing"
+      },
+      "pos": [
+        1660.03,
+        808.4
+      ]
+    },
+    {
+      "id": "44",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "SampleComponent"
+      },
+      "comment": {
+        "en": "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        477.64,
+        -461.11
+      ]
+    },
+    {
+      "id": "76",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": "Literal",
+      "attributes": [
+        "datatype"
+      ],
+      "pos": [
+        1749.75,
+        1774.17
+      ]
+    },
+    {
+      "id": "39",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Consumable"
+      },
+      "comment": {
+        "en": "Auxiliary entity used during fabrication, sample preparation or measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Auxiliary entity used during Fabrication, Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        573.03,
+        560.89
+      ]
+    },
+    {
+      "id": "70",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "ResearchData"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        852.77,
+        1656.75
+      ]
+    },
+    {
+      "id": "29",
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "label": {
+        "undefined": "Thing"
+      },
+      "pos": [
+        1812.93,
+        1435.12
+      ]
+    },
+    {
+      "id": "14",
+      "attributes": [
+        "anonymous",
+        "union"
+      ],
+      "pos": [
+        28.1,
+        1202.67
+      ]
+    },
+    {
+      "id": "54",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": "Literal",
+      "attributes": [
+        "datatype"
+      ],
+      "pos": [
+        2105.71,
+        1493.93
+      ]
+    },
+    {
+      "id": "83",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": "Literal",
+      "attributes": [
+        "datatype"
+      ],
+      "pos": [
+        1905.16,
+        1758.89
+      ]
+    },
+    {
+      "id": "88",
+      "attributes": [
+        "anonymous",
+        "union"
+      ],
+      "pos": [
+        8.15,
+        1277.64
+      ]
+    },
+    {
+      "id": "11",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#System",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "System"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        230.6,
+        28.77
+      ]
+    },
+    {
+      "id": "90",
+      "iri": "http://www.w3.org/ns/prov#Location",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Location"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        1978.02,
+        458.55
+      ]
+    },
+    {
+      "id": "36",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Precursor"
+      },
+      "comment": {
+        "en": "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Physical System (typically a piece of material) which is formed or manufactured during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings and/or molecules. A single Precursor might itself become the only Sample Component of a Sample in case it undergoes a Measurement.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        511.34,
+        -85.13
+      ]
+    },
+    {
+      "id": "41",
+      "iri": "http://qudt.org/schema/qudt/Quantity",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "Quantity"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        -917.83,
+        70.62
+      ]
+    },
+    {
+      "id": "6",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "DataAcquisition"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        844.54,
+        724.62
+      ]
+    },
+    {
+      "id": "50",
+      "iri": "http://qudt.org/schema/qudt/QuantityKind",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "QuantityKind"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        -591.7,
+        30.95
+      ]
+    },
+    {
+      "id": "20",
+      "iri": "https://w3id.org/pmd/co/Object",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "Object"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        64.35,
+        812.42
+      ]
+    },
+    {
+      "id": "47",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "SampleHolder"
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "A piece of equipment that makes one or more samples accessible for a measurement, or holds them in place in the predefined position to be mounted inside the instrument (e.g., glass slide, TEM grid, tilting support). Sample holder(s) may be carried by a sample carrier.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1569.45,
+        -669.82
+      ]
+    },
+    {
+      "id": "51",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "SamplePreparation"
+      },
+      "comment": {
+        "en": "Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings"
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, performed on (or between) one or more Precursor(s) or Sample(s) to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement under controlled conditions described by Settings. Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s). The output of Sample Preparation is one or more Samples.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        953.98,
+        163.34
+      ]
+    },
+    {
+      "id": "3",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#Setting",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "Setting"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        1570.41,
+        1318.37
+      ]
+    },
+    {
+      "id": "33",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Laboratory"
+      },
+      "comment": {
+        "en": "Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments).",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1562.34,
+        267.21
+      ]
+    },
+    {
+      "id": "24",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "ResearchUser"
+      },
+      "attributes": [
+        "external"
+      ],
+      "comment": {
+        "en": "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, instrument scientist, project member).",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1409.02,
+        227.59
+      ]
+    },
+    {
+      "id": "135",
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "label": {
+        "undefined": "Thing"
+      },
+      "pos": [
+        139.23,
+        524.74
+      ]
+    },
+    {
+      "id": "58",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Measurement"
+      },
+      "comment": {
+        "en": "Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1275.13,
+        671.59
+      ]
+    },
+    {
+      "id": "45",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Sample"
+      },
+      "comment": {
+        "en": "Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        867.19,
+        -336.62
+      ]
+    },
+    {
+      "id": "94",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Institution",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Institution"
+      },
+      "comment": {
+        "en": "Hierarchical entity which hosts one or more laboratories, including the virtual ones."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Hierarchical entity which hosts one or more laboratories, including the virtual ones.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        2019.18,
+        229.09
+      ]
+    },
+    {
+      "id": "2",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#Technique",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "Technique"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        1584.98,
+        1208.16
+      ]
+    },
+    {
+      "id": "19",
+      "iri": "https://w3id.org/pmd/co/DigitalEntity",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "DigitalEntity"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        434.39,
+        1554.04
+      ]
+    },
+    {
+      "id": "68",
+      "iri": "http://www.w3.org/ns/prov#Organization",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Organization"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        2278.02,
+        -19.53
+      ]
+    },
+    {
+      "id": "42",
+      "iri": "http://qudt.org/schema/qudt/QuantityValue",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "QuantityValue"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        -727.67,
+        -248.83
+      ]
+    },
+    {
+      "id": "5",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "Fabrication"
+      },
+      "comment": {
+        "en": "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Data Acquisition may be performed during the Fabrication, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s). The output of Fabrication is one or more Precursors.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        853.26,
+        219.42
+      ]
+    },
+    {
+      "id": "48",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "SampleCarrier"
+      },
+      "comment": {
+        "en": "Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "A piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment. Sample carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1228.03,
+        -662.9
+      ]
     }
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc.",
-        "type" : "label"
-      } ]
+  ],
+  "property": [
+    {
+      "id": "4",
+      "type": "owl:someValuesFrom"
     },
-    "label" : {
-      "IRI-based" : "Consumable"
+    {
+      "id": "13",
+      "type": "owl:ObjectProperty"
     },
-    "comment" : {
-      "en" : "Complementary entity used in Fabrication or Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, necessary to the process itself and normally bought from third party manufacturers. Eg:- gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape etc."
+    {
+      "id": "23",
+      "type": "owl:someValuesFrom"
     },
-    "id" : "61",
-    "superClasses" : [ "16" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#Experiment",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users. An experiment may be a simulation (computational experiment) or a combination of computational and physical measurement.",
-        "type" : "label"
-      } ]
+    {
+      "id": "27",
+      "type": "owl:someValuesFrom"
     },
-    "label" : {
-      "IRI-based" : "Experiment"
+    {
+      "id": "28",
+      "type": "owl:ObjectProperty"
     },
-    "comment" : {
-      "undefined" : "Experiment is an identifiable and reproducible activity with a clear start time and end time, which may include a set of one or more sample component syntheses, sample preparations and/or measurements, performed by one or more research users."
+    {
+      "id": "15",
+      "type": "owl:ObjectProperty"
     },
-    "attributes" : [ "external" ],
-    "id" : "42",
-    "superClasses" : [ "9" ]
-  }, {
-    "instances" : 0,
-    "union" : [ "42", "4" ],
-    "attributes" : [ "anonymous", "union" ],
-    "id" : "75"
-  }, {
-    "instances" : 0,
-    "union" : [ "15", "16", "17" ],
-    "attributes" : [ "anonymous", "union" ],
-    "id" : "11"
-  }, {
-    "instances" : 0,
-    "union" : [ "9", "16", "17" ],
-    "attributes" : [ "anonymous", "union" ],
-    "id" : "77"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Location",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Location"
+    {
+      "id": "31",
+      "type": "owl:someValuesFrom"
     },
-    "subClasses" : [ "38" ],
-    "attributes" : [ "external" ],
-    "id" : "85"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings, and molecules. A single Precursor might itself become the only SampleComponent of a Sample in case it undergoes Measurement. E.g. Precursor1 is ethylene and Precursor2 is a Ni substrate. Ethylene reacts with Ni substrate converting into graphene (SampleComponent1). The result of Sample Preparation is a Sample composed of a graphene layer (SampleComponent1) and the same Ni substrate (SampleComponent2).",
-        "type" : "label"
-      } ]
+    {
+      "id": "32",
+      "type": "owl:someValuesFrom"
     },
-    "label" : {
-      "IRI-based" : "Precursor"
+    {
+      "id": "34",
+      "type": "owl:ObjectProperty"
     },
-    "comment" : {
-      "en" : "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), which is fabricated during the Fabrication and is used during the Sample Preparation to produce a Sample"
+    {
+      "id": "35",
+      "type": "owl:someValuesFrom"
     },
-    "id" : "89",
-    "superClasses" : [ "16" ]
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/Quantity",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Quantity"
+    {
+      "id": "38",
+      "type": "owl:someValuesFrom"
     },
-    "attributes" : [ "external" ],
-    "id" : "22"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/QuantityKind",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "QuantityKind"
+    {
+      "id": "40",
+      "type": "owl:allValuesFrom"
     },
-    "attributes" : [ "external" ],
-    "id" : "23"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/Object",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Object"
+    {
+      "id": "43",
+      "type": "owl:someValuesFrom"
     },
-    "subClasses" : [ "61", "5", "89", "28" ],
-    "attributes" : [ "external" ],
-    "id" : "16",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "A piece of equipment that makes one or more samples accessible for a measurement, or holds them in place in the predefined position to be mounted inside the instrument (e.g., glass slide, TEM grid, tilting support). Sample holder(s) may be carried by a sample carrier.",
-        "type" : "label"
-      } ]
+    {
+      "id": "46",
+      "type": "owl:someValuesFrom"
     },
-    "label" : {
-      "IRI-based" : "SampleHolder"
+    {
+      "id": "49",
+      "type": "owl:allValuesFrom"
     },
-    "id" : "19",
-    "superClasses" : [ "37" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable and reproducible set of actions (physical changes or chemical reactions) typically carried out by one or more Research Users to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement. The actions may be performed on (or between) one or more Precursors or Sample(s). Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s).",
-        "type" : "label"
-      } ]
+    {
+      "id": "53",
+      "type": "owl:DatatypeProperty"
     },
-    "label" : {
-      "IRI-based" : "SamplePreparation"
+    {
+      "id": "55",
+      "type": "owl:someValuesFrom"
     },
-    "comment" : {
-      "en" : "Sample preparation is identifiable and reproducible set of actions/activities (physical changes or chemical reactions) typically carried out by one or more research users to produce one or more samples and/or to make the sample(s) or precursor(s) fit to perform a measurement."
+    {
+      "id": "57",
+      "type": "owl:someValuesFrom"
     },
-    "id" : "47",
-    "superClasses" : [ "9" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments).",
-        "type" : "label"
-      } ]
+    {
+      "id": "59",
+      "type": "owl:someValuesFrom"
     },
-    "label" : {
-      "IRI-based" : "Laboratory"
+    {
+      "id": "61",
+      "type": "owl:someValuesFrom"
     },
-    "comment" : {
-      "en" : "Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed."
+    {
+      "id": "62",
+      "type": "owl:someValuesFrom"
     },
-    "id" : "38",
-    "superClasses" : [ "85" ]
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "79",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+    {
+      "id": "63",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "66",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "69",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "71",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "73",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "77",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "78",
+      "type": "owl:DatatypeProperty"
+    },
+    {
+      "id": "79",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "80",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "81",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "82",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "65",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "84",
+      "type": "owl:DatatypeProperty"
+    },
+    {
+      "id": "85",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "87",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "89",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "91",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "92",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "16",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "93",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "95",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "37",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "96",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "97",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "98",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "99",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "100",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "101",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "102",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "103",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "104",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "105",
+      "type": "owl:DatatypeProperty"
+    },
+    {
+      "id": "106",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "107",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "108",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "109",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "110",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "111",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "112",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "113",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "114",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "7",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "116",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "117",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "118",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "119",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "120",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "121",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "122",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "123",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "124",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "125",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "126",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "127",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "128",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "86",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "17",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "129",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "131",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "132",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "133",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "134",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "136",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "137",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "138",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "139",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "140",
+      "type": "owl:allValuesFrom"
+    },
+    {
+      "id": "141",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "142",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "143",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "144",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "145",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "146",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "147",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "148",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "149",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "150",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "151",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "18",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "152",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "153",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "72",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "154",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "155",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "156",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "157",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "158",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "GENERATED-UNION-14-19-0",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-14-20-1",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-14-21-2",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-88-9-0",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-88-20-1",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-88-21-2",
+      "type": "setOperatorProperty"
     }
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, instrument scientist, project member).",
-        "type" : "label"
-      } ]
+  ],
+  "propertyAttribute": [
+    {
+      "id": "4",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "hasDataAcquisition"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "6",
+      "subproperty": [
+        "7"
+      ],
+      "pos": [
+        848.9,
+        472.02
+      ]
     },
-    "label" : {
-      "IRI-based" : "ResearchUser"
+    {
+      "id": "13",
+      "iri": "https://w3id.org/pmd/co/participant",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "participant"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "9",
+      "range": "14",
+      "subproperty": [
+        "16",
+        "17",
+        "18"
+      ],
+      "inverse": "15",
+      "pos": [
+        220.35,
+        1018.7
+      ]
     },
-    "comment" : {
-      "en" : "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."
+    {
+      "id": "23",
+      "iri": "http://www.w3.org/ns/prov#wasAssociatedWith",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasAssociatedWith"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "24",
+      "pos": [
+        1131.14,
+        223.51
+      ]
     },
-    "attributes" : [ "external" ],
-    "id" : "31",
-    "superClasses" : [ "62" ]
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "69",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+    {
+      "id": "27",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "usesEquipment"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "52",
+      "pos": [
+        1125.9,
+        16.07
+      ]
+    },
+    {
+      "id": "28",
+      "iri": "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "baseIri": "http://www.w3.org/2002/07/owl",
+      "label": {
+        "IRI-based": "topObjectProperty"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "subproperty": [],
+      "pos": [
+        1707.15,
+        1572.85
+      ]
+    },
+    {
+      "id": "15",
+      "iri": "https://w3id.org/pmd/co/participantOf",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "participantOf"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "14",
+      "range": "9",
+      "inverse": "13"
+    },
+    {
+      "id": "31",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "usesEquipment"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "25",
+      "pos": [
+        957.23,
+        7.55
+      ]
+    },
+    {
+      "id": "32",
+      "iri": "http://www.w3.org/ns/prov#atLocation",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "atLocation"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "33",
+      "pos": [
+        1207.8,
+        243.32
+      ]
+    },
+    {
+      "id": "34",
+      "iri": "https://w3id.org/pmd/co/previousProcess",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "previousProcess"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "9",
+      "range": "9",
+      "inverse": "113",
+      "pos": [
+        248.13,
+        822.26
+      ]
+    },
+    {
+      "id": "35",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "36",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        688.56,
+        32.5
+      ]
+    },
+    {
+      "id": "38",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#uses",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "uses"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "undefined": "uses is an object property relating the thing with a consumable."
+      },
+      "domain": "5",
+      "range": "39",
+      "superproperty": [
+        "13"
+      ],
+      "pos": [
+        713.15,
+        390.16
+      ]
+    },
+    {
+      "id": "40",
+      "iri": "http://qudt.org/schema/qudt/quantityValue",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "quantityValue"
+      },
+      "attributes": [
+        "object",
+        "allValues",
+        "external"
+      ],
+      "domain": "41",
+      "range": "42",
+      "pos": [
+        -822.75,
+        -89.11
+      ]
+    },
+    {
+      "id": "43",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "isSampleComponentOf",
+        "en": "is sample component of"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isSampleComponentOf is the inverse property of hasSampleComponent."
+      },
+      "domain": "44",
+      "range": "45",
+      "superproperty": [
+        "28"
+      ],
+      "pos": [
+        675.76,
+        -474.43
+      ]
+    },
+    {
+      "id": "46",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "isHeldBy",
+        "en": "is held by"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isHeldBy is the inverse property of holds."
+      },
+      "domain": "47",
+      "range": "48",
+      "pos": [
+        1409.25,
+        -720.9
+      ]
+    },
+    {
+      "id": "49",
+      "iri": "http://qudt.org/schema/qudt/hasQuantityKind",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "hasQuantityKind"
+      },
+      "attributes": [
+        "object",
+        "allValues",
+        "external"
+      ],
+      "domain": "41",
+      "range": "50",
+      "pos": [
+        -754.76,
+        50.78
+      ]
+    },
+    {
+      "id": "53",
+      "iri": "http://www.w3.org/ns/prov#endedAtTime",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "endedAtTime"
+      },
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "domain": "29",
+      "range": "54",
+      "pos": [
+        1960.78,
+        1464.82
+      ]
+    },
+    {
+      "id": "55",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#carries",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "carries",
+        "en": "carries"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "carries represents the relationship between sample carrier to sample."
+      },
+      "domain": "48",
+      "range": "45",
+      "pos": [
+        1007.9,
+        -569.13
+      ]
+    },
+    {
+      "id": "57",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "58",
+      "range": "45",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        1071.16,
+        167.49
+      ]
+    },
+    {
+      "id": "59",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#holds",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "holds",
+        "en": "holds"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "holds represents the relationship between sample carrier to sample holder."
+      },
+      "domain": "48",
+      "range": "47",
+      "pos": [
+        1391.48,
+        -794.7
+      ]
+    },
+    {
+      "id": "61",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#uses",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "uses"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "undefined": "uses is an object property relating the thing with a consumable."
+      },
+      "domain": "58",
+      "range": "39",
+      "superproperty": [
+        "13"
+      ],
+      "pos": [
+        924.08,
+        616.24
+      ]
+    },
+    {
+      "id": "62",
+      "iri": "http://www.w3.org/ns/prov#wasAssociatedWith",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasAssociatedWith"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "58",
+      "range": "24",
+      "pos": [
+        1342.08,
+        449.59
+      ]
+    },
+    {
+      "id": "63",
+      "iri": "https://w3id.org/pmd/co/output",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "output"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "58",
+      "range": "64",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "65",
+      "pos": [
+        1194.34,
+        955.76
+      ]
+    },
+    {
+      "id": "66",
+      "iri": "http://www.w3.org/ns/prov#atLocation",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "atLocation"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "58",
+      "range": "33",
+      "pos": [
+        1418.73,
+        469.4
+      ]
+    },
+    {
+      "id": "69",
+      "iri": "http://www.w3.org/ns/prov#wasAssociatedWith",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasAssociatedWith"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "24",
+      "pos": [
+        1181.5,
+        195.47
+      ]
+    },
+    {
+      "id": "71",
+      "iri": "https://w3id.org/pmd/co/characteristic",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "characteristic"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "20",
+      "range": "21",
+      "inverse": "72",
+      "pos": [
+        146.42,
+        1070.12
+      ]
+    },
+    {
+      "id": "73",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "usesEquipment"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "25",
+      "pos": [
+        1007.59,
+        -20.49
+      ]
+    },
+    {
+      "id": "77",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "hasSetting"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "pos": [
+        1974.15,
+        1382.86
+      ]
+    },
+    {
+      "id": "78",
+      "iri": "http://qudt.org/schema/qudt/numericValue",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "numericValue"
+      },
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "domain": "29",
+      "range": "74",
+      "pos": [
+        1933.89,
+        1553.11
+      ]
+    },
+    {
+      "id": "79",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#holds",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "holds",
+        "en": "holds"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "holds represents the relationship between sample carrier to sample holder."
+      },
+      "domain": "48",
+      "range": "47",
+      "pos": [
+        1421.86,
+        -771.71
+      ]
+    },
+    {
+      "id": "80",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasSampleComponent",
+        "en": "has sample component"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hasSampleComponent represents the relationship between sample to sample component"
+      },
+      "domain": "45",
+      "range": "44",
+      "pos": [
+        675.51,
+        -427.3
+      ]
+    },
+    {
+      "id": "81",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasFabrication",
+        "en": "has fabrication"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hasFabrication represents the relationship between study to fabrication activity."
+      },
+      "domain": "22",
+      "range": "5",
+      "pos": [
+        854.22,
+        407.95
+      ]
+    },
+    {
+      "id": "82",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#operates",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "operates"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "pos": [
+        1657.18,
+        1433.91
+      ]
+    },
+    {
+      "id": "65",
+      "iri": "https://w3id.org/pmd/co/outputOf",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "outputOf"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "45",
+      "range": "51",
+      "inverse": "141"
+    },
+    {
+      "id": "84",
+      "iri": "http://qudt.org/schema/qudt/value",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "value"
+      },
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "domain": "29",
+      "range": "76",
+      "pos": [
+        1779.52,
+        1614.39
+      ]
+    },
+    {
+      "id": "85",
+      "iri": "https://w3id.org/pmd/co/nextProcess",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "nextProcess"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "9",
+      "range": "9",
+      "superproperty": [
+        "86"
+      ],
+      "inverse": "34",
+      "pos": [
+        289.67,
+        942.58
+      ]
+    },
+    {
+      "id": "87",
+      "iri": "https://w3id.org/pmd/co/subordinateProcess",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "subordinateProcess"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "9",
+      "range": "9",
+      "pos": [
+        445.09,
+        992.2
+      ]
+    },
+    {
+      "id": "89",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "9",
+      "range": "20",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        219.1,
+        765.89
+      ]
+    },
+    {
+      "id": "91",
+      "iri": "https://w3id.org/pmd/co/output",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "output"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "9",
+      "range": "20",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "65",
+      "pos": [
+        211.33,
+        884.42
+      ]
+    },
+    {
+      "id": "92",
+      "iri": "https://w3id.org/pmd/co/characteristic",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "characteristic"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "9",
+      "range": "21",
+      "inverse": "72",
+      "pos": [
+        320.54,
+        1081.27
+      ]
+    },
+    {
+      "id": "16",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        1678.89,
+        1541.99
+      ]
+    },
+    {
+      "id": "93",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hosts",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hosts",
+        "en": "hosts"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hosts represents the relationship between institution to laboratory."
+      },
+      "domain": "94",
+      "range": "33",
+      "pos": [
+        1811.88,
+        280.51
+      ]
+    },
+    {
+      "id": "95",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasDerivedFrom"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "36",
+      "range": "36",
+      "pos": [
+        346.73,
+        -156.82
+      ]
+    },
+    {
+      "id": "37",
+      "iri": "https://w3id.org/pmd/co/inputOf",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "inputOf"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "45",
+      "range": "51",
+      "inverse": "145"
+    },
+    {
+      "id": "96",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "hasTechnique"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "pos": [
+        1975.73,
+        1501.4
+      ]
+    },
+    {
+      "id": "97",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasDerivedFrom"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "45",
+      "range": "45",
+      "pos": [
+        854.57,
+        -507.35
+      ]
+    },
+    {
+      "id": "98",
+      "iri": "http://www.w3.org/ns/prov#atLocation",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "atLocation"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "52",
+      "range": "33",
+      "pos": [
+        1482.71,
+        40.66
+      ]
+    },
+    {
+      "id": "99",
+      "iri": "http://www.w3.org/ns/prov#wasGeneratedBy",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasGeneratedBy"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "36",
+      "range": "5",
+      "pos": [
+        659.94,
+        62.51
+      ]
+    },
+    {
+      "id": "100",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "isMeasurementOf",
+        "en": "is measurement of"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "isMeasurementOf is the inverse property of hasMeasurement."
+      },
+      "domain": "58",
+      "range": "22",
+      "inverse": "138",
+      "pos": [
+        1098.72,
+        629.69
+      ]
+    },
+    {
+      "id": "101",
+      "iri": "https://w3id.org/pmd/co/output",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "output"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "36",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "65",
+      "pos": [
+        639.45,
+        98.55
+      ]
+    },
+    {
+      "id": "102",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "5",
+      "range": "10",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        629.39,
+        246.2
+      ]
+    },
+    {
+      "id": "103",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "isCarriedBy",
+        "en": "is carried by"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isCarriedBy is the inverse property of carries."
+      },
+      "domain": "45",
+      "range": "48",
+      "pos": [
+        1057.32,
+        -503.86
+      ]
+    },
+    {
+      "id": "104",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasSampleComponent",
+        "en": "has sample component"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasSampleComponent represents the relationship between sample to sample component"
+      },
+      "domain": "45",
+      "range": "44",
+      "pos": [
+        702.51,
+        -505.44
+      ]
+    },
+    {
+      "id": "105",
+      "iri": "http://www.w3.org/ns/prov#startedAtTime",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "startedAtTime"
+      },
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "domain": "29",
+      "range": "83",
+      "pos": [
+        1861.73,
+        1606.43
+      ]
+    },
+    {
+      "id": "106",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "45",
+      "range": "11",
+      "pos": [
+        548.89,
+        -153.93
+      ]
+    },
+    {
+      "id": "107",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "10",
+      "range": "11",
+      "pos": [
+        318.06,
+        150.87
+      ]
+    },
+    {
+      "id": "108",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "58",
+      "range": "6",
+      "pos": [
+        1059.83,
+        698.11
+      ]
+    },
+    {
+      "id": "109",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "33",
+      "range": "90",
+      "pos": [
+        1770.18,
+        362.88
+      ]
+    },
+    {
+      "id": "110",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "36",
+      "range": "11",
+      "pos": [
+        370.97,
+        -28.18
+      ]
+    },
+    {
+      "id": "111",
+      "iri": "http://www.w3.org/ns/prov#used",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "used"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "pos": [
+        1933.95,
+        1322.93
+      ]
+    },
+    {
+      "id": "112",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#carries",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "carries",
+        "en": "carries"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "carries represents the relationship between sample carrier to sample."
+      },
+      "domain": "48",
+      "range": "45",
+      "pos": [
+        1034.41,
+        -538.77
+      ]
+    },
+    {
+      "id": "113",
+      "iri": "https://w3id.org/pmd/co/nextProcess",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "nextProcess"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "9",
+      "range": "9",
+      "superproperty": [
+        "86"
+      ],
+      "inverse": "34"
+    },
+    {
+      "id": "114",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hosts",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hosts",
+        "en": "hosts"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hosts represents the relationship between institution to laboratory."
+      },
+      "domain": "94",
+      "range": "33",
+      "pos": [
+        1806.99,
+        225.9
+      ]
+    },
+    {
+      "id": "7",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasMeasurement",
+        "en": "has measurement"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hasMeasurement represents the relationship between experiment to measurement."
+      },
+      "domain": "29",
+      "range": "58",
+      "superproperty": [],
+      "inverse": "100",
+      "pos": [
+        1549.79,
+        1061.53
+      ]
+    },
+    {
+      "id": "116",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "44",
+      "range": "11",
+      "pos": [
+        354.12,
+        -216.17
+      ]
+    },
+    {
+      "id": "117",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "64",
+      "range": "70",
+      "pos": [
+        983.16,
+        1448.34
+      ]
+    },
+    {
+      "id": "118",
+      "iri": "https://w3id.org/pmd/co/composes",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "composes"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "20",
+      "range": "20",
+      "pos": [
+        -113.15,
+        814.8
+      ]
+    },
+    {
+      "id": "119",
+      "iri": "https://w3id.org/pmd/co/subordinateProcess",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "subordinateProcess"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "9",
+      "range": "9",
+      "pos": [
+        526.09,
+        950.56
+      ]
+    },
+    {
+      "id": "120",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "68",
+      "range": "67",
+      "pos": [
+        2059.7,
+        -33.31
+      ]
+    },
+    {
+      "id": "121",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "5",
+      "range": "9",
+      "pos": [
+        632.94,
+        527.08
+      ]
+    },
+    {
+      "id": "122",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "24",
+      "range": "67",
+      "pos": [
+        1625.2,
+        90.25
+      ]
+    },
+    {
+      "id": "123",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "52",
+      "range": "67",
+      "pos": [
+        1623.47,
+        -117.76
+      ]
+    },
+    {
+      "id": "124",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "22",
+      "range": "1",
+      "pos": [
+        785.91,
+        873.75
+      ]
+    },
+    {
+      "id": "125",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "21",
+      "range": "1",
+      "pos": [
+        439,
+        1243.76
+      ]
+    },
+    {
+      "id": "126",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "51",
+      "range": "9",
+      "pos": [
+        683.29,
+        499.04
+      ]
+    },
+    {
+      "id": "127",
+      "iri": "https://w3id.org/pmd/co/characteristic",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "characteristic"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "88",
+      "range": "21",
+      "inverse": "72",
+      "pos": [
+        49.62,
+        1458.32
+      ]
+    },
+    {
+      "id": "128",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "6",
+      "range": "9",
+      "pos": [
+        628.58,
+        779.68
+      ]
+    },
+    {
+      "id": "86",
+      "iri": "http://www.w3.org/ns/prov#wasInformedBy",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasInformedBy"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "subproperty": [
+        "113"
+      ],
+      "pos": [
+        1659,
+        1497.8
+      ]
+    },
+    {
+      "id": "17",
+      "iri": "https://w3id.org/pmd/co/output",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "output"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "65",
+      "pos": [
+        1823.56,
+        1598.35
+      ]
+    },
+    {
+      "id": "129",
+      "iri": "http://www.w3.org/ns/prov#generated",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "generated"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "pos": [
+        1741.76,
+        1595.53
+      ]
+    },
+    {
+      "id": "131",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "0",
+      "range": "1",
+      "pos": [
+        916.44,
+        1253.56
+      ]
+    },
+    {
+      "id": "132",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "19",
+      "range": "1",
+      "pos": [
+        541.95,
+        1356.87
+      ]
+    },
+    {
+      "id": "133",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "20",
+      "range": "1",
+      "pos": [
+        356.93,
+        986.06
+      ]
+    },
+    {
+      "id": "134",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "2",
+      "range": "0",
+      "pos": [
+        1384.17,
+        1277.79
+      ]
+    },
+    {
+      "id": "136",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "9",
+      "range": "8",
+      "pos": [
+        465.77,
+        1050.71
+      ]
+    },
+    {
+      "id": "137",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "3",
+      "range": "0",
+      "pos": [
+        1376.89,
+        1332.9
+      ]
+    },
+    {
+      "id": "138",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasMeasurement",
+        "en": "has measurement"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasMeasurement represents the relationship between experiment to measurement."
+      },
+      "domain": "22",
+      "range": "58",
+      "superproperty": [],
+      "inverse": "100"
+    },
+    {
+      "id": "139",
+      "iri": "http://www.w3.org/ns/prov#wasInfluencedBy",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasInfluencedBy"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "29",
+      "range": "29",
+      "pos": [
+        1901.06,
+        1582.64
+      ]
+    },
+    {
+      "id": "140",
+      "iri": "http://qudt.org/schema/qudt/unit",
+      "baseIri": "http://qudt.org/schema/qudt",
+      "label": {
+        "IRI-based": "unit"
+      },
+      "attributes": [
+        "object",
+        "allValues",
+        "external"
+      ],
+      "domain": "42",
+      "range": "12",
+      "pos": [
+        -630.17,
+        -396.23
+      ]
+    },
+    {
+      "id": "141",
+      "iri": "https://w3id.org/pmd/co/output",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "output"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "45",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "65",
+      "pos": [
+        887.52,
+        -99.62
+      ]
+    },
+    {
+      "id": "142",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#uses",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "uses"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "undefined": "uses is an object property relating the thing with a consumable."
+      },
+      "domain": "51",
+      "range": "39",
+      "superproperty": [
+        "13"
+      ],
+      "pos": [
+        763.5,
+        362.11
+      ]
+    },
+    {
+      "id": "143",
+      "iri": "http://www.w3.org/ns/prov#atLocation",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "atLocation"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "33",
+      "pos": [
+        1258.16,
+        215.28
+      ]
+    },
+    {
+      "id": "144",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "36",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        732.66,
+        39.1
+      ]
+    },
+    {
+      "id": "145",
+      "iri": "https://w3id.org/pmd/co/input",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "input"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "45",
+      "superproperty": [
+        "13"
+      ],
+      "inverse": "37",
+      "pos": [
+        933.95,
+        -108.62
+      ]
+    },
+    {
+      "id": "146",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "usesEquipment"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "51",
+      "range": "52",
+      "pos": [
+        1176.29,
+        -11.93
+      ]
+    },
+    {
+      "id": "147",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasSamplePreparation",
+        "en": "has sample preparation"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasSamplePreparation represents the relationship between study to sample preparation activity."
+      },
+      "domain": "22",
+      "range": "51",
+      "pos": [
+        1015.82,
+        384.98
+      ]
+    },
+    {
+      "id": "148",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasFabrication",
+        "en": "has fabrication"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasFabrication represents the relationship between study to fabrication activity."
+      },
+      "domain": "22",
+      "range": "5",
+      "pos": [
+        917.01,
+        404.76
+      ]
+    },
+    {
+      "id": "149",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "94",
+      "range": "68",
+      "pos": [
+        2148.6,
+        104.78
+      ]
+    },
+    {
+      "id": "150",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "70",
+      "range": "19",
+      "pos": [
+        643.58,
+        1605.4
+      ]
+    },
+    {
+      "id": "151",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasMeasurementTechnique",
+        "en": "has measurement technique"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hasMeasurementTechnique represents the relationship between measurement to measurement technique."
+      },
+      "domain": "58",
+      "range": "75",
+      "pos": [
+        1477,
+        743.35
+      ]
+    },
+    {
+      "id": "18",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#uses",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "uses"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "undefined": "uses is an object property relating the thing with a consumable."
+      },
+      "domain": "135",
+      "range": "39",
+      "superproperty": [
+        "13"
+      ],
+      "pos": [
+        346.16,
+        541.98
+      ]
+    },
+    {
+      "id": "152",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasPrecursor",
+        "undefined": "has precursor"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "undefined": "has precursor represents the relationship between sample component to precursor"
+      },
+      "domain": "44",
+      "range": "36",
+      "pos": [
+        494.49,
+        -273.12
+      ]
+    },
+    {
+      "id": "153",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "48",
+      "range": "52",
+      "pos": [
+        1314.2,
+        -428.17
+      ]
+    },
+    {
+      "id": "72",
+      "iri": "https://w3id.org/pmd/co/characteristicOf",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "characteristicOf"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "21",
+      "range": "88",
+      "inverse": "127"
+    },
+    {
+      "id": "154",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "11",
+      "range": "20",
+      "pos": [
+        147.47,
+        420.59
+      ]
+    },
+    {
+      "id": "155",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "39",
+      "range": "20",
+      "pos": [
+        318.69,
+        686.66
+      ]
+    },
+    {
+      "id": "156",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/experiment",
+      "label": {
+        "IRI-based": "hasSamplePreparation",
+        "en": "has sample preparation"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hasSamplePreparation represents the relationship between study to sample preparation activity."
+      },
+      "domain": "22",
+      "range": "51",
+      "pos": [
+        969.28,
+        374.74
+      ]
+    },
+    {
+      "id": "157",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "47",
+      "range": "52",
+      "pos": [
+        1486.26,
+        -431.63
+      ]
+    },
+    {
+      "id": "158",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "25",
+      "range": "52",
+      "pos": [
+        1229.48,
+        -197.08
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-14-19-0",
+      "domain": "14",
+      "range": "19",
+      "pos": [
+        231.24,
+        1378.36
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-14-20-1",
+      "domain": "14",
+      "range": "20",
+      "pos": [
+        46.22,
+        1007.55
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-14-21-2",
+      "domain": "14",
+      "range": "21",
+      "pos": [
+        128.29,
+        1265.24
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-88-9-0",
+      "domain": "88",
+      "range": "9",
+      "pos": [
+        210.38,
+        1056.19
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-88-20-1",
+      "domain": "88",
+      "range": "20",
+      "pos": [
+        36.25,
+        1045.03
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-88-21-2",
+      "domain": "88",
+      "range": "21",
+      "pos": [
+        93.12,
+        1471.09
+      ]
     }
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context. Measurement is specific to instrument: an investigation on the same sample conducted using a different instrument implies a different measurement. A measurement may also be performed during the sample component synthesis and/or the sample preparation, e.g., to characterize the resulting sample or sample component(s). A computational measurement may be a part of a simulation (computational experiment), e.g., a simulation run using a particular model, configuration or input(s).",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Measurement"
-    },
-    "comment" : {
-      "en" : "Measurement is identifiable and reproducible activity, performed by one or more research users, who generate a single self-consistent unit of raw data about a sample or a set of them using an instrument under constant or varying controlled conditions, depending on the particular research context."
-    },
-    "id" : "40",
-    "superClasses" : [ "9" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Sample",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Sample"
-    },
-    "comment" : {
-      "en" : "Identifiable entity (typically a piece of material) with distinctive properties (structural, chemical, dimensional, functional and others), composed by one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement. Sample may also stand for a model, configuration or input (or any combination of them) of a Computation."
-    },
-    "id" : "28",
-    "superClasses" : [ "16" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Institution",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Hierarchical entity which hosts one or more laboratories, including the virtual ones.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Institution"
-    },
-    "comment" : {
-      "en" : "Hierarchical entity which hosts one or more laboratories, including the virtual ones."
-    },
-    "id" : "87",
-    "superClasses" : [ "63" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Equipment",
-    "equivalent" : [ "48" ],
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Equipment"
-    },
-    "subClasses" : [ "19", "30", "20" ],
-    "comment" : {
-      "en" : "Any kind of item, device, machine or other tool (also virtual) used by one or more Research Users to perform one or more Fabrication, Sample Preparations and/or Measurements. Usually, the Equipment is located in a Laboratory hosted by an Institution and is usually an investment. According to this definition, an Instrument is a particular type of Equipment."
-    },
-    "attributes" : [ "equivalent" ],
-    "id" : "37",
-    "superClasses" : [ "62" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Instrument",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement).",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Instrument"
-    },
-    "comment" : {
-      "en" : "Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data."
-    },
-    "id" : "30",
-    "superClasses" : [ "37" ]
-  }, {
-    "iri" : "https://w3id.org/pmd/co/DigitalEntity",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "DigitalEntity"
-    },
-    "subClasses" : [ "54" ],
-    "attributes" : [ "external" ],
-    "id" : "15",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Organization",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Organization"
-    },
-    "subClasses" : [ "87" ],
-    "attributes" : [ "external" ],
-    "id" : "63",
-    "superClasses" : [ "62" ]
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/QuantityValue",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "QuantityValue"
-    },
-    "attributes" : [ "external" ],
-    "id" : "35"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s).",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Fabrication"
-    },
-    "comment" : {
-      "en" : "The production of a Precursor in controlled conditions performed by a commercial enterprise, one or more Research Users or a third party. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Fabrication, e.g., to characterize the intermediate and/or final resulting Precursor(s)."
-    },
-    "id" : "4",
-    "superClasses" : [ "9" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "A piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment. Sample carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "SampleCarrier"
-    },
-    "comment" : {
-      "en" : "Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment."
-    },
-    "id" : "20",
-    "superClasses" : [ "37" ]
-  } ],
-  "property" : [ {
-    "id" : "3",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "7",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "18",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "21",
-    "type" : "owl:allValuesFrom"
-  }, {
-    "id" : "24",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "12",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "27",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "29",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "33",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "34",
-    "type" : "owl:allValuesFrom"
-  }, {
-    "id" : "36",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "39",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "41",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "43",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "45",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "49",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "51",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "52",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "53",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "56",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "58",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "59",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "60",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "64",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "65",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "66",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "68",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "70",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "71",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "72",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "73",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "74",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "76",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "55",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "78",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "80",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "81",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "82",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "83",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "86",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "88",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "13",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "90",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "91",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "6",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "92",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "93",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "94",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "95",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "96",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "98",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "99",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "100",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "101",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "102",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "103",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "104",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "105",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "106",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "107",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "108",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "109",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "110",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "111",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "112",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "113",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "114",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "115",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "116",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "117",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "118",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "119",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "120",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "121",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "122",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "123",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "84",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "14",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "124",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "126",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "127",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "128",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "129",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "130",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "131",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "32",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "132",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "133",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "134",
-    "type" : "owl:allValuesFrom"
-  }, {
-    "id" : "135",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "136",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "137",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "138",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "139",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "140",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "141",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "57",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "142",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "143",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "144",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "145",
-    "type" : "rdfs:SubClassOf"
-  } ],
-  "propertyAttribute" : [ {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "5",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "4",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "3"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/participant",
-    "inverse" : "12",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "11",
-    "label" : {
-      "IRI-based" : "participant"
-    },
-    "domain" : "9",
-    "subproperty" : [ "13", "14" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "7"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "20",
-    "label" : {
-      "IRI-based" : "isHeldBy",
-      "en" : "is held by"
-    },
-    "domain" : "19",
-    "comment" : {
-      "en" : "isHeldBy is the inverse property of holds."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "18"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/hasQuantityKind",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "range" : "23",
-    "label" : {
-      "IRI-based" : "hasQuantityKind"
-    },
-    "domain" : "22",
-    "attributes" : [ "object", "allValues", "external" ],
-    "id" : "21"
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#topObjectProperty",
-    "baseIri" : "http://www.w3.org/2002/07/owl",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "topObjectProperty"
-    },
-    "domain" : "25",
-    "subproperty" : [ "26" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "24"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/participantOf",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "participantOf"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "12"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "isSampleComponentOf",
-      "en" : "is sample component of"
-    },
-    "superproperty" : [ "24" ],
-    "domain" : "5",
-    "comment" : {
-      "en" : "isSampleComponentOf is the inverse property of hasSampleComponent."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "27"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#wasOperatedBy",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "wasOperatedBy",
-      "en" : "was operated by"
-    },
-    "superproperty" : [ "32" ],
-    "domain" : "30",
-    "comment" : {
-      "en" : "wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "29"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/previousProcess",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "previousProcess"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "33"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/quantityValue",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "range" : "35",
-    "label" : {
-      "IRI-based" : "quantityValue"
-    },
-    "domain" : "22",
-    "attributes" : [ "object", "allValues", "external" ],
-    "id" : "34"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#atLocation",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "38",
-    "label" : {
-      "IRI-based" : "atLocation"
-    },
-    "domain" : "37",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "36"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "40",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "39"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "42",
-    "label" : {
-      "IRI-based" : "isMeasurementOf",
-      "en" : "is measurement of"
-    },
-    "domain" : "40",
-    "comment" : {
-      "en" : "isMeasurementOf is the inverse property of hasMeasurement."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "41"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#holds",
-    "inverse" : "44",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "19",
-    "label" : {
-      "IRI-based" : "holds",
-      "en" : "holds"
-    },
-    "domain" : "20",
-    "comment" : {
-      "en" : "holds represents the relationship between sample carrier to sample holder."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "43"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#carries",
-    "inverse" : "46",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "carries",
-      "en" : "carries"
-    },
-    "domain" : "20",
-    "comment" : {
-      "en" : "carries represents the relationship between sample carrier to sample."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "45"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#endedAtTime",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "50",
-    "label" : {
-      "IRI-based" : "endedAtTime"
-    },
-    "domain" : "25",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "49"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#atLocation",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "38",
-    "label" : {
-      "IRI-based" : "atLocation"
-    },
-    "domain" : "40",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "51"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "2",
-    "label" : {
-      "IRI-based" : "hasMeasurementTechnique",
-      "en" : "has measurement technique"
-    },
-    "domain" : "40",
-    "comment" : {
-      "en" : "hasMeasurementTechnique represents the relationship between measurement to measurement technique."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "52"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/output",
-    "inverse" : "55",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "54",
-    "label" : {
-      "IRI-based" : "output"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "40",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "53"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/characteristic",
-    "inverse" : "57",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "17",
-    "label" : {
-      "IRI-based" : "characteristic"
-    },
-    "domain" : "16",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "56"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "47",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "58"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "40",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "59"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "61",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "40",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "60"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "47",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "64"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "30",
-    "label" : {
-      "IRI-based" : "usesEquipment"
-    },
-    "domain" : "47",
-    "attributes" : [ "object", "someValues" ],
-    "id" : "65"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "37",
-    "label" : {
-      "IRI-based" : "usesEquipment"
-    },
-    "domain" : "47",
-    "attributes" : [ "object", "someValues" ],
-    "id" : "66"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/numericValue",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "range" : "69",
-    "label" : {
-      "IRI-based" : "numericValue"
-    },
-    "domain" : "25",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "68"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#holds",
-    "inverse" : "44",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "19",
-    "label" : {
-      "IRI-based" : "holds",
-      "en" : "holds"
-    },
-    "domain" : "20",
-    "comment" : {
-      "en" : "holds represents the relationship between sample carrier to sample holder."
-    },
-    "attributes" : [ "object" ],
-    "id" : "70"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent",
-    "inverse" : "26",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "5",
-    "label" : {
-      "IRI-based" : "hasSampleComponent",
-      "en" : "has sample component"
-    },
-    "domain" : "28",
-    "comment" : {
-      "en" : "hasSampleComponent represents the relationship between sample to sample component"
-    },
-    "attributes" : [ "object" ],
-    "id" : "71"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "37",
-    "label" : {
-      "IRI-based" : "usesEquipment"
-    },
-    "domain" : "9",
-    "attributes" : [ "object" ],
-    "id" : "72"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "4",
-    "label" : {
-      "IRI-based" : "hasFabrication",
-      "en" : "has fabrication"
-    },
-    "domain" : "42",
-    "comment" : {
-      "en" : "hasFabrication represents the relationship between experiment to fabrication activity."
-    },
-    "attributes" : [ "object" ],
-    "id" : "73"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#wasOperatedBy",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "wasOperatedBy",
-      "en" : "was operated by"
-    },
-    "superproperty" : [ "32" ],
-    "domain" : "30",
-    "comment" : {
-      "en" : "wasOperatedBy represents the provenance information that connects the agent that was operated by another agent, e.g., instrument was operated by research user."
-    },
-    "attributes" : [ "object" ],
-    "id" : "74"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "16",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "9",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "76"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/outputOf",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "outputOf"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "55"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/value",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "range" : "79",
-    "label" : {
-      "IRI-based" : "value"
-    },
-    "domain" : "25",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "78"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/output",
-    "inverse" : "55",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "16",
-    "label" : {
-      "IRI-based" : "output"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "9",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "80"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/characteristic",
-    "inverse" : "57",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "17",
-    "label" : {
-      "IRI-based" : "characteristic"
-    },
-    "domain" : "9",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "81"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/subordinateProcess",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "9",
-    "label" : {
-      "IRI-based" : "subordinateProcess"
-    },
-    "domain" : "9",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "82"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/nextProcess",
-    "inverse" : "33",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "9",
-    "label" : {
-      "IRI-based" : "nextProcess"
-    },
-    "superproperty" : [ "84" ],
-    "domain" : "9",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "83"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hosts",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "38",
-    "label" : {
-      "IRI-based" : "hosts",
-      "en" : "hosts"
-    },
-    "domain" : "87",
-    "comment" : {
-      "en" : "hosts represents the relationship between institution to laboratory."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "86"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "4",
-    "label" : {
-      "IRI-based" : "wasGeneratedBy"
-    },
-    "domain" : "89",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "88"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "13"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "wasDerivedFrom"
-    },
-    "domain" : "28",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "90"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/output",
-    "inverse" : "55",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "89",
-    "label" : {
-      "IRI-based" : "output"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "4",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "91"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/inputOf",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "inputOf"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "6"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "61",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "4",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "92"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "20",
-    "label" : {
-      "IRI-based" : "isCarriedBy",
-      "en" : "is carried by"
-    },
-    "domain" : "28",
-    "comment" : {
-      "en" : "isCarriedBy is the inverse property of carries."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "93"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent",
-    "inverse" : "26",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "5",
-    "label" : {
-      "IRI-based" : "hasSampleComponent",
-      "en" : "has sample component"
-    },
-    "domain" : "28",
-    "comment" : {
-      "en" : "hasSampleComponent represents the relationship between sample to sample component"
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "94"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "37",
-    "label" : {
-      "IRI-based" : "usesEquipment"
-    },
-    "domain" : "4",
-    "attributes" : [ "object", "someValues" ],
-    "id" : "95"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement",
-    "inverse" : "97",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "40",
-    "label" : {
-      "IRI-based" : "hasMeasurement",
-      "en" : "has measurement"
-    },
-    "domain" : "4",
-    "comment" : {
-      "en" : "hasMeasurement represents the relationship between experiment to measurement."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "96"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "4",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "98"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#usesEquipment",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "30",
-    "label" : {
-      "IRI-based" : "usesEquipment"
-    },
-    "domain" : "4",
-    "attributes" : [ "object", "someValues" ],
-    "id" : "99"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#startedAtTime",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "67",
-    "label" : {
-      "IRI-based" : "startedAtTime"
-    },
-    "domain" : "25",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "100"
-  }, {
-    "range" : "16",
-    "domain" : "28",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "101"
-  }, {
-    "range" : "16",
-    "domain" : "89",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "102"
-  }, {
-    "range" : "37",
-    "domain" : "30",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "103"
-  }, {
-    "range" : "37",
-    "domain" : "19",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "104"
-  }, {
-    "range" : "16",
-    "domain" : "5",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "105"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#used",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "used"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "106"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#carries",
-    "inverse" : "46",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "carries",
-      "en" : "carries"
-    },
-    "domain" : "20",
-    "comment" : {
-      "en" : "carries represents the relationship between sample carrier to sample."
-    },
-    "attributes" : [ "object" ],
-    "id" : "107"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/nextProcess",
-    "inverse" : "33",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "9",
-    "label" : {
-      "IRI-based" : "nextProcess"
-    },
-    "superproperty" : [ "84" ],
-    "domain" : "9",
-    "attributes" : [ "object", "external" ],
-    "id" : "108"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hosts",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "38",
-    "label" : {
-      "IRI-based" : "hosts",
-      "en" : "hosts"
-    },
-    "domain" : "87",
-    "comment" : {
-      "en" : "hosts represents the relationship between institution to laboratory."
-    },
-    "attributes" : [ "object" ],
-    "id" : "109"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement",
-    "inverse" : "97",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "40",
-    "label" : {
-      "IRI-based" : "hasMeasurement",
-      "en" : "has measurement"
-    },
-    "domain" : "75",
-    "comment" : {
-      "en" : "hasMeasurement represents the relationship between experiment to measurement."
-    },
-    "attributes" : [ "object" ],
-    "id" : "110"
-  }, {
-    "range" : "16",
-    "domain" : "61",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "111"
-  }, {
-    "range" : "85",
-    "domain" : "38",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "112"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/composes",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "16",
-    "label" : {
-      "IRI-based" : "composes"
-    },
-    "domain" : "16",
-    "attributes" : [ "object", "external" ],
-    "id" : "113"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/subordinateProcess",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "9",
-    "label" : {
-      "IRI-based" : "subordinateProcess"
-    },
-    "domain" : "9",
-    "attributes" : [ "object", "external" ],
-    "id" : "114"
-  }, {
-    "range" : "62",
-    "domain" : "63",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "115"
-  }, {
-    "range" : "9",
-    "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "116"
-  }, {
-    "range" : "62",
-    "domain" : "31",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "117"
-  }, {
-    "range" : "62",
-    "domain" : "37",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "118"
-  }, {
-    "range" : "9",
-    "domain" : "42",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "119"
-  }, {
-    "range" : "1",
-    "domain" : "17",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "120"
-  }, {
-    "range" : "9",
-    "domain" : "40",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "121"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/characteristic",
-    "inverse" : "57",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "17",
-    "label" : {
-      "IRI-based" : "characteristic"
-    },
-    "domain" : "77",
-    "attributes" : [ "object", "external" ],
-    "id" : "122"
-  }, {
-    "range" : "9",
-    "domain" : "47",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "123"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasInformedBy",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "wasInformedBy"
-    },
-    "domain" : "25",
-    "subproperty" : [ "108" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "84"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/output",
-    "inverse" : "55",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "output"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "14"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#generated",
-    "inverse" : "125",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "generated"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "124"
-  }, {
-    "range" : "1",
-    "domain" : "0",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "126"
-  }, {
-    "range" : "1",
-    "domain" : "15",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "127"
-  }, {
-    "range" : "1",
-    "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "128"
-  }, {
-    "range" : "8",
-    "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "129"
-  }, {
-    "range" : "0",
-    "domain" : "2",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "130"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#atLocation",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "38",
-    "label" : {
-      "IRI-based" : "atLocation"
-    },
-    "domain" : "42",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "131"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasInfluencedBy",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "wasInfluencedBy"
-    },
-    "domain" : "25",
-    "subproperty" : [ "74" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "32"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "4",
-    "label" : {
-      "IRI-based" : "hasFabrication",
-      "en" : "has fabrication"
-    },
-    "domain" : "42",
-    "comment" : {
-      "en" : "hasFabrication represents the relationship between experiment to fabrication activity."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "132"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "wasAssociatedWith"
-    },
-    "domain" : "42",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "133"
-  }, {
-    "iri" : "http://qudt.org/schema/qudt/unit",
-    "baseIri" : "http://qudt.org/schema/qudt",
-    "range" : "10",
-    "label" : {
-      "IRI-based" : "unit"
-    },
-    "domain" : "35",
-    "attributes" : [ "object", "allValues", "external" ],
-    "id" : "134"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/output",
-    "inverse" : "55",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "output"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "47",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "135"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "61",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "47",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "136"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#atLocation",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "38",
-    "label" : {
-      "IRI-based" : "atLocation"
-    },
-    "domain" : "47",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "137"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/input",
-    "inverse" : "6",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "89",
-    "label" : {
-      "IRI-based" : "input"
-    },
-    "superproperty" : [ "7" ],
-    "domain" : "47",
-    "attributes" : [ "object", "external", "someValues" ],
-    "id" : "138"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "47",
-    "label" : {
-      "IRI-based" : "hasSamplePreparation",
-      "en" : "has sample preparation"
-    },
-    "domain" : "42",
-    "comment" : {
-      "en" : "hasSamplePreparation represents the relationship between experiment to sample preparation activity."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "139"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement",
-    "inverse" : "97",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "40",
-    "label" : {
-      "IRI-based" : "hasMeasurement",
-      "en" : "has measurement"
-    },
-    "domain" : "42",
-    "comment" : {
-      "en" : "hasMeasurement represents the relationship between experiment to measurement."
-    },
-    "attributes" : [ "object", "someValues" ],
-    "id" : "140"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "2",
-    "label" : {
-      "IRI-based" : "hasMeasurementTechnique",
-      "en" : "has measurement technique"
-    },
-    "domain" : "40",
-    "comment" : {
-      "en" : "hasMeasurementTechnique represents the relationship between measurement to measurement technique."
-    },
-    "attributes" : [ "object" ],
-    "id" : "141"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/characteristicOf",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "characteristicOf"
-    },
-    "domain" : "25",
-    "attributes" : [ "object", "external" ],
-    "id" : "57"
-  }, {
-    "range" : "15",
-    "domain" : "54",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "142"
-  }, {
-    "range" : "37",
-    "domain" : "20",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "143"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/experiment",
-    "range" : "47",
-    "label" : {
-      "IRI-based" : "hasSamplePreparation",
-      "en" : "has sample preparation"
-    },
-    "domain" : "42",
-    "comment" : {
-      "en" : "hasSamplePreparation represents the relationship between experiment to sample preparation activity."
-    },
-    "attributes" : [ "object" ],
-    "id" : "144"
-  }, {
-    "range" : "63",
-    "domain" : "87",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "145"
-  } ]
+  ]
 }

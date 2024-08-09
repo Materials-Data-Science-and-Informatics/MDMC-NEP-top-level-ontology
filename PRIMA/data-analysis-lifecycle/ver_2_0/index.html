@@ -337,6 +337,341 @@ td {
   }
 ]
 	</script>
+    <style>
+        #pylode {
+            position: fixed;
+            top: 205px;
+            left: -150px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+        #pylode #p {
+            color: #329545;
+        }
+        #pylode #y {
+            color: #f9cb33;
+        }
+        #pylode #version {
+            font-size: 1.0em;
+        }
+
+        #profile {
+            font-style: italic;
+            font-size: 1.25em;
+            color: darkred!important;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dl {
+            /*border: 1px solid navy;*/
+            /*padding:5px;*/
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 0;
+        }
+
+        dd {
+            margin-bottom: 10px;
+            padding-top: 7px;
+        }
+
+        #metadata ul,
+        #classes ul {
+            list-style-type: none;
+        }
+
+        #metadata ul li,
+        #classes ul li {
+            margin-left: -40px;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: left;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-con,
+        .sup-col {
+            cursor:help;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-con {
+            color:orange;
+        }
+
+        .sup-col {
+            color:darkred;
+        }
+
+        sup {
+            margin-left: -3px;
+        }
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+
+#toc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border: solid 1px navy;
+    font-size: small;
+    width: 180px;
+}
+#toc h3 {
+    margin-top: 5px;
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#toc .first > li {
+    margin-top: 5px;
+}
+
+#toc .second,
+#toc .third {
+    padding-left: 10px;
+}
+
+#content {
+    width: calc(100% - 150px);
+}
+
+.hover_property {
+    cursor: help;
+    text-decoration: none;
+    border-bottom: dashed 1px;
+}
+
+.setclass {
+    list-style-type: none;
+}
+
+code{
+    word-wrap: break-word;
+  }
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+td {
+    word-wrap: break-word;
+}
+#legend table.entity {
+    width: 25%;
+}
+	</style>
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhklEQVQ4jbWPzStEURjG3yQLirlGKUnKFO45Z+SjmXvnnmthQcpCoVhYmD/AwmJiI3OvZuZc2U3UlKU0/gAslMw9JgvhHxAr2fko7r0jHSsl+TgbTz2Lt5731/MASEiJW9ONml2QyX6rsGalmnT74v8BDf12hxJfpV8d1uwNKUBYszabdFv84L8B9X0rESVmmUup2fme0cVhJWaZHw4NWL1SewEAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ9Hn31OgoATL+CkLDGB5H1OKj4nFd/FBxUXJ0UZNb4edw/6nLyJXaj5FeCVyPLNIVmYK8TG1IwWb16L1gEACAFV90ftoT8bdOX0EeyY99gxBXZMgRz6qGb1KantAACI0UvE6F5XJqEjpsdURouI0Vt5gGOUkUNnPu7ObGIIMfNaGqDmjDRi9FZldF1lRgYzeqUyeoiY4ag5Iy3RgOYRM8+/M2bG8efsO4hGrpmJseyMAAAAAElFTkSuQmCC" rel="icon" sizes="16x16" type="image/png">
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC40lEQVRYhe2UT0hUQRzHp6Iss1B3VZKIDbbdfW9mnoi4f3zzjkJQeOgS0SEIb1EWBGGlLLu460zQPQM1unUIIjA6rfpm6ZAhHjoIRVQUFUlEbG+euTsdXG1d3VL3bVD4g+9h+L35fT/8fvN7ADgY9aHY5fpIvK82HO9ysu66wxWOzbkjcekKx0a2ALYA/n2AGi3a6ArFezcidziecQygNhhrcUficjP6PwBqtGijKxy/thnVBePHywYoDsFhl53GV8SEcsTx4usCMLUewTVpc23BNvEzm6Neyf1+KcG2vwqwUjgrOJq2JmHftwmkVBRGTvncFodnbI7vChO/FRznCmHsNM7aHM9Yk7Df5iqsLMw9sMNOK2g+jS4IEz0UJv4iuJZb2RltWnB4UZqH6ioGAgAAGe5vtiZhtzDx7OoRadLmeM7m6IRjhnLMW2Vx1bA5GhAmnhIcz6/xNj4Ujsky8UspwfayjDPjsF2Y6L7N8Vzx/BfP+KPg6LbgSqd8DnfJW2CnbaLhfH5ephpqygJYvQU4Z3P82TLRsDDhUTnmrSq+Y3N0Mg+Xldy/zwEAnLMWZ3pHpNExmfLs/t0dOdVcbT0JeKxUwFP2VljjqiE47Jp53LTXNxhsUZjerTByXWX6VZWRs/4bIQ2ACv+UAomgDzLCISNZxAxZKMhIDjLy1JfsaK+I+eGBUBNk5E2x8RogX/PdcDZUqieWTSh5D6nOVKqfhoycUmlHFFIyu5RXqf7AcQDISCpv/tqbMBqK883RtmpISRoxQyJKPgGn3wNk5NEigDFa6hslqV/Kj+FdBQD0bshIDlKSLlVcoWQo36UhR80BAMB73lulMn0EMpJTqD6qJiOt3mho/8GbkT2BZNgDB/V+RI0fkOrT3kRIVQbaDizJm2hdNbINBxwk5xAj3yEjuV9rZ1iIkgxixkLBA83mz8uCjLwoGwAx0vOnFSy5mtR4VTaAQvVORMnwZgSpzkrV/QmdE2tKe46+MQAAAABJRU5ErkJggg==" rel="icon" sizes="32x32" type="image/png">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <script id="schema.org" type="application/ld+json">
+[
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dal",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/contributor": [
+      {
+        "@language": "en",
+        "@value": "Elda Osmenaj"
+      },
+      {
+        "@language": "en",
+        "@value": "Mirco Panighel"
+      }
+    ],
+    "https://schema.org/creator": [
+      {
+        "@language": "en",
+        "@value": "Ahmad Zainul Ihsan"
+      },
+      {
+        "@language": "en",
+        "@value": "Mehrdad Jalali"
+      },
+      {
+        "@language": "en",
+        "@value": "Rossella Aversa"
+      }
+    ],
+    "https://schema.org/dateCreated": [
+      {
+        "@language": "en",
+        "@value": "2024-01-29"
+      }
+    ],
+    "https://schema.org/description": [
+      {
+        "@language": "en",
+        "@value": "This is the data analysis lifecycle module of the Provenance Information for Materials Science (PRIMA) Ontology"
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@language": "en",
+        "@value": "PRIMA Ontology- Data Analysis Lifecycle Module"
+      }
+    ]
+  }
+]
+	</script>
   </head>
   <body>
     <div id="content">
@@ -352,7 +687,7 @@ td {
               <code>https://purls.helmholtz-metadaten.de/prima/dal</code>
             </dd>
             <dt>Ontology RDF</dt>
-        <dd><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/core/ver_2_0/prima-data-analysis-lifecycle.ttl">RDF (turtle)</a></dd>
+        <dd><a href="https://raw.githubusercontent.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology/master/PRIMA/data-analysis-lifecycle/ver_2_0/prima-data-analysis-lifecycle.ttl">RDF (turtle)</a></dd>
           </div>
           <div>
             <dt>
@@ -447,7 +782,7 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://qudt.org/schema/qudt/quantityValue">http://qudt.org/schema/qudt/quantityValue</a>
+                          <a href="http://qudt.org/schema/qudt/hasQuantityKind">http://qudt.org/schema/qudt/hasQuantityKind</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>only<br>
                       </span>
@@ -457,7 +792,7 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://qudt.org/schema/qudt/hasQuantityKind">http://qudt.org/schema/qudt/hasQuantityKind</a>
+                          <a href="http://qudt.org/schema/qudt/quantityValue">http://qudt.org/schema/qudt/quantityValue</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>only<br>
                       </span>
@@ -585,29 +920,23 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#ResearchSoftware">ResearchSoftware</a>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware">core:ResearchSoftware</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
             </tr>
           </table>
         </div>
-        <div class="property entity" id="Conclusion">
-          <h3>Conclusion
+        <div class="property entity" id="Study">
+          <h3>Study
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
           <table>
             <tr>
               <th>IRI</th>
               <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dal#Conclusion</code>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#Study</code>
               </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software.</p></td>
             </tr>
             <tr>
               <th>
@@ -622,31 +951,28 @@ td {
             </tr>
             <tr>
               <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasConclusion">has conclusion</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
               </th>
               <td>
-                <ul>
-                  <li>
+                <span>
+                  <span>
                     <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.org/dc/terms/references">References</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                </ul>
+                      <a href="#hasConclusion">has conclusion</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>some<br>
+                  </span>
+                </span>
               </td>
             </tr>
           </table>
@@ -681,125 +1007,6 @@ td {
                     </span>
                   </li>
                 </ul>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="AnalysedData">
-          <h3>Analysed Data
-            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dataset#AnalysedData</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
-              </th>
-              <td>
-                <ul>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.org/dc/terms/references">References</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="RawData">
-          <h3>Raw Data
-            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dataset#RawData</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
               </td>
             </tr>
           </table>
@@ -839,6 +1046,76 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="Conclusion">
+          <h3>Conclusion
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#Conclusion</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Entity">Entity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasConclusion">has conclusion</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.org/dc/terms/references">References</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="DataAnalysis">
           <h3>Data Analysis
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -854,7 +1131,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>Data analysis is data treatment activity performed by one or more research users, who collect, model and analyse research data, typically processed data, to extract insights that support the answer to some specific research question (i.e., conclusions).</p></td>
+              <td><p>Set of actions included in the Data Analysis Lifecycle and performed by one or more Research Users on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question (i.e., Conclusions).</p></td>
             </tr>
             <tr>
               <th>
@@ -888,7 +1165,7 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -908,7 +1185,7 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -918,7 +1195,17 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -944,7 +1231,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>Data interpretation is process or activity performed by one or more research users, who assign meaning to research data, typically analysed data, and determine the conclusions of the study, possibly in comparison with reference data.</p></td>
+              <td><p>Set of actions, included in the data analysis lifecycle, performed by one or more research users on research data, typically analyzed data, to determine the conclusions of the study, possibly in comparison with reference data.</p></td>
             </tr>
             <tr>
               <th>
@@ -978,6 +1265,16 @@ td {
                     <span>
                       <span>
                         <span>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
                           <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
@@ -1008,7 +1305,7 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -1034,7 +1331,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>Data processing is a data treatment activity performed by one or more research users on research data, typically raw data, to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation.</p></td>
+              <td><p>Set of actions, included in the data analysis lifecycle and performed by one or more research users on research data, typically reference data or raw data, to prepare it for one or more further processes, e.g., model preparation, data acquisition (in case of calculations or simulations), data analysis and/or data interpretation. The output of data processing is processed data.</p></td>
             </tr>
             <tr>
               <th>
@@ -1068,6 +1365,26 @@ td {
                     <span>
                       <span>
                         <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
                           <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
@@ -1078,7 +1395,7 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -1109,22 +1426,16 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="ProcessedData">
-          <h3>Processed Data
+        <div class="property entity" id="AnalyzedData">
+          <h3>Analyzed Data
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
           <table>
             <tr>
               <th>IRI</th>
               <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData</code>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData</code>
               </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation.</p></td>
             </tr>
             <tr>
               <th>
@@ -1167,7 +1478,114 @@ td {
                     <span>
                       <span>
                         <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
                           <a href="http://purl.org/dc/terms/references">References</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="RawData">
+          <h3>Raw Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#RawData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ProcessedData">
+          <h3>Processed Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.org/dc/terms/references">References</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -1201,12 +1619,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle.</p></td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
               </th>
               <td>
@@ -1237,13 +1649,19 @@ td {
                 <ul>
                   <li>
                     <span>
-                      <a href="#Conclusion">Conclusion</a>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/core#Study">core:Study</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
                   </li>
                   <li>
                     <span>
                       <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Conclusion">Conclusion</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
                   </li>
@@ -1264,36 +1682,6 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="ResearchUser">
-          <h3>Research User
-            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/core#ResearchUser</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="http://www.w3.org/ns/prov#Agent">Agent</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-          </table>
-        </div>
         <div class="property entity" id="ResearchSoftware">
           <h3>Research Software
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1302,14 +1690,8 @@ td {
             <tr>
               <th>IRI</th>
               <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dal#ResearchSoftware</code>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware</code>
               </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Research software is software used to generate, process, analyse or access research data during any of the processes included in the data analysis lifecycle (possibly including data rendering, visualization, plotting).</p></td>
             </tr>
             <tr>
               <th>
@@ -1328,8 +1710,32 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#usesResearchSoftware">uses research sofware</a>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ResearchUser">
+          <h3>Research User
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#ResearchUser</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Agent">Agent</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
             </tr>
@@ -1393,12 +1799,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Data analysis lifecycle is a set of processes carried out by one or more research users, who systematically perform actions and apply methods on research data in order to produce synthesized knowledge to, e.g., detect pattern, determine relationships, develop explanations, test hypotheses, prove theories, suggest the conclusions of the study.</p></td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
               </th>
               <td>
@@ -1445,16 +1845,6 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#used">used</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
                           <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
@@ -1465,7 +1855,17 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#used">used</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -1580,12 +1980,6 @@ td {
             </tr>
             <tr>
               <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)</p></td>
-            </tr>
-            <tr>
-              <th>
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
               </th>
               <td>
@@ -1618,7 +2012,7 @@ td {
                 <ul>
                   <li>
                     <span>
-                      <a href="https://purls.helmholtz-metadaten.de/prima/dataset#AnalysedData">https://purls.helmholtz-metadaten.de/prima/dataset#AnalysedData</a>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData">https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
                   </li>
@@ -1725,26 +2119,6 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="https://w3id.org/pmd/co/nextProcess">https://w3id.org/pmd/co/nextProcess</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="https://w3id.org/pmd/co/subordinateProcess">https://w3id.org/pmd/co/subordinateProcess</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>some<br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
                           <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
@@ -1755,7 +2129,27 @@ td {
                     <span>
                       <span>
                         <span>
+                          <a href="https://w3id.org/pmd/co/nextProcess">https://w3id.org/pmd/co/nextProcess</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
                           <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/subordinateProcess">https://w3id.org/pmd/co/subordinateProcess</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>some<br>
                       </span>
@@ -1935,19 +2329,6 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="isUsedByResearchSoftware">
-          <h3>is used by research software
-            <sup class="sup-op" title="OWL Object Property">op</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware</code>
-              </td>
-            </tr>
-          </table>
-        </div>
         <div class="property entity" id="composes">
           <h3>composes
             <sup class="sup-op" title="OWL Object Property">op</sup>
@@ -2072,6 +2453,47 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="hasConclusion">
+          <h3>has conclusion
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#hasConclusion</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasConclusion represents the relationship between study to conclusion</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Study">core:Study</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Conclusion">Conclusion</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="isDataAnalysisOf">
           <h3>is data analysis of
             <sup class="sup-op" title="OWL Object Property">op</sup>
@@ -2111,50 +2533,15 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="usesResearchSoftware">
-          <h3>uses research sofware
+        <div class="property entity" id="isUsedByResearchSoftware">
+          <h3>is used by research software
             <sup class="sup-op" title="OWL Object Property">op</sup>
           </h3>
           <table>
             <tr>
               <th>IRI</th>
               <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/dal#usesResearchSoftware</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, or data processing with research software</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
-              </th>
-              <td><span>
-  <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
-  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-</span> <span class="cardinality">or</span> <span>
-  <a href="#DataInterpretation">DataInterpretation</a>
-  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-</span> <span class="cardinality">or</span> <span>
-  <a href="#DataProcessing">DataProcessing</a>
-  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-</span> <span class="cardinality">or</span> <span>
-  <a href="#DataAnalysis">DataAnalysis</a>
-  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-</span></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#ResearchSoftware">ResearchSoftware</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware</code>
               </td>
             </tr>
           </table>
@@ -2332,10 +2719,10 @@ td {
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
               </th>
               <td><span>
-  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+  <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
 </span> <span class="cardinality">or</span> <span>
-  <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
 </span> <span class="cardinality">or</span> <span>
   <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
@@ -2374,13 +2761,13 @@ td {
                 <ul>
                   <li>
                     <span>
-                      <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                      <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
                   </li>
                   <li>
                     <span>
-                      <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                      <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
                   </li>
@@ -2403,13 +2790,13 @@ td {
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
               </th>
               <td><span>
-  <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+  <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
 </span> <span class="cardinality">or</span> <span>
   <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
 </span> <span class="cardinality">or</span> <span>
-  <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
+  <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
 </span></td>
             </tr>
@@ -2441,6 +2828,67 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="wasAssociatedWith">
+          <h3>was associated with
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#wasAssociatedWith</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="usesresearchsofware">
+          <h3>uses research sofware
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, or data processing with research software</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td><span>
+  <a href="#DataProcessing">DataProcessing</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="#DataInterpretation">DataInterpretation</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="#DataAnalysis">DataAnalysis</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware">core:ResearchSoftware</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="wasGeneratedBy">
           <h3>was generated by
             <sup class="sup-op" title="OWL Object Property">op</sup>
@@ -2450,30 +2898,6 @@ td {
               <th>IRI</th>
               <td>
                 <code>http://www.w3.org/ns/prov#wasGeneratedBy</code>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="input">
-          <h3>input
-            <sup class="sup-op" title="OWL Object Property">op</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://w3id.org/pmd/co/input</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="https://w3id.org/pmd/co/participant">https://w3id.org/pmd/co/participant</a>
-                  <sup class="sup-op" title="OWL Object Property">op</sup>
-                </span>
               </td>
             </tr>
           </table>
@@ -2502,36 +2926,31 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="wasAssociatedWith">
-          <h3>was associated with
+        <div class="property entity" id="input">
+          <h3>input
             <sup class="sup-op" title="OWL Object Property">op</sup>
           </h3>
           <table>
             <tr>
               <th>IRI</th>
               <td>
-                <code>http://www.w3.org/ns/prov#wasAssociatedWith</code>
+                <code>https://w3id.org/pmd/co/input</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/participant">https://w3id.org/pmd/co/participant</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
               </td>
             </tr>
           </table>
         </div>
       </div>
-      <span>
-        <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
-        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-      </span>
-      <span>
-        <a href="#DataAnalysis">DataAnalysis</a>
-        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-      </span>
-      <span>
-        <a href="#DataInterpretation">DataInterpretation</a>
-        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-      </span>
-      <span>
-        <a href="#DataProcessing">DataProcessing</a>
-        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-      </span>
       <span>
         <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
         <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -2554,6 +2973,22 @@ td {
       </span>
       <span>
         <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#DataAnalysis">DataAnalysis</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#DataInterpretation">DataInterpretation</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#DataProcessing">DataProcessing</a>
         <sup class="sup-c" title="OWL/RDFS Class">c</sup>
       </span>
       <div class="section" id="datatypeproperties">
@@ -2777,6 +3212,10 @@ td {
           <dd>
             <code>https://purls.helmholtz-metadaten.de/prima/core#</code>
           </dd>
+          <dt id="dcterms">dcterms</dt>
+          <dd>
+            <code>http://purl.org/dc/terms/</code>
+          </dd>
           <dt id="ns1">ns1</dt>
           <dd>
             <code>https://purls.helmholtz-metadaten.de/prima/</code>
@@ -2801,9 +3240,2596 @@ td {
           <dd>
             <code>http://www.w3.org/2004/02/skos/core#</code>
           </dd>
-          <dt id="terms">terms</dt>
+          <dt id="vann">vann</dt>
+          <dd>
+            <code>http://purl.org/vocab/vann/</code>
+          </dd>
+        </dl>
+      </div>
+      <div id="legend">
+        <h2>Legend</h2>
+        <table class="entity">
+          <tr>
+            <td>
+              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+            </td>
+            <td>Classes</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-op" title="OWL Object Property">op</sup>
+            </td>
+            <td>Object Properties</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+            </td>
+            <td>Datatype Properties</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+            </td>
+            <td>Annotation Properties</td>
+          </tr>
+        </table>
+      </div>
+      <div class="section" id="metadata">
+        <h1>PRIMA Ontology- Data Analysis Lifecycle Module</h1>
+        <h2>Metadata</h2>
+        <dl>
+          <div>
+            <dt>
+              <strong>IRI</strong>
+            </dt>
+            <dd>
+              <code>https://purls.helmholtz-metadaten.de/prima/dal</code>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/title" title="A name given to the resource. Defined in DCMI Metadata Terms">Title</a>
+            </dt>
+            <dd><p>PRIMA Ontology- Data Analysis Lifecycle Module</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/creator" title="An entity responsible for making the resource. Defined in DCMI Metadata Terms">Creator</a>
+            </dt>
+            <dd>
+              <ul>
+                <li><p>Ahmad Zainul Ihsan</p></li>
+                <li><p>Mehrdad Jalali</p></li>
+                <li><p>Rossella Aversa</p></li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/contributor" title="An entity responsible for making contributions to the resource. Defined in DCMI Metadata Terms">Contributor</a>
+            </dt>
+            <dd>
+              <ul>
+                <li><p>Elda Osmenaj</p></li>
+                <li><p>Mirco Panighel</p></li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/created" title="Date of creation of the resource. Defined in DCMI Metadata Terms">Date Created</a>
+            </dt>
+            <dd><p>2024-01-29</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/license" title="A legal document giving official permission to do something with the resource. Defined in DCMI Metadata Terms">License</a>
+            </dt>
+            <dd>
+              <a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://www.w3.org/2002/07/owl#versionInfo" title="The annotation property that provides version information for an ontology or another OWL construct. Defined in The OWL 2 Schema vocabulary (OWL 2)">Version Info</a>
+            </dt>
+            <dd><p>2.0</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/vocab/vann/preferredNamespacePrefix" title="None. Defined in None">Preferred Namespace Prefix</a>
+            </dt>
+            <dd><p>PRIMA</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+            </dt>
+            <dd><p>This is the data analysis lifecycle module of the Provenance Information for Materials Science (PRIMA) Ontology</p></dd>
+          </div>
+        </dl>
+      </div>
+      <div class="section" id="classes">
+        <h2>Classes</h2>
+        <div class="property entity" id="Quantity">
+          <h3>Quantity
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/Quantity</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://qudt.org/schema/qudt/hasQuantityKind">http://qudt.org/schema/qudt/hasQuantityKind</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://qudt.org/schema/qudt/quantityValue">http://qudt.org/schema/qudt/quantityValue</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>only<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="QuantityKind">
+          <h3>Quantity Kind
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/QuantityKind</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="QuantityValue">
+          <h3>Quantity Value
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/QuantityValue</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="http://qudt.org/schema/qudt/unit">http://qudt.org/schema/qudt/unit</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>only<br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Unit">
+          <h3>Unit
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/Unit</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Activity">
+          <h3>Activity
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#Activity</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SoftwareAgent">
+          <h3>Software Agent
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#SoftwareAgent</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Agent">Agent</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware">core:ResearchSoftware</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Study">
+          <h3>Study
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#Study</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Entity">Entity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasConclusion">has conclusion</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#hasConclusion">has conclusion</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>some<br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Agent">
+          <h3>Agent
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#Agent</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="http://www.w3.org/ns/prov#SoftwareAgent">Software Agent</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DigitalEntity">
+          <h3>Digital Entity
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/DigitalEntity</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Entity">Entity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Conclusion">
+          <h3>Conclusion
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#Conclusion</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Entity">Entity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasConclusion">has conclusion</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.org/dc/terms/references">References</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DataAnalysis">
+          <h3>Data Analysis
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Set of actions included in the Data Analysis Lifecycle and performed by one or more Research Users on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question (i.e., Conclusions).</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasDataAnalysis">has data analysis</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DataInterpretation">
+          <h3>Data Interpretation
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Set of actions, included in the data analysis lifecycle, performed by one or more research users on research data, typically analyzed data, to determine the conclusions of the study, possibly in comparison with reference data.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasDataInterpretation">has data interpretation</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DataProcessing">
+          <h3>Data Processing
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Set of actions, included in the data analysis lifecycle and performed by one or more research users on research data, typically reference data or raw data, to prepare it for one or more further processes, e.g., model preparation, data acquisition (in case of calculations or simulations), data analysis and/or data interpretation. The output of data processing is processed data.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasDataProcessing">has data processing</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="AnalyzedData">
+          <h3>Analyzed Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.org/dc/terms/references">References</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="RawData">
+          <h3>Raw Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#RawData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ProcessedData">
+          <h3>Processed Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.org/dc/terms/references">References</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasGeneratedBy">was generated by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ReferenceData">
+          <h3>Reference Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Entity">
+          <h3>Entity
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#Entity</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/core#Study">core:Study</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#Conclusion">Conclusion</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ResearchSoftware">
+          <h3>Research Software
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#SoftwareAgent">Software Agent</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ResearchUser">
+          <h3>Research User
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#ResearchUser</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Agent">Agent</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ValueObject">
+          <h3>Value Object
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/ValueObject</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="http://qudt.org/schema/qudt/Quantity">http://qudt.org/schema/qudt/Quantity</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="http://www.w3.org/ns/prov#Entity">Entity</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/characteristic">https://w3id.org/pmd/co/characteristic</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DataAnalysisLifecycle">
+          <h3>Data Analysis Lifecycle
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#hasDataAnalysis">has data analysis</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#hasDataInterpretation">has data interpretation</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#hasDataProcessing">has data processing</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">uses research sofware</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#used">used</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#wasAssociatedWith">was associated with</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Object">
+          <h3>Object
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/Object</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Entity">Entity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/composes">https://w3id.org/pmd/co/composes</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/composes">https://w3id.org/pmd/co/composes</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/characteristic">https://w3id.org/pmd/co/characteristic</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>some<br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ResearchData">
+          <h3>Research Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#ResearchData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="http://www.w3.org/ns/prov#wasAttributedTo">was attributed to</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>some<br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData">https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/dataset#RawData">https://purls.helmholtz-metadaten.de/prima/dataset#RawData</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData">https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData">https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Process">
+          <h3>Process
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/Process</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#Activity">Activity</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/nextProcess">https://w3id.org/pmd/co/nextProcess</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/subordinateProcess">https://w3id.org/pmd/co/subordinateProcess</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/participant">https://w3id.org/pmd/co/participant</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/nextProcess">https://w3id.org/pmd/co/nextProcess</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/subordinateProcess">https://w3id.org/pmd/co/subordinateProcess</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/nextProcess">https://w3id.org/pmd/co/nextProcess</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/subordinateProcess">https://w3id.org/pmd/co/subordinateProcess</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="https://w3id.org/pmd/co/characteristic">https://w3id.org/pmd/co/characteristic</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>some<br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#DataAnalysis">DataAnalysis</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DataInterpretation">DataInterpretation</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#DataProcessing">DataProcessing</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" id="objectproperties">
+        <h2>Object Properties</h2>
+        <div class="property entity" id="hasDataAnalysis">
+          <h3>has data analysis
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#hasDataAnalysis</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasDataAnalysis relates DataAnalysisLifecycle with DataAnalysis</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DataAnalysis">DataAnalysis</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasDataInterpretation">
+          <h3>has data interpretation
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#hasDataInterpretation</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasDataInterpretation relates DataAnalysisLifecycle with DataInterpretation</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DataInterpretation">DataInterpretation</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasDataProcessing">
+          <h3>has data processing
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#hasDataProcessing</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasDataProcessing relates DataAnalysisLifecycle with DataProcessing</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#DataProcessing">DataProcessing</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="composes">
+          <h3>composes
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/composes</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasQuantityKind">
+          <h3>has quantity kind
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/hasQuantityKind</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="quantityValue">
+          <h3>quantity value
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/quantityValue</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="unit">
+          <h3>unit
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/unit</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="used">
+          <h3>used
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#used</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="wasAttributedTo">
+          <h3>was attributed to
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#wasAttributedTo</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="wasInformedBy">
+          <h3>was informed by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#wasInformedBy</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superPropertyOf" title="Inverse of RDFS' subPropertyOf. Defined in Ontology Documentation Profile">Super Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/nextProcess">https://w3id.org/pmd/co/nextProcess</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasConclusion">
+          <h3>has conclusion
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#hasConclusion</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasConclusion represents the relationship between study to conclusion</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Study">core:Study</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Conclusion">Conclusion</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isDataAnalysisOf">
+          <h3>is data analysis of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#isDataAnalysisOf</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isDataProcessingOf">
+          <h3>is data processing of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#isDataProcessingOf</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isDataRepresentationOf">
+          <h3>is data representation of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#isDataRepresentationOf</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isUsedByResearchSoftware">
+          <h3>is used by research software
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="characteristicOf">
+          <h3>characteristic of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/characteristicOf</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="inputOf">
+          <h3>input of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/inputOf</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="nextProcess">
+          <h3>next process
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/nextProcess</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/ns/prov#wasInformedBy">was informed by</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="outputOf">
+          <h3>output of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/outputOf</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/2002/07/owl#topObjectProperty">topObjectProperty</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="participantOf">
+          <h3>participant of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/participantOf</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="previousProcess">
+          <h3>previous process
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/previousProcess</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="subordinateProcess">
+          <h3>subordinate process
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/subordinateProcess</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="characteristic">
+          <h3>characteristic
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/characteristic</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td><span>
+  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="participant">
+          <h3>participant
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/participant</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superPropertyOf" title="Inverse of RDFS' subPropertyOf. Defined in Ontology Documentation Profile">Super Property Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/output">https://w3id.org/pmd/co/output</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="https://w3id.org/pmd/co/input">https://w3id.org/pmd/co/input</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td><span>
+  <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="references">
+          <h3>references
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/references</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="wasDerivedFrom">
+          <h3>was derived from
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#wasDerivedFrom</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="wasAssociatedWith">
+          <h3>was associated with
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#wasAssociatedWith</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="usesresearchsofware">
+          <h3>uses research sofware
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, or data processing with research software</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td><span>
+  <a href="#DataAnalysis">DataAnalysis</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="#DataProcessing">DataProcessing</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span> <span class="cardinality">or</span> <span>
+  <a href="#DataInterpretation">DataInterpretation</a>
+  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+</span></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware">core:ResearchSoftware</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="wasGeneratedBy">
+          <h3>was generated by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#wasGeneratedBy</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="output">
+          <h3>output
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/output</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/participant">https://w3id.org/pmd/co/participant</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="input">
+          <h3>input
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://w3id.org/pmd/co/input</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://w3id.org/pmd/co/participant">https://w3id.org/pmd/co/participant</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <span>
+        <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://w3id.org/pmd/co/Process">https://w3id.org/pmd/co/Process</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://w3id.org/pmd/co/DigitalEntity">https://w3id.org/pmd/co/DigitalEntity</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://w3id.org/pmd/co/Object">https://w3id.org/pmd/co/Object</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://w3id.org/pmd/co/ValueObject">https://w3id.org/pmd/co/ValueObject</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">core:DataAnalysisLifecycle</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#DataAnalysis">DataAnalysis</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#DataInterpretation">DataInterpretation</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <span>
+        <a href="#DataProcessing">DataProcessing</a>
+        <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+      </span>
+      <div class="section" id="datatypeproperties">
+        <h2>Datatype Properties</h2>
+        <div class="property entity" id="numericValue">
+          <h3>numeric value
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/numericValue</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="value">
+          <h3>value
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://qudt.org/schema/qudt/value</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="endedAtTime">
+          <h3>ended at time
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#endedAtTime</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="startedAtTime">
+          <h3>started at time
+            <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#startedAtTime</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" id="annotationproperties">
+        <h2>Annotation Properties</h2>
+        <div class="property entity" id="contributor">
+          <h3>contributor
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/contributor</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="created">
+          <h3>created
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/created</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="creator">
+          <h3>creator
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/creator</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="description">
+          <h3>description
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/description</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="license">
+          <h3>license
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/license</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="title">
+          <h3>title
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/title</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="preferredNamespacePrefix">
+          <h3>preferred namespace prefix
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/vocab/vann/preferredNamespacePrefix</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="MDMCNEPGlossaryDefinition">
+          <h3>Mdmcnep Glossary Definition
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="MDMCNEPGlossaryDefinition1">
+          <h3>Mdmcnep Glossary Definition
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#MDMCNEPGlossaryDefinition</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/2004/02/skos/core#definition">definition</a>
+                  <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="definition">
+          <h3>definition
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/2004/02/skos/core#definition</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superPropertyOf" title="Inverse of RDFS' subPropertyOf. Defined in Ontology Documentation Profile">Super Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#MDMCNEPGlossaryDefinition1">MDMCNEPGlossaryDefinition</a>
+                  <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="namespaces">
+        <h2>Namespaces</h2>
+        <dl>
+          <dt id=":">:</dt>
+          <dd>
+            <code>https://purls.helmholtz-metadaten.de/prima/dal#</code>
+          </dd>
+          <dt id="core">core</dt>
+          <dd>
+            <code>https://purls.helmholtz-metadaten.de/prima/core#</code>
+          </dd>
+          <dt id="dcterms">dcterms</dt>
           <dd>
             <code>http://purl.org/dc/terms/</code>
+          </dd>
+          <dt id="ns1">ns1</dt>
+          <dd>
+            <code>https://purls.helmholtz-metadaten.de/prima/</code>
+          </dd>
+          <dt id="owl">owl</dt>
+          <dd>
+            <code>http://www.w3.org/2002/07/owl#</code>
+          </dd>
+          <dt id="prov">prov</dt>
+          <dd>
+            <code>http://www.w3.org/ns/prov#</code>
+          </dd>
+          <dt id="rdf">rdf</dt>
+          <dd>
+            <code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code>
+          </dd>
+          <dt id="rdfs">rdfs</dt>
+          <dd>
+            <code>http://www.w3.org/2000/01/rdf-schema#</code>
+          </dd>
+          <dt id="skos">skos</dt>
+          <dd>
+            <code>http://www.w3.org/2004/02/skos/core#</code>
           </dd>
           <dt id="vann">vann</dt>
           <dd>
@@ -2864,11 +5890,6 @@ td {
         </li>
         <li>
           <h4>
-            <a href="#overview">Overview</a>
-          </h4>
-        </li>
-        <li>
-          <h4>
             <a href="#classes">Classes</a>
           </h4>
           <ul class="second">
@@ -2891,19 +5912,16 @@ td {
               <a href="#SoftwareAgent">Software Agent</a>
             </li>
             <li>
-              <a href="#Conclusion">Conclusion</a>
+              <a href="#Study">Study</a>
             </li>
             <li>
               <a href="#Agent">Agent</a>
             </li>
             <li>
-              <a href="#AnalysedData">Analysed Data</a>
-            </li>
-            <li>
-              <a href="#RawData">Raw Data</a>
-            </li>
-            <li>
               <a href="#DigitalEntity">Digital Entity</a>
+            </li>
+            <li>
+              <a href="#Conclusion">Conclusion</a>
             </li>
             <li>
               <a href="#DataAnalysis">Data Analysis</a>
@@ -2915,6 +5933,12 @@ td {
               <a href="#DataProcessing">Data Processing</a>
             </li>
             <li>
+              <a href="#AnalyzedData">Analyzed Data</a>
+            </li>
+            <li>
+              <a href="#RawData">Raw Data</a>
+            </li>
+            <li>
               <a href="#ProcessedData">Processed Data</a>
             </li>
             <li>
@@ -2924,10 +5948,10 @@ td {
               <a href="#Entity">Entity</a>
             </li>
             <li>
-              <a href="#ResearchUser">Research User</a>
+              <a href="#ResearchSoftware">Research Software</a>
             </li>
             <li>
-              <a href="#ResearchSoftware">Research Software</a>
+              <a href="#ResearchUser">Research User</a>
             </li>
             <li>
               <a href="#ValueObject">Value Object</a>
@@ -2961,9 +5985,6 @@ td {
               <a href="#hasDataProcessing">has data processing</a>
             </li>
             <li>
-              <a href="#isUsedByResearchSoftware">is used by research software</a>
-            </li>
-            <li>
               <a href="#composes">composes</a>
             </li>
             <li>
@@ -2985,6 +6006,9 @@ td {
               <a href="#wasInformedBy">was informed by</a>
             </li>
             <li>
+              <a href="#hasConclusion">has conclusion</a>
+            </li>
+            <li>
               <a href="#isDataAnalysisOf">is data analysis of</a>
             </li>
             <li>
@@ -2994,7 +6018,7 @@ td {
               <a href="#isDataRepresentationOf">is data representation of</a>
             </li>
             <li>
-              <a href="#usesResearchSoftware">uses research sofware</a>
+              <a href="#isUsedByResearchSoftware">is used by research software</a>
             </li>
             <li>
               <a href="#characteristicOf">characteristic of</a>
@@ -3030,16 +6054,19 @@ td {
               <a href="#wasDerivedFrom">was derived from</a>
             </li>
             <li>
-              <a href="#wasGeneratedBy">was generated by</a>
+              <a href="#wasAssociatedWith">was associated with</a>
             </li>
             <li>
-              <a href="#input">input</a>
+              <a href="#usesresearchsofware">uses research sofware</a>
+            </li>
+            <li>
+              <a href="#wasGeneratedBy">was generated by</a>
             </li>
             <li>
               <a href="#output">output</a>
             </li>
             <li>
-              <a href="#wasAssociatedWith">was associated with</a>
+              <a href="#input">input</a>
             </li>
           </ul>
         </li>
@@ -3111,6 +6138,9 @@ td {
               <a href="#core">core</a>
             </li>
             <li>
+              <a href="#dcterms">dcterms</a>
+            </li>
+            <li>
               <a href="#ns1">ns1</a>
             </li>
             <li>
@@ -3129,7 +6159,548 @@ td {
               <a href="#skos">skos</a>
             </li>
             <li>
-              <a href="#terms">terms</a>
+              <a href="#vann">vann</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#legend">Legend</a>
+          </h4>
+          <ul class="second"></ul>
+        </li>
+      </ul>
+    </div>
+    <div id="pylode">
+      <p>made by 
+        <a href="https://github.com/rdflib/pyLODE">
+          <span id="p">p</span>
+          <span id="y">y</span>
+          <span>LODE</span>
+        </a>
+        <a href="https://github.com/rdflib/pyLODE/release/3.0.5" id="version">3.0.5</a>
+        <span> with the </span>
+        <a href="https://w3id.org/profile/ontpub" id="profile">OntPub</a>
+        <span>profile</span>
+      </p>
+    </div>
+    <div id="toc">
+      <h3>Table of Contents</h3>
+      <ul class="first">
+        <li>
+          <h4>
+            <a href="#metadata">Metadata</a>
+          </h4>
+        </li>
+        <li>
+          <h4>
+            <a href="#classes">Classes</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#Quantity">Quantity</a>
+            </li>
+            <li>
+              <a href="#QuantityKind">Quantity Kind</a>
+            </li>
+            <li>
+              <a href="#QuantityValue">Quantity Value</a>
+            </li>
+            <li>
+              <a href="#Unit">Unit</a>
+            </li>
+            <li>
+              <a href="#Activity">Activity</a>
+            </li>
+            <li>
+              <a href="#SoftwareAgent">Software Agent</a>
+            </li>
+            <li>
+              <a href="#Study">Study</a>
+            </li>
+            <li>
+              <a href="#Agent">Agent</a>
+            </li>
+            <li>
+              <a href="#DigitalEntity">Digital Entity</a>
+            </li>
+            <li>
+              <a href="#Conclusion">Conclusion</a>
+            </li>
+            <li>
+              <a href="#DataAnalysis">Data Analysis</a>
+            </li>
+            <li>
+              <a href="#DataInterpretation">Data Interpretation</a>
+            </li>
+            <li>
+              <a href="#DataProcessing">Data Processing</a>
+            </li>
+            <li>
+              <a href="#AnalyzedData">Analyzed Data</a>
+            </li>
+            <li>
+              <a href="#RawData">Raw Data</a>
+            </li>
+            <li>
+              <a href="#ProcessedData">Processed Data</a>
+            </li>
+            <li>
+              <a href="#ReferenceData">Reference Data</a>
+            </li>
+            <li>
+              <a href="#Entity">Entity</a>
+            </li>
+            <li>
+              <a href="#ResearchSoftware">Research Software</a>
+            </li>
+            <li>
+              <a href="#ResearchUser">Research User</a>
+            </li>
+            <li>
+              <a href="#ValueObject">Value Object</a>
+            </li>
+            <li>
+              <a href="#DataAnalysisLifecycle">Data Analysis Lifecycle</a>
+            </li>
+            <li>
+              <a href="#Object">Object</a>
+            </li>
+            <li>
+              <a href="#ResearchData">Research Data</a>
+            </li>
+            <li>
+              <a href="#Process">Process</a>
+            </li>
+            <li>
+              <a href="#Quantity">Quantity</a>
+            </li>
+            <li>
+              <a href="#QuantityKind">Quantity Kind</a>
+            </li>
+            <li>
+              <a href="#QuantityValue">Quantity Value</a>
+            </li>
+            <li>
+              <a href="#Unit">Unit</a>
+            </li>
+            <li>
+              <a href="#Activity">Activity</a>
+            </li>
+            <li>
+              <a href="#SoftwareAgent">Software Agent</a>
+            </li>
+            <li>
+              <a href="#Study">Study</a>
+            </li>
+            <li>
+              <a href="#Agent">Agent</a>
+            </li>
+            <li>
+              <a href="#DigitalEntity">Digital Entity</a>
+            </li>
+            <li>
+              <a href="#Conclusion">Conclusion</a>
+            </li>
+            <li>
+              <a href="#DataAnalysis">Data Analysis</a>
+            </li>
+            <li>
+              <a href="#DataInterpretation">Data Interpretation</a>
+            </li>
+            <li>
+              <a href="#DataProcessing">Data Processing</a>
+            </li>
+            <li>
+              <a href="#AnalyzedData">Analyzed Data</a>
+            </li>
+            <li>
+              <a href="#RawData">Raw Data</a>
+            </li>
+            <li>
+              <a href="#ProcessedData">Processed Data</a>
+            </li>
+            <li>
+              <a href="#ReferenceData">Reference Data</a>
+            </li>
+            <li>
+              <a href="#Entity">Entity</a>
+            </li>
+            <li>
+              <a href="#ResearchSoftware">Research Software</a>
+            </li>
+            <li>
+              <a href="#ResearchUser">Research User</a>
+            </li>
+            <li>
+              <a href="#ValueObject">Value Object</a>
+            </li>
+            <li>
+              <a href="#DataAnalysisLifecycle">Data Analysis Lifecycle</a>
+            </li>
+            <li>
+              <a href="#Object">Object</a>
+            </li>
+            <li>
+              <a href="#ResearchData">Research Data</a>
+            </li>
+            <li>
+              <a href="#Process">Process</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#objectproperties">Object Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#hasDataAnalysis">has data analysis</a>
+            </li>
+            <li>
+              <a href="#hasDataInterpretation">has data interpretation</a>
+            </li>
+            <li>
+              <a href="#hasDataProcessing">has data processing</a>
+            </li>
+            <li>
+              <a href="#composes">composes</a>
+            </li>
+            <li>
+              <a href="#hasQuantityKind">has quantity kind</a>
+            </li>
+            <li>
+              <a href="#quantityValue">quantity value</a>
+            </li>
+            <li>
+              <a href="#unit">unit</a>
+            </li>
+            <li>
+              <a href="#used">used</a>
+            </li>
+            <li>
+              <a href="#wasAttributedTo">was attributed to</a>
+            </li>
+            <li>
+              <a href="#wasInformedBy">was informed by</a>
+            </li>
+            <li>
+              <a href="#hasConclusion">has conclusion</a>
+            </li>
+            <li>
+              <a href="#isDataAnalysisOf">is data analysis of</a>
+            </li>
+            <li>
+              <a href="#isDataProcessingOf">is data processing of</a>
+            </li>
+            <li>
+              <a href="#isDataRepresentationOf">is data representation of</a>
+            </li>
+            <li>
+              <a href="#isUsedByResearchSoftware">is used by research software</a>
+            </li>
+            <li>
+              <a href="#characteristicOf">characteristic of</a>
+            </li>
+            <li>
+              <a href="#inputOf">input of</a>
+            </li>
+            <li>
+              <a href="#nextProcess">next process</a>
+            </li>
+            <li>
+              <a href="#outputOf">output of</a>
+            </li>
+            <li>
+              <a href="#participantOf">participant of</a>
+            </li>
+            <li>
+              <a href="#previousProcess">previous process</a>
+            </li>
+            <li>
+              <a href="#subordinateProcess">subordinate process</a>
+            </li>
+            <li>
+              <a href="#characteristic">characteristic</a>
+            </li>
+            <li>
+              <a href="#participant">participant</a>
+            </li>
+            <li>
+              <a href="#references">references</a>
+            </li>
+            <li>
+              <a href="#wasDerivedFrom">was derived from</a>
+            </li>
+            <li>
+              <a href="#wasAssociatedWith">was associated with</a>
+            </li>
+            <li>
+              <a href="#usesresearchsofware">uses research sofware</a>
+            </li>
+            <li>
+              <a href="#wasGeneratedBy">was generated by</a>
+            </li>
+            <li>
+              <a href="#output">output</a>
+            </li>
+            <li>
+              <a href="#input">input</a>
+            </li>
+            <li>
+              <a href="#hasDataAnalysis">has data analysis</a>
+            </li>
+            <li>
+              <a href="#hasDataInterpretation">has data interpretation</a>
+            </li>
+            <li>
+              <a href="#hasDataProcessing">has data processing</a>
+            </li>
+            <li>
+              <a href="#composes">composes</a>
+            </li>
+            <li>
+              <a href="#hasQuantityKind">has quantity kind</a>
+            </li>
+            <li>
+              <a href="#quantityValue">quantity value</a>
+            </li>
+            <li>
+              <a href="#unit">unit</a>
+            </li>
+            <li>
+              <a href="#used">used</a>
+            </li>
+            <li>
+              <a href="#wasAttributedTo">was attributed to</a>
+            </li>
+            <li>
+              <a href="#wasInformedBy">was informed by</a>
+            </li>
+            <li>
+              <a href="#hasConclusion">has conclusion</a>
+            </li>
+            <li>
+              <a href="#isDataAnalysisOf">is data analysis of</a>
+            </li>
+            <li>
+              <a href="#isDataProcessingOf">is data processing of</a>
+            </li>
+            <li>
+              <a href="#isDataRepresentationOf">is data representation of</a>
+            </li>
+            <li>
+              <a href="#isUsedByResearchSoftware">is used by research software</a>
+            </li>
+            <li>
+              <a href="#characteristicOf">characteristic of</a>
+            </li>
+            <li>
+              <a href="#inputOf">input of</a>
+            </li>
+            <li>
+              <a href="#nextProcess">next process</a>
+            </li>
+            <li>
+              <a href="#outputOf">output of</a>
+            </li>
+            <li>
+              <a href="#participantOf">participant of</a>
+            </li>
+            <li>
+              <a href="#previousProcess">previous process</a>
+            </li>
+            <li>
+              <a href="#subordinateProcess">subordinate process</a>
+            </li>
+            <li>
+              <a href="#characteristic">characteristic</a>
+            </li>
+            <li>
+              <a href="#participant">participant</a>
+            </li>
+            <li>
+              <a href="#references">references</a>
+            </li>
+            <li>
+              <a href="#wasDerivedFrom">was derived from</a>
+            </li>
+            <li>
+              <a href="#wasAssociatedWith">was associated with</a>
+            </li>
+            <li>
+              <a href="#usesresearchsofware">uses research sofware</a>
+            </li>
+            <li>
+              <a href="#wasGeneratedBy">was generated by</a>
+            </li>
+            <li>
+              <a href="#output">output</a>
+            </li>
+            <li>
+              <a href="#input">input</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#datatypeproperties">Datatype Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#numericValue">numeric value</a>
+            </li>
+            <li>
+              <a href="#value">value</a>
+            </li>
+            <li>
+              <a href="#endedAtTime">ended at time</a>
+            </li>
+            <li>
+              <a href="#startedAtTime">started at time</a>
+            </li>
+            <li>
+              <a href="#numericValue">numeric value</a>
+            </li>
+            <li>
+              <a href="#value">value</a>
+            </li>
+            <li>
+              <a href="#endedAtTime">ended at time</a>
+            </li>
+            <li>
+              <a href="#startedAtTime">started at time</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#annotationproperties">Annotation Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#contributor">contributor</a>
+            </li>
+            <li>
+              <a href="#created">created</a>
+            </li>
+            <li>
+              <a href="#creator">creator</a>
+            </li>
+            <li>
+              <a href="#description">description</a>
+            </li>
+            <li>
+              <a href="#license">license</a>
+            </li>
+            <li>
+              <a href="#title">title</a>
+            </li>
+            <li>
+              <a href="#preferredNamespacePrefix">preferred namespace prefix</a>
+            </li>
+            <li>
+              <a href="#MDMCNEPGlossaryDefinition">Mdmcnep Glossary Definition</a>
+            </li>
+            <li>
+              <a href="#MDMCNEPGlossaryDefinition1">Mdmcnep Glossary Definition</a>
+            </li>
+            <li>
+              <a href="#definition">definition</a>
+            </li>
+            <li>
+              <a href="#contributor">contributor</a>
+            </li>
+            <li>
+              <a href="#created">created</a>
+            </li>
+            <li>
+              <a href="#creator">creator</a>
+            </li>
+            <li>
+              <a href="#description">description</a>
+            </li>
+            <li>
+              <a href="#license">license</a>
+            </li>
+            <li>
+              <a href="#title">title</a>
+            </li>
+            <li>
+              <a href="#preferredNamespacePrefix">preferred namespace prefix</a>
+            </li>
+            <li>
+              <a href="#MDMCNEPGlossaryDefinition">Mdmcnep Glossary Definition</a>
+            </li>
+            <li>
+              <a href="#MDMCNEPGlossaryDefinition1">Mdmcnep Glossary Definition</a>
+            </li>
+            <li>
+              <a href="#definition">definition</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#namespaces">Namespaces</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#core">core</a>
+            </li>
+            <li>
+              <a href="#dcterms">dcterms</a>
+            </li>
+            <li>
+              <a href="#ns1">ns1</a>
+            </li>
+            <li>
+              <a href="#owl">owl</a>
+            </li>
+            <li>
+              <a href="#prov">prov</a>
+            </li>
+            <li>
+              <a href="#rdf">rdf</a>
+            </li>
+            <li>
+              <a href="#rdfs">rdfs</a>
+            </li>
+            <li>
+              <a href="#skos">skos</a>
+            </li>
+            <li>
+              <a href="#vann">vann</a>
+            </li>
+            <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#core">core</a>
+            </li>
+            <li>
+              <a href="#dcterms">dcterms</a>
+            </li>
+            <li>
+              <a href="#ns1">ns1</a>
+            </li>
+            <li>
+              <a href="#owl">owl</a>
+            </li>
+            <li>
+              <a href="#prov">prov</a>
+            </li>
+            <li>
+              <a href="#rdf">rdf</a>
+            </li>
+            <li>
+              <a href="#rdfs">rdfs</a>
+            </li>
+            <li>
+              <a href="#skos">skos</a>
             </li>
             <li>
               <a href="#vann">vann</a>
