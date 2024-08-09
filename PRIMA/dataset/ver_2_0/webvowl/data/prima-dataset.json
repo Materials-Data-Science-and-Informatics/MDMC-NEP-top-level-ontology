@@ -1,970 +1,1771 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
-  "header" : {
-    "languages" : [ "en", "undefined" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "https://purls.helmholtz-metadaten.de/prima/dataset", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "https://purls.helmholtz-metadaten.de/prima/core", "http://www.w3.org/ns/prov", "https://w3id.org/pmd/co", "http://www.w3.org/2001/XMLSchema" ],
-    "prefixList" : {
-      "owl" : "http://www.w3.org/2002/07/owl#",
-      "dataset" : "https://purls.helmholtz-metadaten.de/prima/dataset#",
-      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "vann" : "http://purl.org/vocab/vann/",
-      "terms" : "http://purl.org/dc/terms/",
-      "skos" : "http://www.w3.org/2004/02/skos/core#",
-      "xsd" : "http://www.w3.org/2001/XMLSchema#",
-      "" : "https://purls.helmholtz-metadaten.de/prima/dataset#",
-      "xml" : "http://www.w3.org/XML/1998/namespace",
-      "core" : "https://purls.helmholtz-metadaten.de/prima/core#",
-      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
+  "_comment": "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org [Additional Information added by WebVOWL Exporter Version: 1.1.7]",
+  "header": {
+    "languages": [
+      "undefined",
+      "en"
+    ],
+    "baseIris": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+      "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "http://www.w3.org/2002/07/owl",
+      "http://www.w3.org/2000/01/rdf-schema",
+      "https://purls.helmholtz-metadaten.de/prima/core",
+      "http://www.w3.org/ns/prov",
+      "http://purl.org/dc/terms",
+      "https://w3id.org/pmd/co",
+      "http://www.w3.org/2001/XMLSchema"
+    ],
+    "prefixList": {
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "dataset": "https://purls.helmholtz-metadaten.de/prima/dataset#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "vann": "http://purl.org/vocab/vann/",
+      "terms": "http://purl.org/dc/terms/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "": "https://purls.helmholtz-metadaten.de/prima/dataset#",
+      "xml": "http://www.w3.org/XML/1998/namespace",
+      "core": "https://purls.helmholtz-metadaten.de/prima/core#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
     },
-    "title" : {
-      "en" : "PRIMA Ontology - Dataset Module"
+    "title": {
+      "en": "PRIMA Ontology - Dataset Module"
     },
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "version" : "2.0",
-    "author" : [ "Mehrdad Jalali", "Rossella Aversa", "Ahmad Zainul Ihsan" ],
-    "comments" : {
-      "en" : "This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology"
+    "iri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+    "version": "2.0",
+    "author": [
+      "Mehrdad Jalali",
+      "Rossella Aversa",
+      "Ahmad Zainul Ihsan"
+    ],
+    "comments": {
+      "en": "This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology"
     },
-    "other" : {
-      "license" : [ {
-        "identifier" : "license",
-        "language" : "undefined",
-        "value" : "http://creativecommons.org/licenses/by/3.0/",
-        "type" : "iri"
-      } ],
-      "creator" : [ {
-        "identifier" : "creator",
-        "language" : "en",
-        "value" : "Mehrdad Jalali",
-        "type" : "label"
-      }, {
-        "identifier" : "creator",
-        "language" : "en",
-        "value" : "Rossella Aversa",
-        "type" : "label"
-      }, {
-        "identifier" : "creator",
-        "language" : "en",
-        "value" : "Ahmad Zainul Ihsan",
-        "type" : "label"
-      } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "en",
-        "value" : "Elda Osmenaj",
-        "type" : "label"
-      }, {
-        "identifier" : "contributor",
-        "language" : "en",
-        "value" : "Mirco Panighel",
-        "type" : "label"
-      } ],
-      "created" : [ {
-        "identifier" : "created",
-        "language" : "en",
-        "value" : "2024-01-26",
-        "type" : "label"
-      } ],
-      "preferredNamespacePrefix" : [ {
-        "identifier" : "preferredNamespacePrefix",
-        "language" : "en",
-        "value" : "PRIMA",
-        "type" : "label"
-      } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "en",
-        "value" : "2.0",
-        "type" : "label"
-      } ],
-      "title" : [ {
-        "identifier" : "title",
-        "language" : "en",
-        "value" : "PRIMA Ontology - Dataset Module",
-        "type" : "label"
-      } ],
-      "seeAlso" : [ {
-        "identifier" : "seeAlso",
-        "language" : "undefined",
-        "value" : "https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology",
-        "type" : "iri"
-      } ]
+    "other": {
+      "license": [
+        {
+          "identifier": "license",
+          "language": "undefined",
+          "value": "http://creativecommons.org/licenses/by/3.0/",
+          "type": "iri"
+        }
+      ],
+      "creator": [
+        {
+          "identifier": "creator",
+          "language": "en",
+          "value": "Rossella Aversa",
+          "type": "label"
+        },
+        {
+          "identifier": "creator",
+          "language": "en",
+          "value": "Mehrdad Jalali",
+          "type": "label"
+        },
+        {
+          "identifier": "creator",
+          "language": "en",
+          "value": "Ahmad Zainul Ihsan",
+          "type": "label"
+        }
+      ],
+      "contributor": [
+        {
+          "identifier": "contributor",
+          "language": "en",
+          "value": "Mirco Panighel",
+          "type": "label"
+        },
+        {
+          "identifier": "contributor",
+          "language": "en",
+          "value": "Elda Osmenaj",
+          "type": "label"
+        }
+      ],
+      "created": [
+        {
+          "identifier": "created",
+          "language": "en",
+          "value": "2024-01-26",
+          "type": "label"
+        }
+      ],
+      "preferredNamespacePrefix": [
+        {
+          "identifier": "preferredNamespacePrefix",
+          "language": "en",
+          "value": "PRIMA",
+          "type": "label"
+        }
+      ],
+      "versionInfo": [
+        {
+          "identifier": "versionInfo",
+          "language": "en",
+          "value": "2.0",
+          "type": "label"
+        }
+      ],
+      "title": [
+        {
+          "identifier": "title",
+          "language": "en",
+          "value": "PRIMA Ontology - Dataset Module",
+          "type": "label"
+        }
+      ],
+      "seeAlso": [
+        {
+          "identifier": "seeAlso",
+          "language": "undefined",
+          "value": "https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology",
+          "type": "iri"
+        }
+      ]
     }
   },
-  "namespace" : [ ],
-  "class" : [ {
-    "id" : "3",
-    "type" : "owl:Class"
-  }, {
-    "id" : "8",
-    "type" : "owl:Class"
-  }, {
-    "id" : "10",
-    "type" : "owl:Class"
-  }, {
-    "id" : "1",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "24",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "25",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "2",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "26",
-    "type" : "owl:Class"
-  }, {
-    "id" : "28",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "31",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "23",
-    "type" : "owl:Class"
-  }, {
-    "id" : "22",
-    "type" : "owl:Class"
-  }, {
-    "id" : "6",
-    "type" : "owl:Class"
-  }, {
-    "id" : "32",
-    "type" : "owl:Class"
-  }, {
-    "id" : "7",
-    "type" : "owl:Class"
-  }, {
-    "id" : "20",
-    "type" : "owl:Class"
-  }, {
-    "id" : "29",
-    "type" : "owl:Class"
-  }, {
-    "id" : "12",
-    "type" : "owl:Class"
-  }, {
-    "id" : "9",
-    "type" : "owl:Class"
-  }, {
-    "id" : "33",
-    "type" : "owl:Class"
-  }, {
-    "id" : "4",
-    "type" : "owl:Class"
-  }, {
-    "id" : "14",
-    "type" : "owl:Class"
-  }, {
-    "id" : "34",
-    "type" : "owl:Class"
-  } ],
-  "classAttribute" : [ {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Dataset(s) generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it. Publication data may include raw data, processed data and/or analysed data, as well as the relevant metadata about the experiment(s) and the data analysis lifecycle.",
-        "type" : "label"
-      } ]
+  "namespace": [],
+  "settings": {
+    "global": {
+      "zoom": "0.61",
+      "translation": [
+        424.34,
+        170.15
+      ],
+      "paused": false
     },
-    "label" : {
-      "IRI-based" : "PublicationData"
+    "gravity": {
+      "classDistance": 200,
+      "datatypeDistance": 120
     },
-    "comment" : {
-      "en" : "Publication data is data generated by a research user in a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it."
+    "filter": {
+      "checkBox": [
+        {
+          "id": "datatypeFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "objectPropertyFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "subclassFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "disjointFilterCheckbox",
+          "checked": true
+        },
+        {
+          "id": "setoperatorFilterCheckbox",
+          "checked": false
+        }
+      ],
+      "degreeSliderValue": "0"
     },
-    "id" : "3",
-    "superClasses" : [ "4" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Dataset"
-    },
-    "comment" : {
-      "undefined" : "Dataset is collection of scientifically related (depending on the research context) research data, along with their respective descriptive metadata, typically stored in a data collaboration platform and/or in a data repository. A dataset may consist of raw data (including the output of computational experiments), processed data, analysed data, or other datasets. The components of a dataset remain individually identifiable."
-    },
-    "id" : "8",
-    "superClasses" : [ "4", "9" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Entity",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Entity"
-    },
-    "subClasses" : [ "4", "9" ],
-    "attributes" : [ "external" ],
-    "id" : "10"
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "1",
-    "label" : {
-      "undefined" : "Thing"
+    "modes": {
+      "checkBox": [
+        {
+          "id": "pickandpinModuleCheckbox",
+          "checked": false
+        },
+        {
+          "id": "nodescalingModuleCheckbox",
+          "checked": true
+        },
+        {
+          "id": "compactnotationModuleCheckbox",
+          "checked": false
+        },
+        {
+          "id": "colorexternalsModuleCheckbox",
+          "checked": true
+        }
+      ],
+      "colorSwitchState": false
     }
-  }, {
-    "instances" : 0,
-    "union" : [ "7", "3", "8" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "24"
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "25",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+  },
+  "class": [
+    {
+      "id": "3",
+      "type": "owl:Class"
+    },
+    {
+      "id": "8",
+      "type": "owl:Class"
+    },
+    {
+      "id": "7",
+      "type": "owl:Class"
+    },
+    {
+      "id": "10",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "13",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "15",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "2",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "1",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "23",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "25",
+      "type": "owl:Class"
+    },
+    {
+      "id": "35",
+      "type": "owl:Class"
+    },
+    {
+      "id": "20",
+      "type": "owl:Class"
+    },
+    {
+      "id": "37",
+      "type": "owl:Class"
+    },
+    {
+      "id": "16",
+      "type": "owl:Class"
+    },
+    {
+      "id": "45",
+      "type": "owl:Class"
+    },
+    {
+      "id": "14",
+      "type": "owl:Class"
+    },
+    {
+      "id": "41",
+      "type": "owl:Class"
+    },
+    {
+      "id": "22",
+      "type": "owl:Class"
+    },
+    {
+      "id": "6",
+      "type": "owl:Class"
+    },
+    {
+      "id": "17",
+      "type": "owl:Class"
+    },
+    {
+      "id": "4",
+      "type": "owl:Class"
+    },
+    {
+      "id": "42",
+      "type": "owl:Class"
+    },
+    {
+      "id": "18",
+      "type": "owl:Class"
     }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "2",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+  ],
+  "classAttribute": [
+    {
+      "id": "3",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "PublicationData"
+      },
+      "comment": {
+        "en": "Dataset(s) generated in the course of a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Dataset(s) generated in the course of a Study, that has undergone quality assessment and can be referred to as citations (i.e., a Persistent Identifier is assigned to it), e.g., to validate the results and/or the Conclusions presented in a Scientific Publication or appearing in it. Publication Data may include any kind of Research Data, as well as the relevant Metadata about the actions performed. Publication Data may be attributed to some or to all the Research Users who are members of the Project.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        795.09,
+        216.72
+      ]
+    },
+    {
+      "id": "8",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "Dataset"
+      },
+      "comment": {
+        "undefined": "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1133.19,
+        205.33
+      ]
+    },
+    {
+      "id": "7",
+      "iri": "http://www.w3.org/ns/prov#Entity",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Entity"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        432.73,
+        367.36
+      ]
+    },
+    {
+      "id": "10",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": "Literal",
+      "attributes": [
+        "datatype"
+      ],
+      "pos": [
+        146.8,
+        1421.95
+      ]
+    },
+    {
+      "id": "13",
+      "attributes": [
+        "anonymous",
+        "union"
+      ],
+      "pos": [
+        924.74,
+        572.24
+      ]
+    },
+    {
+      "id": "15",
+      "attributes": [
+        "anonymous",
+        "union"
+      ],
+      "pos": [
+        1511.92,
+        -50.43
+      ]
+    },
+    {
+      "id": "2",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": "Literal",
+      "attributes": [
+        "datatype"
+      ],
+      "pos": [
+        131.22,
+        1630.23
+      ]
+    },
+    {
+      "id": "1",
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "label": {
+        "undefined": "Thing"
+      },
+      "pos": [
+        -58.79,
+        1486.89
+      ]
+    },
+    {
+      "id": "23",
+      "attributes": [
+        "anonymous",
+        "union"
+      ],
+      "pos": [
+        1555.52,
+        289.3
+      ]
+    },
+    {
+      "id": "25",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "AgentRole"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        350.95,
+        764.76
+      ]
+    },
+    {
+      "id": "35",
+      "iri": "http://www.w3.org/ns/prov#Agent",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Agent"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        439.88,
+        965.03
+      ]
+    },
+    {
+      "id": "20",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "ResearchUser"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        756.18,
+        724.48
+      ]
+    },
+    {
+      "id": "37",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "RawData"
+      },
+      "comment": {
+        "en": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1463.68,
+        1154.26
+      ]
+    },
+    {
+      "id": "16",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "DataCollaborationPlatform"
+      },
+      "comment": {
+        "undefined": "Data collaboration platform is an operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a data collaboration platform offers versioning of all ingested files but does not usually assign persistent identifiers to them.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1228.11,
+        -214.39
+      ]
+    },
+    {
+      "id": "45",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "AnalyzedData"
+      },
+      "comment": {
+        "undefined": "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1082.35,
+        1290.76
+      ]
+    },
+    {
+      "id": "14",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "ResearchData"
+      },
+      "attributes": [
+        "external"
+      ],
+      "comment": {
+        "en": "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1157.95,
+        908.71
+      ]
+    },
+    {
+      "id": "41",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "ProcessedData"
+      },
+      "comment": {
+        "en": "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data, typically Raw Data or Reference Data. Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation, Data Acquisition (in case of Calculations or Simulations), Data Analysis or Data Interpretation."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data, typically Raw Data or Reference Data. Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation, Data Acquisition (in case of Calculations or Simulations), Data Analysis or Data Interpretation.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1292.8,
+        1459.44
+      ]
+    },
+    {
+      "id": "22",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "Metadata"
+      },
+      "comment": {
+        "en": "Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Any descriptive data intended to contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Depending on the mode of use, Metadata contains information pertaining to any aspect of the Study, including (but not limited to) processes, outputs, and Research Users involved in the Project. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1271.09,
+        551.33
+      ]
+    },
+    {
+      "id": "6",
+      "iri": "http://www.w3.org/ns/prov#Collection",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "Collection"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        665.27,
+        73.08
+      ]
+    },
+    {
+      "id": "17",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "MetadataRepository"
+      },
+      "comment": {
+        "en": "Metadata repository is an information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms. Metadata repositories may be associated with an institution or a group of them, or may be run by a third party. Metadata repositories may or may not be directly used by research users.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1658.1,
+        403.46
+      ]
+    },
+    {
+      "id": "4",
+      "iri": "https://w3id.org/pmd/co/DigitalEntity",
+      "baseIri": "https://w3id.org/pmd/co",
+      "label": {
+        "IRI-based": "DigitalEntity"
+      },
+      "attributes": [
+        "external"
+      ],
+      "pos": [
+        826.52,
+        571.68
+      ]
+    },
+    {
+      "id": "42",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "ReferenceData"
+      },
+      "comment": {
+        "en": "Research Data not produced during the current study, which is reused during the study (e.g., during the model preparation) or is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Any Research Data not produced during the current Study, which is reused during the Study (e.g., during the Model Preparation) or is used as reference to compare and/or to validate the outputs of the Study, typically during the Data Analysis Lifecycle.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        1490.79,
+        1223.71
+      ]
+    },
+    {
+      "id": "18",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "DataRepository"
+      },
+      "comment": {
+        "en": "Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources."
+      },
+      "annotations": {
+        "MDMCNEPGlossaryDefinition": [
+          {
+            "identifier": "MDMCNEPGlossaryDefinition",
+            "language": "en",
+            "value": "Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources. Data repositories may be associated with an institution or a group of them, with an instrument or a group of them, or with a measurement technique or a group of them, or may be run by a third party. Data repositories may or may not be directly used by research users.",
+            "type": "label"
+          }
+        ]
+      },
+      "pos": [
+        988.01,
+        -154.46
+      ]
     }
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#AgentRole",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "AgentRole"
-    },
-    "attributes" : [ "external" ],
-    "id" : "26"
-  }, {
-    "instances" : 0,
-    "union" : [ "8", "29" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "28"
-  }, {
-    "instances" : 0,
-    "union" : [ "32", "33", "34" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "31"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Agent",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Agent"
-    },
-    "subClasses" : [ "22" ],
-    "attributes" : [ "external" ],
-    "id" : "23"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, Instrument scientist, project member).",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "ResearchUser"
-    },
-    "comment" : {
-      "undefined" : "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."
-    },
-    "attributes" : [ "external" ],
-    "id" : "22",
-    "superClasses" : [ "23" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Research Data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing. Raw data may be the output of a simulation run (computational measurement). Raw data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Raw data may be stored in a data collaboration platform and/or in a data repository. Raw data may be part of a dataset.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "RawData"
-    },
-    "comment" : {
-      "en" : "Raw data is research data which is the primary output of a measurement, collected by one or more research users using an instrument, before any subsequent data processing."
-    },
-    "id" : "6",
-    "superClasses" : [ "7" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a data collaboration platform offers versioning of all ingested files but does not usually assign persistent identifiers to them.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "DataCollaborationPlatform"
-    },
-    "comment" : {
-      "undefined" : "Data collaboration platform is an operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project."
-    },
-    "id" : "32"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "ResearchData"
-    },
-    "subClasses" : [ "20", "14", "12", "6" ],
-    "comment" : {
-      "en" : "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"
-    },
-    "attributes" : [ "external" ],
-    "id" : "7",
-    "superClasses" : [ "4" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation. Processed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Processed data may be stored in a data collaboration platform and/or in a data repository. Processed data may be part of a dataset.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "ProcessedData"
-    },
-    "comment" : {
-      "en" : "Processed data is research data which is the primary output of any kind of data processing or manipulation of raw data performed by one or more research users, possibly using research software, in order to prepare it for another step of the data analysis lifecycle, e.g., data analysis or data interpretation."
-    },
-    "id" : "20",
-    "superClasses" : [ "7" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time. Depending on the mode of use, metadata describes information pertaining to the research projects, including (but not limited to) research users, studies, experiments, measurements, instruments, samples, and corresponding data analysis lifecycle. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a metadata repository.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "Metadata"
-    },
-    "comment" : {
-      "en" : "Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time."
-    },
-    "id" : "29",
-    "superClasses" : [ "4" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#AnalysedData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software. Analysed data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Analysed data may be stored in a data collaboration platform and/or in a data repository. Analysed data may be part of a dataset.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "AnalysedData"
-    },
-    "comment" : {
-      "undefined" : "Analysed data is research data which is the primary output of any kind of data analysis performed on research data, typically on processed data, by one or more research users, possibly using research software."
-    },
-    "id" : "12",
-    "superClasses" : [ "7" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#Collection",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Collection"
-    },
-    "subClasses" : [ "8" ],
-    "attributes" : [ "external" ],
-    "id" : "9",
-    "superClasses" : [ "10" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms. Metadata repositories may be associated with an institution or a group of them, or may be run by a third party. Metadata repositories may or may not be directly used by research users.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "MetadataRepository"
-    },
-    "comment" : {
-      "en" : "Metadata repository is an information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms."
-    },
-    "id" : "33"
-  }, {
-    "iri" : "https://w3id.org/pmd/co/DigitalEntity",
-    "baseIri" : "https://w3id.org/pmd/co",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "DigitalEntity"
-    },
-    "subClasses" : [ "7", "3", "29", "8" ],
-    "attributes" : [ "external" ],
-    "id" : "4",
-    "superClasses" : [ "10" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "ReferenceData"
-    },
-    "comment" : {
-      "en" : "Research data not produced during the current study, which is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."
-    },
-    "id" : "14",
-    "superClasses" : [ "7" ]
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "instances" : 0,
-    "annotations" : {
-      "MDMCNEPGlossaryDefinition" : [ {
-        "identifier" : "MDMCNEPGlossaryDefinition",
-        "language" : "en",
-        "value" : "Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources. Data repositories may be associated with an institution or a group of them, with an instrument or a group of them, or with a measurement technique or a group of them, or may be run by a third party. Data repositories may or may not be directly used by research users.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "DataRepository"
-    },
-    "comment" : {
-      "en" : "Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources."
-    },
-    "id" : "34"
-  } ],
-  "property" : [ {
-    "id" : "0",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "5",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "11",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "13",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "15",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "17",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "18",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "19",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "21",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "27",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "30",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "35",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "37",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "38",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "39",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "40",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "41",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "42",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "36",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "43",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "44",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "45",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "46",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "47",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "48",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "49",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "50",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "51",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "52",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "53",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "54",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "55",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "56",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "16",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "57",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "58",
-    "type" : "rdfs:SubClassOf"
-  } ],
-  "propertyAttribute" : [ {
-    "iri" : "http://www.w3.org/ns/prov#startedAtTime",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "2",
-    "label" : {
-      "IRI-based" : "startedAtTime"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "0"
-  }, {
-    "range" : "7",
-    "domain" : "6",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "5"
-  }, {
-    "range" : "7",
-    "domain" : "12",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "11"
-  }, {
-    "range" : "7",
-    "domain" : "14",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "13"
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#topObjectProperty",
-    "baseIri" : "http://www.w3.org/2002/07/owl",
-    "range" : "1",
-    "label" : {
-      "IRI-based" : "topObjectProperty"
-    },
-    "domain" : "1",
-    "subproperty" : [ "16" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "15"
-  }, {
-    "range" : "10",
-    "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "17"
-  }, {
-    "range" : "10",
-    "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "18"
-  }, {
-    "range" : "7",
-    "domain" : "20",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "19"
-  }, {
-    "range" : "23",
-    "domain" : "22",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "21"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#endedAtTime",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "endedAtTime"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "27"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "8",
-    "label" : {
-      "IRI-based" : "wasDerivedFrom"
-    },
-    "domain" : "3",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "30"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
-    "inverse" : "36",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "34",
-    "label" : {
-      "IRI-based" : "isStoredIn",
-      "en" : "is stored in"
-    },
-    "superproperty" : [ "15" ],
-    "domain" : "3",
-    "comment" : {
-      "en" : "isStoredIn is the inverse property of stores."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "35"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "8",
-    "label" : {
-      "IRI-based" : "stores",
-      "en" : "stores"
-    },
-    "domain" : "32",
-    "comment" : {
-      "en" : "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "37"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "22",
-    "label" : {
-      "IRI-based" : "wasAttributedTo"
-    },
-    "domain" : "3",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "38"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "29",
-    "label" : {
-      "IRI-based" : "hasMetadata",
-      "en" : "has metadata"
-    },
-    "domain" : "3",
-    "comment" : {
-      "en" : "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "39"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#hadMember",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "8",
-    "label" : {
-      "IRI-based" : "hadMember"
-    },
-    "domain" : "8",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "40"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "29",
-    "label" : {
-      "IRI-based" : "hasMetadata",
-      "en" : "has metadata"
-    },
-    "domain" : "8",
-    "comment" : {
-      "en" : "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "41"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
-    "inverse" : "36",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "34",
-    "label" : {
-      "IRI-based" : "isStoredIn",
-      "en" : "is stored in"
-    },
-    "superproperty" : [ "15" ],
-    "domain" : "8",
-    "comment" : {
-      "en" : "isStoredIn is the inverse property of stores."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "42"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "stores",
-      "en" : "stores"
-    },
-    "domain" : "31",
-    "comment" : {
-      "en" : "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
-    },
-    "attributes" : [ "object" ],
-    "id" : "36"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "29",
-    "label" : {
-      "IRI-based" : "hasMetadata",
-      "en" : "has metadata"
-    },
-    "domain" : "7",
-    "comment" : {
-      "en" : "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "43"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "22",
-    "label" : {
-      "IRI-based" : "wasAttributedTo"
-    },
-    "domain" : "7",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "44"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "3",
-    "label" : {
-      "IRI-based" : "stores",
-      "en" : "stores"
-    },
-    "domain" : "34",
-    "comment" : {
-      "en" : "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "45"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "8",
-    "label" : {
-      "IRI-based" : "stores",
-      "en" : "stores"
-    },
-    "domain" : "34",
-    "comment" : {
-      "en" : "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "46"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "29",
-    "label" : {
-      "IRI-based" : "stores",
-      "en" : "stores"
-    },
-    "domain" : "33",
-    "comment" : {
-      "en" : "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "47"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/core",
-    "range" : "26",
-    "label" : {
-      "IRI-based" : "performsAgentRole"
-    },
-    "domain" : "22",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "48"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#hadMember",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "7",
-    "label" : {
-      "IRI-based" : "hadMember"
-    },
-    "domain" : "8",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "49"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
-    "inverse" : "36",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "32",
-    "label" : {
-      "IRI-based" : "isStoredIn",
-      "en" : "is stored in"
-    },
-    "superproperty" : [ "15" ],
-    "domain" : "8",
-    "comment" : {
-      "en" : "isStoredIn is the inverse property of stores."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "50"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "29",
-    "label" : {
-      "IRI-based" : "hasMetadata",
-      "en" : "has metadata"
-    },
-    "domain" : "24",
-    "comment" : {
-      "en" : "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
-    },
-    "attributes" : [ "object" ],
-    "id" : "51"
-  }, {
-    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
-    "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "22",
-    "label" : {
-      "IRI-based" : "wasAttributedTo"
-    },
-    "domain" : "29",
-    "attributes" : [ "someValues", "object", "external" ],
-    "id" : "52"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
-    "inverse" : "36",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "33",
-    "label" : {
-      "IRI-based" : "isStoredIn",
-      "en" : "is stored in"
-    },
-    "superproperty" : [ "15" ],
-    "domain" : "29",
-    "comment" : {
-      "en" : "isStoredIn is the inverse property of stores."
-    },
-    "attributes" : [ "someValues", "object" ],
-    "id" : "53"
-  }, {
-    "range" : "4",
-    "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "54"
-  }, {
-    "range" : "4",
-    "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "55"
-  }, {
-    "range" : "9",
-    "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "56"
-  }, {
-    "iri" : "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
-    "inverse" : "36",
-    "baseIri" : "https://purls.helmholtz-metadaten.de/prima/dataset",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "isStoredIn",
-      "en" : "is stored in"
-    },
-    "superproperty" : [ "15" ],
-    "domain" : "28",
-    "comment" : {
-      "en" : "isStoredIn is the inverse property of stores."
-    },
-    "attributes" : [ "object" ],
-    "id" : "16"
-  }, {
-    "range" : "4",
-    "domain" : "29",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "57"
-  }, {
-    "range" : "4",
-    "domain" : "3",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "58"
-  } ]
+  ],
+  "property": [
+    {
+      "id": "0",
+      "type": "owl:DatatypeProperty"
+    },
+    {
+      "id": "5",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "9",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "11",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "19",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "21",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "24",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "26",
+      "type": "owl:DatatypeProperty"
+    },
+    {
+      "id": "27",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "28",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "29",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "31",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "32",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "33",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "34",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "36",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "38",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "39",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "30",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "40",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "43",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "44",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "46",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "47",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "48",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "49",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "50",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "51",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "52",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "53",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "54",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "55",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "56",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "57",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "58",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "59",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "60",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "61",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "12",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "62",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "63",
+      "type": "rdfs:subClassOf"
+    },
+    {
+      "id": "GENERATED-UNION-13-14-0",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-13-3-1",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-13-8-2",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-15-16-0",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-15-17-1",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-15-18-2",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-23-8-0",
+      "type": "setOperatorProperty"
+    },
+    {
+      "id": "GENERATED-UNION-23-22-1",
+      "type": "setOperatorProperty"
+    }
+  ],
+  "propertyAttribute": [
+    {
+      "id": "0",
+      "iri": "http://www.w3.org/ns/prov#startedAtTime",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "startedAtTime"
+      },
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "domain": "1",
+      "range": "2",
+      "pos": [
+        41.56,
+        1562.59
+      ]
+    },
+    {
+      "id": "5",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "6",
+      "range": "7",
+      "pos": [
+        549,
+        220.22
+      ]
+    },
+    {
+      "id": "9",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "4",
+      "range": "7",
+      "pos": [
+        629.62,
+        469.52
+      ]
+    },
+    {
+      "id": "11",
+      "iri": "http://www.w3.org/2002/07/owl#topObjectProperty",
+      "baseIri": "http://www.w3.org/2002/07/owl",
+      "label": {
+        "IRI-based": "topObjectProperty"
+      },
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "domain": "1",
+      "range": "1",
+      "subproperty": [
+        "12"
+      ],
+      "pos": [
+        -105.1,
+        1336.28
+      ]
+    },
+    {
+      "id": "19",
+      "iri": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasAttributedTo"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "3",
+      "range": "20",
+      "pos": [
+        775.63,
+        470.6
+      ]
+    },
+    {
+      "id": "21",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "hasMetadata",
+        "en": "has metadata"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
+      },
+      "domain": "3",
+      "range": "22",
+      "pos": [
+        1033.09,
+        384.03
+      ]
+    },
+    {
+      "id": "24",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasDerivedFrom"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "3",
+      "range": "8",
+      "pos": [
+        964.14,
+        211.03
+      ]
+    },
+    {
+      "id": "26",
+      "iri": "http://www.w3.org/ns/prov#endedAtTime",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "endedAtTime"
+      },
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "domain": "1",
+      "range": "10",
+      "pos": [
+        45.06,
+        1454.09
+      ]
+    },
+    {
+      "id": "27",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "stores",
+        "en": "stores"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
+      },
+      "domain": "16",
+      "range": "8",
+      "pos": [
+        1228.87,
+        -0.82
+      ]
+    },
+    {
+      "id": "28",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "hasMetadata",
+        "en": "has metadata"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
+      },
+      "domain": "8",
+      "range": "22",
+      "pos": [
+        1202.14,
+        378.33
+      ]
+    },
+    {
+      "id": "29",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "isStoredIn",
+        "en": "is stored in"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isStoredIn is the inverse property of stores."
+      },
+      "domain": "3",
+      "range": "18",
+      "superproperty": [
+        "11"
+      ],
+      "inverse": "30",
+      "pos": [
+        847.11,
+        0.24
+      ]
+    },
+    {
+      "id": "31",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "isStoredIn",
+        "en": "is stored in"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isStoredIn is the inverse property of stores."
+      },
+      "domain": "8",
+      "range": "16",
+      "superproperty": [
+        "11"
+      ],
+      "inverse": "30",
+      "pos": [
+        1174.38,
+        -12.87
+      ]
+    },
+    {
+      "id": "32",
+      "iri": "http://www.w3.org/ns/prov#hadMember",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "hadMember"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "8",
+      "range": "14",
+      "pos": [
+        1145.57,
+        557.02
+      ]
+    },
+    {
+      "id": "33",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "isStoredIn",
+        "en": "is stored in"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isStoredIn is the inverse property of stores."
+      },
+      "domain": "8",
+      "range": "18",
+      "superproperty": [
+        "11"
+      ],
+      "inverse": "30",
+      "pos": [
+        1035.02,
+        22.73
+      ]
+    },
+    {
+      "id": "34",
+      "iri": "http://www.w3.org/ns/prov#hadMember",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "hadMember"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "8",
+      "range": "8",
+      "pos": [
+        1272.68,
+        119.32
+      ]
+    },
+    {
+      "id": "36",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "stores",
+        "en": "stores"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
+      },
+      "domain": "18",
+      "range": "8",
+      "pos": [
+        1089.49,
+        -0.75
+      ]
+    },
+    {
+      "id": "38",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/core",
+      "label": {
+        "IRI-based": "performsAgentRole"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "20",
+      "range": "25",
+      "pos": [
+        553.56,
+        744.62
+      ]
+    },
+    {
+      "id": "39",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "stores",
+        "en": "stores"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
+      },
+      "domain": "17",
+      "range": "22",
+      "pos": [
+        1505.21,
+        556.85
+      ]
+    },
+    {
+      "id": "30",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "stores",
+        "en": "stores"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
+      },
+      "domain": "15",
+      "range": "23",
+      "inverse": "12"
+    },
+    {
+      "id": "40",
+      "iri": "http://purl.org/dc/terms/references",
+      "baseIri": "http://purl.org/dc/terms",
+      "label": {
+        "IRI-based": "references"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "41",
+      "range": "42",
+      "pos": [
+        1391.79,
+        1341.57
+      ]
+    },
+    {
+      "id": "43",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasDerivedFrom"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "41",
+      "range": "37",
+      "pos": [
+        1378.24,
+        1306.85
+      ]
+    },
+    {
+      "id": "44",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasDerivedFrom"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "45",
+      "range": "41",
+      "pos": [
+        1187.58,
+        1375.1
+      ]
+    },
+    {
+      "id": "46",
+      "iri": "http://purl.org/dc/terms/references",
+      "baseIri": "http://purl.org/dc/terms",
+      "label": {
+        "IRI-based": "references"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "45",
+      "range": "42",
+      "pos": [
+        1286.57,
+        1257.23
+      ]
+    },
+    {
+      "id": "47",
+      "iri": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasDerivedFrom"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "45",
+      "range": "37",
+      "pos": [
+        1273.02,
+        1222.51
+      ]
+    },
+    {
+      "id": "48",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "hasMetadata",
+        "en": "has metadata"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
+      },
+      "domain": "14",
+      "range": "22",
+      "pos": [
+        1214.52,
+        730.02
+      ]
+    },
+    {
+      "id": "49",
+      "iri": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasAttributedTo"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "14",
+      "range": "20",
+      "pos": [
+        957.07,
+        816.59
+      ]
+    },
+    {
+      "id": "50",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "stores",
+        "en": "stores"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata."
+      },
+      "domain": "18",
+      "range": "3",
+      "pos": [
+        806.3,
+        -23.67
+      ]
+    },
+    {
+      "id": "51",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "hasMetadata",
+        "en": "has metadata"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
+      },
+      "domain": "13",
+      "range": "22",
+      "pos": [
+        1097.92,
+        561.79
+      ]
+    },
+    {
+      "id": "52",
+      "iri": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "baseIri": "http://www.w3.org/ns/prov",
+      "label": {
+        "IRI-based": "wasAttributedTo"
+      },
+      "attributes": [
+        "object",
+        "someValues",
+        "external"
+      ],
+      "domain": "22",
+      "range": "20",
+      "pos": [
+        1013.63,
+        637.91
+      ]
+    },
+    {
+      "id": "53",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "isStoredIn",
+        "en": "is stored in"
+      },
+      "attributes": [
+        "object",
+        "someValues"
+      ],
+      "comment": {
+        "en": "isStoredIn is the inverse property of stores."
+      },
+      "domain": "22",
+      "range": "17",
+      "superproperty": [
+        "11"
+      ],
+      "inverse": "30",
+      "pos": [
+        1486.46,
+        509.81
+      ]
+    },
+    {
+      "id": "54",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "8",
+      "range": "4",
+      "pos": [
+        979.86,
+        388.51
+      ]
+    },
+    {
+      "id": "55",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "22",
+      "range": "4",
+      "pos": [
+        1048.8,
+        561.51
+      ]
+    },
+    {
+      "id": "56",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "8",
+      "range": "6",
+      "pos": [
+        899.23,
+        139.21
+      ]
+    },
+    {
+      "id": "57",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "37",
+      "range": "14",
+      "pos": [
+        1310.82,
+        1031.48
+      ]
+    },
+    {
+      "id": "58",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "3",
+      "range": "4",
+      "pos": [
+        810.8,
+        394.2
+      ]
+    },
+    {
+      "id": "59",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "14",
+      "range": "4",
+      "pos": [
+        992.24,
+        740.2
+      ]
+    },
+    {
+      "id": "60",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "41",
+      "range": "14",
+      "pos": [
+        1225.38,
+        1184.07
+      ]
+    },
+    {
+      "id": "61",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "20",
+      "range": "35",
+      "pos": [
+        598.03,
+        844.75
+      ]
+    },
+    {
+      "id": "12",
+      "iri": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
+      "baseIri": "https://purls.helmholtz-metadaten.de/prima/dataset",
+      "label": {
+        "IRI-based": "isStoredIn",
+        "en": "is stored in"
+      },
+      "attributes": [
+        "object"
+      ],
+      "comment": {
+        "en": "isStoredIn is the inverse property of stores."
+      },
+      "domain": "23",
+      "range": "15",
+      "superproperty": [
+        "11"
+      ],
+      "inverse": "30",
+      "pos": [
+        1533.72,
+        119.44
+      ]
+    },
+    {
+      "id": "62",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "45",
+      "range": "14",
+      "pos": [
+        1120.15,
+        1099.73
+      ]
+    },
+    {
+      "id": "63",
+      "label": "Subclass of",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "domain": "42",
+      "range": "14",
+      "pos": [
+        1324.37,
+        1066.21
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-13-14-0",
+      "domain": "13",
+      "range": "14",
+      "pos": [
+        1041.35,
+        740.48
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-13-3-1",
+      "domain": "13",
+      "range": "3",
+      "pos": [
+        859.92,
+        394.48
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-13-8-2",
+      "domain": "13",
+      "range": "8",
+      "pos": [
+        1028.97,
+        388.79
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-15-16-0",
+      "domain": "15",
+      "range": "16",
+      "pos": [
+        1370.01,
+        -132.41
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-15-17-1",
+      "domain": "15",
+      "range": "17",
+      "pos": [
+        1585.01,
+        176.52
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-15-18-2",
+      "domain": "15",
+      "range": "18",
+      "pos": [
+        1249.96,
+        -102.45
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-23-8-0",
+      "domain": "23",
+      "range": "8",
+      "pos": [
+        1344.36,
+        247.32
+      ]
+    },
+    {
+      "id": "GENERATED-UNION-23-22-1",
+      "domain": "23",
+      "range": "22",
+      "pos": [
+        1413.31,
+        420.32
+      ]
+    }
+  ]
 }
