@@ -320,9 +320,6 @@ core:ResearchUser a owl:Class ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :Precursor ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Precursor ],
-        [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
             owl:someValuesFrom core:Equipment ],
         [ a owl:Restriction ;
@@ -411,6 +408,7 @@ core:usesEquipment a owl:ObjectProperty .
 
 :Precursor a owl:Class ;
     rdfs:comment "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."@en ;
+    rdfs:subClassOf :Input ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty prov:wasDerivedFrom ;
             owl:someValuesFrom :Precursor ],
