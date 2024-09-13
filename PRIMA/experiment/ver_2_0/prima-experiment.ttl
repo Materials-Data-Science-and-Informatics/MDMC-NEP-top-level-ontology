@@ -325,6 +325,8 @@ core:ResearchUser a owl:Class ;
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :Precursor ],
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom core:ResearchUser ],
@@ -418,6 +420,17 @@ prov:Entity a owl:Class .
 
 core:usesEquipment a owl:ObjectProperty .
 
+:Precursor a owl:Class ;
+    rdfs:comment "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."@en ;
+    rdfs:subClassOf :Input ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :Precursor ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasGeneratedBy ;
+            owl:someValuesFrom :Fabrication ],
+        core:System ;
+    core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which is formed or manufactured during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings and/or molecules. A single Precursor might itself become the only Sample Component of a Sample in case it undergoes a Measurement."@en .
 <https://w3id.org/pmd/co/ValueObject> a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
