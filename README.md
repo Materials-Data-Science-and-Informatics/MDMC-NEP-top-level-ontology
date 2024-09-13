@@ -10,7 +10,7 @@ The first ontology that we develop is **PRovenance Information in MAterials scie
 
 3. [PRIMA-Dataset](https://purls.helmholtz-metadaten.de/prima/dataset): This module describe the classes and properties related to the structure of the dataset in the context of research. 
 
-4. [PRIMA-Experiment](https://purls.helmholtz-metadaten.de/prima/experiment): In the Rxperiment module, the classes and properties related to an experiment are described
+4. [PRIMA-Experiment](https://purls.helmholtz-metadaten.de/prima/experiment): In the Experiment module, the classes and properties related to an experiment are described
 
 5. The ontology combining all the above modules is [PRIMA-complete](https://purls.helmholtz-metadaten.de/prima/complete)
 ## Aim
