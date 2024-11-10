@@ -12,7 +12,7 @@ These processes are documented using Herbie, a hybrid system combining an Electr
 In this use case, the Herbie ontology is extended to align with PRIMA. Successful ontology alignment involves identifying relationships and similarities between entities in the source and target ontologies, focusing on overlapping concepts that may have different names (synonyms) or types. This alignment enhances linked data generation and improves Herbie's interoperability within materials science data.
 
 
-## Folder description
+## Folder Description
 
 In the [data-model](./data-model), you may find a data model/ontology used in Herbie. This can be accessed [here](./data-model/herbie.ttl). In this folder also, two PRIMA modules exists, and they are Core and Experiment.
 
