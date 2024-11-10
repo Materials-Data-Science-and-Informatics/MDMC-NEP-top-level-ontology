@@ -31,5 +31,6 @@ e.g. the Material Science Lab Equipment (MSLE) Ontology.
 
 ## Acknowledgements
 
-* This work has been supported by the Joint Lab “Integrated Model and Data Driven Materials Characterization” ([MDMC](https://jl-mdmc-helmholtz.de)), Helmholtz Metadata Collaboration ([HMC](https://helmholtz-metadaten.de/en)) within the Hub Information at the Forschungszentrum Jülich, the research programs “Engineering Digital Futures” and “Materials System Engineering” of the Helmholtz Association of German Research Centers, NFFA-Europe Pilot ([NEP](https://www.nffa.eu)) Joint Activities and the Use case 1 of EOSC-Pillar ([EOSC-Pillar](https://www.eosc-pillar.eu/)) project. 
+* This work has been supported by the Joint Lab “Integrated Model and Data Driven Materials Characterization” ([MDMC](https://jl-mdmc-helmholtz.de)), Helmholtz Metadata Collaboration ([HMC](https://helmholtz-metadaten.de/en)) within the Hub Information at the Forschungszentrum Jülich, the German Research Foundation (Deutsche Forschungsgemeinschaft, DFG) in the framework of the project FAIRmat (Project ID: 460197019); the DFG under the National Research Data Infrastructure – NFDI 38/1 – project number 460247524, the research programs “Engineering Digital Futures” and “Materials System Engineering” of the Helmholtz Association of German Research Centers, NFFA-Europe Pilot ([NEP](https://www.nffa.eu)) Joint Activities and the Use case 1 of EOSC-Pillar ([EOSC-Pillar](https://www.eosc-pillar.eu/)) project.
+
 
