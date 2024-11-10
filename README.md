@@ -36,13 +36,13 @@ PRIMA is a modular ontology consisting of four modules:
 ## Use Cases
 So far, we have demonstrated the broad applicability of PRIMA by presenting two different use cases: (i) the mapping of the FAIRification workflow applied to Scanning Tunneling Microscope (STM) images from data acquisition to data analysis and (ii) the PRIMA alignment of the fabrication processes ontologies applied to metallic biomaterials recorded in the Herbie Electronic Laboratory Notebook (ELN).
 
-### Scanning Tunneling Microscopy (STM) images from Use Case 1 of the EOSC-Pillar project
+### Use case 1: Scanning Tunneling Microscopy (STM) images from Use Case 1 of the EOSC-Pillar project
 
 In this use case, we extend the work done by [Rodani et al., (2023)](https://direct.mit.edu/dint/article/5/1/27/112600/Towards-the-FAIRification-of-Scanning-Tunneling) by mapping its provenance data model to PRIMA. The provenance data model of STM images follows the PROV-DM standard and is serialized by the PROV-JSON serialization, i.e., the metadata is in the JSON format. Furthemore, the mapping is done by connecting JSON objects into PRIMA, so that each of JSON objects is an instance of a PRIMA class.
 
 The use case including the mapped ontology and the RDF data can be accessed [here](./use-cases/STRAS-mapping).
 
-### Metallic Biomaterials Fabrication in the Herbie ELN
+### Use case 2: Metallic Biomaterials Fabrication in the Herbie ELN
 Herbie is a hybrid system between an ELN and a research database developed at the Helmholtz-Zentrum Hereon. Herbie is tailored to cover and interlink the heterogeneous process chain of metallic biomaterials research, including materials development, biological characterization, and synchrotron imaging; nevertheless, due to its modular structure, it can be adapted to other fields. 
 
 In this use case, the Herbie ontology, an ontology is used in Herbie, is extended to be aligned to PRIMA. A successful ontology alignment involves identifying relationships between entities in different ontologies to establish links and similarities between the source and target ontologies. The analysis focuses on concepts that overlap but may have different names (synonyms) or types in the ontologies. This alignment supports the generation of linked data and boasts more interoperability of Herbie within the materials science data.
