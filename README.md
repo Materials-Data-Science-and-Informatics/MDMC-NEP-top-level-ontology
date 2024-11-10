@@ -36,7 +36,7 @@ PRIMA is a modular ontology consisting of four modules:
 ## Use Cases
 So far, we have demonstrated the broad applicability of PRIMA by presenting two different use cases: (i) the mapping of the FAIRification workflow applied to Scanning Tunneling Microscope (STM) images from data acquisition to data analysis and (ii) the PRIMA alignment of the fabrication processes ontologies applied to metallic biomaterials recorded in the Herbie Electronic Laboratory Notebook (ELN).
 
-### Use case 1: Scanning Tunneling Microscopy (STM) images from Use Case 1 of the EOSC-Pillar project
+### Use case 1: Scanning Tunneling Microscopy (STM) Images 
 
 In this use case, we extend the work done by [Rodani et al., (2023)](https://direct.mit.edu/dint/article/5/1/27/112600/Towards-the-FAIRification-of-Scanning-Tunneling) by mapping its provenance data model to PRIMA. The provenance data model of STM images follows the PROV-DM standard and is serialized by the PROV-JSON serialization, i.e., the metadata is in the JSON format. Furthemore, the mapping is done by connecting JSON objects into PRIMA, so that each of JSON objects is an instance of a PRIMA class.
 
