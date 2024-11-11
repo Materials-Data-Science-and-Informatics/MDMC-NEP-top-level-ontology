@@ -1,23 +1,21 @@
 # The PRIMA Ontology
-
-## Table of content
-  1. [About PRIMA](#about-prima)
-  2. [PRIMA Documentation](#prima-documentation)
-  3. [Use Cases](#use-cases)
-  4. [Usage](#usage)
-  5. [Future Extensions](#future-extensions)
-  6. [Contact](#contact)
-  7. [License](#license)
-  8. [Acknowledgements](#acknowledgements)
-
-
-## About PRIMA
 This repository collects the ongoing work towards the development of the top-level ontology based on common terms defined for the Joint Lab  "Integrated Model and Data Driven Materials Characterization" (MDMC) and for the "Nanoscience Foundries and Fine Analysis Europe Pilot" (NEP). The top-level glossary defining the terms is available (as a living document which can be constantly updated) on the NEP website: https://www.nffa.eu/apply/data-policy/glossary
 
 The aim of this joint activity is to develop the **PRovenance Information in MAterials science** (PRIMA) which can be initially adopted by MDMC and NEP. PRIMA is an ontology that captures the provenance information in the materials science domain.
 In future, it might also be adopted by other Materials Science projects. 
 This will have the huge advantage of having a **common** description of concepts and relationships in the domain of Materials Science. 
 This will offer a set of metadata which, in turn, will increase the interoperability and the reuse of data.
+
+
+## Table of content
+  1. [PRIMA Documentation](#prima-documentation)
+  2. [Use Cases](#use-cases)
+  3. [Usage](#usage)
+  4. [Future Extensions](#future-extensions)
+  5. [Contact](#contact)
+  6. [License](#license)
+  7. [Acknowledgements](#acknowledgements)
+
 
 ## PRIMA Documentation
 
