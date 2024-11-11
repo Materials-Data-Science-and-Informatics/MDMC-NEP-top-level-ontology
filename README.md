@@ -43,7 +43,7 @@ In this use case, we extend the work done by [Rodani et al., (2023)](https://dir
 The use case including the mapped ontology and the RDF data can be accessed [here](./use-cases/STRAS-mapping).
 
 ### Use case 2: Metallic Biomaterials Fabrication in the Herbie ELN
-Herbie is a hybrid system between an ELN and a research database developed at the Helmholtz-Zentrum Hereon. Herbie is tailored to cover and interlink the heterogeneous process chain of metallic biomaterials research, including materials development, biological characterization, and synchrotron imaging; nevertheless, due to its modular structure, it can be adapted to other fields. 
+[Herbie](https://doi.org/10.5281/zenodo.12205430) is a hybrid system between an ELN and a research database developed at the Helmholtz-Zentrum Hereon. Herbie is tailored to cover and interlink the heterogeneous process chain of metallic biomaterials research, including materials development, biological characterization, and synchrotron imaging; nevertheless, due to its modular structure, it can be adapted to other fields. 
 
 In this use case, the Herbie ontology, an ontology is used in Herbie, is extended to be aligned to PRIMA. A successful ontology alignment involves identifying relationships between entities in different ontologies to establish links and similarities between the source and target ontologies. The analysis focuses on concepts that overlap but may have different names (synonyms) or types in the ontologies. This alignment supports the generation of linked data and boasts more interoperability of Herbie within the materials science data.
 
