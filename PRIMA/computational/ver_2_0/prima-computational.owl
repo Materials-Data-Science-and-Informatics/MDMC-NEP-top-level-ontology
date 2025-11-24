@@ -79,10 +79,10 @@
 <http://www.w3.org/ns/prov#wasInformedBy> rdf:type owl:ObjectProperty .
 
 
-###  https://purls.helmholtz-metadaten.de/prima/computational#output
-:output rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> ;
-        owl:inverseOf <https://w3id.org/pmd/co/outputOf> .
+###  https://w3id.org/pmd/co/output
+<https://w3id.org/pmd/co/output> rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> ;
+                                owl:inverseOf <https://w3id.org/pmd/co/outputOf> .
 
 
 ###  https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition
@@ -256,6 +256,10 @@
                              [ rdf:type owl:Restriction ;
                                owl:onProperty <https://w3id.org/pmd/co/input> ;
                                owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <https://w3id.org/pmd/co/output> ;
+                               owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData>
                              ] ;
              rdfs:label "Calculation"@en ;
              rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."@en ;
@@ -268,7 +272,7 @@
        rdfs:subClassOf <https://purls.helmholtz-metadaten.de/prima/core#System> ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#hasSetting> ;
-                         owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Setting>
+                         owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Settings>
                        ] ;
        rdfs:label "Model"@en ;
        rdfs:comment "Digital representation of a System, primary output of any kind of Model Preparation, aimed to be used in one or more Calculations or Simulations for its description or for predictions of its behaviour. A Model represents the System by direct similitude (e.g., small-scale replica) or by capturing in a logical framework the relations between its properties (e.g., mathematical Model). A Model typically consists of Settings which may be stored in one or more files."@en ;
@@ -288,7 +292,7 @@
                                     owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#ResearchUser>
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty :output ;
+                                    owl:onProperty <https://w3id.org/pmd/co/output> ;
                                     owl:someValuesFrom :Model
                                   ] ,
                                   [ rdf:type owl:Restriction ;
@@ -331,6 +335,10 @@
                             [ rdf:type owl:Restriction ;
                               owl:onProperty <https://w3id.org/pmd/co/input> ;
                               owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty <https://w3id.org/pmd/co/output> ;
+                              owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData>
                             ] ;
             rdfs:label "Simulation"@en ;
             rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to manipulate its Settings using a specific computational and/or theoretical Technique in order to study, predict, or optimize the behaviour and performance of existing or proposed features and properties of a physical System that would otherwise be too complex, too large/small, too fast/slow, too dangerous, inaccessible, or unacceptable to engage and/or control. Examples of Simulation are: multiscale simulation, finite-element simulation, molecular dynamics simulation, discrete dislocation dynamics simulation."@en ;
@@ -350,12 +358,12 @@
                                                                                     owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#ResearchUser>
                                                                                   ] ,
                                                                                   [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :output ;
+                                                                                    owl:onProperty <https://w3id.org/pmd/co/output> ;
                                                                                     owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData>
                                                                                   ] ,
                                                                                   [ rdf:type owl:Restriction ;
                                                                                     owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#hasSetting> ;
-                                                                                    owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Setting>
+                                                                                    owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Settings>
                                                                                   ] ,
                                                                                   [ rdf:type owl:Restriction ;
                                                                                     owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#usesEquipment> ;
@@ -378,12 +386,12 @@
                                                                    rdfs:subClassOf <http://www.w3.org/ns/prov#SoftwareAgent> ,
                                                                                    [ rdf:type owl:Restriction ;
                                                                                      owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#hasSetting> ;
-                                                                                     owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Setting>
+                                                                                     owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Settings>
                                                                                    ] .
 
 
-###  https://purls.helmholtz-metadaten.de/prima/core#Setting
-<https://purls.helmholtz-metadaten.de/prima/core#Setting> rdf:type owl:Class ;
+###  https://purls.helmholtz-metadaten.de/prima/core#Settings
+<https://purls.helmholtz-metadaten.de/prima/core#Settings> rdf:type owl:Class ;
                                                           rdfs:subClassOf <http://nfdi.fiz-karlsruhe.de/ontology/Specification> .
 
 
@@ -414,7 +422,7 @@
                                                                                   owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#ResearchUser>
                                                                                 ] ,
                                                                                 [ rdf:type owl:Restriction ;
-                                                                                  owl:onProperty :output ;
+                                                                                  owl:onProperty <https://w3id.org/pmd/co/output> ;
                                                                                   owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData>
                                                                                 ] ,
                                                                                 [ rdf:type owl:Restriction ;
@@ -482,7 +490,7 @@
 <https://w3id.org/pmd/co/Process> rdf:type owl:Class ;
                                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ,
                                                   [ rdf:type owl:Restriction ;
-                                                    owl:onProperty :output ;
+                                                    owl:onProperty <https://w3id.org/pmd/co/output> ;
                                                     owl:someValuesFrom <https://w3id.org/pmd/co/Object>
                                                   ] ,
                                                   [ rdf:type owl:Restriction ;
