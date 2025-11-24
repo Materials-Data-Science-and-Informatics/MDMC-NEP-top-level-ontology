@@ -4,6 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <https://purls.helmholtz-metadaten.de/prima/computational> .
 
 <https://purls.helmholtz-metadaten.de/prima/computational> rdf:type owl:Ontology ;
@@ -255,7 +256,11 @@
                              [ rdf:type owl:Restriction ;
                                owl:onProperty <https://w3id.org/pmd/co/input> ;
                                owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData>
-                             ] .
+                             ] ;
+             rdfs:label "Calculation"@en ;
+             rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."@en ;
+             rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> ;
+             skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> .
 
 
 ###  https://purls.helmholtz-metadaten.de/prima/computational#Model
@@ -264,7 +269,11 @@
                        [ rdf:type owl:Restriction ;
                          owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#hasSetting> ;
                          owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#Setting>
-                       ] .
+                       ] ;
+       rdfs:label "Model"@en ;
+       rdfs:comment "Digital representation of a System, primary output of any kind of Model Preparation, aimed to be used in one or more Calculations or Simulations for its description or for predictions of its behaviour. A Model represents the System by direct similitude (e.g., small-scale replica) or by capturing in a logical framework the relations between its properties (e.g., mathematical Model). A Model typically consists of Settings which may be stored in one or more files."@en ;
+       rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/model> ;
+       skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/model> .
 
 
 ###  https://purls.helmholtz-metadaten.de/prima/computational#ModelPreparation
@@ -301,7 +310,11 @@
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty <https://w3id.org/pmd/co/input> ;
                                     owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData>
-                                  ] .
+                                  ] ;
+                  rdfs:label "Model Preparation"@en ;
+                  rdfs:comment "Set of actions carried out by one or more Research Users, possibly using Research Software, to define and/or formulate a Model making use of Research Data (typically, but not limited to, Reference Data after Data Processing) as input for parametrization, boundary conditions, or validation. A Model Preparation may require the use of Equipment. The output of Model Preparation is Model."@en ;
+                  rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> ;
+                  skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> .
 
 
 ###  https://purls.helmholtz-metadaten.de/prima/computational#Simulation
@@ -318,7 +331,11 @@
                             [ rdf:type owl:Restriction ;
                               owl:onProperty <https://w3id.org/pmd/co/input> ;
                               owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData>
-                            ] .
+                            ] ;
+            rdfs:label "Simulation"@en ;
+            rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to manipulate its Settings using a specific computational and/or theoretical Technique in order to study, predict, or optimize the behaviour and performance of existing or proposed features and properties of a physical System that would otherwise be too complex, too large/small, too fast/slow, too dangerous, inaccessible, or unacceptable to engage and/or control. Examples of Simulation are: multiscale simulation, finite-element simulation, molecular dynamics simulation, discrete dislocation dynamics simulation."@en ;
+            rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> ;
+            skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> .
 
 
 ###  https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition
