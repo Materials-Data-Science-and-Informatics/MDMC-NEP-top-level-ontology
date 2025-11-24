@@ -46,15 +46,28 @@ prov:startedAtTime a owl:DatatypeProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
             owl:onProperty dcterms:references ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata> .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#DataManager> a owl:Class ;
+    rdfs:label "Data Manager"@en ;
+    rdfs:comment "Person responsible for maintaining the finished resource."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager> ;
+    rdfs:subClassOf <https://purls.helmholtz-metadaten.de/prima/core#AgentRole> ;
+    skos:closeMatch <http://purl.org/datacite/v4.4/DataManager> ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager> .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#hasPersistentIdentifier> a owl:ObjectProperty ;
+    rdfs:label "has persistent identifier"@en ;
+    rdfs:comment "hasPersistentIdentifier represents the relationship between a resource and its persistent identifier"@en ;
+    rdfs:range <https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier> .
 
 skos:definition a owl:AnnotationProperty .
 
@@ -63,27 +76,33 @@ prov:Agent a owl:Class .
 prov:Collection a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
-<https://purls.helmholtz-metadaten.de/prima/core#AgentRole> a owl:Class .
-
 <https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole> a owl:ObjectProperty .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier> a owl:Class ;
+    rdfs:label "Persistent Identifier"@en ;
+    rdfs:comment "Long-lasting reference which provides the information required to reliably identify, verify, and locate a digital resource, e.g., Research Data (typically, but not limited to, Publication Data), Metadata, Scientific Publications, but also Systems, Research Users, Equipment, and/or Institutions."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:closeMatch <https://terms.codata.org/rdmt/persistent-identifier> ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier> .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> a owl:Class ;
     rdfs:comment "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data (typically, but not limited to, Raw Data or Reference Data). Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation or Data Analysis."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty dcterms:references ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasDerivedFrom ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
         <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata> .
 
 dcterms:references a owl:ObjectProperty .
 
-prov:Entity a owl:Class .
-
 prov:hadMember a owl:ObjectProperty .
+
+<https://purls.helmholtz-metadaten.de/prima/core#AgentRole> a owl:Class .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform> a owl:Class ;
     rdfs:comment "Operational information system which allows Research Users to keep their Research Data, Datasets, and related documents (e.g., notes or drafts of Scientific Publications) synchronized and up to date and to share them with other Research Users, who are typically members of the same Project. The access rights granted to the resources may be determined by the User Role. The system is intended for the long-tail, unstructured, and still volatile data, which may change and is still subject to active research. Therefore, a Data Collaboration Platform offers versioning of all ingested files but does not usually assign them Persistent Identifiers. A Data Collaboration Platform may be associated with an Institution or a group of them, or may be run by a third party." ;
@@ -108,14 +127,14 @@ prov:hadMember a owl:ObjectProperty .
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository> ],
         [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Dataset> ],
-        [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Metadata> ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAttributedTo ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Dataset> ],
         <https://w3id.org/pmd/co/DigitalEntity> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> .
 
@@ -130,6 +149,8 @@ prov:hadMember a owl:ObjectProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata> ;
     rdfs:subClassOf <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata> .
+
+prov:Entity a owl:Class .
 
 prov:wasAttributedTo a owl:ObjectProperty .
 
@@ -147,10 +168,10 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#stores> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Dataset> ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData> ],
         [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#stores> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData> ] ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Dataset> ] ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata> a owl:ObjectProperty ;
@@ -183,11 +204,11 @@ prov:wasDerivedFrom a owl:ObjectProperty .
     rdfs:comment "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
-        [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Metadata> ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
         <https://w3id.org/pmd/co/DigitalEntity> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata> .
 
@@ -196,19 +217,19 @@ prov:wasDerivedFrom a owl:ObjectProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty prov:hadMember ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Dataset> ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
         [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository> ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform> ],
         [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Metadata> ],
         [ a owl:Restriction ;
             owl:onProperty prov:hadMember ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#Dataset> ],
         [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform> ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository> ],
         prov:Collection,
         <https://w3id.org/pmd/co/DigitalEntity> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> .

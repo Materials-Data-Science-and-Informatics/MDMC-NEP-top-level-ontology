@@ -221,6 +221,17 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasAcquisitionSoftware -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasAcquisitionSoftware">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware"/>
+        <rdfs:comment xml:lang="en">hasAcquisitionSoftware represents the relationship between instrument to acquisition software</rdfs:comment>
+        <rdfs:label xml:lang="en">has acquisition software</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication -->
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication">
@@ -642,6 +653,18 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#AgentRole -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#AgentRole"/>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition">
@@ -674,6 +697,12 @@
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Instrument">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasAcquisitionSoftware"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a (physical or virtual) Laboratory hosted by an Institution and can be physically, virtually, and/or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"/>
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"/>
@@ -793,6 +822,24 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasSetting"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Settings"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any software designed to interface directly with an Instrument in order to control and monitor Data Acquisition parameters (i.e., Settings), and to collect Raw Data. Regardless of whether the Acquisition Software is integrated with the Instrument or operates as a standalone application (e.g., installed on a separate computer or packaged as a virtual machine), it is considered part of the Instrument.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware"/>
+        <rdfs:label xml:lang="en">Acquisition Software</rdfs:label>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware"/>
+    </owl:Class>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Consumable -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable">
@@ -887,6 +934,18 @@
     
 
 
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#InstrumentScientist -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#InstrumentScientist">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole"/>
+        <rdfs:comment xml:lang="en">Person who manages a particular Instrument, or a set of them.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist"/>
+        <rdfs:label xml:lang="en">Instrument Scientist</rdfs:label>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist"/>
+    </owl:Class>
+    
+
+
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory">
@@ -956,7 +1015,6 @@
     <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Precursor -->
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1102,7 +1160,6 @@
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf"/>

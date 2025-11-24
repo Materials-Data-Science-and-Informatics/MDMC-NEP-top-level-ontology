@@ -71,6 +71,11 @@
         <rdfs:comment xml:lang="en">stores represents the relationship between data collaboration platform or data repository or metadata repository to dataset or metadata.</rdfs:comment>
         <rdfs:label xml:lang="en">stores</rdfs:label>
     </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#hasPersistentIdentifier">
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier" />
+        <rdfs:comment xml:lang="en">hasPersistentIdentifier represents the relationship between a resource and its persistent identifier</rdfs:comment>
+        <rdfs:label xml:lang="en">has persistent identifier</rdfs:label>
+    </owl:ObjectProperty>
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#endedAtTime" />
     <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#startedAtTime" />
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent" />
@@ -286,6 +291,22 @@
         <rdfs:comment xml:lang="en">Any Research Data from prior Studies or from literature, which is used in the course of a Study to, e.g., define a Model, compare Analyzed Data, and/or validate findings and results. Reference Data is typically retrieved from publicly accessible Data Repositories. Depending on the research context, Reference Data usually undergo some kind of Data Processing before being used.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata" />
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:label xml:lang="en">Persistent Identifier</rdfs:label>
+        <rdfs:comment xml:lang="en">Long-lasting reference which provides the information required to reliably identify, verify, and locate a digital resource, e.g., Research Data (typically, but not limited to, Publication Data), Metadata, Scientific Publications, but also Systems, Research Users, Equipment, and/or Institutions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier" />
+        <skos:closeMatch rdf:resource="https://terms.codata.org/rdmt/persistent-identifier" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataManager">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Data Manager</rdfs:label>
+        <rdfs:comment xml:lang="en">Person responsible for maintaining the finished resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/DataManager" />
     </owl:Class>
     <owl:Class rdf:about="https://w3id.org/pmd/co/DigitalEntity">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />

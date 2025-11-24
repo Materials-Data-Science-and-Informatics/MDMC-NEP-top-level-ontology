@@ -53,11 +53,12 @@
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware" />
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Settings" />
-        <rdfs:comment xml:lang="en">hasSetting represents the relationship between equipment or research software to settings</rdfs:comment>
+        <rdfs:comment xml:lang="en">hasSetting represents the relationship between equipment or research software or acquisition software to settings</rdfs:comment>
         <rdfs:label xml:lang="en">has setting</rdfs:label>
     </owl:ObjectProperty>
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasStudy">
@@ -65,6 +66,12 @@
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study" />
         <rdfs:comment xml:lang="en">hasStudy represents the relationship between project to study.</rdfs:comment>
         <rdfs:label xml:lang="en">has study</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasScientificPublication">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study" />
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ScientificPublication" />
+        <rdfs:comment xml:lang="en">hasScientificPublication represents the relationship between study to scientific publication</rdfs:comment>
+        <rdfs:label xml:lang="en">has scientific publication</rdfs:label>
     </owl:ObjectProperty>
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique">
         <rdfs:domain>
@@ -231,6 +238,9 @@
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
         <rdfs:comment xml:lang="en">Project member role is an agent role that has role of project member</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/projectmember" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/projectmember" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/ProjectMember" />
     </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ContactPerson">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
@@ -271,6 +281,38 @@
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader" />
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader" />
         <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/WorkPackageLeader" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataCollector">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Data Collector</rdfs:label>
+        <rdfs:comment xml:lang="en">Person/institution responsible for finding or gathering/collecting data under the guidelines of the author(s) or Principal Investigator (PI).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datacollector" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datacollector" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/DataCollector" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ProjectLeader">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole" />
+        <rdfs:label xml:lang="en">Project Leader</rdfs:label>
+        <rdfs:comment xml:lang="en">Person officially designated as head of project team or sub-project team instrumental in the work necessary to development of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/projectleader" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/projectleader" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/ProjectLeader" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ProjectManager">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole" />
+        <rdfs:label xml:lang="en">Project Manager</rdfs:label>
+        <rdfs:comment xml:lang="en">Person officially designated as manager of a project. Project may consist of one or many project teams and sub-teams.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/projectmanager" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/projectmanager" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/ProjectManager" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#UserRole">
+        <owl:equivalentClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">User Role</rdfs:label>
+        <rdfs:comment xml:lang="en">The role of the Research User in a Project, in the context of a specific Study. Examples of User Role are: data curator, project leader, project member. User Role also determines the access rights which might be granted in the information system(s) used for data management (i.e., Data Collaboration Platform, Data Repository, Metadata Repository).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/userrole" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/userrole" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/ContributorType" />
     </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/DigitalEntity" />
@@ -346,9 +388,30 @@
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasScientificPublication" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ScientificPublication" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study" />
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ScientificPublication">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Scientific Publication</rdfs:label>
+        <rdfs:comment xml:lang="en">Any of the following contributions, peer-reviewed or not: article in a scientific journal (and related supporting information), monograph, book or book chapter, conference proceedings, "grey literature" (informally published material having not gone through a standard publishing process, e.g., reports and highlights). A Scientific Publication typically reports the results and the conclusions of a Study, may be supplemented by Publication Data, and may be assigned a Persistent Identifier. A Scientific Publication may be attributed to some or to all the Research Users who are members of the Project.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/scientificpublication" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/scientificpublication" />
+        <skos:closeMatch rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Publication" />
+        <skos:closeMatch rdf:resource="https://schema.org/PublicationEvent" />
     </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#System">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />

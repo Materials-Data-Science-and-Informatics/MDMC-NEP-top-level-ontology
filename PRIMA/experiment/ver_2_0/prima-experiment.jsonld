@@ -1,69 +1,6 @@
 [
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "hasProcessingAndTreatment represents the relationship between study to processing and treatment activity."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has processing and treatment"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#atLocation",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Agent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Organization",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#endedAtTime",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/created",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/nextProcess",
+    "@id": "https://w3id.org/pmd/co/subordinateProcess",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
@@ -76,73 +13,46 @@
       {
         "@id": "https://w3id.org/pmd/co/Process"
       }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasInformedBy"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/previousProcess"
-      }
     ]
   },
   {
-    "@id": "https://w3id.org/pmd/co/previousProcess",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Institution",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings"
+        "@value": "Hierarchical entity which hosts one or more Laboratories."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/institution"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
+        "@id": "http://www.w3.org/ns/prov#Organization"
       },
       {
-        "@id": "_:Na7606de18e834eca855bc25505776c3b"
-      },
+        "@id": "_:Nce68eb1bb6a64d46b339fe4c9c57a1cc"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "_:N26dc100f92dc4c9cbd953977737c4309"
-      },
-      {
-        "@id": "_:N9245777e344149caaf8da467635e403f"
-      },
-      {
-        "@id": "_:N186baedd2b544a598b8cd771479fba25"
-      },
-      {
-        "@id": "_:N48370d424aa847e186aa66ca3ca583b4"
-      },
-      {
-        "@id": "_:Nb90ee749193d434fa4b82673c1b1fdad"
-      },
-      {
-        "@id": "_:N4ac70b4afe954bdb993564149c884d44"
-      },
-      {
-        "@id": "_:N475d2711eabf478f9ced22453b43018b"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/institution"
       }
     ]
   },
   {
-    "@id": "_:Na7606de18e834eca855bc25505776c3b",
+    "@id": "_:Nce68eb1bb6a64d46b339fe4c9c57a1cc",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://www.w3.org/ns/prov#atLocation"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hosts"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
@@ -152,629 +62,36 @@
     ]
   },
   {
-    "@id": "_:N26dc100f92dc4c9cbd953977737c4309",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
-    "@id": "_:N9245777e344149caaf8da467635e403f",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "_:N186baedd2b544a598b8cd771479fba25",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
-      }
-    ]
-  },
-  {
-    "@id": "_:N48370d424aa847e186aa66ca3ca583b4",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nb90ee749193d434fa4b82673c1b1fdad",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
-      }
-    ]
-  },
-  {
-    "@id": "_:N4ac70b4afe954bdb993564149c884d44",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
-      }
-    ]
-  },
-  {
-    "@id": "_:N475d2711eabf478f9ced22453b43018b",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."
+        "@value": "Auxiliary entity, normally acquired from third-party manufacturers, used during Processing and Treatment or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of. Consumables are not part of the Instrument. Examples of Consumable are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "isHeldBy is the inverse property of holds."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is held by"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/Process",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Activity"
-      },
-      {
-        "@id": "_:N48865febf81d4328b7404c517dc4c96e"
-      },
-      {
-        "@id": "_:N172a41cd85d3490f8b20e6ece260b268"
-      },
-      {
-        "@id": "_:Nd7c39049e6934993af2c98e281b8177f"
-      },
-      {
-        "@id": "_:Nfcb4832e7ecf4262ba8e4ae00e4cf71b"
-      },
-      {
-        "@id": "_:Ndbc88f58f744452ebd4548e6bef802eb"
-      }
-    ]
-  },
-  {
-    "@id": "_:N48865febf81d4328b7404c517dc4c96e",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/characteristic"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/pmd/co/ValueObject"
-      }
-    ]
-  },
-  {
-    "@id": "_:N172a41cd85d3490f8b20e6ece260b268",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
         "@id": "https://w3id.org/pmd/co/Object"
       }
-    ]
-  },
-  {
-    "@id": "_:Nd7c39049e6934993af2c98e281b8177f",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/nextProcess"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nfcb4832e7ecf4262ba8e4ae00e4cf71b",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/pmd/co/Object"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ndbc88f58f744452ebd4548e6bef802eb",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/subordinateProcess"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/ValueObject",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "has precursor represents the relationship between sample component to precursor"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "has precursor"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      },
-      {
-        "@id": "_:N5374bba956114d6198967c60318ad805"
-      },
-      {
-        "@id": "_:Ndc6f047f843a4b5081e0640f77e561fe"
-      },
-      {
-        "@id": "_:N971a4bf470fe454babeb3630b5f8c5f2"
-      },
-      {
-        "@id": "_:N8605640f347b494db4dbf5799150be89"
-      }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"
       }
-    ]
-  },
-  {
-    "@id": "_:N5374bba956114d6198967c60318ad805",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ndc6f047f843a4b5081e0640f77e561fe",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"
-      }
-    ]
-  },
-  {
-    "@id": "_:N971a4bf470fe454babeb3630b5f8c5f2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
-      }
-    ]
-  },
-  {
-    "@id": "_:N8605640f347b494db4dbf5799150be89",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/outputOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/input",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/participant"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/inputOf"
-      }
-    ]
-  },
-  {
-    "@id": "http://qudt.org/schema/qudt/value",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Entity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Location",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://qudt.org/schema/qudt/QuantityValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:Ne7c9447c9251456795f0ac852be414ab"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ne7c9447c9251456795f0ac852be414ab",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://qudt.org/schema/qudt/Unit"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://qudt.org/schema/qudt/unit"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/Object",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      },
-      {
-        "@id": "_:N13a385927b8e4a71998af8115b07b56d"
-      }
-    ]
-  },
-  {
-    "@id": "_:N13a385927b8e4a71998af8115b07b56d",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/characteristic"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/pmd/co/ValueObject"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/license",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "isMaterialOf is the inverse property of hasMaterial."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is material of"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#generated",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      },
-      {
-        "@id": "_:Nd97e6b45760f4aba8f08155ecfbfc34d"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nd97e6b45760f4aba8f08155ecfbfc34d",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a (physical or virtual) Laboratory hosted by an Institution and can be physically, virtually, and/or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
@@ -811,142 +128,109 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Input",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "Physical System (typically a piece of material) which undergoes a Fabrication."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
+        "@value": "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://www.w3.org/ns/prov#Agent"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Input"
       },
       {
-        "@id": "_:N61103abb3e1b4ad59ac637bb20d86b2f"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+        "@id": "_:N0155844b2e3244edb8438e92b8d8096d"
+      },
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
+        "@id": "_:Nffed1340127649188133f6fa858254b0"
       }
     ]
   },
   {
-    "@id": "_:N61103abb3e1b4ad59ac637bb20d86b2f",
+    "@id": "_:N0155844b2e3244edb8438e92b8d8096d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://www.w3.org/ns/prov#atLocation"
+        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
       }
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@id": "_:Nffed1340127649188133f6fa858254b0",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+      "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"
       }
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#used",
+    "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "isMeasurementOf is the inverse property of hasMeasurement."
+        "@value": "isMaterialOf is the inverse property of hasMaterial."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "is measurement of"
+        "@value": "is material of"
       }
     ]
   },
   {
-    "@id": "http://w3id.org/STREAM/MSLE#Equipment",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "equipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."
+        "@value": "hasSamplePreparation represents the relationship between study to sample preparation activity."
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+        "@language": "en",
+        "@value": "has sample preparation"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"
       }
     ]
   },
@@ -1021,34 +305,62 @@
     ]
   },
   {
-    "@id": "https://w3id.org/pmd/co/characteristicOf",
+    "@id": "http://www.w3.org/ns/prov#startedAtTime",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ]
   },
   {
-    "@id": "https://w3id.org/pmd/co/characteristic",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasAcquisitionSoftware",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasAcquisitionSoftware represents the relationship between instrument to acquisition software"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has acquisition software"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/participant",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:N931bd0f557fa4c0187ee1a3223065b40"
+        "@id": "https://w3id.org/pmd/co/Process"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/pmd/co/ValueObject"
+        "@id": "_:N5bf0784217e846828974fc48f16b0f3c"
       }
     ],
     "http://www.w3.org/2002/07/owl#inverseOf": [
       {
-        "@id": "https://w3id.org/pmd/co/characteristicOf"
+        "@id": "https://w3id.org/pmd/co/participantOf"
       }
     ]
   },
   {
-    "@id": "_:N931bd0f557fa4c0187ee1a3223065b40",
+    "@id": "_:N5bf0784217e846828974fc48f16b0f3c",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -1056,10 +368,10 @@
       {
         "@list": [
           {
-            "@id": "https://w3id.org/pmd/co/Object"
+            "@id": "https://w3id.org/pmd/co/DigitalEntity"
           },
           {
-            "@id": "https://w3id.org/pmd/co/Process"
+            "@id": "https://w3id.org/pmd/co/Object"
           },
           {
             "@id": "https://w3id.org/pmd/co/ValueObject"
@@ -1069,133 +381,157 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Institution",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Input",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Physical System (typically a piece of material) which undergoes a Fabrication."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#definition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/previousProcess",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Hierarchical entity which hosts one or more Laboratories."
+        "@value": "Physical or virtual place hosted by an Institution, where the Equipment (including Instruments), is located and can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/institution"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://www.w3.org/ns/prov#Organization"
-      },
-      {
-        "@id": "_:N602b1137b11548b595900419323a3385"
+        "@id": "http://www.w3.org/ns/prov#Location"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/institution"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory"
       }
     ]
   },
   {
-    "@id": "_:N602b1137b11548b595900419323a3385",
+    "@id": "https://w3id.org/pmd/co/Object",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:N93e69bded2ee4deaa5c766f55fa6f15d"
+      }
+    ]
+  },
+  {
+    "@id": "_:N93e69bded2ee4deaa5c766f55fa6f15d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hosts"
+        "@id": "https://w3id.org/pmd/co/characteristic"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+        "@id": "https://w3id.org/pmd/co/ValueObject"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/creator",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."
+        "@value": "Any software designed to interface directly with an Instrument in order to control and monitor Data Acquisition parameters (i.e., Settings), and to collect Raw Data. Regardless of whether the Acquisition Software is integrated with the Instrument or operates as a standalone application (e.g., installed on a separate computer or packaged as a virtual machine), it is considered part of the Instrument."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasInfluencedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Direct relationship between Sample and Material(s) it is composed of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has material"
+        "@value": "Acquisition Software"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
+        "@id": "http://www.w3.org/ns/prov#SoftwareAgent"
+      },
+      {
+        "@id": "_:N768e9ea8ad014ab9b15d52b47e9a9a92"
       }
     ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/contributor",
+    "@id": "_:N768e9ea8ad014ab9b15d52b47e9a9a92",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+      }
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#operates",
+    "@id": "http://www.w3.org/ns/prov#SoftwareAgent",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Class"
     ]
   },
   {
@@ -1232,20 +568,41 @@
     ]
   },
   {
-    "@id": "https://w3id.org/pmd/co/participantOf",
+    "@id": "http://qudt.org/schema/qudt/QuantityValue",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:Ncffadf8a2f3542ee8d29d02eeb803c53"
+      }
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation",
+    "@id": "_:Ncffadf8a2f3542ee8d29d02eeb803c53",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://qudt.org/schema/qudt/Unit"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://qudt.org/schema/qudt/unit"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "hasSamplePreparation represents the relationship between study to sample preparation activity."
+        "@value": "hasFabrication represents the relationship between study to fabrication activity."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -1256,19 +613,695 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has sample preparation"
+        "@value": "has fabrication"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"
       }
     ]
   },
   {
-    "@id": "http://qudt.org/schema/qudt/hasQuantityKind",
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/characteristic",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:N40b189b03cad4c839398fb749d002597"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/pmd/co/ValueObject"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/characteristicOf"
+      }
+    ]
+  },
+  {
+    "@id": "_:N40b189b03cad4c839398fb749d002597",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/pmd/co/Object"
+          },
+          {
+            "@id": "https://w3id.org/pmd/co/Process"
+          },
+          {
+            "@id": "https://w3id.org/pmd/co/ValueObject"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#endedAtTime",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Agent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Organization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "isMeasurementOf is the inverse property of hasMeasurement."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is measurement of"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "isHeldBy is the inverse property of holds."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is held by"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
+      },
+      {
+        "@id": "_:N2f42eab3547c48d9a76b55f13aa9e905"
+      },
+      {
+        "@id": "_:N185a68d2a10b48cd8c871a9ac09dcd9f"
+      },
+      {
+        "@id": "_:N41f27f0caf9a4d4f9fd90038080c0a3c"
+      },
+      {
+        "@id": "_:N6496a96499eb4ab0a3d64c79df38ef6e"
+      },
+      {
+        "@id": "_:N22b4414fdc4c4d38ba6377cfa060cb45"
+      },
+      {
+        "@id": "_:N420ee6978c90419d969982e3f634c0a6"
+      },
+      {
+        "@id": "_:N69d1199bb2c24a56a08abca9c9e64006"
+      },
+      {
+        "@id": "_:N8be05841a8a047fda6d856cf1b2990d0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N2f42eab3547c48d9a76b55f13aa9e905",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#atLocation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+      }
+    ]
+  },
+  {
+    "@id": "_:N185a68d2a10b48cd8c871a9ac09dcd9f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N41f27f0caf9a4d4f9fd90038080c0a3c",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6496a96499eb4ab0a3d64c79df38ef6e",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
+      }
+    ]
+  },
+  {
+    "@id": "_:N22b4414fdc4c4d38ba6377cfa060cb45",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
+      }
+    ]
+  },
+  {
+    "@id": "_:N420ee6978c90419d969982e3f634c0a6",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
+      }
+    ]
+  },
+  {
+    "@id": "_:N69d1199bb2c24a56a08abca9c9e64006",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8be05841a8a047fda6d856cf1b2990d0",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#carries",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "carries represents the relationship between sample carrier to sample."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "carries"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/license",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Direct relationship between Sample and Material(s) it is composed of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has material"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#System",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/Object"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Location",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/value",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasProcessingAndTreatment represents the relationship between study to processing and treatment activity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has processing and treatment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any set of configuration parameters which determine the operational conditions of Equipment (including Instrument), configure Acquisition Software and/or Research Software, and/or describe a Model (e.g., by specifying the type of solver user)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#operates",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Activity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/Quantity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:N548dddc5401e4b218d37d2689cdc36ed"
+      },
+      {
+        "@id": "_:N0944317e4d7d4a028677c307760fc371"
+      }
+    ]
+  },
+  {
+    "@id": "_:N548dddc5401e4b218d37d2689cdc36ed",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://qudt.org/schema/qudt/QuantityKind"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://qudt.org/schema/qudt/hasQuantityKind"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0944317e4d7d4a028677c307760fc371",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://qudt.org/schema/qudt/QuantityValue"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://qudt.org/schema/qudt/quantityValue"
+      }
+    ]
+  },
+  {
+    "@id": "http://w3id.org/STREAM/MSLE#Equipment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "equipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/numericValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "has precursor represents the relationship between sample component to precursor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "has precursor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/QuantityKind",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
     ]
   },
   {
@@ -1284,6 +1317,774 @@
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "https://w3id.org/pmd/co/Object"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#InstrumentScientist",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person who manages a particular Instrument, or a set of them."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Instrument Scientist"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#used",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasMeasurementTechnique represents the relationship between measurement to measurement technique."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has measurement technique"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      },
+      {
+        "@id": "_:N7c0b5853dc504a74ad4eb217f259596b"
+      },
+      {
+        "@id": "_:N03650e4dd22f4d9ea11eb77adfdd4810"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier"
+      }
+    ]
+  },
+  {
+    "@id": "_:N7c0b5853dc504a74ad4eb217f259596b",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#carries"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+      }
+    ]
+  },
+  {
+    "@id": "_:N03650e4dd22f4d9ea11eb77adfdd4810",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#holds"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "uses is an object property relating the thing with a consumable."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/participant"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any experimental, theoretical, or computational method with a specific aim, including but not limited to: process and/or treat Samples, prepare Models, acquire and/or analyze Research Data, using some Equipment."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/technique"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/technique"
+      }
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/unit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/quantityValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasInformedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/nextProcess",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasInformedBy"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/previousProcess"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/characteristicOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/Unit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
+      },
+      {
+        "@id": "_:N4436a2e3b93b435fa95f0c3b02eb9a20"
+      },
+      {
+        "@id": "_:Ncdb039413eb84cf48896f4e57df46eff"
+      },
+      {
+        "@id": "_:Nec8ce9cbb2664c08889b1c49bd41f5ea"
+      },
+      {
+        "@id": "_:Nbbb264b4ad3d45ba976ab8c358b6ba5f"
+      },
+      {
+        "@id": "_:N365baa5d2fa54035a300504f2b0ce8bd"
+      },
+      {
+        "@id": "_:N6255da9272744162b20f358659b4915f"
+      },
+      {
+        "@id": "_:N0f2dc425df4f4931aadb54894f893d23"
+      },
+      {
+        "@id": "_:N1cae5d63f097454d874d749759af7d2b"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4436a2e3b93b435fa95f0c3b02eb9a20",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#atLocation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncdb039413eb84cf48896f4e57df46eff",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nec8ce9cbb2664c08889b1c49bd41f5ea",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nbbb264b4ad3d45ba976ab8c358b6ba5f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:N365baa5d2fa54035a300504f2b0ce8bd",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6255da9272744162b20f358659b4915f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0f2dc425df4f4931aadb54894f893d23",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Input"
+      }
+    ]
+  },
+  {
+    "@id": "_:N1cae5d63f097454d874d749759af7d2b",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "isSampleComponentOf is the inverse property of hasSampleComponent."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is sample component of"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#topObjectProperty"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a (physical or virtual) Laboratory hosted by an Institution and can be physically, virtually, and/or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      },
+      {
+        "@id": "_:N72057b8e6f944929bc82c22b8ae7da84"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
+      }
+    ]
+  },
+  {
+    "@id": "_:N72057b8e6f944929bc82c22b8ae7da84",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasAcquisitionSoftware"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:N9144b7267dbc41d290de8f6a99dccc6f"
+      },
+      {
+        "@id": "_:Nc7dd2f1ea2654980a5187b7b718e8335"
+      },
+      {
+        "@id": "_:N23ded4f4a2504d94b17eccd7a1d8ad1b"
+      },
+      {
+        "@id": "_:N992e5e154d714bc7a6e3dea12a95f4f8"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
+      }
+    ]
+  },
+  {
+    "@id": "_:N9144b7267dbc41d290de8f6a99dccc6f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc7dd2f1ea2654980a5187b7b718e8335",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"
+      }
+    ]
+  },
+  {
+    "@id": "_:N23ded4f4a2504d94b17eccd7a1d8ad1b",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
+      }
+    ]
+  },
+  {
+    "@id": "_:N992e5e154d714bc7a6e3dea12a95f4f8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/ValueObject",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "isCarriedBy is the inverse property of carries."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is carried by"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/output",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/participant"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/outputOf"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/Process",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      },
+      {
+        "@id": "_:Nd4854b743cd9414d883364a574250d40"
+      },
+      {
+        "@id": "_:N872037a40c4b41dbb30dd42cd152beb7"
+      },
+      {
+        "@id": "_:Nf20a4464e25349789bf4b8cbe6f46667"
+      },
+      {
+        "@id": "_:N7ae47b6c8aba4eeaa9e6b56e26aa6a9e"
+      },
+      {
+        "@id": "_:Nd4c45fe178fc48d1b93dbd9966f78725"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd4854b743cd9414d883364a574250d40",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/characteristic"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/pmd/co/ValueObject"
+      }
+    ]
+  },
+  {
+    "@id": "_:N872037a40c4b41dbb30dd42cd152beb7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/pmd/co/Object"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf20a4464e25349789bf4b8cbe6f46667",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/nextProcess"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      }
+    ]
+  },
+  {
+    "@id": "_:N7ae47b6c8aba4eeaa9e6b56e26aa6a9e",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/pmd/co/Object"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd4c45fe178fc48d1b93dbd9966f78725",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/subordinateProcess"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
       }
     ]
   },
@@ -1316,9 +2117,480 @@
     ]
   },
   {
-    "@id": "http://qudt.org/schema/qudt/quantityValue",
+    "@id": "https://w3id.org/pmd/co/inputOf",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      },
+      {
+        "@id": "_:N8eb60b3fcfd6451e853468908bc46592"
+      },
+      {
+        "@id": "_:N3fcfb1205f8444358f99d5f1338faaa5"
+      },
+      {
+        "@id": "_:N762c95c29fe24da39d0ec26426ac6f09"
+      },
+      {
+        "@id": "_:N53bf0bf2377b4853b8102b5b0f261b4e"
+      },
+      {
+        "@id": "_:Na36c62057681431c975f6d9a33b8d125"
+      },
+      {
+        "@id": "_:Nd4beb14a0719415f95762d08591d7fe1"
+      },
+      {
+        "@id": "_:N8224a2926bdf4d6e95f694afbac016f7"
+      },
+      {
+        "@id": "_:Nf87a7b9fe9214e46802e31266b911a6f"
+      },
+      {
+        "@id": "_:Ne00c3f5d508d44049169d7174eba21bb"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8eb60b3fcfd6451e853468908bc46592",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#atLocation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+      }
+    ]
+  },
+  {
+    "@id": "_:N3fcfb1205f8444358f99d5f1338faaa5",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N762c95c29fe24da39d0ec26426ac6f09",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
+      }
+    ]
+  },
+  {
+    "@id": "_:N53bf0bf2377b4853b8102b5b0f261b4e",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
+      }
+    ]
+  },
+  {
+    "@id": "_:Na36c62057681431c975f6d9a33b8d125",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd4beb14a0719415f95762d08591d7fe1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8224a2926bdf4d6e95f694afbac016f7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf87a7b9fe9214e46802e31266b911a6f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ne00c3f5d508d44049169d7174eba21bb",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/outputOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#atLocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      },
+      {
+        "@id": "_:N4005d74933d94a3a88164680330f62ce"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4005d74933d94a3a88164680330f62ce",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#atLocation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#generated",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/participantOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Entity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/measurement"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
+      },
+      {
+        "@id": "_:N05a23971da4740deb7c8b46926c91853"
+      },
+      {
+        "@id": "_:N5062eca481ce41218c5843761e0b77ae"
+      },
+      {
+        "@id": "_:N8d03c4251e634cc5a5a97655cf96eea0"
+      },
+      {
+        "@id": "_:Ndbe004d94c6847fc988f7e8223aa9c02"
+      },
+      {
+        "@id": "_:Nc9af8faea4ca4ea7952207efdf7722e3"
+      },
+      {
+        "@id": "_:N74dc16a9de374137a3dc74ff51e320fa"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/measurement"
+      }
+    ]
+  },
+  {
+    "@id": "_:N05a23971da4740deb7c8b46926c91853",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#atLocation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+      }
+    ]
+  },
+  {
+    "@id": "_:N5062eca481ce41218c5843761e0b77ae",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8d03c4251e634cc5a5a97655cf96eea0",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ndbe004d94c6847fc988f7e8223aa9c02",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "_:Ned411b05214744de88fa9f173185f077"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ned411b05214744de88fa9f173185f077",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
+          },
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc9af8faea4ca4ea7952207efdf7722e3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData"
+      }
+    ]
+  },
+  {
+    "@id": "_:N74dc16a9de374137a3dc74ff51e320fa",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
     ]
   },
   {
@@ -1328,30 +2600,50 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication",
+    "@id": "http://www.w3.org/ns/prov#wasInfluencedBy",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://qudt.org/schema/qudt/hasQuantityKind",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "hasFabrication represents the relationship between study to fabrication activity."
+        "@value": "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
+      },
+      {
+        "@id": "_:N29e04cf9cc414ce89a9bf05663496630"
+      }
+    ]
+  },
+  {
+    "@id": "_:N29e04cf9cc414ce89a9bf05663496630",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@language": "en",
-        "@value": "has fabrication"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
       }
     ]
   },
@@ -1389,297 +2681,88 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#System",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."
+        "@value": "Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/pmd/co/Object"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      },
+      {
+        "@id": "_:N55e914c06065457da602fe93873fefa0"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/description",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/measurement"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
-      },
-      {
-        "@id": "_:N1e3ac4a65eef4d41b87e1c0d37d3a708"
-      },
-      {
-        "@id": "_:N0b95a56f23f3478c899f1d1fde5da9b0"
-      },
-      {
-        "@id": "_:Nefcd1a576b6e4b878378fba4b80460c3"
-      },
-      {
-        "@id": "_:Na81975fdf5b5474299e041ecd1e6730f"
-      },
-      {
-        "@id": "_:Nb63fda6f459f426097260aa21684ab90"
-      },
-      {
-        "@id": "_:N07165f3febe74c3d81f912b3f1686469"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/measurement"
-      }
-    ]
-  },
-  {
-    "@id": "_:N1e3ac4a65eef4d41b87e1c0d37d3a708",
+    "@id": "_:N55e914c06065457da602fe93873fefa0",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://www.w3.org/ns/prov#atLocation"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"
       }
     ]
   },
   {
-    "@id": "_:N0b95a56f23f3478c899f1d1fde5da9b0",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nefcd1a576b6e4b878378fba4b80460c3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
-      }
-    ]
-  },
-  {
-    "@id": "_:Na81975fdf5b5474299e041ecd1e6730f",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "_:N64109a87570d4c53838d97e235532e82"
-      }
-    ]
-  },
-  {
-    "@id": "_:N64109a87570d4c53838d97e235532e82",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
-          },
-          {
-            "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:Nb63fda6f459f426097260aa21684ab90",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N07165f3febe74c3d81f912b3f1686469",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onClass": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique",
+    "@id": "https://w3id.org/pmd/co/input",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
-        "@language": "en",
-        "@value": "hasMeasurementTechnique represents the relationship between measurement to measurement technique."
+        "@id": "https://w3id.org/pmd/co/participant"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
+    "http://www.w3.org/2002/07/owl#inverseOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has measurement technique"
+        "@id": "https://w3id.org/pmd/co/inputOf"
       }
     ]
   },
   {
-    "@id": "http://qudt.org/schema/qudt/Quantity",
+    "@id": "https://w3id.org/pmd/co/DigitalEntity",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:N60885c9e6cc54cacb4774e42ff81fe61"
-      },
-      {
-        "@id": "_:Nd61d28e6a7f74241a07ae49bb5934545"
+        "@id": "http://www.w3.org/ns/prov#Entity"
       }
     ]
   },
   {
-    "@id": "_:N60885c9e6cc54cacb4774e42ff81fe61",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://qudt.org/schema/qudt/QuantityKind"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://qudt.org/schema/qudt/hasQuantityKind"
-      }
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
-    "@id": "_:Nd61d28e6a7f74241a07ae49bb5934545",
+    "@id": "http://purl.org/dc/terms/created",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://qudt.org/schema/qudt/QuantityValue"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://qudt.org/schema/qudt/quantityValue"
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -1703,16 +2786,16 @@
         "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
       },
       {
-        "@id": "_:N28044894e69944a99918fc1d28d79c92"
+        "@id": "_:Nf210063d4daa42f89e171c97d277bd2f"
       },
       {
-        "@id": "_:Na695a09eb89b48578eee7be8378d543c"
+        "@id": "_:N7f466437bd6f457d98fa3cabf5732e43"
       },
       {
-        "@id": "_:Nd23e17b36db549ec9a111661e15d8657"
+        "@id": "_:Nd8f31e98c6884b2e896ff464011ac8ba"
       },
       {
-        "@id": "_:N5c6a00c2b60e4be0bd71b989268bed61"
+        "@id": "_:N729daa15ce6f47bbbbca5f49903cf55f"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -1722,7 +2805,7 @@
     ]
   },
   {
-    "@id": "_:N28044894e69944a99918fc1d28d79c92",
+    "@id": "_:Nf210063d4daa42f89e171c97d277bd2f",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1738,7 +2821,7 @@
     ]
   },
   {
-    "@id": "_:Na695a09eb89b48578eee7be8378d543c",
+    "@id": "_:N7f466437bd6f457d98fa3cabf5732e43",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1754,7 +2837,7 @@
     ]
   },
   {
-    "@id": "_:Nd23e17b36db549ec9a111661e15d8657",
+    "@id": "_:Nd8f31e98c6884b2e896ff464011ac8ba",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1770,7 +2853,7 @@
     ]
   },
   {
-    "@id": "_:N5c6a00c2b60e4be0bd71b989268bed61",
+    "@id": "_:N729daa15ce6f47bbbbca5f49903cf55f",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1782,951 +2865,6 @@
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
         "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "isSampleComponentOf is the inverse property of hasSampleComponent."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is sample component of"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#topObjectProperty"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#carries",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "carries represents the relationship between sample carrier to sample."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "carries"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy"
-      }
-    ]
-  },
-  {
-    "@id": "http://qudt.org/schema/qudt/QuantityKind",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "uses is an object property relating the thing with a consumable."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/participant"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Physical or virtual place hosted by an Institution, where the Equipment (including Instruments), is located and can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Location"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      },
-      {
-        "@id": "_:Nc9bc392781d648fabf94bf3b615cc2e7"
-      },
-      {
-        "@id": "_:N01c0bcb487c84cf7bb3b584291726619"
-      },
-      {
-        "@id": "_:N4eb154f207e94c96af6ef7849e130688"
-      },
-      {
-        "@id": "_:N769e8b93b9eb42edb868cb13cd631b87"
-      },
-      {
-        "@id": "_:N7948b62dc0db455095a9c0acefb5b1cd"
-      },
-      {
-        "@id": "_:Nac2c002ad7dc48d4a26c6e8a3241eaec"
-      },
-      {
-        "@id": "_:Nd302eead876c440b810f3039d3dadc45"
-      },
-      {
-        "@id": "_:Na42ae1c00c164db68fb96e556a692fb9"
-      },
-      {
-        "@id": "_:Nad3c8970386e42c8be83a47c9632e864"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nc9bc392781d648fabf94bf3b615cc2e7",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#atLocation"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
-      }
-    ]
-  },
-  {
-    "@id": "_:N01c0bcb487c84cf7bb3b584291726619",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:N4eb154f207e94c96af6ef7849e130688",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
-      }
-    ]
-  },
-  {
-    "@id": "_:N769e8b93b9eb42edb868cb13cd631b87",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
-      }
-    ]
-  },
-  {
-    "@id": "_:N7948b62dc0db455095a9c0acefb5b1cd",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nac2c002ad7dc48d4a26c6e8a3241eaec",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nd302eead876c440b810f3039d3dadc45",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
-      }
-    ]
-  },
-  {
-    "@id": "_:Na42ae1c00c164db68fb96e556a692fb9",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nad3c8970386e42c8be83a47c9632e864",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Activity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/inputOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"
-      },
-      {
-        "@id": "_:N0379aee31f844f83b77c3c6c81d96823"
-      },
-      {
-        "@id": "_:N96e931a6fcbf47f881241520e015cba0"
-      },
-      {
-        "@id": "_:Ncf84c41a6f704e78a57614b70df35740"
-      },
-      {
-        "@id": "_:N3e17c86858094ffc96fde5e9600cf7b6"
-      },
-      {
-        "@id": "_:Nf853ff6128de4b50b858e538935f173c"
-      },
-      {
-        "@id": "_:Ned111fed9a114dd7b614847c83d56705"
-      },
-      {
-        "@id": "_:N1eac33a12576493e8b534363dd0ca48f"
-      },
-      {
-        "@id": "_:N1054b3c0600045c0864c82e97bbf5aed"
-      }
-    ]
-  },
-  {
-    "@id": "_:N0379aee31f844f83b77c3c6c81d96823",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#atLocation"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"
-      }
-    ]
-  },
-  {
-    "@id": "_:N96e931a6fcbf47f881241520e015cba0",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ncf84c41a6f704e78a57614b70df35740",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
-      }
-    ]
-  },
-  {
-    "@id": "_:N3e17c86858094ffc96fde5e9600cf7b6",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nf853ff6128de4b50b858e538935f173c",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ned111fed9a114dd7b614847c83d56705",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#uses"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"
-      }
-    ]
-  },
-  {
-    "@id": "_:N1eac33a12576493e8b534363dd0ca48f",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Input"
-      }
-    ]
-  },
-  {
-    "@id": "_:N1054b3c0600045c0864c82e97bbf5aed",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "isCarriedBy is the inverse property of carries."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is carried by"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
-      },
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Input"
-      },
-      {
-        "@id": "_:N3a8544b055ed47c5bb2609a632606dae"
-      },
-      {
-        "@id": "_:N2b2152ca58f04bbb8a481d37b5ce8558"
-      }
-    ]
-  },
-  {
-    "@id": "_:N3a8544b055ed47c5bb2609a632606dae",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"
-      }
-    ]
-  },
-  {
-    "@id": "_:N2b2152ca58f04bbb8a481d37b5ce8558",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasInformedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material"
-      },
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      },
-      {
-        "@id": "_:Ncff1d79221da4e0ab2c31ccd01fa6253"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ncff1d79221da4e0ab2c31ccd01fa6253",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
-      }
-    ]
-  },
-  {
-    "@id": "http://qudt.org/schema/qudt/Unit",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/output",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/participant"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/outputOf"
-      }
-    ]
-  },
-  {
-    "@id": "http://qudt.org/schema/qudt/unit",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#definition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Any set of configuration parameters which determine the operational conditions of Equipment (including Instrument), configure Acquisition Software and/or Research Software, and/or describe a Model (e.g., by specifying the type of solver user)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/participant",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:N0d8108113dee4e5f82c198926e740999"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/participantOf"
-      }
-    ]
-  },
-  {
-    "@id": "_:N0d8108113dee4e5f82c198926e740999",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/pmd/co/DigitalEntity"
-          },
-          {
-            "@id": "https://w3id.org/pmd/co/Object"
-          },
-          {
-            "@id": "https://w3id.org/pmd/co/ValueObject"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/subordinateProcess",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Consumable",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Auxiliary entity, normally acquired from third-party manufacturers, used during Processing and Treatment or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of. Consumables are not part of the Instrument. Examples of Consumable are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/Object"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      },
-      {
-        "@id": "_:Nb16dc7b3574a42d2be4b73a3a4f42063"
-      },
-      {
-        "@id": "_:N408f682a04614bcfaabed09b33684ace"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nb16dc7b3574a42d2be4b73a3a4f42063",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#carries"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Sample"
-      }
-    ]
-  },
-  {
-    "@id": "_:N408f682a04614bcfaabed09b33684ace",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#holds"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/title",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Any experimental, theoretical, or computational method with a specific aim, including but not limited to: process and/or treat Samples, prepare Models, acquire and/or analyze Research Data, using some Equipment."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/technique"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/technique"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://qudt.org/schema/qudt/numericValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#startedAtTime",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/DigitalEntity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
       }
     ]
   }

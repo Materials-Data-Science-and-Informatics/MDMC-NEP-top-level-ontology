@@ -1,8 +1,163 @@
 [
   {
-    "@id": "http://www.w3.org/ns/prov#Agent",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ContactPerson",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person with knowledge of how to access, troubleshoot, or otherwise field issues related to the resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/contactperson"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Contact Person"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/ContactPerson"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/contactperson"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasSetting represents the relationship between equipment or research software or acquisition software to settings"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:Nd43144426bbd481cbb83cd2c5d6834ab"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has setting"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd43144426bbd481cbb83cd2c5d6834ab",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+          },
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
+          },
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasScientificPublication",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasScientificPublication represents the relationship between study to scientific publication"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has scientific publication"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ScientificPublication"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#startedAtTime",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#definition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#SoftwareAgent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -12,25 +167,54 @@
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/created",
+    "@id": "http://www.w3.org/ns/prov#Agent",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+      "http://www.w3.org/2002/07/owl#Class"
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Project member role is an agent role that has role of project member"
+        "@value": "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+      },
+      {
+        "@id": "_:Ndfdee671c1274cc7928b6e0d828f285f"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ndfdee671c1274cc7928b6e0d828f285f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
       }
     ]
   },
@@ -58,65 +242,53 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#UserRole",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."
+        "@value": "The role of the Research User in a Project, in the context of a specific Study. Examples of User Role are: data curator, project leader, project member. User Role also determines the access rights which might be granted in the information system(s) used for data management (i.e., Data Collaboration Platform, Data Repository, Metadata Repository)."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/userrole"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
-      },
+        "@language": "en",
+        "@value": "User Role"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
       {
-        "@id": "_:Nf6c9c7f6c14548ae863cdb7e70eed44b"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/ContributorType"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/userrole"
       }
     ]
   },
   {
-    "@id": "_:Nf6c9c7f6c14548ae863cdb7e70eed44b",
+    "@id": "http://purl.org/dc/terms/contributor",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#contributorType",
+    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@value": "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/)"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -138,308 +310,35 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "usesResearchSoftware represents the relationship between data analysis lifecycle to research software"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "uses research software"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/Process",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Activity"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      },
-      {
-        "@id": "_:Nbd57d9dd3ca7440f9a3ba362da264af8"
-      },
-      {
-        "@id": "_:N556fca1f50684b4085351a0bfa48cb29"
-      },
-      {
-        "@id": "_:N5e53587513b849898d4c790c2acaef95"
-      },
-      {
-        "@id": "_:N2295664e843e4bbc8f9314266d3f482c"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nbd57d9dd3ca7440f9a3ba362da264af8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Project"
-      }
-    ]
-  },
-  {
-    "@id": "_:N556fca1f50684b4085351a0bfa48cb29",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:N5e53587513b849898d4c790c2acaef95",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
-      }
-    ]
-  },
-  {
-    "@id": "_:N2295664e843e4bbc8f9314266d3f482c",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAnalysisLifeCycle"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#SoftwareAgent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/input",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Entity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
     "@id": "http://purl.org/dc/terms/license",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#System",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a (physical or virtual) Laboratory hosted by an Institution and can be physically, virtually, and/or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations."
+        "@value": "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+        "@id": "http://www.w3.org/ns/prov#Entity"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "hasTechnique represents the relationship between data acquisition or data analysis lifecycle to technique"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "_:N28caa248b6484626b44585b7a97838da"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has technique"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
-      }
-    ]
-  },
-  {
-    "@id": "_:N28caa248b6484626b44585b7a97838da",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
-          },
-          {
-            "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      },
-      {
-        "@id": "_:N37c0b139d782455294327cbfa0db9c76"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
-      }
-    ]
-  },
-  {
-    "@id": "_:N37c0b139d782455294327cbfa0db9c76",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#used",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
       }
     ]
   },
@@ -514,812 +413,9 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Supervisor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Designated administrator over one or more groups/teams working to produce a resource, or over one or more steps of a development process."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Supervisor"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://purl.org/datacite/v4.4/Supervisor"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasStudy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "hasStudy represents the relationship between project to study."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Project"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has study"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/creator",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      },
-      {
-        "@id": "_:N8ca9b9f8e89f4f098628ad08ed263199"
-      },
-      {
-        "@id": "_:N332e3069ad1f4727a829c7fda3f980bc"
-      },
-      {
-        "@id": "_:N7a3e84308db346108af3338815524196"
-      },
-      {
-        "@id": "_:N33734e7db6684726a2788c7b61c8cef0"
-      },
-      {
-        "@id": "_:Nd21a85963fae48409b68eae1b00dfbb8"
-      },
-      {
-        "@id": "_:Nf9b553584d164227bae0f35473972495"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
-      }
-    ]
-  },
-  {
-    "@id": "_:N8ca9b9f8e89f4f098628ad08ed263199",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:N332e3069ad1f4727a829c7fda3f980bc",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
-      }
-    ]
-  },
-  {
-    "@id": "_:N7a3e84308db346108af3338815524196",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "_:N33734e7db6684726a2788c7b61c8cef0",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nd21a85963fae48409b68eae1b00dfbb8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nf9b553584d164227bae0f35473972495",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#operates",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "operates represents the relationship between equipment to research user"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "operates"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Any software used to process, analyze, or visualize Research Data (including data rendering and or plotting)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchsoftware"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#SoftwareAgent"
-      },
-      {
-        "@id": "_:N53a726c9987a47d191832d3e7a090f74"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchsoftware"
-      }
-    ]
-  },
-  {
-    "@id": "_:N53a726c9987a47d191832d3e7a090f74",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ContactPerson",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Person with knowledge of how to access, troubleshoot, or otherwise field issues related to the resource."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/contactperson"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Contact Person"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://purl.org/datacite/v4.4/ContactPerson"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/contactperson"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Set of processes carried out by one or more research users, performed on research data using one or more techniques and/or research software in order to produce synthesized knowledge (e.g., to detect patterns, determine relationships, develop explanations, test hypotheses and/or prove theories) and to eventually suggest the conclusions of a study."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/Process"
-      },
-      {
-        "@id": "_:N14c25778de914009a93d3272ba6a6667"
-      },
-      {
-        "@id": "_:N42bf2cca5f604017bdb7d3518fe1f0eb"
-      },
-      {
-        "@id": "_:Neb45e6cb3ef8414cb583858f58e9332c"
-      },
-      {
-        "@id": "_:N369199899bdb42e192a5da619dcf7181"
-      },
-      {
-        "@id": "_:Nbd6639607be7419b99b2def4a5d55965"
-      }
-    ]
-  },
-  {
-    "@id": "_:N14c25778de914009a93d3272ba6a6667",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:N42bf2cca5f604017bdb7d3518fe1f0eb",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
-      }
-    ]
-  },
-  {
-    "@id": "_:Neb45e6cb3ef8414cb583858f58e9332c",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
-      }
-    ]
-  },
-  {
-    "@id": "_:N369199899bdb42e192a5da619dcf7181",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nbd6639607be7419b99b2def4a5d55965",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "usesEquipment represents the relationship between data acquisition to equipment"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "uses equipment"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#System",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/system"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/description",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      },
-      {
-        "@id": "_:Nd9670f4e9e994b42bb02aef6525a3de1"
-      },
-      {
-        "@id": "_:N313110227a0d482fa4a27b31b581fb28"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nd9670f4e9e994b42bb02aef6525a3de1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#operates"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
-      }
-    ]
-  },
-  {
-    "@id": "_:N313110227a0d482fa4a27b31b581fb28",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAnalysisLifeCycle",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "hasDataAnalysisLifecycle represents the relationship between study to data analysis life cycle"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has data analysis life cycle"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Activity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "performsAgentRole relates prov:Agent with AgentRole"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "performs agent role"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "hasDataAcquisition represents the relationship between study to data acquisition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has data acquisition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
-      }
-    ]
-  },
-  {
-    "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      }
-    ]
-  },
-  {
     "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/output",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#WorkPackageLeader",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Person responsible for ensuring the comprehensive contents, versioning, and availability of the Work Package during the development of the resource."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Work Package Leader"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://purl.org/datacite/v4.4/WorkPackageLeader"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#definition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#RelatedPerson",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A person without a specifically defined role in the development of the resource, but who is someone the author wishes to recognize."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/relatedperson"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Related Person"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://purl.org/datacite/v4.4/RelatedPerson"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/relatedperson"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Any set of configuration parameters which determine the operational conditions of Equipment (including Instrument), configure Acquisition Software and/or Research Software, and/or describe a Model (e.g., by specifying the type of solver user)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
-      }
     ]
   },
   {
@@ -1373,35 +469,326 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any set of configuration parameters which determine the operational conditions of Equipment (including Instrument), configure Acquisition Software and/or Research Software, and/or describe a Model (e.g., by specifying the type of solver user)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/settings"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#operates",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "hasSetting represents the relationship between equipment or research software to settings"
+        "@value": "operates represents the relationship between equipment to research user"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:N6b19b01b528a46fe9ee7e1b0475f0f29"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has setting"
+        "@value": "operates"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
       }
     ]
   },
   {
-    "@id": "_:N6b19b01b528a46fe9ee7e1b0475f0f29",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ProjectManager",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person officially designated as manager of a project. Project may consist of one or many project teams and sub-teams."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/projectmanager"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Project Manager"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/ProjectManager"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/projectmanager"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Activity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ScientificPublication",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any of the following contributions, peer-reviewed or not: article in a scientific journal (and related supporting information), monograph, book or book chapter, conference proceedings, \"grey literature\" (informally published material having not gone through a standard publishing process, e.g., reports and highlights). A Scientific Publication typically reports the results and the conclusions of a Study, may be supplemented by Publication Data, and may be assigned a Persistent Identifier. A Scientific Publication may be attributed to some or to all the Research Users who are members of the Project."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/scientificpublication"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Scientific Publication"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:N5c053fc9cbd6418883c95e64d1c58b59"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Publication"
+      },
+      {
+        "@id": "https://schema.org/PublicationEvent"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/scientificpublication"
+      }
+    ]
+  },
+  {
+    "@id": "_:N5c053fc9cbd6418883c95e64d1c58b59",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasStudy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasStudy represents the relationship between project to study."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Project"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has study"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Material",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/material"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#contributorType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@value": "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
+      }
+    ]
+  },
+  {
+    "@id": "http://nfdi.fiz-karlsruhe.de/ontology/Specification",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#WorkPackageLeader",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person responsible for ensuring the comprehensive contents, versioning, and availability of the Work Package during the development of the resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Work Package Leader"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/WorkPackageLeader"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasTechnique represents the relationship between data acquisition or data analysis lifecycle to technique"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "_:Nf82f8a4d67164a2c80f00d3e6196c849"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has technique"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf82f8a4d67164a2c80f00d3e6196c849",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -1409,13 +796,19 @@
       {
         "@list": [
           {
-            "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+            "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
           },
           {
-            "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
+            "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
           }
         ]
       }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#used",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
@@ -1438,7 +831,7 @@
         "@id": "http://www.w3.org/ns/prov#Entity"
       },
       {
-        "@id": "_:Nb9ef03a6c3be4e9c941f034ccbc30edd"
+        "@id": "_:N007a906b568d4f04b9a5da66ad1923ae"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -1448,7 +841,7 @@
     ]
   },
   {
-    "@id": "_:Nb9ef03a6c3be4e9c941f034ccbc30edd",
+    "@id": "_:N007a906b568d4f04b9a5da66ad1923ae",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1464,15 +857,916 @@
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/title",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      },
+      {
+        "@id": "_:N939893621468461ab5e3309dcf41e685"
+      },
+      {
+        "@id": "_:N38229d0876fe40a6b1cbc66dbb98ed9c"
+      },
+      {
+        "@id": "_:N689e497a5db444ff948b6bddd182ef67"
+      },
+      {
+        "@id": "_:Nc3d397dd41e742528f747db20d00145b"
+      },
+      {
+        "@id": "_:Nab17a23adbe6497090d69909e2e2771d"
+      },
+      {
+        "@id": "_:N9fb13dab849840668636072e1b88df7d"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"
+      }
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "@id": "_:N939893621468461ab5e3309dcf41e685",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N38229d0876fe40a6b1cbc66dbb98ed9c",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
+      }
+    ]
+  },
+  {
+    "@id": "_:N689e497a5db444ff948b6bddd182ef67",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc3d397dd41e742528f747db20d00145b",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nab17a23adbe6497090d69909e2e2771d",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
+      }
+    ]
+  },
+  {
+    "@id": "_:N9fb13dab849840668636072e1b88df7d",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ProjectLeader",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person officially designated as head of project team or sub-project team instrumental in the work necessary to development of the resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/projectleader"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Project Leader"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/ProjectLeader"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/projectleader"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#RelatedPerson",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A person without a specifically defined role in the development of the resource, but who is someone the author wishes to recognize."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/relatedperson"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Related Person"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/RelatedPerson"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/relatedperson"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "performsAgentRole relates prov:Agent with AgentRole"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "performs agent role"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataCollector",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person/institution responsible for finding or gathering/collecting data under the guidelines of the author(s) or Principal Investigator (PI)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacollector"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data Collector"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/DataCollector"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacollector"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Instrument",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a (physical or virtual) Laboratory hosted by an Institution and can be physically, virtually, and/or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Project member role is an agent role that has role of project member"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/projectmember"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/ProjectMember"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/projectmember"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      },
+      {
+        "@id": "_:N6991b57775d943f382a1a667b6b87dd1"
+      },
+      {
+        "@id": "_:N9215e5e60d364172a72e047b803af056"
+      },
+      {
+        "@id": "_:N29dc3ffa40344de1a2c0763dfb354595"
+      },
+      {
+        "@id": "_:Ne9baccb18c3e46fdaa86edaad260cb13"
+      },
+      {
+        "@id": "_:N3c90a2bb021d42449ebfc9eef79efc8e"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/study"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6991b57775d943f382a1a667b6b87dd1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Project"
+      }
+    ]
+  },
+  {
+    "@id": "_:N9215e5e60d364172a72e047b803af056",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N29dc3ffa40344de1a2c0763dfb354595",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ne9baccb18c3e46fdaa86edaad260cb13",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAnalysisLifeCycle"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
+      }
+    ]
+  },
+  {
+    "@id": "_:N3c90a2bb021d42449ebfc9eef79efc8e",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasScientificPublication"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ScientificPublication"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/output",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/Process",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Activity"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Supervisor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Designated administrator over one or more groups/teams working to produce a resource, or over one or more steps of a development process."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Supervisor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/Supervisor"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "usesResearchSoftware represents the relationship between data analysis lifecycle to research software"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "uses research software"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any software used to process, analyze, or visualize Research Data (including data rendering and or plotting)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchsoftware"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#SoftwareAgent"
+      },
+      {
+        "@id": "_:N0ee1ef50382140599edc13ce2b0af9b1"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchsoftware"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0ee1ef50382140599edc13ce2b0af9b1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Set of processes carried out by one or more research users, performed on research data using one or more techniques and/or research software in order to produce synthesized knowledge (e.g., to detect patterns, determine relationships, develop explanations, test hypotheses and/or prove theories) and to eventually suggest the conclusions of a study."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      },
+      {
+        "@id": "_:Nf04818c9869e4bac9a196c3f164fa225"
+      },
+      {
+        "@id": "_:N320e7280f36a4e2fa83b8c050536d05d"
+      },
+      {
+        "@id": "_:N243d0fd37bab41f1af4e625af3e4233f"
+      },
+      {
+        "@id": "_:N6a61d34bf3df4ac38904d18606f05280"
+      },
+      {
+        "@id": "_:N9a67ac0cbd3044a1a89caeff71b0b9c8"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf04818c9869e4bac9a196c3f164fa225",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N320e7280f36a4e2fa83b8c050536d05d",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
+      }
+    ]
+  },
+  {
+    "@id": "_:N243d0fd37bab41f1af4e625af3e4233f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6a61d34bf3df4ac38904d18606f05280",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "_:N9a67ac0cbd3044a1a89caeff71b0b9c8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      },
+      {
+        "@id": "_:Ne5092ed835b54fa7a135de5593a1fcea"
+      },
+      {
+        "@id": "_:Ndf2c21b090f94980931e04bf9e034a66"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ne5092ed835b54fa7a135de5593a1fcea",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#operates"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ndf2c21b090f94980931e04bf9e034a66",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      },
+      {
+        "@id": "_:Nab2e30cdef1a496f97034280a2772adf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nab2e30cdef1a496f97034280a2772adf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Entity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "usesEquipment represents the relationship between data acquisition to equipment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "uses equipment"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Equipment"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAnalysisLifeCycle",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasDataAnalysisLifecycle represents the relationship between study to data analysis life cycle"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has data analysis life cycle"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/input",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/pmd/co/DigitalEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasDataAcquisition represents the relationship between study to data acquisition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has data acquisition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/created",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -1499,23 +1793,6 @@
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
         "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/technique"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#startedAtTime",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/DigitalEntity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
       }
     ]
   }
