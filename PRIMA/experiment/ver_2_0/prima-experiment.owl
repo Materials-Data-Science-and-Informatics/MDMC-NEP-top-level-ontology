@@ -1,5 +1,15 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rdf:RDF xmlns:ns2="http://purl.org/dc/terms/" xmlns:ns3="http://purl.org/vocab/vann/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xml:base="https://purls.helmholtz-metadaten.de/prima/experiment">
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purls.helmholtz-metadaten.de/prima/experiment#"
+     xml:base="https://purls.helmholtz-metadaten.de/prima/experiment"
+     xmlns:ns2="http://purl.org/dc/terms/"
+     xmlns:ns3="http://purl.org/vocab/vann/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://purls.helmholtz-metadaten.de/prima/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment">
         <ns2:contributor xml:lang="en">Elda Osmenaj</ns2:contributor>
         <ns2:contributor xml:lang="en">Mirco Panighel</ns2:contributor>
@@ -7,602 +17,1245 @@
         <ns2:creator xml:lang="en">Ahmad Zainul Ihsan</ns2:creator>
         <ns2:creator xml:lang="en">Mehrdad Jalali</ns2:creator>
         <ns2:creator xml:lang="en">Rossella Aversa</ns2:creator>
-        <ns2:license rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+        <ns2:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
         <ns2:title xml:lang="en">PRIMA Ontology - Experiment Module</ns2:title>
         <ns3:preferredNamespacePrefix xml:lang="en">PRIMA</ns3:preferredNamespacePrefix>
         <rdfs:comment xml:lang="en">This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology</rdfs:comment>
-        <rdfs:seeAlso rdf:resource="https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology" />
+        <rdfs:seeAlso rdf:resource="https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology"/>
         <owl:versionInfo xml:lang="en">2.0</owl:versionInfo>
     </owl:Ontology>
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor" />
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created" />
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator" />
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description" />
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license" />
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title" />
-    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix" />
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition" />
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition -->
+
     <owl:AnnotationProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#definition" />
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#definition"/>
     </owl:AnnotationProperty>
-    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasQuantityKind" />
-    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/quantityValue" />
-    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/unit" />
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#atLocation" />
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/hasQuantityKind -->
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasQuantityKind"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/quantityValue -->
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/quantityValue"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/unit -->
+
+    <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/unit"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#atLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#atLocation"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#generated -->
+
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated">
-        <owl:inverseOf rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy" />
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used" />
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAssociatedWith" />
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom" />
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy" />
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInfluencedBy" />
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInformedBy" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasSetting" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#operates" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
+    
+
+
+    <!-- http://www.w3.org/ns/prov#used -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAssociatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasDerivedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasGeneratedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInfluencedBy"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasInformedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInformedBy"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasSetting -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasSetting"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#hasTechnique -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#operates -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#operates"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#usesEquipment -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#carries -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#carries">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy" />
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy"/>
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
         <rdfs:comment xml:lang="en">carries represents the relationship between sample carrier to sample.</rdfs:comment>
         <rdfs:label xml:lang="en">carries</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication" />
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
         <rdfs:comment xml:lang="en">hasFabrication represents the relationship between study to fabrication activity.</rdfs:comment>
         <rdfs:label xml:lang="en">has fabrication</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial">
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf"/>
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+        <rdfs:comment xml:lang="en">Direct relationship between Sample and Material(s) it is composed of</rdfs:comment>
+        <rdfs:label xml:lang="en">has material</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement">
-        <rdfs:subPropertyOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition" />
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement" />
+        <rdfs:subPropertyOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
         <rdfs:comment xml:lang="en">hasMeasurement represents the relationship between experiment to measurement.</rdfs:comment>
         <rdfs:label xml:lang="en">has measurement</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement" />
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
         <rdfs:comment xml:lang="en">hasMeasurementTechnique represents the relationship between measurement to measurement technique.</rdfs:comment>
         <rdfs:label xml:lang="en">has measurement technique</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasPrecursor">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor" />
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"/>
         <rdfs:comment>has precursor represents the relationship between sample component to precursor</rdfs:comment>
         <rdfs:label>has precursor</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
+        <rdfs:comment xml:lang="en">hasProcessingAndTreatment represents the relationship between study to processing and treatment activity.</rdfs:comment>
+        <rdfs:label xml:lang="en">has processing and treatment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf" />
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent" />
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf"/>
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"/>
         <rdfs:comment xml:lang="en">hasSampleComponent represents the relationship between sample to sample component</rdfs:comment>
         <rdfs:label xml:lang="en">has sample component</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation" />
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"/>
         <rdfs:comment xml:lang="en">hasSamplePreparation represents the relationship between study to sample preparation activity.</rdfs:comment>
         <rdfs:label xml:lang="en">has sample preparation</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#holds -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#holds">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy" />
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder" />
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"/>
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
         <rdfs:comment xml:lang="en">holds represents the relationship between sample carrier to sample holder.</rdfs:comment>
         <rdfs:label xml:lang="en">holds</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#hosts -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hosts">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Institution" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory" />
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Institution"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
         <rdfs:comment xml:lang="en">hosts represents the relationship between institution to laboratory.</rdfs:comment>
         <rdfs:label xml:lang="en">hosts</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy">
         <rdfs:comment xml:lang="en">isCarriedBy is the inverse property of carries.</rdfs:comment>
         <rdfs:label xml:lang="en">is carried by</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy">
         <rdfs:comment xml:lang="en">isHeldBy is the inverse property of holds.</rdfs:comment>
         <rdfs:label xml:lang="en">is held by</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf -->
+
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf">
+        <rdfs:comment xml:lang="en">isMaterialOf is the inverse property of hasMaterial.</rdfs:comment>
+        <rdfs:label xml:lang="en">is material of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf">
         <rdfs:comment xml:lang="en">isMeasurementOf is the inverse property of hasMeasurement.</rdfs:comment>
         <rdfs:label xml:lang="en">is measurement of</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty" />
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:comment xml:lang="en">isSampleComponentOf is the inverse property of hasSampleComponent.</rdfs:comment>
         <rdfs:label xml:lang="en">is sample component of</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#uses -->
+
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#uses">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/participant" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable" />
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/participant"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"/>
         <rdfs:comment>uses is an object property relating the thing with a consumable.</rdfs:comment>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/characteristic -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/characteristic">
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/characteristicOf" />
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/characteristicOf"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/Object" />
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/Process" />
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/ValueObject" />
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/Object"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/Process"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/ValueObject"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="https://w3id.org/pmd/co/ValueObject" />
+        <rdfs:range rdf:resource="https://w3id.org/pmd/co/ValueObject"/>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/characteristicOf" />
+    
+
+
+    <!-- https://w3id.org/pmd/co/characteristicOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/characteristicOf"/>
+    
+
+
+    <!-- https://w3id.org/pmd/co/composes -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/composes">
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Object" />
-        <rdfs:range rdf:resource="https://w3id.org/pmd/co/Object" />
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Object"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/co/Object"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/input -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/input">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/participant" />
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/inputOf" />
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/participant"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/inputOf"/>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/inputOf" />
+    
+
+
+    <!-- https://w3id.org/pmd/co/inputOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/inputOf"/>
+    
+
+
+    <!-- https://w3id.org/pmd/co/nextProcess -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/nextProcess">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInformedBy" />
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/previousProcess" />
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process" />
-        <rdfs:range rdf:resource="https://w3id.org/pmd/co/Process" />
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInformedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/previousProcess"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/co/Process"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/co/output -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/output">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/participant" />
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/outputOf" />
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/participant"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/outputOf"/>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/outputOf" />
+    
+
+
+    <!-- https://w3id.org/pmd/co/outputOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/outputOf"/>
+    
+
+
+    <!-- https://w3id.org/pmd/co/participant -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/participant">
-        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/participantOf" />
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process" />
+        <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/participantOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/DigitalEntity" />
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/Object" />
-                    <rdf:Description rdf:about="https://w3id.org/pmd/co/ValueObject" />
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/DigitalEntity"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/Object"/>
+                    <rdf:Description rdf:about="https://w3id.org/pmd/co/ValueObject"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/participantOf" />
-    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/previousProcess" />
+    
+
+
+    <!-- https://w3id.org/pmd/co/participantOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/participantOf"/>
+    
+
+
+    <!-- https://w3id.org/pmd/co/previousProcess -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/previousProcess"/>
+    
+
+
+    <!-- https://w3id.org/pmd/co/subordinateProcess -->
+
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/subordinateProcess">
-        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process" />
-        <rdfs:range rdf:resource="https://w3id.org/pmd/co/Process" />
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/co/Process"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/co/Process"/>
     </owl:ObjectProperty>
-    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/numericValue" />
-    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/value" />
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#endedAtTime" />
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#startedAtTime" />
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://qudt.org/schema/qudt/numericValue -->
+
+    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/numericValue"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/value -->
+
+    <owl:DatatypeProperty rdf:about="http://qudt.org/schema/qudt/value"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#endedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#endedAtTime"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#startedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#startedAtTime"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://nfdi.fiz-karlsruhe.de/ontology/Specification -->
+
     <owl:Class rdf:about="http://nfdi.fiz-karlsruhe.de/ontology/Specification">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Quantity -->
+
     <owl:Class rdf:about="http://qudt.org/schema/qudt/Quantity">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/hasQuantityKind" />
-                <owl:allValuesFrom rdf:resource="http://qudt.org/schema/qudt/QuantityKind" />
+                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/hasQuantityKind"/>
+                <owl:allValuesFrom rdf:resource="http://qudt.org/schema/qudt/QuantityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/quantityValue" />
-                <owl:allValuesFrom rdf:resource="http://qudt.org/schema/qudt/QuantityValue" />
+                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/quantityValue"/>
+                <owl:allValuesFrom rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
-    <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityKind" />
+    
+
+
+    <!-- http://qudt.org/schema/qudt/QuantityKind -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityKind"/>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/QuantityValue -->
+
     <owl:Class rdf:about="http://qudt.org/schema/qudt/QuantityValue">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/unit" />
-                <owl:allValuesFrom rdf:resource="http://qudt.org/schema/qudt/Unit" />
+                <owl:onProperty rdf:resource="http://qudt.org/schema/qudt/unit"/>
+                <owl:allValuesFrom rdf:resource="http://qudt.org/schema/qudt/Unit"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
-    <owl:Class rdf:about="http://qudt.org/schema/qudt/Unit" />
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Unit -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/Unit"/>
+    
+
+
+    <!-- http://w3id.org/STREAM/MSLE#Equipment -->
+
     <owl:Class rdf:about="http://w3id.org/STREAM/MSLE#Equipment">
-        <owl:equivalentClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+        <owl:equivalentClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:label>equipment</rdfs:label>
     </owl:Class>
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity" />
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent" />
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity" />
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Location" />
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Agent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Location -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Location"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Organization -->
+
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Organization">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process"/>
         <rdfs:comment xml:lang="en">Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Equipment -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Equipment">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/equipment" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/equipment" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/equipment"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Instrument -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Instrument">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:comment xml:lang="en">Physical or virtual identifiable piece of Equipment used to perform a Data Acquisition and to generate Raw Data. The Instrument is located in a (physical or virtual) Laboratory hosted by an Institution and can be physically, virtually, and/or remotely accessed. A virtual Instrument may be any computational resource or HPC infrastructure (cloud infrastructure or supercomputer) needed to perform Calculations or Simulations.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrument" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrument" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/instrument"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Material -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Material">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
+        <rdfs:comment xml:lang="en">Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/material"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/material"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#ResearchData -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/DigitalEntity" />
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/DigitalEntity"/>
         <rdfs:comment xml:lang="en">Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#ResearchUser -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:comment xml:lang="en">Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Settings -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Settings">
-        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification" />
+        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
         <rdfs:comment xml:lang="en">Any set of configuration parameters which determine the operational conditions of Equipment (including Instrument), configure Acquisition Software and/or Research Software, and/or describe a Model (e.g., by specifying the type of solver user).</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/settings" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/settings" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/settings"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/settings"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Study -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Study">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasFabrication"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSamplePreparation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#System -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#System">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object" />
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
         <rdfs:comment xml:lang="en">Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/system" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/system" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/system"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/system"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/core#Technique -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Technique">
-        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification" />
+        <rdfs:subClassOf rdf:resource="http://nfdi.fiz-karlsruhe.de/ontology/Specification"/>
         <rdfs:comment xml:lang="en">Any experimental, theoretical, or computational method with a specific aim, including but not limited to: process and/or treat Samples, prepare Models, acquire and/or analyze Research Data, using some Equipment.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/technique" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/technique" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/technique"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/technique"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/dataset#RawData -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#RawData">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData"/>
         <rdfs:comment xml:lang="en">Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Consumable -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object" />
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Object"/>
         <rdfs:comment xml:lang="en">Auxiliary entity, normally acquired from third-party manufacturers, used during Processing and Treatment or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of. Consumables are not part of the Instrument. Examples of Consumable are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Input -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Input">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
         <rdfs:comment>Physical System (typically a piece of material) which undergoes a Fabrication.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Institution -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Institution">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Organization" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Organization"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hosts" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hosts"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Hierarchical entity which hosts one or more Laboratories.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/institution" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/institution" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/institution"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/institution"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Location" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Location"/>
         <rdfs:comment xml:lang="en">Physical or virtual place hosted by an Institution, where the Equipment (including Instruments), is located and can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Measurement -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#RawData" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#RawData"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument" />
+                <owl:onClass rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/measurement" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/measurement" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/measurement"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/measurement"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Precursor -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input" />
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Input"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Fabrication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment -->
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Technique"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#Sample -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasSampleComponent"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sample" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sample" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sample"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sample"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#carries" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#carries"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#holds" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#holds"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleComponent">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isSampleComponentOf"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder">
-        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder" />
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder"/>
     </owl:Class>
+    
+
+
+    <!-- https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation -->
+
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SamplePreparation">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#atLocation"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Instrument"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable" />
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#uses"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Consumable"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Precursor"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/DigitalEntity -->
+
     <owl:Class rdf:about="https://w3id.org/pmd/co/DigitalEntity">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/Object -->
+
     <owl:Class rdf:about="https://w3id.org/pmd/co/Object">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/characteristic" />
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/ValueObject" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/characteristic"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/ValueObject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/Process -->
+
     <owl:Class rdf:about="https://w3id.org/pmd/co/Process">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/characteristic" />
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/ValueObject" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/characteristic"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/ValueObject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Object" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Object"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/nextProcess" />
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Process" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/nextProcess"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Process"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Object" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Object"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/subordinateProcess" />
-                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Process" />
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/subordinateProcess"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/Process"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/co/ValueObject -->
+
     <owl:Class rdf:about="https://w3id.org/pmd/co/ValueObject">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     </owl:Class>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

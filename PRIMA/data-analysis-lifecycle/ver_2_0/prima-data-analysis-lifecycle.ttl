@@ -74,11 +74,11 @@ prov:startedAtTime a owl:DatatypeProperty .
 
 <http://qudt.org/schema/qudt/Quantity> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityKind> ;
-            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
-            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ] .
+            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityKind> ;
+            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ] .
 
 <http://qudt.org/schema/qudt/QuantityKind> a owl:Class .
 
@@ -187,40 +187,40 @@ prov:wasDerivedFrom a owl:ObjectProperty .
     rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question. Data Analysis may include: linear combination fitting, least-squares curve fitting, data modelling, pattern extraction and/or segmentation, data visualization. The output of Data Analysis is Analyzed Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
         <https://w3id.org/pmd/co/Process> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> .
 
 <https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation> a owl:Class ;
     rdfs:comment "Set of actions, included in the data analysis lifecycle, performed by one or more research users on research data, typically analyzed data, to determine the conclusions of the study, possibly in comparison with reference data."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ],
+            owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware> ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dal#Conclusion> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware> ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
         [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ],
         <https://w3id.org/pmd/co/Process> .
 
 <https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing> a owl:Class ;
@@ -230,9 +230,6 @@ prov:wasDerivedFrom a owl:ObjectProperty .
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
@@ -241,6 +238,9 @@ prov:wasDerivedFrom a owl:ObjectProperty .
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
@@ -251,20 +251,20 @@ prov:wasDerivedFrom a owl:ObjectProperty .
     rdfs:comment "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasGeneratedBy ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle> ],
+        [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasDerivedFrom ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasGeneratedBy ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis> ],
-        [ a owl:Restriction ;
-            owl:onProperty dcterms:references ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
         <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata> .
 
@@ -291,14 +291,14 @@ prov:wasAssociatedWith a owl:ObjectProperty .
             owl:onProperty prov:wasGeneratedBy ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle> ],
         [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
             owl:onProperty dcterms:references ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasGeneratedBy ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing> ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata> .
 
@@ -330,20 +330,20 @@ prov:wasGeneratedBy a owl:ObjectProperty .
 
 <https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ],
         [ a owl:Restriction ;
             owl:onProperty <https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware> ],
         [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
-        [ a owl:Restriction ;
             owl:onProperty prov:used ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ],
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchData> ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/core#ResearchUser> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
@@ -374,16 +374,16 @@ prov:wasGeneratedBy a owl:ObjectProperty .
 
 <https://w3id.org/pmd/co/Process> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
