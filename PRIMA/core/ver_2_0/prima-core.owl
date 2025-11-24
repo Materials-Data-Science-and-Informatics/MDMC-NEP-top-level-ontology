@@ -119,7 +119,9 @@
     <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent" />
     </owl:Class>
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#AgentRole">
+        <rdfs:comment xml:lang="en">A functional role that an Agent can perform within a research context. Roles define the responsibilities and capabilities of agents in conducting research activities.</rdfs:comment>
+    </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
         <rdfs:subClassOf>
@@ -229,6 +231,46 @@
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ProjectMemberRole">
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
         <rdfs:comment xml:lang="en">Project member role is an agent role that has role of project member</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ContactPerson">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Contact Person</rdfs:label>
+        <rdfs:comment xml:lang="en">Person with knowledge of how to access, troubleshoot, or otherwise field issues related to the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/contactperson" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/contactperson" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/ContactPerson" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#RelatedPerson">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Related Person</rdfs:label>
+        <rdfs:comment xml:lang="en">A person without a specifically defined role in the development of the resource, but who is someone the author wishes to recognize.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/relatedperson" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/relatedperson" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/RelatedPerson" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Researcher">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Researcher</rdfs:label>
+        <rdfs:comment xml:lang="en">A person involved in analysing data or the results of an experiment or formal study. May indicate an intern or assistant to one of the authors who helped with research but who was not so 'key' as to be listed as an author.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researcher" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researcher" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/Researcher" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Supervisor">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Supervisor</rdfs:label>
+        <rdfs:comment xml:lang="en">Designated administrator over one or more groups/teams working to produce a resource, or over one or more steps of a development process.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/Supervisor" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#WorkPackageLeader">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Work Package Leader</rdfs:label>
+        <rdfs:comment xml:lang="en">Person responsible for ensuring the comprehensive contents, versioning, and availability of the Work Package during the development of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/WorkPackageLeader" />
     </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/DigitalEntity" />

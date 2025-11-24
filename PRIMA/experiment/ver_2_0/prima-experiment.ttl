@@ -25,11 +25,11 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
 <http://qudt.org/schema/qudt/Quantity> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
-            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityKind> ;
-            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ] .
+            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
+            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ] .
 
 <http://qudt.org/schema/qudt/numericValue> a owl:DatatypeProperty .
 
@@ -259,28 +259,28 @@ prov:wasGeneratedBy a owl:ObjectProperty .
 :SamplePreparation a owl:Class ;
     rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Instrument ],
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom :Sample ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Precursor ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
             owl:onProperty :uses ;
             owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
             owl:someValuesFrom core:Equipment ],
         [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Precursor ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :Sample ],
         :ProcessingAndTreatment .
 
@@ -318,11 +318,11 @@ core:Study a owl:Class ;
     rdfs:comment "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/study> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasSamplePreparation ;
-            owl:someValuesFrom :SamplePreparation ],
-        [ a owl:Restriction ;
             owl:onProperty :hasProcessingAndTreatment ;
             owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasSamplePreparation ;
+            owl:someValuesFrom :SamplePreparation ],
         [ a owl:Restriction ;
             owl:onProperty :hasMeasurement ;
             owl:someValuesFrom :Measurement ],
@@ -337,6 +337,21 @@ core:hasDataAcquisition a owl:ObjectProperty .
 :Fabrication a owl:Class ;
     rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty :uses ;
+            owl:someValuesFrom :Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasDataAcquisition ;
+            owl:someValuesFrom core:DataAcquisition ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Input ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom :Precursor ],
         [ a owl:Restriction ;
@@ -345,21 +360,6 @@ core:hasDataAcquisition a owl:ObjectProperty .
         [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
             owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty core:hasDataAcquisition ;
-            owl:someValuesFrom core:DataAcquisition ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Instrument ],
-        [ a owl:Restriction ;
-            owl:onProperty :uses ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Input ],
         :ProcessingAndTreatment .
 
 :Measurement a owl:Class ;
@@ -369,22 +369,22 @@ core:hasDataAcquisition a owl:ObjectProperty .
             owl:onProperty :uses ;
             owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( core:Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
             owl:onClass core:Instrument ;
             owl:onProperty core:usesEquipment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
             owl:onProperty prov:atLocation ;
             owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( core:Material :Sample ) ] ],
         core:DataAcquisition ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> .
 
@@ -419,11 +419,11 @@ core:ResearchUser a owl:Class ;
 :Precursor a owl:Class ;
     rdfs:comment "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom :Precursor ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasGeneratedBy ;
             owl:someValuesFrom :Fabrication ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :Precursor ],
         core:Material,
         :Input .
 
@@ -431,32 +431,32 @@ core:ResearchUser a owl:Class ;
     rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Instrument ],
-        [ a owl:Restriction ;
-            owl:onProperty :uses ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom core:ResearchUser ],
+            owl:onProperty core:hasDataAcquisition ;
+            owl:someValuesFrom core:DataAcquisition ],
         [ a owl:Restriction ;
             owl:onProperty prov:atLocation ;
             owl:someValuesFrom :Laboratory ],
         [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom core:System ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom core:System ],
         [ a owl:Restriction ;
+            owl:onProperty :uses ;
+            owl:someValuesFrom :Consumable ],
+        [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom core:System ],
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
         [ a owl:Restriction ;
-            owl:onProperty core:hasDataAcquisition ;
-            owl:someValuesFrom core:DataAcquisition ],
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Instrument ],
         <https://w3id.org/pmd/co/Process> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> .
 
@@ -464,11 +464,11 @@ core:ResearchUser a owl:Class ;
     rdfs:comment "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :carries ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
             owl:onProperty :holds ;
             owl:someValuesFrom :SampleHolder ],
+        [ a owl:Restriction ;
+            owl:onProperty :carries ;
+            owl:someValuesFrom :Sample ],
         core:Equipment ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> .
 
@@ -537,35 +537,35 @@ core:usesEquipment a owl:ObjectProperty .
     rdfs:comment "Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isCarriedBy ;
-            owl:someValuesFrom :SampleCarrier ],
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :Sample ],
         [ a owl:Restriction ;
             owl:onProperty :hasMaterial ;
             owl:someValuesFrom core:Material ],
         [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
             owl:onProperty :hasSampleComponent ;
             owl:someValuesFrom :SampleComponent ],
+        [ a owl:Restriction ;
+            owl:onProperty :isCarriedBy ;
+            owl:someValuesFrom :SampleCarrier ],
         core:System ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> .
 
 <https://w3id.org/pmd/co/Process> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
+            owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
         prov:Activity .
 
