@@ -51,17 +51,61 @@ The use case including the extended Herbie ontology and RDF data generated from 
 * We recommend to use [Protégé 5.5.0](https://protege.stanford.edu/products.php#desktop-protege) to be able to view and navigate classes and properties in PRIMA.
 * We recommend also to use HermiT as a reasoner for PRIMA. You can select it through the menu *Reasoner* in Protégé software.
 
+## PRIMA SKOS Monitoring
+
+This repository includes an automated workflow to monitor changes in the PRIMA SKOS vocabulary hosted on [SKOSMOS](https://matwerk.datamanager.kit.edu/skosmos/prima/en/). The monitoring system automatically detects changes such as new concepts, modified definitions, or updated relationships.
+
+**Note:** We encourage you to use [`uv`](https://github.com/astral-sh/uv) for managing Python dependencies and virtual environments. After cloning the repository, run `uv sync` to set up the environment.
+
+### Automated Monitoring
+
+A GitHub Actions workflow runs weekly (and can be manually triggered) to:
+- Download the latest PRIMA SKOS vocabulary from SKOSMOS
+- Compare it with the previous snapshot
+- Create a GitHub issue if changes are detected
+- Store versioned snapshots in `monitor_utils/skos_snapshots/`
+
+The workflow is defined in `.github/workflows/skos-monitor.yml`.
+
+### Manual Usage
+
+You can also use the monitoring tools manually via the command-line interface:
+
+```bash
+# Download the latest SKOS vocabulary
+python -m monitor_utils.prima_skos_monitor.cli download --output prima.rdf
+
+# Compare two versions
+python -m monitor_utils.prima_skos_monitor.cli compare \
+  --baseline monitor_utils/skos_snapshots/latest.rdf \
+  --new prima.rdf \
+  --output change_report.md
+
+# Download and save as snapshot
+python -m monitor_utils.prima_skos_monitor.cli download \
+  --save-snapshot \
+  --snapshot-dir monitor_utils/skos_snapshots
+```
+
+### Change Detection
+
+The monitor detects:
+- **New concepts**: Concepts added to the vocabulary
+- **Deleted concepts**: Concepts removed from the vocabulary
+- **Modified concepts**: Changes to definitions, relationships, labels, or metadata
+
+When changes are detected, a detailed markdown report is generated with links to the affected concepts on SKOSMOS.
+
 ## Future extensions
 
-* We plan to extend PRIMA with a computational module to include the description of computational workflows.
 * We aim at facilitating the interoperability of PRIMA with other existing domain ontologies in materials science and at promoting its use. 
-* On one side, we plan to align PRIMA with other upper-level ontologies, such as BFO, on the other side, we envision the alignment and mapping with other Electronic Lab Notebooks (ELNs), such as Kadi4Mat, Chemotion, and openBis.
+
 
 ## Contact
 You may contact one of the authors of PRIMA via a.ihsan@fz-juelich.de
 
 ## License
-The code is licensed under the [MIT license](./LICENSE). Copyright © 2023.
+The code is licensed under the [MIT license](./LICENSE). Copyright © 2025.
 
 ## Acknowledgements
 

@@ -1,0 +1,146 @@
+name: PRIMA SKOS Monitor
+
+on:
+  schedule:
+    # Run weekly on Mondays at 10:00 UTC
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests python-dateutil rdflib PyGithub
+
+      - name: Download latest SKOS
+        id: download
+        run: |
+          python -m monitor_utils.prima_skos_monitor.cli download \
+            --base-url "${{ env.SKOSMOS_BASE_URL || 'https://matwerk.datamanager.kit.edu/skosmos' }}" \
+            --vocab-id "${{ env.SKOSMOS_VOCAB_ID || 'prima' }}" \
+            --format rdf \
+            --save-snapshot \
+            --snapshot-dir monitor_utils/skos_snapshots \
+            --output monitor_utils/skos_snapshots/latest_download.rdf
+        env:
+          SKOSMOS_BASE_URL: ${{ vars.SKOSMOS_BASE_URL || 'https://matwerk.datamanager.kit.edu/skosmos' }}
+          SKOSMOS_VOCAB_ID: ${{ vars.SKOSMOS_VOCAB_ID || 'prima' }}
+
+      - name: Find latest baseline snapshot
+        id: baseline
+        run: |
+          if [ -f "monitor_utils/skos_snapshots/latest.rdf" ]; then
+            BASELINE=$(readlink -f monitor_utils/skos_snapshots/latest.rdf || echo "monitor_utils/skos_snapshots/latest.rdf")
+            echo "baseline_path=$BASELINE" >> $GITHUB_OUTPUT
+            echo "has_baseline=true" >> $GITHUB_OUTPUT
+          else
+            # Use the downloaded file as both baseline and new (first run)
+            echo "baseline_path=monitor_utils/skos_snapshots/latest_download.rdf" >> $GITHUB_OUTPUT
+            echo "has_baseline=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Compare versions
+        id: compare
+        run: |
+          python -m monitor_utils.prima_skos_monitor.cli compare \
+            --baseline "${{ steps.baseline.outputs.baseline_path }}" \
+            --new monitor_utils/skos_snapshots/latest_download.rdf \
+            --format rdf \
+            --output change_report.md || true
+        continue-on-error: true
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -f "change_report.md" ]; then
+            # Check if report indicates changes (look for "No changes detected" or change counts)
+            if grep -q "No changes detected" change_report.md; then
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            elif grep -qE "(New Concepts|Deleted Concepts|Modified Concepts)" change_report.md; then
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Issue
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('change_report.md', 'utf8');
+            
+            const title = '[SKOS Monitor] Changes detected in PRIMA SKOS vocabulary';
+            
+            const body = `## Automated SKOS Change Detection
+            
+            This issue was automatically created by the PRIMA SKOS Monitor workflow.
+            
+            ${report}
+            
+            ---
+            
+            **Workflow Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Triggered by:** ${{ github.event_name }}
+            `;
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['automated', 'skos-monitor']
+            });
+
+      - name: Save new snapshot
+        if: steps.changes.outputs.has_changes == 'true' || steps.baseline.outputs.has_baseline == 'false'
+        run: |
+          # The snapshot was already saved by the download step
+          # Just ensure latest.rdf is updated
+          cd monitor_utils/skos_snapshots
+          LATEST_SNAPSHOT=$(ls -t *.rdf | grep -v latest | head -1)
+          if [ -n "$LATEST_SNAPSHOT" ]; then
+            ln -sf "$LATEST_SNAPSHOT" latest.rdf
+          fi
+
+      - name: Commit snapshot and report
+        if: steps.changes.outputs.has_changes == 'true' || steps.baseline.outputs.has_baseline == 'false'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add monitor_utils/skos_snapshots/ change_report.md
+          git commit -m "chore: update SKOS snapshot and change report [skip ci]" || exit 0
+          git push || exit 0
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+            echo "## Changes Detected" >> $GITHUB_STEP_SUMMARY
+            echo "A GitHub issue has been created with the change details." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "See change_report.md for details." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## No Changes Detected" >> $GITHUB_STEP_SUMMARY
+            echo "The PRIMA SKOS vocabulary has not changed since the last check." >> $GITHUB_STEP_SUMMARY
+          fi
+
