@@ -108,9 +108,16 @@
         <rdfs:label xml:lang="en">uses equipment</rdfs:label>
     </owl:ObjectProperty>
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition" />
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
-        <rdfs:comment xml:lang="en">usesResearchSoftware represents the relationship between data analysis lifecycle to research software</rdfs:comment>
+        <rdfs:comment xml:lang="en">usesResearchSoftware represents the relationship between data acquisition or data analysis lifecycle to research software</rdfs:comment>
         <rdfs:label xml:lang="en">uses research software</rdfs:label>
     </owl:ObjectProperty>
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/input" />
@@ -147,6 +154,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment" />
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>

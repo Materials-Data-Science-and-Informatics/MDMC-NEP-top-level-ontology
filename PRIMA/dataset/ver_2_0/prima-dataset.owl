@@ -308,6 +308,52 @@
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager" />
         <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/DataManager" />
     </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataCurator">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole" />
+        <rdfs:label xml:lang="en">Data Curator</rdfs:label>
+        <rdfs:comment xml:lang="en">Person tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datacurator" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datacurator" />
+        <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/DataCurator" />
+    </owl:Class>
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData" />
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Data Curation</rdfs:label>
+        <rdfs:comment xml:lang="en">Set of actions performed by one or more Research Users on Research Data and/or Datasets using a Technique to cleanse, document, standardize, format and inter-relate them, with the goal of ensuring they are fit for the purpose and available for discovery and reuse. This includes (but is not limited to): forming a new Dataset from several data sources, annotating Research Data and/or a Dataset with Metadata, maintaining links with published materials (Publication Data and/or Scientific Publications). For dynamic Datasets this may mean continuous enrichment or updating. Special forms of Data Curation (e.g., versioning) may be available in Data Repositories.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration" />
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration" />
+        <skos:closeMatch rdf:resource="https://terms.codata.org/rdmt/data-curation" />
+    </owl:Class>
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#hasDataCuration">
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study" />
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration" />
+        <rdfs:comment xml:lang="en">hasDataCuration represents the relationship between study to data curation</rdfs:comment>
+        <rdfs:label xml:lang="en">has data curation</rdfs:label>
+    </owl:ObjectProperty>
     <owl:Class rdf:about="https://w3id.org/pmd/co/DigitalEntity">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
     </owl:Class>
