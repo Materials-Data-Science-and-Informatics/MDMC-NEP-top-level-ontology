@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rdf:RDF xmlns:ns2="http://purl.org/dc/terms/" xmlns:ns3="http://purl.org/vocab/vann/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xml:base="https://purls.helmholtz-metadaten.de/prima/dal">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/dal">
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/core"/>
         <ns2:contributor xml:lang="en">Elda Osmenaj</ns2:contributor>
         <ns2:contributor xml:lang="en">Mirco Panighel</ns2:contributor>
         <ns2:created xml:lang="en">2024-01-29</ns2:created>
@@ -38,52 +39,12 @@
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInformedBy" />
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware">
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware" />
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis" />
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation" />
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing" />
-                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration" />
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
-        <rdfs:comment xml:lang="en">usesResearchSoftware relates data analysis, data analysis lifecycle, data interpretation, data processing, or data curation with research software</rdfs:comment>
-        <rdfs:label xml:lang="en">uses research sofware</rdfs:label>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#hasConclusion">
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Study" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#Conclusion" />
-        <rdfs:comment xml:lang="en">hasConclusion represents the relationship between study to conclusion</rdfs:comment>
-        <rdfs:label xml:lang="en">has conclusion</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware">
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware" />
+        <rdfs:comment xml:lang="en">isUsedByResearchSoftware is the inverse of usesResearchSoftware, representing the relationship from research software to the processes that use it</rdfs:comment>
+        <rdfs:label xml:lang="en">is used by research software</rdfs:label>
     </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#hasDataAnalysis">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#isDataAnalysisOf" />
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis" />
-        <rdfs:comment xml:lang="en">hasDataAnalysis relates DataAnalysisLifecycle with DataAnalysis</rdfs:comment>
-        <rdfs:label xml:lang="en">has data analysis</rdfs:label>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#hasDataInterpretation">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#isDataRepresentationOf" />
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation" />
-        <rdfs:comment xml:lang="en">hasDataInterpretation relates DataAnalysisLifecycle with DataInterpretation</rdfs:comment>
-        <rdfs:label xml:lang="en">has data interpretation</rdfs:label>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#hasDataProcessing">
-        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#isDataProcessingOf" />
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing" />
-        <rdfs:comment xml:lang="en">hasDataProcessing relates DataAnalysisLifecycle with DataProcessing</rdfs:comment>
-        <rdfs:label xml:lang="en">has data processing</rdfs:label>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isDataAnalysisOf" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isDataProcessingOf" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isDataRepresentationOf" />
-    <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#isUsedByResearchSoftware" />
     <owl:ObjectProperty rdf:about="https://w3id.org/pmd/co/characteristic">
         <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/characteristicOf" />
         <rdfs:domain>
@@ -173,45 +134,6 @@
     <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent" />
     </owl:Class>
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#used" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/DigitalEntity" />
         <rdfs:subClassOf>
@@ -235,34 +157,6 @@
         <rdfs:comment xml:lang="en">Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser" />
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser" />
-    </owl:Class>
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Study">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#hasConclusion" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#Conclusion" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study" />
-        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/study" />
-    </owl:Class>
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#Conclusion">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity" />
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/dc/terms/references" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Conclusion is the primary output of data interpretation performed by one or more research users on research data, typically on analysed data, possibly using research software.</rdfs:comment>
     </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
@@ -299,40 +193,6 @@
         <rdfs:comment xml:lang="en">Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question. Data Analysis may include: linear combination fitting, least-squares curve fitting, data modelling, pattern extraction and/or segmentation, data visualization. The output of Data Analysis is Analyzed Data.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis" />
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis" />
-    </owl:Class>
-    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataInterpretation">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/input" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/pmd/co/output" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#Conclusion" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Set of actions, included in the data analysis lifecycle, performed by one or more research users on research data, typically analyzed data, to determine the conclusions of the study, possibly in comparison with reference data.</rdfs:comment>
     </owl:Class>
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/Process" />
@@ -399,13 +259,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal#DataAnalysis" />
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysis" />
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data.</rdfs:comment>
@@ -424,12 +278,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom" />
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#RawData" />
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy" />
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#DataAnalysisLifecycle" />
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
