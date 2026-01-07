@@ -56,17 +56,17 @@ prov:SoftwareAgent a owl:Class ;
     rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Model ],
-        [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Model ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         core:DataAcquisition ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> .
 
@@ -75,29 +75,29 @@ prov:SoftwareAgent a owl:Class ;
     rdfs:comment "Set of actions carried out by one or more Research Users, possibly using Research Software, to define and/or formulate a Model making use of Research Data (typically, but not limited to, Reference Data after Data Processing) as input for parametrization, boundary conditions, or validation. A Model Preparation may require the use of Equipment. The output of Model Preparation is Model."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesResearchSoftware ;
-            owl:someValuesFrom core:ResearchSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom core:ResearchData ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom :Model ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory> ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#ResearchUser> ],
         [ a owl:Restriction ;
+            owl:onProperty core:usesResearchSoftware ;
+            owl:someValuesFrom core:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
+        [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom :Model ],
         <https://w3id.org/pmd/co/Process> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> .
 
@@ -106,17 +106,17 @@ prov:SoftwareAgent a owl:Class ;
     rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to manipulate its Settings using a specific computational and/or theoretical Technique in order to study, predict, or optimize the behaviour and performance of existing or proposed features and properties of a physical System that would otherwise be too complex, too large/small, too fast/slow, too dangerous, inaccessible, or unacceptable to engage and/or control. Examples of Simulation are: multiscale simulation, finite-element simulation, molecular dynamics simulation, discrete dislocation dynamics simulation."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom :Model ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Model ],
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         core:DataAcquisition ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> .
 
@@ -127,23 +127,23 @@ core:hasDataAcquisition a owl:ObjectProperty .
 
 <https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAssociatedWith ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#ResearchUser> ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
             owl:onProperty core:usesResearchSoftware ;
             owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom core:ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#ResearchUser> ],
         <https://w3id.org/pmd/co/Process> .
 
 <https://purls.helmholtz-metadaten.de/prima/experiment#Institution> a owl:Class ;
@@ -287,19 +287,19 @@ prov:Entity a owl:Class .
 
 <https://w3id.org/pmd/co/Process> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
+            owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
         prov:Activity .
 

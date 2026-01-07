@@ -26,6 +26,12 @@ MODULES = {
         "ttl_file": "prima-core.ttl",
         "jsonld_file": "prima-core.jsonld"
     },
+    "core_v3": {
+        "path": "PRIMA/core/ver_3_0",
+        "owl_file": "prima-core.owl",
+        "ttl_file": "prima-core.ttl",
+        "jsonld_file": "prima-core.jsonld"
+    },
     "dal": {
         "path": "PRIMA/data-analysis-lifecycle/ver_2_0",
         "owl_file": "prima-data-analysis-lifecycle.owl",
