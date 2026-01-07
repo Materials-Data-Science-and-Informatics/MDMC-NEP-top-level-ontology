@@ -1,50 +1,35 @@
 [
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any Research Data from prior Studies or from literature, which is used in the course of a Study to, e.g., define a Model, compare Analyzed Data, and/or validate findings and results. Reference Data is typically retrieved from publicly accessible Data Repositories. Depending on the research context, Reference Data usually undergo some kind of Data Processing before being used."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      },
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "_:N330f5edc0440400893cfd9165e61ca94"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata"
       }
     ]
   },
   {
-    "@id": "_:N330f5edc0440400893cfd9165e61ca94",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
+    "@id": "http://purl.org/dc/terms/title",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
@@ -54,41 +39,62 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@id": "http://purl.org/dc/terms/contributor",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasPersistentIdentifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+        "@language": "en",
+        "@value": "hasPersistentIdentifier represents the relationship between a resource and its persistent identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has persistent identifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier"
       }
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@language": "en",
-        "@value": "Metadata repository is an information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms."
+        "@value": "Operational information system which allows Research Users to keep their Research Data, Datasets, and related documents (e.g., notes or drafts of Scientific Publications) synchronized and up to date and to share them with other Research Users, who are typically members of the same Project. The access rights granted to the resources may be determined by the User Role. The system is intended for the long-tail, unstructured, and still volatile data, which may change and is still subject to active research. Therefore, a Data Collaboration Platform offers versioning of all ingested files but does not usually assign them Persistent Identifiers. A Data Collaboration Platform may be associated with an Institution or a group of them, or may be run by a third party."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacollaborationplatform"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:N9c63ad1b3e94492083cd8a2b1922fcb1"
+        "@id": "_:N136b8c5d2203454193689aedb66e5fef"
       }
     ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@language": "en",
-        "@value": "Information system used to store, manage and provide access to metadata, following a policy or a set of rules that define storage and access norms. Metadata repositories may be associated with an institution or a group of them, or may be run by a third party. Metadata repositories may or may not be directly used by research users."
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacollaborationplatform"
       }
     ]
   },
   {
-    "@id": "_:N9c63ad1b3e94492083cd8a2b1922fcb1",
+    "@id": "_:N136b8c5d2203454193689aedb66e5fef",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -99,25 +105,8 @@
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
       }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/pmd/co/DigitalEntity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -127,44 +116,47 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#Agent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "isStoredIn is the inverse property of stores."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is stored in"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#topObjectProperty"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
+      }
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#endedAtTime",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/creator",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Entity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Metadata is any descriptive data intended to help contextualize or otherwise qualify research data and/or datasets and/or publication data and their management through time."
+        "@value": "Dataset(s) generated in the course of a Study, that has undergone quality assessment and Data Curation, and can be cited as a reliable source (i.e., a Persistent Identifier is assigned to it) to, e.g., reproduce the results and/or support the conclusions presented in a Scientific Publication or appearing in it. Publication Data may be attributed to some or to all the Research Users who are members of the Project."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -172,21 +164,26 @@
         "@id": "https://w3id.org/pmd/co/DigitalEntity"
       },
       {
-        "@id": "_:N732679151cfa41d8908216472d5f039d"
+        "@id": "_:N538b4a76286c4a61a559d64ddaf48b29"
       },
       {
-        "@id": "_:N56eed35054df49e5b38e71499714e4de"
+        "@id": "_:N4c6090c12c4b490dbcb92414c382cba1"
+      },
+      {
+        "@id": "_:Na6b3e1ab7a584ed3aff82e833bf344a4"
+      },
+      {
+        "@id": "_:Na4c08b6b2b0a4606b7375e5b7649d643"
       }
     ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@language": "en",
-        "@value": "Any descriptive data intended to contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Depending on the mode of use, Metadata contains information pertaining to any aspect of the Study, including (but not limited to) processes, outputs, and Research Users involved in the Project. Metadata may include descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository."
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata"
       }
     ]
   },
   {
-    "@id": "_:N732679151cfa41d8908216472d5f039d",
+    "@id": "_:N538b4a76286c4a61a559d64ddaf48b29",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -202,7 +199,224 @@
     ]
   },
   {
-    "@id": "_:N56eed35054df49e5b38e71499714e4de",
+    "@id": "_:N4c6090c12c4b490dbcb92414c382cba1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:Na6b3e1ab7a584ed3aff82e833bf344a4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
+      }
+    ]
+  },
+  {
+    "@id": "_:Na4c08b6b2b0a4606b7375e5b7649d643",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Collection",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Entity"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCurator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacurator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data Curator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/DataCurator"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacurator"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#definition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataManager",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Person responsible for maintaining the finished resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data Manager"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "http://purl.org/datacite/v4.4/DataManager"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datamanager"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Any descriptive data intended to contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Typically, Metadata is created in the course of a Study and then integrated, organized, and refined during Data Curation. Examples of Metadata are: Sample properties and/or treatment history recorded in an Electronic Laboratory Notebook, Instrument parameters saved with Raw Data, analysis processes saved with Analyzed Data, Settings of a Model, but also data license, affiliation of Research Users, descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository and assigned a Persistent Identifier."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/metadata"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+      },
+      {
+        "@id": "_:Nd0120f19bbd04a67b376647959281833"
+      },
+      {
+        "@id": "_:Nec8814316dca40849ad30c6f5f4487ef"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/metadata"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd0120f19bbd04a67b376647959281833",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nec8814316dca40849ad30c6f5f4487ef",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -218,26 +432,186 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Research Data not produced during the current study, which is reused during the study (e.g., during the model preparation) or is used as reference to compare and/or to validate the outputs of the study, typically during the data analysis lifecycle."
+        "@value": "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+        "@id": "http://www.w3.org/ns/prov#Agent"
+      },
+      {
+        "@id": "_:N44dbb3ca38294e05b518abbea4de07a9"
       }
     ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
+      }
+    ]
+  },
+  {
+    "@id": "_:N44dbb3ca38294e05b518abbea4de07a9",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Any Research Data not produced during the current Study, which is reused during the Study (e.g., during the Model Preparation) or is used as reference to compare and/or to validate the outputs of the Study, typically during the Data Analysis Lifecycle."
+        "@value": "Set of actions performed by one or more Research Users on Research Data and/or Datasets using a Technique to cleanse, document, standardize, format and inter-relate them, with the goal of ensuring they are fit for the purpose and available for discovery and reuse. This includes (but is not limited to): forming a new Dataset from several data sources, annotating Research Data and/or a Dataset with Metadata, maintaining links with published materials (Publication Data and/or Scientific Publications). For dynamic Datasets this may mean continuous enrichment or updating. Special forms of Data Curation (e.g., versioning) may be available in Data Repositories."
       }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Data Curation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/pmd/co/Process"
+      },
+      {
+        "@id": "_:N106cc7fe8ef0488f9a36c38d1f9b3027"
+      },
+      {
+        "@id": "_:Ndb1c67f024434a4fa390dad81579f8a8"
+      },
+      {
+        "@id": "_:N00d54ee674b64e53a29cd2474a46da6c"
+      },
+      {
+        "@id": "_:N79f4b819a28847e1a9cab87f6e1ebe7b"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "https://terms.codata.org/rdmt/data-curation"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration"
+      }
+    ]
+  },
+  {
+    "@id": "_:N106cc7fe8ef0488f9a36c38d1f9b3027",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ndb1c67f024434a4fa390dad81579f8a8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
+      }
+    ]
+  },
+  {
+    "@id": "_:N00d54ee674b64e53a29cd2474a46da6c",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/input"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "_:N79f4b819a28847e1a9cab87f6e1ebe7b",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/pmd/co/output"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
@@ -303,6 +677,11 @@
         "@id": "https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology"
       }
     ],
+    "http://www.w3.org/2002/07/owl#imports": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core"
+      }
+    ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
         "@language": "en",
@@ -311,181 +690,41 @@
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/description",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/references",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."
+        "@value": "Long-lasting reference which provides the information required to reliably identify, verify, and locate a digital resource, e.g., Research Data (typically, but not limited to, Publication Data), Metadata, Scientific Publications, but also Systems, Research Users, Equipment, and/or Institutions."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Persistent Identifier"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+        "@id": "http://www.w3.org/ns/prov#Entity"
       }
     ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
       {
-        "@language": "en",
-        "@value": "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."
+        "@id": "https://terms.codata.org/rdmt/persistent-identifier"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      },
-      {
-        "@id": "_:N33c93cbdcdd64ad089a6b666cf32309e"
-      },
-      {
-        "@id": "_:N82842151ffe44b588421f5882e377882"
-      },
-      {
-        "@id": "_:N27adecd826e945b4b536c8b4486a36df"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier"
       }
-    ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
-      {
-        "@language": "en",
-        "@value": "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."
-      }
-    ]
-  },
-  {
-    "@id": "_:N33c93cbdcdd64ad089a6b666cf32309e",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/dc/terms/references"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N82842151ffe44b588421f5882e377882",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N27adecd826e945b4b536c8b4486a36df",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Data repository is an information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:N95c97099988547ebb61f9e84b40f2c36"
-      },
-      {
-        "@id": "_:Nafcf85b41a3f430abca8c0b4bd0cfe80"
-      }
-    ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
-      {
-        "@language": "en",
-        "@value": "Information system used to store, manage and provide access to digital resources, following a set of rules that define storage and access norms. A data repository is particularly suitable for research data (especially datasets and/or publication data) which are not likely to be altered again. Many data repositories automatically assign globally unique persistent identifiers to deposited resources. Data repositories may be associated with an institution or a group of them, with an instrument or a group of them, or with a measurement technique or a group of them, or may be run by a third party. Data repositories may or may not be directly used by research users."
-      }
-    ]
-  },
-  {
-    "@id": "_:N95c97099988547ebb61f9e84b40f2c36",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "_:Nafcf85b41a3f430abca8c0b4bd0cfe80",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#definition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -496,7 +735,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Research data is the data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions)"
+        "@value": "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -504,21 +748,20 @@
         "@id": "https://w3id.org/pmd/co/DigitalEntity"
       },
       {
-        "@id": "_:N7eda4294b46247bc8cd49c9cb70bfb87"
+        "@id": "_:Nc2b27945b7ad48aa921b824918012829"
       },
       {
-        "@id": "_:Ndd392439b3ec4b07b94b51311ebf7c85"
+        "@id": "_:N3f25c8245ea6408ca02bbc1dd8315f3d"
       }
     ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@language": "en",
-        "@value": "Data collected, created or examined by one or more research users to be analysed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying and validating original scientific claims that support the answer to some specific research question (i.e., conclusions). Examples of research data include statistics, output of experiments and/or measurements, observations resulting from fieldwork, survey results, recordings and images. According to this definition, raw data, processed data, analysed data and reference data are particular types of research data. Research data is typically in the form of a data file, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research data may be stored in a data collaboration platform and/or in a data repository. Research data may be part of a dataset."
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
       }
     ]
   },
   {
-    "@id": "_:N7eda4294b46247bc8cd49c9cb70bfb87",
+    "@id": "_:Nc2b27945b7ad48aa921b824918012829",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -534,7 +777,7 @@
     ]
   },
   {
-    "@id": "_:Ndd392439b3ec4b07b94b51311ebf7c85",
+    "@id": "_:N3f25c8245ea6408ca02bbc1dd8315f3d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -550,7 +793,158 @@
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/title",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      },
+      {
+        "@id": "_:Nd44632062be3411090d946d8debf0f3f"
+      },
+      {
+        "@id": "_:Nacd3b2a83da74f3aaa2abf7da72d1bca"
+      },
+      {
+        "@id": "_:N7bd5c34d30d74edf9a470bdd18d2625c"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd44632062be3411090d946d8debf0f3f",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/dc/terms/references"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nacd3b2a83da74f3aaa2abf7da72d1bca",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData"
+      }
+    ]
+  },
+  {
+    "@id": "_:N7bd5c34d30d74edf9a470bdd18d2625c",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/references",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information system used to store, manage, and provide access to digital resources, following a set of rules that define storage and access norms. A Data Repository is particularly suitable for (but not limited to) Publication Data, which is not likely to be altered again. Many Data Repositories automatically assign globally unique Persistent Identifiers to deposited resources. A Data Repository may be associated with an Institution or a group of them, or may be run by a third party. A Data Repository may or may not be directly used by Research Users. The access rights granted to the resources may be determined by the User Role."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:Nf22520e96339473eaac624dbdbb645fd"
+      },
+      {
+        "@id": "_:Nbdaf2da246db4fea9df63a7f8db6331a"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf22520e96339473eaac624dbdbb645fd",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nbdaf2da246db4fea9df63a7f8db6331a",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/description",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
@@ -568,7 +962,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:Nd1281dcd4df84de8a542e283f9f57319"
+        "@id": "_:N9e5488a9c5d041afb3d3cd4f0c8ccb91"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -584,7 +978,7 @@
     ]
   },
   {
-    "@id": "_:Nd1281dcd4df84de8a542e283f9f57319",
+    "@id": "_:N9e5488a9c5d041afb3d3cd4f0c8ccb91",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -605,9 +999,179 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#startedAtTime",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset",
     "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@value": "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, formed after some kind of Data Curation. Datasets are typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataset"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/ns/prov#Collection"
+      },
+      {
+        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+      },
+      {
+        "@id": "_:N471c8758432948299d0e88ecf3915a33"
+      },
+      {
+        "@id": "_:Nabc2712d9eb4443b8fcf34b1b3ed33ec"
+      },
+      {
+        "@id": "_:N0be8e0bf9f8247189d96852c8b14af42"
+      },
+      {
+        "@id": "_:Ndea3ad64e4eb4f07abfb2af715718362"
+      },
+      {
+        "@id": "_:N540166deb7ed4818b55c7dabfc775fc1"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:N471c8758432948299d0e88ecf3915a33",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#hadMember"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nabc2712d9eb4443b8fcf34b1b3ed33ec",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://www.w3.org/ns/prov#hadMember"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0be8e0bf9f8247189d96852c8b14af42",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ndea3ad64e4eb4f07abfb2af715718362",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform"
+      }
+    ]
+  },
+  {
+    "@id": "_:N540166deb7ed4818b55c7dabfc775fc1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasDataCuration",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "hasDataCuration represents the relationship between study to data curation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Study"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has data curation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/created",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Agent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
     ]
   },
   {
@@ -623,7 +1187,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:Nae1e8f519bf74b9fad45a7013f5b5f23"
+        "@id": "_:Ncf801fd378494f308898fc2e4d632446"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -634,12 +1198,17 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:Naacd524763914366ab79de4787625f4e"
+        "@id": "_:Nd6a9e5f9c3c74f97aad0194bfc338c78"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
       }
     ]
   },
   {
-    "@id": "_:Nae1e8f519bf74b9fad45a7013f5b5f23",
+    "@id": "_:Ncf801fd378494f308898fc2e4d632446",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -660,7 +1229,7 @@
     ]
   },
   {
-    "@id": "_:Naacd524763914366ab79de4787625f4e",
+    "@id": "_:Nd6a9e5f9c3c74f97aad0194bfc338c78",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -678,304 +1247,13 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "Data collaboration platform is an operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:N3e32ee99059c453ab48c5446b65b1a86"
-      }
-    ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
-      {
-        "@language": "en",
-        "@value": "Operational information system which allows research users to keep their research data, datasets and related documents (e.g., drafts of scientific publications) synchronized and up to date, and to exchange them with other research users, who are typically members of the same project. The system is intended for the long-tail and still volatile data, which can change and are still subject to active research. Therefore, a data collaboration platform offers versioning of all ingested files but does not usually assign persistent identifiers to them."
-      }
-    ]
-  },
-  {
-    "@id": "_:N3e32ee99059c453ab48c5446b65b1a86",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Collection",
+    "@id": "https://w3id.org/pmd/co/DigitalEntity",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://www.w3.org/ns/prov#Entity"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Collection"
-      },
-      {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
-      },
-      {
-        "@id": "_:N32e1ad2cbccc478c8e714e873e8e53d7"
-      },
-      {
-        "@id": "_:N3fd156235f4a45fd862e865643c6c629"
-      },
-      {
-        "@id": "_:N6756a907d622474d92552fb711275b01"
-      },
-      {
-        "@id": "_:Ncc42f1f593bc46c08c8673a9dbfdbfa6"
-      },
-      {
-        "@id": "_:N9b24ab8533de4a2c927bdd6a6f6fbff0"
-      }
-    ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
-      {
-        "@language": "en",
-        "@value": "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable."
-      }
-    ]
-  },
-  {
-    "@id": "_:N32e1ad2cbccc478c8e714e873e8e53d7",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#hadMember"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N3fd156235f4a45fd862e865643c6c629",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#hadMember"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "_:N6756a907d622474d92552fb711275b01",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ncc42f1f593bc46c08c8673a9dbfdbfa6",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataCollaborationPlatform"
-      }
-    ]
-  },
-  {
-    "@id": "_:N9b24ab8533de4a2c927bdd6a6f6fbff0",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "isStoredIn is the inverse property of stores."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "is stored in"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#topObjectProperty"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Dataset(s) generated in the course of a study, that has undergone quality assessment and can be referred to as citations (i.e., a persistent identifier is assigned to it), e.g., to validate the results and/or the conclusions presented in a scientific publication or appearing in it."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
-      },
-      {
-        "@id": "_:N7e6173aa725d4dbeb4c183ede935e0f5"
-      },
-      {
-        "@id": "_:Ndd6447b45d5944908ac26c31e465b494"
-      },
-      {
-        "@id": "_:N172f7a02b8e3466eaad40a53951cc7f8"
-      },
-      {
-        "@id": "_:Na8610b1432a044a0a33d838e7b7b7f3e"
-      }
-    ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
-      {
-        "@language": "en",
-        "@value": "Dataset(s) generated in the course of a Study, that has undergone quality assessment and can be referred to as citations (i.e., a Persistent Identifier is assigned to it), e.g., to validate the results and/or the Conclusions presented in a Scientific Publication or appearing in it. Publication Data may include any kind of Research Data, as well as the relevant Metadata about the actions performed. Publication Data may be attributed to some or to all the Research Users who are members of the Project."
-      }
-    ]
-  },
-  {
-    "@id": "_:N7e6173aa725d4dbeb4c183ede935e0f5",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:Ndd6447b45d5944908ac26c31e465b494",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "_:N172f7a02b8e3466eaad40a53951cc7f8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
-      }
-    ]
-  },
-  {
-    "@id": "_:Na8610b1432a044a0a33d838e7b7b7f3e",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#DataRepository"
       }
     ]
   },
@@ -987,7 +1265,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data, typically Raw Data or Reference Data. Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation, Data Acquisition (in case of Calculations or Simulations), Data Analysis or Data Interpretation."
+        "@value": "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data (typically, but not limited to, Raw Data or Reference Data). Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation or Data Analysis."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -995,21 +1278,20 @@
         "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
       },
       {
-        "@id": "_:Nc4519110991f4f01a5662230c5b8cc37"
+        "@id": "_:Nbe9005c93e0a40749bff5233efdea38a"
       },
       {
-        "@id": "_:Nd26149ca93794370b8aa50ed5fd2ca25"
+        "@id": "_:N13462b5d7d1644bd8855dfba6ca6135d"
       }
     ],
-    "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition": [
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@language": "en",
-        "@value": "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data, typically Raw Data or Reference Data. Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation, Data Acquisition (in case of Calculations or Simulations), Data Analysis or Data Interpretation."
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata"
       }
     ]
   },
   {
-    "@id": "_:Nc4519110991f4f01a5662230c5b8cc37",
+    "@id": "_:Nbe9005c93e0a40749bff5233efdea38a",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1025,7 +1307,7 @@
     ]
   },
   {
-    "@id": "_:Nd26149ca93794370b8aa50ed5fd2ca25",
+    "@id": "_:N13462b5d7d1644bd8855dfba6ca6135d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1041,7 +1323,74 @@
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/created",
+    "@id": "http://www.w3.org/ns/prov#startedAtTime",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#endedAtTime",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#Entity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#MetadataRepository",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Information system used to store, manage and provide access to Metadata, following a policy or a set of rules that define storage and access norms. Many Data Repositories automatically assign globally unique Persistent Identifiers to deposited resources. A Metadata Repository may be associated with an Institution or a group of them, or may be run by a third party. A Metadata Repository may or may not be directly used by Research Users. The access rights granted to the resources may be determined by the User Role."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/metadatarepository"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:N2ac5330bd2cc47d8b08d9ffc59b95fe3"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/metadatarepository"
+      }
+    ]
+  },
+  {
+    "@id": "_:N2ac5330bd2cc47d8b08d9ffc59b95fe3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/creator",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]

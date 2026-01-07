@@ -9,6 +9,9 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://nfdi.fiz-karlsruhe.de/ontology/Specification> a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
 dcterms:contributor a owl:AnnotationProperty .
 
 dcterms:created a owl:AnnotationProperty .
@@ -25,11 +28,11 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
 <http://qudt.org/schema/qudt/Quantity> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
-            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityKind> ;
-            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ] .
+            owl:onProperty <http://qudt.org/schema/qudt/hasQuantityKind> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://qudt.org/schema/qudt/QuantityValue> ;
+            owl:onProperty <http://qudt.org/schema/qudt/quantityValue> ] .
 
 <http://qudt.org/schema/qudt/numericValue> a owl:DatatypeProperty .
 
@@ -38,6 +41,8 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
 <http://w3id.org/STREAM/MSLE#Equipment> a owl:Class ;
     rdfs:label "equipment" ;
     owl:equivalentClass core:Equipment .
+
+skos:exactMatch a owl:AnnotationProperty .
 
 prov:endedAtTime a owl:DatatypeProperty .
 
@@ -53,16 +58,6 @@ prov:wasInfluencedBy a owl:ObjectProperty .
 core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:definition .
 
-core:Setting a owl:Class ;
-    rdfs:subClassOf <http://nfdi.fiz-karlsruhe.de/ontology/Specification> .
-
-core:Technique a owl:Class ;
-    rdfs:subClassOf <http://nfdi.fiz-karlsruhe.de/ontology/Specification> .
-
-core:hasSetting a owl:ObjectProperty .
-
-core:hasTechnique a owl:ObjectProperty .
-
 core:operates a owl:ObjectProperty .
 
 <https://purls.helmholtz-metadaten.de/prima/experiment> a owl:Ontology ;
@@ -77,18 +72,20 @@ core:operates a owl:ObjectProperty .
     vann:preferredNamespacePrefix "PRIMA"@en ;
     rdfs:comment "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology"@en ;
     rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:imports <https://purls.helmholtz-metadaten.de/prima/core> ;
     owl:versionInfo "2.0"@en .
+
+:InstrumentScientist a owl:Class ;
+    rdfs:label "Instrument Scientist"@en ;
+    rdfs:comment "Person who manages a particular Instrument, or a set of them."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist> ;
+    rdfs:subClassOf core:AgentRole ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist> .
 
 :hasMeasurementTechnique a owl:ObjectProperty ;
     rdfs:label "has measurement technique"@en ;
     rdfs:comment "hasMeasurementTechnique represents the relationship between measurement to measurement technique."@en ;
     rdfs:domain :Measurement .
-
-:hasPrecursor a owl:ObjectProperty ;
-    rdfs:label "has precursor" ;
-    rdfs:comment "has precursor represents the relationship between sample component to precursor" ;
-    rdfs:domain :SampleComponent ;
-    rdfs:range :Precursor .
 
 <https://w3id.org/pmd/co/composes> a owl:ObjectProperty ;
     rdfs:domain <https://w3id.org/pmd/co/Object> ;
@@ -113,26 +110,49 @@ skos:definition a owl:AnnotationProperty .
 
 prov:Activity a owl:Class .
 
+prov:Agent a owl:Class .
+
 prov:Location a owl:Class .
 
 prov:Organization a owl:Class ;
     rdfs:subClassOf prov:Agent .
 
+prov:SoftwareAgent a owl:Class .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+
 prov:wasInformedBy a owl:ObjectProperty .
 
-core:ResearchData a owl:Class ;
-    rdfs:subClassOf <https://w3id.org/pmd/co/DigitalEntity> .
+core:AgentRole a owl:Class .
+
+core:Study a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hasProcessingAndTreatment ;
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMeasurement ;
+            owl:someValuesFrom :Measurement ] .
+
+core:hasSetting a owl:ObjectProperty .
+
+core:hasTechnique a owl:ObjectProperty .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> a owl:Class ;
-    rdfs:subClassOf core:ResearchData .
+    rdfs:comment "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata> ;
+    rdfs:subClassOf core:ResearchData ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata> .
 
 :Institution a owl:Class ;
-    rdfs:comment "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en ;
+    rdfs:comment "Hierarchical entity which hosts one or more Laboratories."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/institution> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :hosts ;
             owl:someValuesFrom :Laboratory ],
         prov:Organization ;
-    core:MDMCNEPGlossaryDefinition "Hierarchical entity which hosts one or more laboratories, including the virtual ones."@en .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/institution> .
 
 :carries a owl:ObjectProperty ;
     rdfs:label "carries"@en ;
@@ -141,11 +161,18 @@ core:ResearchData a owl:Class ;
     rdfs:range :Sample ;
     owl:inverseOf :isCarriedBy .
 
-:hasFabrication a owl:ObjectProperty ;
-    rdfs:label "has fabrication"@en ;
-    rdfs:comment "hasFabrication represents the relationship between study to fabrication activity."@en ;
-    rdfs:domain core:Study ;
-    rdfs:range :Fabrication .
+:hasAcquisitionSoftware a owl:ObjectProperty ;
+    rdfs:label "has acquisition software"@en ;
+    rdfs:comment "hasAcquisitionSoftware represents the relationship between instrument to acquisition software"@en ;
+    rdfs:domain core:Instrument ;
+    rdfs:range :AcquisitionSoftware .
+
+:hasMaterial a owl:ObjectProperty ;
+    rdfs:label "has material"@en ;
+    rdfs:comment "Direct relationship between Sample and Material(s) it is composed of"@en ;
+    rdfs:domain :Sample ;
+    rdfs:range core:Material ;
+    owl:inverseOf :isMaterialOf .
 
 :hasMeasurement a owl:ObjectProperty ;
     rdfs:label "has measurement"@en ;
@@ -154,18 +181,11 @@ core:ResearchData a owl:Class ;
     rdfs:subPropertyOf core:hasDataAcquisition ;
     owl:inverseOf :isMeasurementOf .
 
-:hasSampleComponent a owl:ObjectProperty ;
-    rdfs:label "has sample component"@en ;
-    rdfs:comment "hasSampleComponent represents the relationship between sample to sample component"@en ;
-    rdfs:domain :Sample ;
-    rdfs:range :SampleComponent ;
-    owl:inverseOf :isSampleComponentOf .
-
-:hasSamplePreparation a owl:ObjectProperty ;
-    rdfs:label "has sample preparation"@en ;
-    rdfs:comment "hasSamplePreparation represents the relationship between study to sample preparation activity."@en ;
+:hasProcessingAndTreatment a owl:ObjectProperty ;
+    rdfs:label "has processing and treatment"@en ;
+    rdfs:comment "hasProcessingAndTreatment represents the relationship between study to processing and treatment activity."@en ;
     rdfs:domain core:Study ;
-    rdfs:range :SamplePreparation .
+    rdfs:range :ProcessingAndTreatment .
 
 :holds a owl:ObjectProperty ;
     rdfs:label "holds"@en ;
@@ -180,9 +200,16 @@ core:ResearchData a owl:Class ;
     rdfs:domain :Institution ;
     rdfs:range :Laboratory .
 
+:isMaterialOf a owl:ObjectProperty ;
+    rdfs:label "is material of"@en ;
+    rdfs:comment "isMaterialOf is the inverse property of hasMaterial."@en .
+
 :isMeasurementOf a owl:ObjectProperty ;
     rdfs:label "is measurement of"@en ;
     rdfs:comment "isMeasurementOf is the inverse property of hasMeasurement."@en .
+
+<https://w3id.org/pmd/co/DigitalEntity> a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 <https://w3id.org/pmd/co/characteristicOf> a owl:ObjectProperty .
 
@@ -204,70 +231,61 @@ core:ResearchData a owl:Class ;
     rdfs:domain <https://w3id.org/pmd/co/Process> ;
     rdfs:range <https://w3id.org/pmd/co/Process> .
 
-<http://nfdi.fiz-karlsruhe.de/ontology/Specification> a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
-prov:wasDerivedFrom a owl:ObjectProperty .
-
-prov:wasGeneratedBy a owl:ObjectProperty .
-
-core:DataAcquisition a owl:Class ;
-    rdfs:subClassOf <https://w3id.org/pmd/co/Process> .
-
-core:Study a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMeasurement ;
-            owl:someValuesFrom :Measurement ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasFabrication ;
-            owl:someValuesFrom :Fabrication ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasSamplePreparation ;
-            owl:someValuesFrom :SamplePreparation ],
-        prov:Entity .
+prov:wasAssociatedWith a owl:ObjectProperty .
 
 core:hasDataAcquisition a owl:ObjectProperty .
 
-:Input a owl:Class ;
-    rdfs:comment "Physical System (typically a piece of material) which undergoes a Fabrication." ;
-    rdfs:subClassOf core:System ;
-    core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which undergoes a Fabrication." .
-
-:SampleHolder a owl:Class ;
+:AcquisitionSoftware a owl:Class ;
+    rdfs:label "Acquisition Software"@en ;
+    rdfs:comment "Any software designed to interface directly with an Instrument in order to control and monitor Data Acquisition parameters (i.e., Settings), and to collect Raw Data. Regardless of whether the Acquisition Software is integrated with the Instrument or operates as a standalone application (e.g., installed on a separate computer or packaged as a virtual machine), it is considered part of the Instrument."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isHeldBy ;
-            owl:someValuesFrom :SampleCarrier ],
-        core:Equipment ;
-    core:MDMCNEPGlossaryDefinition "A piece of equipment that makes one or more samples accessible for a measurement, or holds them in place in the predefined position to be mounted inside the instrument (e.g., glass slide, TEM grid, tilting support). Sample holder(s) may be carried by a sample carrier."@en .
+            owl:onProperty core:hasSetting ;
+            owl:someValuesFrom core:Settings ],
+        prov:SoftwareAgent ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware> .
 
-:SamplePreparation a owl:Class ;
-    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more research users, performed on (or between) one or more precursor(s) or sample(s) to produce one or more samples and/or to make the sample(s) fit to perform a measurement under controlled conditions described by settings"@en ;
+:ProcessingAndTreatment a owl:Class ;
+    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Precursor ],
-        [ a owl:Restriction ;
-            owl:onProperty :uses ;
-            owl:someValuesFrom :Consumable ],
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
         [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
             owl:someValuesFrom core:Instrument ],
         [ a owl:Restriction ;
+            owl:onProperty core:hasDataAcquisition ;
+            owl:someValuesFrom core:DataAcquisition ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom core:System ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Sample ],
+            owl:someValuesFrom core:System ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty :uses ;
+            owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom core:ResearchUser ],
         <https://w3id.org/pmd/co/Process> ;
-    core:MDMCNEPGlossaryDefinition "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, performed on (or between) one or more Precursor(s) or Sample(s) to produce one or more Samples and/or to make the Sample(s) fit to perform a Measurement under controlled conditions described by Settings. Sample Preparation may require the use of Equipment, Consumable(s) and Instrument(s). A Measurement may also be performed during the Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Sample(s). The output of Sample Preparation is one or more Samples."@en .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> .
+
+:SampleHolder a owl:Class ;
+    rdfs:comment "Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :isHeldBy ;
+            owl:someValuesFrom :SampleCarrier ],
+        core:Equipment ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder> .
 
 :isCarriedBy a owl:ObjectProperty ;
     rdfs:label "is carried by"@en ;
@@ -277,13 +295,10 @@ core:hasDataAcquisition a owl:ObjectProperty .
     rdfs:label "is held by"@en ;
     rdfs:comment "isHeldBy is the inverse property of holds."@en .
 
-:isSampleComponentOf a owl:ObjectProperty ;
-    rdfs:label "is sample component of"@en ;
-    rdfs:comment "isSampleComponentOf is the inverse property of hasSampleComponent."@en ;
-    rdfs:subPropertyOf owl:topObjectProperty .
-
-<https://w3id.org/pmd/co/DigitalEntity> a owl:Class ;
-    rdfs:subClassOf prov:Entity .
+:uses a owl:ObjectProperty ;
+    rdfs:comment "uses is an object property relating the thing with a consumable." ;
+    rdfs:range :Consumable ;
+    rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> .
 
 <https://w3id.org/pmd/co/characteristic> a owl:ObjectProperty ;
     rdfs:domain [ a owl:Class ;
@@ -291,88 +306,54 @@ core:hasDataAcquisition a owl:ObjectProperty .
     rdfs:range <https://w3id.org/pmd/co/ValueObject> ;
     owl:inverseOf <https://w3id.org/pmd/co/characteristicOf> .
 
-prov:Agent a owl:Class .
-
-prov:wasAssociatedWith a owl:ObjectProperty .
+prov:atLocation a owl:ObjectProperty .
 
 core:Instrument a owl:Class ;
-    rdfs:comment "Instrument is identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data."@en ;
-    rdfs:subClassOf core:Equipment ;
-    core:MDMCNEPGlossaryDefinition "Identifiable piece of equipment used by one or more research users to perform a measurement and to generate raw data. Instrument is located in a laboratory hosted by an institution. Instrument may also stand for a software, a software module and/or a particular configuration of it, used to perform a simulation run (computational measurement)."@en .
-
-core:ResearchUser a owl:Class ;
-    rdfs:comment "Research user is an agent or person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies."@en ;
-    rdfs:subClassOf prov:Agent ;
-    core:MDMCNEPGlossaryDefinition "Person, usually member of a project, who conducts any part of the experiment(s), or performs any of the steps of the data analysis lifecycle during the course of one or more studies, in order to collect and/or analyse research data, or is interested in reusing research data collected by a third party (e.g., reference data) with the final aim to extract insights that support the answer to some specific research question (i.e., conclusions). Research users may be assigned with a role (e.g., principal investigator, instrument scientist, project member)."@en .
-
-:Fabrication a owl:Class ;
-    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty core:hasDataAcquisition ;
-            owl:someValuesFrom core:DataAcquisition ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Instrument ],
-        [ a owl:Restriction ;
+            owl:onProperty :hasAcquisitionSoftware ;
+            owl:someValuesFrom :AcquisitionSoftware ] .
+
+core:usesEquipment a owl:ObjectProperty .
+
+:Consumable a owl:Class ;
+    rdfs:comment "Auxiliary entity, normally acquired from third-party manufacturers, used during Processing and Treatment or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of. Consumables are not part of the Instrument. Examples of Consumable are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/consumable> ;
+    rdfs:subClassOf <https://w3id.org/pmd/co/Object> ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/consumable> .
+
+:Measurement a owl:Class ;
+    rdfs:comment "Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> ;
+    rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty prov:atLocation ;
             owl:someValuesFrom :Laboratory ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Input ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom :Precursor ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAssociatedWith ;
-            owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :uses ;
             owl:someValuesFrom :Consumable ],
-        <https://w3id.org/pmd/co/Process> ;
-    core:MDMCNEPGlossaryDefinition "Set of actions (physical changes or chemical reactions) carried out by a commercial enterprise, one or more Research Users or a third party, and performed on one or more Inputs to produce one or more Precursors under controlled conditions described by Settings. Fabrication may require the use of Equipment, Consumable(s) and Instrument(s). A Data Acquisition may be performed during the Fabrication, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s). The output of Fabrication is one or more Precursors."@en .
-
-:Measurement a owl:Class ;
-    rdfs:comment "Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/output> ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
         [ a owl:Restriction ;
             owl:onClass core:Instrument ;
             owl:onProperty core:usesEquipment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty :uses ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/input> ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/input> ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( core:Material :Sample ) ] ],
         core:DataAcquisition ;
-    core:MDMCNEPGlossaryDefinition "Experimental Data Acquisition, typically performed on a Sample using an experimental Technique. It may also be performed during Fabrication or Sample Preparation, e.g., to characterize the intermediate stages and/or the final resulting Precursor(s) or Sample(s), respectively. A Measurement may require the use of Consumables."@en .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> .
 
-:SampleComponent a owl:Class ;
-    rdfs:comment "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isSampleComponentOf ;
-            owl:someValuesFrom :Sample ],
-        core:System ;
-    core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which constitutes a part of a Sample. It may include, e.g., one or more substrates, layers, masks, embedding or filler or evaporation materials, coatings, conducting powders and/or molecules."@en .
+<https://w3id.org/pmd/co/input> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> ;
+    owl:inverseOf <https://w3id.org/pmd/co/inputOf> .
 
-:uses a owl:ObjectProperty ;
-    rdfs:comment "uses is an object property relating the thing with a consumable." ;
-    rdfs:range :Consumable ;
-    rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> .
+<https://w3id.org/pmd/co/output> a owl:ObjectProperty ;
+    rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> ;
+    owl:inverseOf <https://w3id.org/pmd/co/outputOf> .
 
 <https://w3id.org/pmd/co/participant> a owl:ObjectProperty ;
     rdfs:domain <https://w3id.org/pmd/co/Process> ;
@@ -380,30 +361,16 @@ core:ResearchUser a owl:Class ;
             owl:unionOf ( <https://w3id.org/pmd/co/DigitalEntity> <https://w3id.org/pmd/co/Object> <https://w3id.org/pmd/co/ValueObject> ) ] ;
     owl:inverseOf <https://w3id.org/pmd/co/participantOf> .
 
-prov:atLocation a owl:ObjectProperty .
+prov:Entity a owl:Class .
 
-core:System a owl:Class ;
-    rdfs:subClassOf <https://w3id.org/pmd/co/Object> .
-
-:Consumable a owl:Class ;
-    rdfs:comment "Auxiliary entity used during fabrication, sample preparation or measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."@en ;
-    rdfs:subClassOf <https://w3id.org/pmd/co/Object> ;
-    core:MDMCNEPGlossaryDefinition "Auxiliary entity used during Fabrication, Sample Preparation or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of, is necessary to the process itself and normally acquired from third party manufacturers. Examples are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape."@en .
-
-:Precursor a owl:Class ;
-    rdfs:comment "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."@en ;
+core:Equipment a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasGeneratedBy ;
-            owl:someValuesFrom :Fabrication ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom :Precursor ],
-        core:System,
-        :Input ;
-    core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which is formed or manufactured during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings and/or molecules. A single Precursor might itself become the only Sample Component of a Sample in case it undergoes a Measurement."@en .
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ] .
 
 :SampleCarrier a owl:Class ;
-    rdfs:comment "Sample carrier is a piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment."@en ;
+    rdfs:comment "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :holds ;
             owl:someValuesFrom :SampleHolder ],
@@ -411,58 +378,31 @@ core:System a owl:Class ;
             owl:onProperty :carries ;
             owl:someValuesFrom :Sample ],
         core:Equipment ;
-    core:MDMCNEPGlossaryDefinition "A piece of equipment used for carrying one or more samples and/or one or more sample holders, helpful, e.g., for referencing, handling or height adjustment. Sample carrier may be, e.g., a naked wafer, a glass slide or an individually designed metal frame."@en .
-
-<https://w3id.org/pmd/co/output> a owl:ObjectProperty ;
-    rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> ;
-    owl:inverseOf <https://w3id.org/pmd/co/outputOf> .
-
-prov:Entity a owl:Class .
-
-core:usesEquipment a owl:ObjectProperty .
-
-:Precursor a owl:Class ;
-    rdfs:comment "Physical System (typically a piece of material) which is formed or manufactured during the fabrication and is used during the sample preparation to produce a sample."@en ;
-    rdfs:subClassOf :Input ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom :Precursor ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasGeneratedBy ;
-            owl:someValuesFrom :Fabrication ],
-        core:System ;
-    core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) which is formed or manufactured during the Fabrication and is used during the Sample Preparation to produce a Sample. It may include one or more substrates, layers, masks, evaporation materials, coatings and/or molecules. A single Precursor might itself become the only Sample Component of a Sample in case it undergoes a Measurement."@en .
-<https://w3id.org/pmd/co/ValueObject> a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
-<https://w3id.org/pmd/co/input> a owl:ObjectProperty ;
-    rdfs:subPropertyOf <https://w3id.org/pmd/co/participant> ;
-    owl:inverseOf <https://w3id.org/pmd/co/inputOf> .
-
-core:Equipment a owl:Class ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
-        prov:Agent .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> .
 
 :Laboratory a owl:Class ;
-    rdfs:comment "Laboratory is place (could also be virtual) hosted by an institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed."@en ;
+    rdfs:comment "Physical or virtual place hosted by an Institution, where the Equipment (including Instruments), is located and can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory> ;
     rdfs:subClassOf prov:Location ;
-    core:MDMCNEPGlossaryDefinition "Place (could also be virtual) hosted by an Institution, where one or more Instruments, as well as the equipment, are located and the measurement is performed. Laboratory may be the hardware and/or the software platform and/or the services which allow to order and manage computational experiments. In this case, the software platform (virtual Laboratory) serves the purpose of managing software modules (virtual Instruments)."@en .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory> .
 
 :Sample a owl:Class ;
-    rdfs:comment "Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement."@en ;
+    rdfs:comment "Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasDerivedFrom ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasSampleComponent ;
-            owl:someValuesFrom :SampleComponent ],
+            owl:onProperty :hasMaterial ;
+            owl:someValuesFrom core:Material ],
         [ a owl:Restriction ;
             owl:onProperty :isCarriedBy ;
             owl:someValuesFrom :SampleCarrier ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasDerivedFrom ;
+            owl:someValuesFrom :Sample ],
         core:System ;
-    core:MDMCNEPGlossaryDefinition "Physical System (typically a piece of material) composed of one or more Sample Components, exposed to the Instrument during a Measurement, typically after a Sample Preparation. Sample may be held by a Sample Holder and/or carried by a Sample Carrier during the Measurement."@en .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> .
+
+<https://w3id.org/pmd/co/ValueObject> a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 <https://w3id.org/pmd/co/Object> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -472,19 +412,19 @@ core:Equipment a owl:Class ;
 
 <https://w3id.org/pmd/co/Process> a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
-        [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
-            owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/subordinateProcess> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/nextProcess> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Process> ],
         [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom <https://w3id.org/pmd/co/Object> ],
+        [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/characteristic> ;
+            owl:someValuesFrom <https://w3id.org/pmd/co/ValueObject> ],
         prov:Activity .
 
