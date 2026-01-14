@@ -1,0 +1,140 @@
+@prefix : <https://purls.helmholtz-metadaten.de/prima/dal#> .
+@prefix core: <https://purls.helmholtz-metadaten.de/prima/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ro: <http://purl.obolibrary.org/obo/RO_> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+ro:0000053 a owl:ObjectProperty ;
+    rdfs:label "has participant"@en .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:created a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+skos:exactMatch a owl:AnnotationProperty .
+
+core:DataAnalysis a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> ] .
+
+<https://purls.helmholtz-metadaten.de/prima/dal> a owl:Ontology ;
+    dcterms:contributor "Elda Osmenaj"@en,
+        "Mirco Panighel"@en ;
+    dcterms:created "2025-01-27"@en ;
+    dcterms:creator "Ahmad Zainul Ihsan"@en,
+        "Mehrdad Jalali"@en,
+        "Rossella Aversa"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:title "PRIMA Ontology - Data Analysis Lifecycle Module"@en ;
+    vann:preferredNamespacePrefix "PRIMA"@en ;
+    rdfs:comment "This is the data analysis lifecycle module of the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology)."@en ;
+    rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
+    owl:imports <https://purls.helmholtz-metadaten.de/prima/core?version=3.0>,
+        pmd: ;
+    owl:priorVersion <https://purls.helmholtz-metadaten.de/prima/dal?version=2.0> ;
+    owl:versionInfo "3.0"@en .
+
+:DataProcessing a owl:Class ;
+    rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Reference Data or Raw Data, to prepare it for one or more further processes, e.g., Model Preparation, computational Data Acquisition, and/or Data Analysis. Data Processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion and/or compression of Research Data, as well as calibration, normalization, statistical data reduction, background subtraction and/or correction of artifacts. The output of Data Processing is Processed Data."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesResearchSoftware ;
+            owl:someValuesFrom core:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom core:ResearchUser ],
+        pmd:PMD_0000583 ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> .
+
+:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
+    rdfs:subPropertyOf skos:definition .
+
+ro:0002211 a owl:ObjectProperty ;
+    rdfs:label "has agent"@en .
+
+skos:definition a owl:AnnotationProperty .
+
+core:ResearchSoftware a owl:Class .
+
+core:ResearchUser a owl:Class .
+
+core:usesResearchSoftware a owl:ObjectProperty ;
+    owl:inverseOf :isUsedByResearchSoftware .
+
+:isUsedByResearchSoftware a owl:ObjectProperty ;
+    rdfs:label "is used by research software"@en ;
+    rdfs:comment "isUsedByResearchSoftware is the inverse of usesResearchSoftware, representing the relationship from research software to the processes that use it"@en .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#AnalyzedData> a owl:Class ;
+    rdfs:comment "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
+        core:ResearchData ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/analyzeddata> .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#RawData> a owl:Class ;
+    rdfs:comment "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata> ;
+    rdfs:subClassOf core:ResearchData ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata> .
+
+ro:0002234 a owl:ObjectProperty ;
+    rdfs:label "has output"@en .
+
+dcterms:references a owl:AnnotationProperty .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> a owl:Class ;
+    rdfs:comment "Specific type of Research Data, primary output of any kind of Data Processing performed on Research Data (typically, but not limited to, Raw Data or Reference Data). Processed Data is usually an intermediate result, to be used as input of one or more further processes, e.g., Model Preparation or Data Analysis."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty dcterms:references ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
+        core:ResearchData ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processeddata> .
+
+<https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> a owl:Class ;
+    rdfs:comment "Any Research Data from prior Studies or from literature, which is used in the course of a Study to, e.g., define a Model, compare Analyzed Data, and/or validate findings and results. Reference Data is typically retrieved from publicly accessible Data Repositories. Depending on the research context, Reference Data usually undergo some kind of Data Processing before being used."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata> ;
+    rdfs:subClassOf core:ResearchData ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/referencedata> .
+
+ro:0002233 a owl:ObjectProperty ;
+    rdfs:label "has input"@en .
+
+core:ResearchData a owl:Class .
+

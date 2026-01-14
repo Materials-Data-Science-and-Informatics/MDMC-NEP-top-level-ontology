@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purls.helmholtz-metadaten.de/prima/complete#"
+     xml:base="https://purls.helmholtz-metadaten.de/prima/complete"
+     xmlns:dal="https://purls.helmholtz-metadaten.de/prima/dal#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="https://purls.helmholtz-metadaten.de/prima/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:dataset="https://purls.helmholtz-metadaten.de/prima/dataset#"
+     xmlns:complete="https://purls.helmholtz-metadaten.de/prima/complete#"
+     xmlns:experiment="https://purls.helmholtz-metadaten.de/prima/experiment#"
+     xmlns:computational="https://purls.helmholtz-metadaten.de/prima/computational#">
+    <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/complete">
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/core?version=3.0"/>
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/dal?version=3.0"/>
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset?version=3.0"/>
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment?version=3.0"/>
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/computational?version=3.0"/>
+        <terms:contributor xml:lang="en">Elda Osmenaj</terms:contributor>
+        <terms:contributor xml:lang="en">Mirco Panighel</terms:contributor>
+        <terms:created xml:lang="en">2025-01-27</terms:created>
+        <terms:creator xml:lang="en">Ahmad Zainul Ihsan</terms:creator>
+        <terms:creator xml:lang="en">Mehrdad Jalali</terms:creator>
+        <terms:creator xml:lang="en">Rossella Aversa</terms:creator>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <terms:title xml:lang="en">PRIMA Ontology - Complete</terms:title>
+        <vann:preferredNamespacePrefix xml:lang="en">PRIMA</vann:preferredNamespacePrefix>
+        <rdfs:comment xml:lang="en">This is the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology). This complete module imports all PRIMA modules (core, data-analysis-lifecycle, dataset, experiment, and computational) in their v3.0 versions.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology"/>
+        <owl:versionInfo xml:lang="en">3.0</owl:versionInfo>
+        <owl:priorVersion rdf:resource="https://purls.helmholtz-metadaten.de/prima/complete?version=2.0"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    
+    <!-- Note: Temporal properties from PROV-O (startedAtTime, endedAtTime) are kept for compatibility
+         but may need to be replaced with BFO temporal properties in future versions -->
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#endedAtTime"/>
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#startedAtTime"/>
+
+</rdf:RDF>

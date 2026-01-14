@@ -9,7 +9,7 @@ Usage:
     If module_name is provided, only that module will be regenerated.
     If no module_name is provided, all modules will be regenerated.
     
-    Available modules: core, dal, dataset, experiment, computational, complete
+    Available modules: core, core_v3, dal, dal_v3, dataset, dataset_v3, experiment, experiment_v3, computational, computational_v3, complete, complete_v3
 """
 
 import os
@@ -38,8 +38,20 @@ MODULES = {
         "ttl_file": "prima-data-analysis-lifecycle.ttl",
         "jsonld_file": "prima-data-analysis-lifecycle.jsonld"
     },
+    "dal_v3": {
+        "path": "PRIMA/data-analysis-lifecycle/ver_3_0",
+        "owl_file": "prima-data-analysis-lifecycle.owl",
+        "ttl_file": "prima-data-analysis-lifecycle.ttl",
+        "jsonld_file": "prima-data-analysis-lifecycle.jsonld"
+    },
     "dataset": {
         "path": "PRIMA/dataset/ver_2_0",
+        "owl_file": "prima-dataset.owl",
+        "ttl_file": "prima-dataset.ttl",
+        "jsonld_file": "prima-dataset.jsonld"
+    },
+    "dataset_v3": {
+        "path": "PRIMA/dataset/ver_3_0",
         "owl_file": "prima-dataset.owl",
         "ttl_file": "prima-dataset.ttl",
         "jsonld_file": "prima-dataset.jsonld"
@@ -50,14 +62,32 @@ MODULES = {
         "ttl_file": "prima-experiment.ttl",
         "jsonld_file": "prima-experiment.jsonld"
     },
+    "experiment_v3": {
+        "path": "PRIMA/experiment/ver_3_0",
+        "owl_file": "prima-experiment.owl",
+        "ttl_file": "prima-experiment.ttl",
+        "jsonld_file": "prima-experiment.jsonld"
+    },
     "computational": {
         "path": "PRIMA/computational/ver_2_0",
         "owl_file": "prima-computational.owl",
         "ttl_file": "prima-computational.ttl",
         "jsonld_file": "prima-computational.jsonld"
     },
+    "computational_v3": {
+        "path": "PRIMA/computational/ver_3_0",
+        "owl_file": "prima-computational.owl",
+        "ttl_file": "prima-computational.ttl",
+        "jsonld_file": "prima-computational.jsonld"
+    },
     "complete": {
         "path": "PRIMA/complete/ver_2_0",
+        "owl_file": "prima-complete.owl",
+        "ttl_file": "prima-complete.ttl",
+        "jsonld_file": "prima-complete.jsonld"
+    },
+    "complete_v3": {
+        "path": "PRIMA/complete/ver_3_0",
         "owl_file": "prima-complete.owl",
         "ttl_file": "prima-complete.ttl",
         "jsonld_file": "prima-complete.jsonld"
