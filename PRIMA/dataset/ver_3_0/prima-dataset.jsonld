@@ -6,6 +6,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
+        "@language": "en",
         "@value": "Operational information system which allows Research Users to keep their Research Data, Datasets, and related documents (e.g., notes or drafts of Scientific Publications) synchronized and up to date and to share them with other Research Users, who are typically members of the same Project. The access rights granted to the resources may be determined by the User Role. The system is intended for the long-tail, unstructured, and still volatile data, which may change and is still subject to active research. Therefore, a Data Collaboration Platform offers versioning of all ingested files but does not usually assign them Persistent Identifiers. A Data Collaboration Platform may be associated with an Institution or a group of them, or may be run by a third party."
       }
     ],
@@ -16,7 +17,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:N41590fc5d6ce4ce08662ef7a3cdad746"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      },
+      {
+        "@id": "_:N073ba0f986284643ae2bf5cccf5e4031"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -26,7 +30,7 @@
     ]
   },
   {
-    "@id": "_:N41590fc5d6ce4ce08662ef7a3cdad746",
+    "@id": "_:N073ba0f986284643ae2bf5cccf5e4031",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -42,12 +46,22 @@
     ]
   },
   {
+    "@id": "_:N42e1e68000a64a2cbd603d0bf19f27d7",
+    "http://www.w3.org/2002/07/owl#minCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
     "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
+        "@language": "en",
         "@value": "Collection of scientifically related (depending on the research context) Research Data, along with their respective descriptive Metadata, formed after some kind of Data Curation. Datasets are typically stored in a Data Collaboration Platform and/or in a Data Repository. A Dataset may consist of other Datasets. The components of a Dataset remain individually identifiable."
       }
     ],
@@ -58,25 +72,19 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://www.w3.org/ns/prov#Collection"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000027"
       },
       {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+        "@id": "_:N8115faf3052c4b0e959207518b51ee3a"
       },
       {
-        "@id": "_:N29530b84c3054690b2599e0c3d7c2a78"
+        "@id": "_:N548cac8a1ee74010a771224e6a7b3686"
       },
       {
-        "@id": "_:Nab093b581e854651af0565276389c8c0"
+        "@id": "_:Ndaf5d02bd32c444d8dd2a30ad7e01ee4"
       },
       {
-        "@id": "_:N0dfd06c0e2c44586a0826239a6b6ef5e"
-      },
-      {
-        "@id": "_:Nb758781446f54adcb3b98743523d3794"
-      },
-      {
-        "@id": "_:Nfb3713fa2cd44da4878a63f447fded1f"
+        "@id": "_:N88bff39cba184ec8bc610ea659a673ac"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -86,39 +94,41 @@
     ]
   },
   {
-    "@id": "_:N29530b84c3054690b2599e0c3d7c2a78",
+    "@id": "_:N8115faf3052c4b0e959207518b51ee3a",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://www.w3.org/ns/prov#hadMember"
+        "@id": "http://purl.org/dc/terms/hasPart"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+        "@id": "_:N521c1dcfe3894276ae7641ac715ef39e"
       }
     ]
   },
   {
-    "@id": "_:Nab093b581e854651af0565276389c8c0",
+    "@id": "_:N521c1dcfe3894276ae7641ac715ef39e",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
+    "http://www.w3.org/2002/07/owl#unionOf": [
       {
-        "@id": "http://www.w3.org/ns/prov#hadMember"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+        "@list": [
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+          },
+          {
+            "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+          }
+        ]
       }
     ]
   },
   {
-    "@id": "_:N0dfd06c0e2c44586a0826239a6b6ef5e",
+    "@id": "_:N548cac8a1ee74010a771224e6a7b3686",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -134,7 +144,7 @@
     ]
   },
   {
-    "@id": "_:Nb758781446f54adcb3b98743523d3794",
+    "@id": "_:Ndaf5d02bd32c444d8dd2a30ad7e01ee4",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -150,7 +160,7 @@
     ]
   },
   {
-    "@id": "_:Nfb3713fa2cd44da4878a63f447fded1f",
+    "@id": "_:N88bff39cba184ec8bc610ea659a673ac",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -216,7 +226,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:N258bbdda405f4780bab7b320a65abc3d"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
+      },
+      {
+        "@id": "_:N7d09fbf08c6f437a81799bb708dca75f"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -226,7 +239,7 @@
     ]
   },
   {
-    "@id": "_:N258bbdda405f4780bab7b320a65abc3d",
+    "@id": "_:N7d09fbf08c6f437a81799bb708dca75f",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -242,33 +255,15 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#endedAtTime",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
     "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#hadMember",
+    "@id": "http://www.w3.org/2004/02/skos/core#closeMatch",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Agent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#Entity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -279,12 +274,12 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "hasMetadata represents the relationship between dataset or publication data or reasearch data to metadata"
+        "@value": "hasMetadata represents the relationship between dataset or publication data or research data to metadata"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:N1352719763ec44dcb9643c16d370ed83"
+        "@id": "_:N60827555727046eea6a3bc1352793d86"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -300,7 +295,7 @@
     ]
   },
   {
-    "@id": "_:N1352719763ec44dcb9643c16d370ed83",
+    "@id": "_:N60827555727046eea6a3bc1352793d86",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -321,12 +316,6 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#startedAtTime",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ]
-  },
-  {
     "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PublicationData",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -344,19 +333,16 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000027"
       },
       {
-        "@id": "_:Nce21d83e82874b458b2baa3ef729bbb9"
+        "@id": "_:Nb8693967c48d482d96f73403bbc9f82e"
       },
       {
-        "@id": "_:Ne58dd3d8e17b49e89fbd6159390e4d21"
+        "@id": "_:Nb3b026921b6d4da4851426d53fea35e3"
       },
       {
-        "@id": "_:N20273f63fd2045c48b6f1594baae8544"
-      },
-      {
-        "@id": "_:Ned5784ca1b8345c78d57e9edd53b2ca0"
+        "@id": "_:N48578d4eed394cacb9c2c0f72fee1250"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -366,7 +352,7 @@
     ]
   },
   {
-    "@id": "_:Nce21d83e82874b458b2baa3ef729bbb9",
+    "@id": "_:Nb8693967c48d482d96f73403bbc9f82e",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -382,23 +368,7 @@
     ]
   },
   {
-    "@id": "_:Ne58dd3d8e17b49e89fbd6159390e4d21",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "_:N20273f63fd2045c48b6f1594baae8544",
+    "@id": "_:Nb3b026921b6d4da4851426d53fea35e3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -414,7 +384,7 @@
     ]
   },
   {
-    "@id": "_:Ned5784ca1b8345c78d57e9edd53b2ca0",
+    "@id": "_:N48578d4eed394cacb9c2c0f72fee1250",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -513,13 +483,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000027"
       },
       {
-        "@id": "_:Nd3d50afbf2ca4289973e6b448accd6c7"
+        "@id": "_:Nab9f12445ef64667b98aca36be7eaf1d"
       },
       {
-        "@id": "_:N761a6658bebe491fbf3b40a956ac58e6"
+        "@id": "_:Nf3c4ea42f6ba4f3f98c496110ba134cd"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -529,7 +499,7 @@
     ]
   },
   {
-    "@id": "_:Nd3d50afbf2ca4289973e6b448accd6c7",
+    "@id": "_:Nab9f12445ef64667b98aca36be7eaf1d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -545,7 +515,7 @@
     ]
   },
   {
-    "@id": "_:N761a6658bebe491fbf3b40a956ac58e6",
+    "@id": "_:Nf3c4ea42f6ba4f3f98c496110ba134cd",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -561,9 +531,36 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#identifierValue",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The string value of the persistent identifier. Examples: \"10.1234/example\" (DOI), \"ark:/12345/abc\" (ARK), \"0000-0001-2345-6789\" (ORCID), \"https://hdl.handle.net/12345/abc\" (Handle)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "identifier value"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
     ]
   },
   {
@@ -584,10 +581,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:Nb2b6203654544af69c982320a44789d8"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
       },
       {
-        "@id": "_:N46fdd7e5e8944eb18cf9f2e597a7c665"
+        "@id": "_:Nde51294fbabc4218b8aaa0630356fd1d"
+      },
+      {
+        "@id": "_:N3415c7e82fc24d2aac1a260424e769ec"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -597,7 +597,7 @@
     ]
   },
   {
-    "@id": "_:Nb2b6203654544af69c982320a44789d8",
+    "@id": "_:Nde51294fbabc4218b8aaa0630356fd1d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -613,7 +613,7 @@
     ]
   },
   {
-    "@id": "_:N46fdd7e5e8944eb18cf9f2e597a7c665",
+    "@id": "_:N3415c7e82fc24d2aac1a260424e769ec",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -640,77 +640,6 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Data collected, created, or examined by one or more Research Users to be analyzed or considered as a basis for reasoning, discussion or calculation in a research context, with the purpose of generating, verifying, and/or validating original scientific claims that support the answer to some specific research question. According to this definition, Raw Data, Processed Data, Analyzed Data and Reference Data are particular types of Research Data. Research Data is typically in the form of one or more data files, but it may potentially be a data stream or any other form of data which is relevant in a particular data management context. Research Data may be described by Metadata and may be stored in a Data Collaboration Platform and/or in a Data Repository. Research Data may undergo some kind of Data Curation and be aggregated into a Dataset."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/pmd/co/DigitalEntity"
-      },
-      {
-        "@id": "_:N94c1216521554e768657608e290483c4"
-      },
-      {
-        "@id": "_:N566fe322bd1f4d6891beaf34e1613e0f"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchdata"
-      }
-    ]
-  },
-  {
-    "@id": "_:N94c1216521554e768657608e290483c4",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasAttributedTo"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"
-      }
-    ]
-  },
-  {
-    "@id": "_:N566fe322bd1f4d6891beaf34e1613e0f",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#hasMetadata"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Metadata"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
     "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#stores",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -723,7 +652,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "_:N45ec03d6aceb44ca83b65c910b4ebaaf"
+        "@id": "_:N0fafb6c8868c44d4a889d181546acc7d"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -734,17 +663,12 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "_:Nea9c968418b142e0a66df3d008d8cb0c"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn"
+        "@id": "_:N45d3c957b01441fea8308ea5d1103c3d"
       }
     ]
   },
   {
-    "@id": "_:N45ec03d6aceb44ca83b65c910b4ebaaf",
+    "@id": "_:N0fafb6c8868c44d4a889d181546acc7d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -765,7 +689,7 @@
     ]
   },
   {
-    "@id": "_:Nea9c968418b142e0a66df3d008d8cb0c",
+    "@id": "_:N45d3c957b01441fea8308ea5d1103c3d",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -809,10 +733,7 @@
         "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
       },
       {
-        "@id": "_:N57dc2ac19b8f42959b61657b2b7007b4"
-      },
-      {
-        "@id": "_:N6deddae6f0f04eb7961e7032c0a2ba1b"
+        "@id": "_:N92228227093948ac99ffc0e000d9a740"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -822,7 +743,7 @@
     ]
   },
   {
-    "@id": "_:N57dc2ac19b8f42959b61657b2b7007b4",
+    "@id": "_:N92228227093948ac99ffc0e000d9a740",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -834,22 +755,6 @@
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
         "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N6deddae6f0f04eb7961e7032c0a2ba1b",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData"
       }
     ]
   },
@@ -871,7 +776,7 @@
     "http://purl.org/dc/terms/created": [
       {
         "@language": "en",
-        "@value": "2024-01-26"
+        "@value": "2025-01-27"
       }
     ],
     "http://purl.org/dc/terms/creator": [
@@ -908,7 +813,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology"
+        "@value": "This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology)."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
@@ -918,70 +823,51 @@
     ],
     "http://www.w3.org/2002/07/owl#imports": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core?version=3.0"
+      },
+      {
+        "@id": "https://w3id.org/pmd/co/"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#priorVersion": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset?version=2.0"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
         "@language": "en",
-        "@value": "2.0"
+        "@value": "3.0"
       }
     ]
   },
   {
-    "@id": "https://w3id.org/pmd/co/DigitalEntity",
+    "@id": "http://purl.org/dc/terms/hasPart",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Entity"
-      }
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchUser",
+    "@id": "http://purl.obolibrary.org/obo/RO_0002234",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/ns/prov#Agent"
-      },
-      {
-        "@id": "_:Nc02d0c1fead547688d10c5201b54d02f"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser"
+        "@value": "has output"
       }
     ]
   },
   {
-    "@id": "_:Nc02d0c1fead547688d10c5201b54d02f",
+    "@id": "http://purl.obolibrary.org/obo/RO_0002233",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#performsAgentRole"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#AgentRole"
+        "@language": "en",
+        "@value": "has input"
       }
     ]
   },
@@ -1037,9 +923,54 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "@id": "http://purl.obolibrary.org/obo/RO_0002211",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has agent"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#identifierScheme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The scheme or type of the persistent identifier. Common values include: \"DOI\", \"ARK\", \"Handle\", \"PURL\", \"ORCID\", \"ROR\", \"ISNI\", \"IGSN\", \"LSID\", \"URN\", \"URI\"."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#PersistentIdentifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "identifier scheme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
     ]
   },
   {
@@ -1077,6 +1008,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
+        "@language": "en",
         "@value": "Specific type of Research Data, primary output of any kind of Data Analysis performed on Research Data, typically on Processed Data."
       }
     ],
@@ -1090,13 +1022,7 @@
         "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
       },
       {
-        "@id": "_:Na3a455097bb04aa6a078dcca38714119"
-      },
-      {
-        "@id": "_:N880689a1589e4719af7d78cc4acffe33"
-      },
-      {
-        "@id": "_:N9df3605a660c42c2b526fa96be32358f"
+        "@id": "_:N75ea52eb39924161b1a4fc5eb93f4a17"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -1106,7 +1032,7 @@
     ]
   },
   {
-    "@id": "_:Na3a455097bb04aa6a078dcca38714119",
+    "@id": "_:N75ea52eb39924161b1a4fc5eb93f4a17",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1122,38 +1048,6 @@
     ]
   },
   {
-    "@id": "_:N880689a1589e4719af7d78cc4acffe33",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N9df3605a660c42c2b526fa96be32358f",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData"
-      }
-    ]
-  },
-  {
     "@id": "http://purl.org/dc/terms/description",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
@@ -1162,7 +1056,13 @@
   {
     "@id": "http://purl.org/dc/terms/references",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2002/07/owl#minCardinality",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -1189,19 +1089,25 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/pmd/co/Process"
+        "@id": "http://purl.obolibrary.org/obo/OBI_0000011"
       },
       {
-        "@id": "_:Na3de8ff6e9c04afa868f81ecda61b0c9"
+        "@id": "_:N5957f270a3de48e487256456bf958737"
       },
       {
-        "@id": "_:Ndb671548cc5847fb8e3eb1f8182a61a5"
+        "@id": "_:Nc9ddafc0ba714fb0a11d4796b500f762"
       },
       {
-        "@id": "_:N9c4adbc3a01b4d43a3d0a2b633a38e1a"
+        "@id": "_:N3aaeb794921a4a7799064e2e05c2603d"
       },
       {
-        "@id": "_:N46013fef224047faa614113b0a738005"
+        "@id": "_:N4d6960b0febb4c47b523a9752e718c23"
+      },
+      {
+        "@id": "_:Ncf32502ae0f24c7497c402c52de10651"
+      },
+      {
+        "@id": "_:N3f624eff524d4f968ae876fc9a0ced4f"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
@@ -1216,13 +1122,13 @@
     ]
   },
   {
-    "@id": "_:Na3de8ff6e9c04afa868f81ecda61b0c9",
+    "@id": "_:N5957f270a3de48e487256456bf958737",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+        "@id": "http://purl.obolibrary.org/obo/RO_0002211"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
@@ -1232,7 +1138,71 @@
     ]
   },
   {
-    "@id": "_:Ndb671548cc5847fb8e3eb1f8182a61a5",
+    "@id": "_:Nc9ddafc0ba714fb0a11d4796b500f762",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/RO_0002233"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "_:N3aaeb794921a4a7799064e2e05c2603d",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/RO_0002233"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4d6960b0febb4c47b523a9752e718c23",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/RO_0002234"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncf32502ae0f24c7497c402c52de10651",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/RO_0002234"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#Dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:N3f624eff524d4f968ae876fc9a0ced4f",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1244,38 +1214,6 @@
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
         "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
-      }
-    ]
-  },
-  {
-    "@id": "_:N9c4adbc3a01b4d43a3d0a2b633a38e1a",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/input"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
-      }
-    ]
-  },
-  {
-    "@id": "_:N46013fef224047faa614113b0a738005",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/pmd/co/output"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchData"
       }
     ]
   },
@@ -1303,7 +1241,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://www.w3.org/ns/prov#Entity"
+        "@id": "http://purl.obolibrary.org/obo/IAO_0000027"
+      },
+      {
+        "@id": "_:N4af0b7ffc81b441397f4e60faf098455"
+      },
+      {
+        "@id": "_:N6088358f2c534791ab5c5aeaa69819c4"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
@@ -1314,6 +1258,50 @@
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
         "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4af0b7ffc81b441397f4e60faf098455",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#minQualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#identifierScheme"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6088358f2c534791ab5c5aeaa69819c4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#minQualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#identifierValue"
       }
     ]
   },
@@ -1347,13 +1335,14 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/prov#Collection",
+    "@id": "http://purl.obolibrary.org/obo/RO_0000053",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@id": "http://www.w3.org/ns/prov#Entity"
+        "@language": "en",
+        "@value": "has participant"
       }
     ]
   },

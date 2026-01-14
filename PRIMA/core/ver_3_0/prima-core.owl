@@ -12,8 +12,9 @@
      xmlns:pmd="https://w3id.org/pmd/co/"
      xmlns:bfo="http://purl.obolibrary.org/obo/BFO_"
      xmlns:iao="http://purl.obolibrary.org/obo/IAO_"
-     xmlns:ro="http://purl.obolibrary.org/obo/RO_"
-     xmlns:obi="http://purl.obolibrary.org/obo/OBI_">
+    xmlns:ro="http://purl.obolibrary.org/obo/RO_"
+    xmlns:obi="http://purl.obolibrary.org/obo/OBI_"
+    xmlns:prov="http://www.w3.org/ns/prov#">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/core">
         <owl:imports rdf:resource="https://w3id.org/pmd/co/"/>
         <dcterms:contributor xml:lang="en">Elda Osmenaj</dcterms:contributor>
@@ -189,6 +190,8 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002211">
         <rdfs:label xml:lang="en">has agent</rdfs:label>
     </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002224">
         <rdfs:label xml:lang="en">realizes</rdfs:label>
@@ -389,7 +392,7 @@
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000311"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002211"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -406,7 +409,7 @@
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002211"/>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser"/>
             </owl:Restriction>
         </rdfs:subClassOf>

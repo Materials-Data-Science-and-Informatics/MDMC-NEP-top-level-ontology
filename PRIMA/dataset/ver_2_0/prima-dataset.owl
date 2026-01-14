@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rdf:RDF xmlns:ns2="http://purl.org/dc/terms/" xmlns:ns3="http://purl.org/vocab/vann/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xml:base="https://purls.helmholtz-metadaten.de/prima/dataset">
     <owl:Ontology rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset">
+        <owl:imports rdf:resource="https://purls.helmholtz-metadaten.de/prima/core"/>
         <ns2:contributor xml:lang="en">Elda Osmenaj</ns2:contributor>
         <ns2:contributor xml:lang="en">Mirco Panighel</ns2:contributor>
         <ns2:created xml:lang="en">2024-01-26</ns2:created>
@@ -51,6 +52,7 @@
         <rdfs:label xml:lang="en">is stored in</rdfs:label>
     </owl:ObjectProperty>
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/dataset#stores">
+        <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/dataset#isStoredIn" />
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
