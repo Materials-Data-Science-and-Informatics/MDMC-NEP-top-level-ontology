@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PRIMA Ontology - Experiment Module</title>
+    <style>
+        #pylode {
+            position: fixed;
+            top: 205px;
+            left: -150px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+        #pylode #p {
+            color: #329545;
+        }
+        #pylode #y {
+            color: #f9cb33;
+        }
+        #pylode #version {
+            font-size: 1.0em;
+        }
+
+        #profile {
+            font-style: italic;
+            font-size: 1.25em;
+            color: darkred!important;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dl {
+            /*border: 1px solid navy;*/
+            /*padding:5px;*/
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 0;
+        }
+
+        dd {
+            margin-bottom: 10px;
+            padding-top: 7px;
+        }
+
+        #metadata ul,
+        #classes ul {
+            list-style-type: none;
+        }
+
+        #metadata ul li,
+        #classes ul li {
+            margin-left: -40px;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: left;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-con,
+        .sup-col {
+            cursor:help;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-con {
+            color:orange;
+        }
+
+        .sup-col {
+            color:darkred;
+        }
+
+        sup {
+            margin-left: -3px;
+        }
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+
+#toc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border: solid 1px navy;
+    font-size: small;
+    width: 180px;
+}
+#toc h3 {
+    margin-top: 5px;
+}
+
+#toc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#toc .first > li {
+    margin-top: 5px;
+}
+
+#toc .second,
+#toc .third {
+    padding-left: 10px;
+}
+
+#content {
+    width: calc(100% - 150px);
+}
+
+.hover_property {
+    cursor: help;
+    text-decoration: none;
+    border-bottom: dashed 1px;
+}
+
+.setclass {
+    list-style-type: none;
+}
+
+code{
+    word-wrap: break-word;
+  }
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+td {
+    word-wrap: break-word;
+}
+#legend table.entity {
+    width: 25%;
+}
+	</style>
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhklEQVQ4jbWPzStEURjG3yQLirlGKUnKFO45Z+SjmXvnnmthQcpCoVhYmD/AwmJiI3OvZuZc2U3UlKU0/gAslMw9JgvhHxAr2fko7r0jHSsl+TgbTz2Lt5731/MASEiJW9ONml2QyX6rsGalmnT74v8BDf12hxJfpV8d1uwNKUBYszabdFv84L8B9X0rESVmmUup2fme0cVhJWaZHw4NWL1SewEAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ9Hn31OgoATL+CkLDGB5H1OKj4nFd/FBxUXJ0UZNb4edw/6nLyJXaj5FeCVyPLNIVmYK8TG1IwWb16L1gEACAFV90ftoT8bdOX0EeyY99gxBXZMgRz6qGb1KantAACI0UvE6F5XJqEjpsdURouI0Vt5gGOUkUNnPu7ObGIIMfNaGqDmjDRi9FZldF1lRgYzeqUyeoiY4ag5Iy3RgOYRM8+/M2bG8efsO4hGrpmJseyMAAAAAElFTkSuQmCC" rel="icon" sizes="16x16" type="image/png">
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC40lEQVRYhe2UT0hUQRzHp6Iss1B3VZKIDbbdfW9mnoi4f3zzjkJQeOgS0SEIb1EWBGGlLLu460zQPQM1unUIIjA6rfpm6ZAhHjoIRVQUFUlEbG+euTsdXG1d3VL3bVD4g+9h+L35fT/8fvN7ADgY9aHY5fpIvK82HO9ysu66wxWOzbkjcekKx0a2ALYA/n2AGi3a6ArFezcidziecQygNhhrcUficjP6PwBqtGijKxy/thnVBePHywYoDsFhl53GV8SEcsTx4usCMLUewTVpc23BNvEzm6Neyf1+KcG2vwqwUjgrOJq2JmHftwmkVBRGTvncFodnbI7vChO/FRznCmHsNM7aHM9Yk7Df5iqsLMw9sMNOK2g+jS4IEz0UJv4iuJZb2RltWnB4UZqH6ioGAgAAGe5vtiZhtzDx7OoRadLmeM7m6IRjhnLMW2Vx1bA5GhAmnhIcz6/xNj4Ujsky8UspwfayjDPjsF2Y6L7N8Vzx/BfP+KPg6LbgSqd8DnfJW2CnbaLhfH5ephpqygJYvQU4Z3P82TLRsDDhUTnmrSq+Y3N0Mg+Xldy/zwEAnLMWZ3pHpNExmfLs/t0dOdVcbT0JeKxUwFP2VljjqiE47Jp53LTXNxhsUZjerTByXWX6VZWRs/4bIQ2ACv+UAomgDzLCISNZxAxZKMhIDjLy1JfsaK+I+eGBUBNk5E2x8RogX/PdcDZUqieWTSh5D6nOVKqfhoycUmlHFFIyu5RXqf7AcQDISCpv/tqbMBqK883RtmpISRoxQyJKPgGn3wNk5NEigDFa6hslqV/Kj+FdBQD0bshIDlKSLlVcoWQo36UhR80BAMB73lulMn0EMpJTqD6qJiOt3mho/8GbkT2BZNgDB/V+RI0fkOrT3kRIVQbaDizJm2hdNbINBxwk5xAj3yEjuV9rZ1iIkgxixkLBA83mz8uCjLwoGwAx0vOnFSy5mtR4VTaAQvVORMnwZgSpzkrV/QmdE2tKe46+MQAAAABJRU5ErkJggg==" rel="icon" sizes="32x32" type="image/png">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <script id="schema.org" type="application/ld+json">
+[
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/contributor": [
+      {
+        "@language": "en",
+        "@value": "Elda Osmenaj"
+      },
+      {
+        "@language": "en",
+        "@value": "Mirco Panighel"
+      }
+    ],
+    "https://schema.org/creator": [
+      {
+        "@language": "en",
+        "@value": "Ahmad Zainul Ihsan"
+      },
+      {
+        "@language": "en",
+        "@value": "Mehrdad Jalali"
+      },
+      {
+        "@language": "en",
+        "@value": "Rossella Aversa"
+      }
+    ],
+    "https://schema.org/dateCreated": [
+      {
+        "@language": "en",
+        "@value": "2025-01-27"
+      }
+    ],
+    "https://schema.org/description": [
+      {
+        "@language": "en",
+        "@value": "This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology)."
+      }
+    ],
+    "https://schema.org/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@language": "en",
+        "@value": "PRIMA Ontology - Experiment Module"
+      }
+    ]
+  }
+]
+	</script>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section" id="metadata">
+        <h1>PRIMA Ontology - Experiment Module</h1>
+        <h2>Metadata</h2>
+        <dl>
+          <div>
+            <dt>
+              <strong>IRI</strong>
+            </dt>
+            <dd>
+              <code>https://purls.helmholtz-metadaten.de/prima/experiment</code>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/title" title="A name given to the resource. Defined in DCMI Metadata Terms">Title</a>
+            </dt>
+            <dd><p>PRIMA Ontology - Experiment Module</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/creator" title="An entity responsible for making the resource. Defined in DCMI Metadata Terms">Creator</a>
+            </dt>
+            <dd>
+              <ul>
+                <li><p>Ahmad Zainul Ihsan</p></li>
+                <li><p>Mehrdad Jalali</p></li>
+                <li><p>Rossella Aversa</p></li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/contributor" title="An entity responsible for making contributions to the resource. Defined in DCMI Metadata Terms">Contributor</a>
+            </dt>
+            <dd>
+              <ul>
+                <li><p>Elda Osmenaj</p></li>
+                <li><p>Mirco Panighel</p></li>
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/created" title="Date of creation of the resource. Defined in DCMI Metadata Terms">Date Created</a>
+            </dt>
+            <dd><p>2025-01-27</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/license" title="A legal document giving official permission to do something with the resource. Defined in DCMI Metadata Terms">License</a>
+            </dt>
+            <dd>
+              <a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://www.w3.org/2002/07/owl#versionInfo" title="The annotation property that provides version information for an ontology or another OWL construct. Defined in The OWL 2 Schema vocabulary (OWL 2)">Version Info</a>
+            </dt>
+            <dd><p>3.0</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://www.w3.org/2002/07/owl#priorVersion" title="The annotation property that indicates the predecessor ontology of a given ontology. Defined in The OWL 2 Schema vocabulary (OWL 2)">Prior Version</a>
+            </dt>
+            <dd>
+              <a href="#experiment?version=2.0">https://purls.helmholtz-metadaten.de/prima/experiment?version=2.0</a>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/vocab/vann/preferredNamespacePrefix" title="None. Defined in None">Preferred Namespace Prefix</a>
+            </dt>
+            <dd><p>PRIMA</p></dd>
+          </div>
+          <div>
+            <dt>
+              <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+            </dt>
+            <dd><p>This is the experiment module of the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology).</p></dd>
+          </div>
+        </dl>
+      </div>
+      <section class="section" id="overview">
+        <h2>Overview</h2>
+        <div class="figure">
+            <iframe width="100%" height ="800px" src="webvowl/index.html#prima-experiment"></iframe>
+            <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+        </div>
+    </section>
+      <div class="section" id="classes">
+        <h2>Classes</h2>
+        <div class="property entity" id="InstrumentScientist">
+          <h3>Instrument Scientist
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#InstrumentScientist</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist">https://purls.helmholtz-metadaten.de/skosmos/prima/instrumentscientist</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Person who manages a particular Instrument, or a set of them.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#AgentRole">core:AgentRole</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Study">
+          <h3>Study
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#Study</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasProcessingAndTreatment">has processing and treatment</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#hasProcessingAndTreatment">has processing and treatment</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#ProcessingAndTreatment">ProcessingAndTreatment</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#hasMeasurement">has measurement</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Measurement">Measurement</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="RawData">
+          <h3>Raw Data
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#RawData</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata">https://purls.helmholtz-metadaten.de/skosmos/prima/rawdata</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchData">core:ResearchData</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Institution">
+          <h3>Institution
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#Institution</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/institution">https://purls.helmholtz-metadaten.de/skosmos/prima/institution</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Hierarchical entity which hosts one or more Laboratories.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/OBI_0000245">obi:0000245</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hosts">hosts</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#hosts">hosts</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="#Laboratory">Laboratory</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="AcquisitionSoftware">
+          <h3>Acquisition Software
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware">https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Any software designed to interface directly with an Instrument in order to control and monitor Data Acquisition parameters (i.e., Settings), and to collect Raw Data. Regardless of whether the Acquisition Software is integrated with the Instrument or operates as a standalone application (e.g., installed on a separate computer or packaged as a virtual machine), it is considered part of the Instrument.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/IAO_0000030">iao:0000030</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasAcquisitionSoftware">has acquisition software</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="https://purls.helmholtz-metadaten.de/prima/core#hasSetting">core:hasSetting</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="https://purls.helmholtz-metadaten.de/prima/core#Settings">core:Settings</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SampleHolder">
+          <h3>Sample Holder
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder">https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#holds">holds</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#isHeldBy">is held by</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="#SampleCarrier">SampleCarrier</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Equipment">
+          <h3>Equipment
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#Equipment</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="#Laboratory">Laboratory</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#SampleHolder">SampleHolder</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SampleCarrier">SampleCarrier</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Instrument">
+          <h3>Instrument
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#Instrument</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasAcquisitionSoftware">has acquisition software</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#hasAcquisitionSoftware">has acquisition software</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="#AcquisitionSoftware">Acquisition Software</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Consumable">
+          <h3>Consumable
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#Consumable</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable">https://purls.helmholtz-metadaten.de/skosmos/prima/consumable</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Auxiliary entity, normally acquired from third-party manufacturers, used during Processing and Treatment or Measurement which has a limited time capacity or is limited in its number of uses before it is disposed of. Consumables are not part of the Instrument. Examples of Consumable are: gloves, syringes, wipes, etching solutions, glass slides, spatulas, weighing paper, two-sided tape.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/BFO_0000040">bfo:0000040</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#usesConsumable">uses consumable</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Measurement">
+          <h3>Measurement
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#Measurement</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/measurement">https://purls.helmholtz-metadaten.de/skosmos/prima/measurement</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition">core:DataAcquisition</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasMeasurementTechnique">has measurement technique</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasMeasurement">has measurement</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
+                        <span>
+                          <span class="cardinality">exactly</span>
+                          <span>1</span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002234">has output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/dataset#RawData">https://purls.helmholtz-metadaten.de/prima/dataset#RawData</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002233">has input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="nc45077ce07024abda8fccdc472115b74b12">nc45077ce07024abda8fccdc472115b74b12</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#usesConsumable">uses consumable</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Consumable">Consumable</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Laboratory">Laboratory</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ProcessingAndTreatment">
+          <h3>Processing And Treatment
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment">https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/OBI_0000011">obi:0000011</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasProcessingAndTreatment">has processing and treatment</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/BFO_0000062">preceded by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#ProcessingAndTreatment">ProcessingAndTreatment</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition">core:hasDataAcquisition</a>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition">core:DataAcquisition</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002234">has output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="nc45077ce07024abda8fccdc472115b74b20">nc45077ce07024abda8fccdc472115b74b20</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002233">has input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="nc45077ce07024abda8fccdc472115b74b24">nc45077ce07024abda8fccdc472115b74b24</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Laboratory">Laboratory</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#usesConsumable">uses consumable</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Consumable">Consumable</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Instrument">core:Instrument</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique">core:hasTechnique</a>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Technique">core:Technique</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="SampleCarrier">
+          <h3>Sample Carrier
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier">https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#carries">carries</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#holds">holds</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#carries">carries</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Sample">Sample</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#holds">holds</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#SampleHolder">SampleHolder</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Laboratory">
+          <h3>Laboratory
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory">https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Physical or virtual place hosted by an Institution, where the Equipment (including Instruments), is located and can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/BFO_0000029">bfo:0000029</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hosts">hosts</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Sample">
+          <h3>Sample
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#Sample</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/sample">https://purls.helmholtz-metadaten.de/skosmos/prima/sample</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#System">core:System</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasMaterial">has material</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#carries">carries</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#hasMaterial">has material</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Material">core:Material</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#isCarriedBy">is carried by</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#SampleCarrier">SampleCarrier</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" id="objectproperties">
+        <h2>Object Properties</h2>
+        <div class="property entity" id="hasparticipant">
+          <h3>has participant
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.obolibrary.org/obo/RO_0000053</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasMeasurementTechnique">
+          <h3>has measurement technique
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurementTechnique</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasMeasurementTechnique represents the relationship between measurement to measurement technique.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Measurement">Measurement</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="precededby">
+          <h3>preceded by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.obolibrary.org/obo/BFO_0000062</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="precedes">
+          <h3>precedes
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.obolibrary.org/obo/BFO_0000063</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="carries">
+          <h3>carries
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#carries</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>carries represents the relationship between sample carrier to sample.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SampleCarrier">SampleCarrier</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Sample">Sample</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasAcquisitionSoftware">
+          <h3>has acquisition software
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#hasAcquisitionSoftware</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasAcquisitionSoftware represents the relationship between instrument to acquisition software</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Instrument">core:Instrument</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#AcquisitionSoftware">Acquisition Software</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasMaterial">
+          <h3>has material
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Direct relationship between Sample and Material(s) it is composed of</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Sample">Sample</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#Material">core:Material</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasMeasurement">
+          <h3>has measurement
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#hasMeasurement</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasMeasurement represents the relationship between experiment to measurement.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition">core:hasDataAcquisition</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Measurement">Measurement</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasProcessingAndTreatment">
+          <h3>has processing and treatment
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#hasProcessingAndTreatment</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hasProcessingAndTreatment represents the relationship between study to processing and treatment activity.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Study">core:Study</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#ProcessingAndTreatment">ProcessingAndTreatment</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="holds">
+          <h3>holds
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#holds</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>holds represents the relationship between sample carrier to sample holder.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SampleCarrier">SampleCarrier</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#SampleHolder">SampleHolder</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hosts">
+          <h3>hosts
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#hosts</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>hosts represents the relationship between institution to laboratory.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Institution">Institution</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Laboratory">Laboratory</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ismaterialof">
+          <h3>is material of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>isMaterialOf is the inverse property of hasMaterial.</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="ismeasurementof">
+          <h3>is measurement of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>isMeasurementOf is the inverse property of hasMeasurement.</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasagent">
+          <h3>has agent
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.obolibrary.org/obo/RO_0002211</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasinput">
+          <h3>has input
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.obolibrary.org/obo/RO_0002233</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="hasoutput">
+          <h3>has output
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.obolibrary.org/obo/RO_0002234</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isCarriedBy">
+          <h3>is carried by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>isCarriedBy is the inverse property of carries.</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isHeldBy">
+          <h3>is held by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>isHeldBy is the inverse property of holds.</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="usesConsumable">
+          <h3>uses consumable
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#usesConsumable</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>uses is an object property relating the thing with a consumable.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Consumable">Consumable</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="atlocation">
+          <h3>at location
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/ns/prov#atLocation</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="section" id="annotationproperties">
+        <h2>Annotation Properties</h2>
+        <div class="property entity" id="contributor">
+          <h3>contributor
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/contributor</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="created">
+          <h3>created
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/created</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="creator">
+          <h3>creator
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/creator</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="description">
+          <h3>description
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/description</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="license">
+          <h3>license
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/license</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="title">
+          <h3>title
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/dc/terms/title</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="preferredNamespacePrefix">
+          <h3>preferred namespace prefix
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://purl.org/vocab/vann/preferredNamespacePrefix</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="exactMatch">
+          <h3>exact match
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/2004/02/skos/core#exactMatch</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="MDMCNEPGlossaryDefinition">
+          <h3>Mdmcnep Glossary Definition
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="http://www.w3.org/2004/02/skos/core#definition">definition</a>
+                  <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="definition">
+          <h3>definition
+            <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://www.w3.org/2004/02/skos/core#definition</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superPropertyOf" title="Inverse of RDFS' subPropertyOf. Defined in Ontology Documentation Profile">Super Property Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition">core:MDMCNEPGlossaryDefinition</a>
+                  <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="namespaces">
+        <h2>Namespaces</h2>
+        <dl>
+          <dt id=":">:</dt>
+          <dd>
+            <code>https://purls.helmholtz-metadaten.de/prima/experiment#</code>
+          </dd>
+          <dt id="bfo">bfo</dt>
+          <dd>
+            <code>http://purl.obolibrary.org/obo/BFO_</code>
+          </dd>
+          <dt id="core">core</dt>
+          <dd>
+            <code>https://purls.helmholtz-metadaten.de/prima/core#</code>
+          </dd>
+          <dt id="dcterms">dcterms</dt>
+          <dd>
+            <code>http://purl.org/dc/terms/</code>
+          </dd>
+          <dt id="iao">iao</dt>
+          <dd>
+            <code>http://purl.obolibrary.org/obo/IAO_</code>
+          </dd>
+          <dt id="ns1">ns1</dt>
+          <dd>
+            <code>https://purls.helmholtz-metadaten.de/prima/</code>
+          </dd>
+          <dt id="obi">obi</dt>
+          <dd>
+            <code>http://purl.obolibrary.org/obo/OBI_</code>
+          </dd>
+          <dt id="owl">owl</dt>
+          <dd>
+            <code>http://www.w3.org/2002/07/owl#</code>
+          </dd>
+          <dt id="pmd">pmd</dt>
+          <dd>
+            <code>https://w3id.org/pmd/co/</code>
+          </dd>
+          <dt id="prov">prov</dt>
+          <dd>
+            <code>http://www.w3.org/ns/prov#</code>
+          </dd>
+          <dt id="rdf">rdf</dt>
+          <dd>
+            <code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code>
+          </dd>
+          <dt id="rdfs">rdfs</dt>
+          <dd>
+            <code>http://www.w3.org/2000/01/rdf-schema#</code>
+          </dd>
+          <dt id="ro">ro</dt>
+          <dd>
+            <code>http://purl.obolibrary.org/obo/RO_</code>
+          </dd>
+          <dt id="skos">skos</dt>
+          <dd>
+            <code>http://www.w3.org/2004/02/skos/core#</code>
+          </dd>
+          <dt id="vann">vann</dt>
+          <dd>
+            <code>http://purl.org/vocab/vann/</code>
+          </dd>
+        </dl>
+      </div>
+      <div id="legend">
+        <h2>Legend</h2>
+        <table class="entity">
+          <tr>
+            <td>
+              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+            </td>
+            <td>Classes</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-op" title="OWL Object Property">op</sup>
+            </td>
+            <td>Object Properties</td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="sup-ap" title="OWL Annotation Property">ap</sup>
+            </td>
+            <td>Annotation Properties</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="pylode">
+      <p>made by 
+        <a href="https://github.com/rdflib/pyLODE">
+          <span id="p">p</span>
+          <span id="y">y</span>
+          <span>LODE</span>
+        </a>
+        <a href="https://github.com/rdflib/pyLODE/release/3.2.1" id="version">3.2.1</a>
+        <span> with the </span>
+        <a href="https://w3id.org/profile/ontpub" id="profile">OntPub</a>
+        <span>profile</span>
+      </p>
+    </div>
+    <div id="toc">
+      <h3>Table of Contents</h3>
+      <ul class="first">
+        <li>
+          <h4>
+            <a href="#metadata">Metadata</a>
+          </h4>
+        </li>
+        <li>
+          <h4>
+            <a href="#classes">Classes</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#InstrumentScientist">Instrument Scientist</a>
+            </li>
+            <li>
+              <a href="#Study">Study</a>
+            </li>
+            <li>
+              <a href="#RawData">Raw Data</a>
+            </li>
+            <li>
+              <a href="#Institution">Institution</a>
+            </li>
+            <li>
+              <a href="#AcquisitionSoftware">Acquisition Software</a>
+            </li>
+            <li>
+              <a href="#SampleHolder">Sample Holder</a>
+            </li>
+            <li>
+              <a href="#Equipment">Equipment</a>
+            </li>
+            <li>
+              <a href="#Instrument">Instrument</a>
+            </li>
+            <li>
+              <a href="#Consumable">Consumable</a>
+            </li>
+            <li>
+              <a href="#Measurement">Measurement</a>
+            </li>
+            <li>
+              <a href="#ProcessingAndTreatment">Processing And Treatment</a>
+            </li>
+            <li>
+              <a href="#SampleCarrier">Sample Carrier</a>
+            </li>
+            <li>
+              <a href="#Laboratory">Laboratory</a>
+            </li>
+            <li>
+              <a href="#Sample">Sample</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#objectproperties">Object Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#hasparticipant">has participant</a>
+            </li>
+            <li>
+              <a href="#hasMeasurementTechnique">has measurement technique</a>
+            </li>
+            <li>
+              <a href="#precededby">preceded by</a>
+            </li>
+            <li>
+              <a href="#precedes">precedes</a>
+            </li>
+            <li>
+              <a href="#carries">carries</a>
+            </li>
+            <li>
+              <a href="#hasAcquisitionSoftware">has acquisition software</a>
+            </li>
+            <li>
+              <a href="#hasMaterial">has material</a>
+            </li>
+            <li>
+              <a href="#hasMeasurement">has measurement</a>
+            </li>
+            <li>
+              <a href="#hasProcessingAndTreatment">has processing and treatment</a>
+            </li>
+            <li>
+              <a href="#holds">holds</a>
+            </li>
+            <li>
+              <a href="#hosts">hosts</a>
+            </li>
+            <li>
+              <a href="#ismaterialof">is material of</a>
+            </li>
+            <li>
+              <a href="#ismeasurementof">is measurement of</a>
+            </li>
+            <li>
+              <a href="#hasagent">has agent</a>
+            </li>
+            <li>
+              <a href="#hasinput">has input</a>
+            </li>
+            <li>
+              <a href="#hasoutput">has output</a>
+            </li>
+            <li>
+              <a href="#isCarriedBy">is carried by</a>
+            </li>
+            <li>
+              <a href="#isHeldBy">is held by</a>
+            </li>
+            <li>
+              <a href="#usesConsumable">uses consumable</a>
+            </li>
+            <li>
+              <a href="#atlocation">at location</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#annotationproperties">Annotation Properties</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#contributor">contributor</a>
+            </li>
+            <li>
+              <a href="#created">created</a>
+            </li>
+            <li>
+              <a href="#creator">creator</a>
+            </li>
+            <li>
+              <a href="#description">description</a>
+            </li>
+            <li>
+              <a href="#license">license</a>
+            </li>
+            <li>
+              <a href="#title">title</a>
+            </li>
+            <li>
+              <a href="#preferredNamespacePrefix">preferred namespace prefix</a>
+            </li>
+            <li>
+              <a href="#exactMatch">exact match</a>
+            </li>
+            <li>
+              <a href="#MDMCNEPGlossaryDefinition">Mdmcnep Glossary Definition</a>
+            </li>
+            <li>
+              <a href="#definition">definition</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#namespaces">Namespaces</a>
+          </h4>
+          <ul class="second">
+            <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#bfo">bfo</a>
+            </li>
+            <li>
+              <a href="#core">core</a>
+            </li>
+            <li>
+              <a href="#dcterms">dcterms</a>
+            </li>
+            <li>
+              <a href="#iao">iao</a>
+            </li>
+            <li>
+              <a href="#ns1">ns1</a>
+            </li>
+            <li>
+              <a href="#obi">obi</a>
+            </li>
+            <li>
+              <a href="#owl">owl</a>
+            </li>
+            <li>
+              <a href="#pmd">pmd</a>
+            </li>
+            <li>
+              <a href="#prov">prov</a>
+            </li>
+            <li>
+              <a href="#rdf">rdf</a>
+            </li>
+            <li>
+              <a href="#rdfs">rdfs</a>
+            </li>
+            <li>
+              <a href="#ro">ro</a>
+            </li>
+            <li>
+              <a href="#skos">skos</a>
+            </li>
+            <li>
+              <a href="#vann">vann</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h4>
+            <a href="#legend">Legend</a>
+          </h4>
+          <ul class="second"></ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
