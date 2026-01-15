@@ -2,6 +2,8 @@
 This repository collects the ongoing work towards the development of the top-level ontology based on common terms defined for the Joint Lab  "Integrated Model and Data Driven Materials Characterization" (MDMC) and for the "Nanoscience Foundries and Fine Analysis Europe Pilot" (NEP). The top-level glossary defining the terms is available (as a living document which can be constantly updated) on the NEP website: https://www.nffa.eu/apply/data-policy/glossary
 
 The aim of this joint activity is to develop the **PRovenance Information in MAterials science** (PRIMA) which can be initially adopted by MDMC and NEP. PRIMA is an ontology that captures the provenance information in the materials science domain.
+
+Starting from PRIMA v3, the ontology modules are grounded in **BFO (Basic Formal Ontology)** and aligned with **PMDco v3 (Platform MaterialDigital core ontology)**. In practice, this means PRIMA’s domain concepts are connected to well-established upper-level categories (BFO) and use compatible patterns with PMDco, improving semantic interoperability and easing integration with other BFO-/PMDco-based resources.
 In future, it might also be adopted by other Materials Science projects. 
 This will have the huge advantage of having a **common** description of concepts and relationships in the domain of Materials Science. 
 This will offer a set of metadata which, in turn, will increase the interoperability and the reuse of data.
@@ -29,7 +31,15 @@ PRIMA is a modular ontology consisting of four modules:
 
 4. [PRIMA-Experiment](https://purls.helmholtz-metadaten.de/prima/experiment): In the Experiment module, the classes and properties related to an experiment are described
 
-5. The ontology combining all the above modules is [PRIMA-complete](https://purls.helmholtz-metadaten.de/prima/complete)
+5. [PRIMA-Computational Workflow module](https://purls.helmholtz-metadaten.de/prima/computational): This module describes classes and properties to represent provenance for computational workflows, and integrates with PRIMA-Core.
+
+6. The ontology combining all the above modules is [PRIMA-complete](https://purls.helmholtz-metadaten.de/prima/complete)
+
+### What’s new in PRIMA Ontology v3 (high level)
+
+- **Clearer formal alignment**: PRIMA v3 modules are explicitly aligned with **PMDco v3 (Platform MaterialDigital core ontology)** and grounded in **BFO** (as stated in the module metadata).
+- **New computational coverage**: v3 introduces the **PRIMA-Computational Workflow** module to represent provenance of computational workflows alongside experimental ones.
+- **Version-aware artifacts**: v3 modules declare version information and prior-version links (useful for tracking evolution across releases).
 
 ## Use Cases
 So far, we have demonstrated the broad applicability of PRIMA by presenting two different use cases: (i) the mapping of the FAIRification workflow applied to Scanning Tunneling Microscope (STM) images from data acquisition to data analysis and (ii) the PRIMA alignment of the fabrication processes ontologies applied to metallic biomaterials recorded in the Herbie Electronic Laboratory Notebook (ELN).
@@ -105,7 +115,7 @@ When changes are detected, a detailed markdown report is generated with links to
 You may contact one of the authors of PRIMA via a.ihsan@fz-juelich.de
 
 ## License
-The code is licensed under the [MIT license](./LICENSE). Copyright © 2025.
+The code is licensed under the [MIT license](./LICENSE). Copyright © 2026.
 
 ## Acknowledgements
 
