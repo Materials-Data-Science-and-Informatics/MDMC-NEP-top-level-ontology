@@ -29,7 +29,7 @@ skos:exactMatch a owl:AnnotationProperty .
 <https://purls.helmholtz-metadaten.de/prima/computational> a owl:Ontology ;
     dcterms:contributor "Ahmad Zainul Ihsan"@en,
         "Rossella Aversa"@en ;
-    dcterms:created "2025-01-27"@en ;
+    dcterms:created "2026-01-15"@en ;
     dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
     dcterms:title "PRIMA Ontology - Computational Workflow Module"@en ;
     vann:preferredNamespacePrefix "PRIMA"@en ;
@@ -45,14 +45,14 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom core:ResearchData ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom :Model ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         core:DataAcquisition,
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> .
@@ -62,14 +62,11 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:comment "Set of actions carried out by one or more Research Users, possibly using Research Software, to define and/or formulate a Model making use of Research Data (typically, but not limited to, Reference Data after Data Processing) as input for parametrization, boundary conditions, or validation. A Model Preparation may require the use of Equipment. The output of Model Preparation is Model."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory> ],
+        [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom core:ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesResearchSoftware ;
-            owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
             owl:someValuesFrom core:Equipment ],
@@ -77,11 +74,14 @@ skos:exactMatch a owl:AnnotationProperty .
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
+            owl:onProperty core:usesResearchSoftware ;
+            owl:someValuesFrom core:ResearchSoftware ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :Model ],
         [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory> ],
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom core:ResearchData ],
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> .
 
@@ -91,16 +91,16 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :Model ],
+            owl:someValuesFrom core:ResearchData ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :Model ],
+        [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom core:ResearchData ],
         core:DataAcquisition,
         pmd:PMD_0000583 ;
     owl:equivalentClass pmd:PMD_0000933 ;

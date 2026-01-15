@@ -39,7 +39,7 @@ core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
 <https://purls.helmholtz-metadaten.de/prima/experiment> a owl:Ontology ;
     dcterms:contributor "Elda Osmenaj"@en,
         "Mirco Panighel"@en ;
-    dcterms:created "2025-01-27"@en ;
+    dcterms:created "2026-01-15"@en ;
     dcterms:creator "Ahmad Zainul Ihsan"@en,
         "Mehrdad Jalali"@en,
         "Rossella Aversa"@en ;
@@ -76,11 +76,11 @@ skos:definition a owl:AnnotationProperty .
 
 core:Study a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasProcessingAndTreatment ;
-            owl:someValuesFrom :ProcessingAndTreatment ],
-        [ a owl:Restriction ;
             owl:onProperty :hasMeasurement ;
-            owl:someValuesFrom :Measurement ] .
+            owl:someValuesFrom :Measurement ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasProcessingAndTreatment ;
+            owl:someValuesFrom :ProcessingAndTreatment ] .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> a owl:Class ;
     rdfs:comment "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."@en ;
@@ -215,25 +215,25 @@ core:Instrument a owl:Class ;
     rdfs:comment "Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass core:Instrument ;
-            owl:onProperty core:usesEquipment ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+            owl:onProperty :usesConsumable ;
+            owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onClass core:Instrument ;
+            owl:onProperty core:usesEquipment ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( core:Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesConsumable ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
         core:DataAcquisition ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> .
 
@@ -241,37 +241,37 @@ core:Instrument a owl:Class ;
     rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty bfo:0000062 ;
-            owl:someValuesFrom :ProcessingAndTreatment ],
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
         [ a owl:Restriction ;
-            owl:onProperty core:hasDataAcquisition ;
-            owl:someValuesFrom core:DataAcquisition ],
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Instrument ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( core:Material :Sample ) ] ],
+            owl:onProperty :usesConsumable ;
+            owl:someValuesFrom :Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( core:Material :Sample ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( core:Material :Sample ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesConsumable ;
-            owl:someValuesFrom :Consumable ],
+            owl:onProperty core:hasDataAcquisition ;
+            owl:someValuesFrom core:DataAcquisition ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Instrument ],
+            owl:someValuesFrom core:Equipment ],
         [ a owl:Restriction ;
-            owl:onProperty core:hasTechnique ;
-            owl:someValuesFrom core:Technique ],
+            owl:onProperty bfo:0000062 ;
+            owl:someValuesFrom :ProcessingAndTreatment ],
         obi:0000011 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> .
 
@@ -279,11 +279,11 @@ core:Instrument a owl:Class ;
     rdfs:comment "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :carries ;
-            owl:someValuesFrom :Sample ],
-        [ a owl:Restriction ;
             owl:onProperty :holds ;
             owl:someValuesFrom :SampleHolder ],
+        [ a owl:Restriction ;
+            owl:onProperty :carries ;
+            owl:someValuesFrom :Sample ],
         core:Equipment ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> .
 
@@ -297,11 +297,11 @@ core:Instrument a owl:Class ;
     rdfs:comment "Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMaterial ;
-            owl:someValuesFrom core:Material ],
-        [ a owl:Restriction ;
             owl:onProperty :isCarriedBy ;
             owl:someValuesFrom :SampleCarrier ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMaterial ;
+            owl:someValuesFrom core:Material ],
         core:System ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> .
 
