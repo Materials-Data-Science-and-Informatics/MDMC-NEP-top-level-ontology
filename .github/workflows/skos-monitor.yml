@@ -32,14 +32,14 @@ jobs:
         id: download
         run: |
           python -m monitor_utils.prima_skos_monitor.cli download \
-            --base-url "${{ env.SKOSMOS_BASE_URL || 'https://matwerk.datamanager.kit.edu/skosmos' }}" \
+            --base-url "${{ env.SKOSMOS_BASE_URL || 'https://matwerk.datamanager.kit.edu/skosmos/prima/en/' }}" \
             --vocab-id "${{ env.SKOSMOS_VOCAB_ID || 'prima' }}" \
             --format rdf \
             --save-snapshot \
             --snapshot-dir monitor_utils/skos_snapshots \
             --output monitor_utils/skos_snapshots/latest_download.rdf
         env:
-          SKOSMOS_BASE_URL: ${{ vars.SKOSMOS_BASE_URL || 'https://matwerk.datamanager.kit.edu/skosmos' }}
+          SKOSMOS_BASE_URL: ${{ vars.SKOSMOS_BASE_URL || 'https://matwerk.datamanager.kit.edu/skosmos/prima/en/' }}
           SKOSMOS_VOCAB_ID: ${{ vars.SKOSMOS_VOCAB_ID || 'prima' }}
 
       - name: Find latest baseline snapshot

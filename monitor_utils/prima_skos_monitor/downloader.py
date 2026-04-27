@@ -31,9 +31,14 @@ def download_skos(
     Raises:
         requests.RequestException: If download fails
     """
+    # Accept either SKOSMOS root URL or UI URL (e.g. .../skosmos/prima/en/).
+    normalized_base_url = base_url.rstrip("/")
+    if normalized_base_url.endswith("/prima/en"):
+        normalized_base_url = normalized_base_url[: -len("/prima/en")]
+
     # SKOSMOS REST API endpoint for downloading vocabulary
     # Format: {base_url}/rest/v1/{vocab_id}/data?format={format_mime_type}
-    url = f"{base_url}/rest/v1/{vocab_id}/data"
+    url = f"{normalized_base_url}/rest/v1/{vocab_id}/data"
     
     # Map format to MIME type for the API
     format_mime_map = {
