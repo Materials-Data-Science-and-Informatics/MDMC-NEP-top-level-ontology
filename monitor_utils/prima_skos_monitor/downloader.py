@@ -11,7 +11,7 @@ import json
 
 
 def download_skos(
-    base_url: str = "https://matwerk.datamanager.kit.edu/skosmos",
+    base_url: str = "https://matwerk.datamanager.kit.edu/skosmos/prima/en/",
     vocab_id: str = "prima",
     output_path: Optional[Path] = None,
     format: str = "rdf",

@@ -138,7 +138,7 @@ def main():
     download_parser = subparsers.add_parser("download", help="Download SKOS vocabulary")
     download_parser.add_argument(
         "--base-url",
-        default="https://matwerk.datamanager.kit.edu/skosmos",
+        default="https://matwerk.datamanager.kit.edu/skosmos/prima/en/",
         help="SKOSMOS base URL (without vocabulary path)",
     )
     download_parser.add_argument(
@@ -177,7 +177,7 @@ def main():
     )
     compare_parser.add_argument(
         "--base-url",
-        default="https://matwerk.datamanager.kit.edu/skosmos",
+        default="https://matwerk.datamanager.kit.edu/skosmos/prima/en/",
         help="SKOSMOS base URL (without vocabulary path, used if --new not provided)",
     )
     compare_parser.add_argument(
