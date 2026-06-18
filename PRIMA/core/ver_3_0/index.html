@@ -423,14 +423,14 @@ td {
           </div>
         </dl>
       </div>
-      <section class="section" id="overview">
+            <section class="section" id="overview">
         <h2>Overview</h2>
         <div class="figure">
             <iframe width="100%" height ="800px" src="webvowl/index.html#prima-core"></iframe>
             <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
         </div>
     </section>
-      <div class="section" id="classes">
+<div class="section" id="classes">
         <h2>Classes</h2>
         <div class="property entity" id="ContactPerson">
           <h3>Contact Person
@@ -882,6 +882,44 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="Protocol">
+          <h3>Protocol
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#Protocol</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>A plan specification detailed enough to be reliably and independently reproduced, prescribing the steps of a planned process such as a Measurement or Processing and Treatment. A Protocol is a continuant information artifact: it persists, is versioned, and is reused across many executions.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/IAO_0000104">iao:0000104</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#executesProtocol">executes protocol</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="UserRole">
           <h3>User Role
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1167,14 +1205,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#hasScientificPublication">has scientific publication</a>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ScientificPublication">Scientific Publication</a>
+                              <a href="#ResearchUser">ResearchUser</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1186,14 +1224,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <a href="#hasScientificPublication">has scientific publication</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchUser">ResearchUser</a>
+                              <a href="#ScientificPublication">Scientific Publication</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1389,12 +1427,50 @@ td {
                   <li>
                     <span>
                       <span>
+                        <span>
+                          <a href="#usesEquipment">uses equipment</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Equipment">Equipment</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#ResearchUser">ResearchUser</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
                         <a href="http://purl.obolibrary.org/obo/RO_0002233">ro:0002233</a>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#System">System</a>
+                              <a href="#ResearchData">ResearchData</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1414,44 +1490,6 @@ td {
                           <span>
                             <span>
                               <a href="#Technique">Technique</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.obolibrary.org/obo/OBI_0000293">has specified input</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="ncc1b2d04f16c4514ad542ddc2b6c03bcb22">ncc1b2d04f16c4514ad542ddc2b6c03bcb22</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="#usesEquipment">uses equipment</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#Equipment">Equipment</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1486,7 +1524,7 @@ td {
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchData">ResearchData</a>
+                              <a href="#System">System</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1498,14 +1536,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <a href="http://purl.obolibrary.org/obo/OBI_0000293">has specified input</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchUser">ResearchUser</a>
+                              <a href="nfe000678acfd4424b40b4dc818834f79b26">nfe000678acfd4424b40b4dc818834f79b26</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1588,14 +1626,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#usesResearchSoftware">uses research software</a>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchSoftware">ResearchSoftware</a>
+                              <a href="#ResearchUser">ResearchUser</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1623,14 +1661,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#hasTechnique">has technique</a>
+                          <a href="#usesResearchSoftware">uses research software</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#Technique">Technique</a>
+                              <a href="#ResearchSoftware">ResearchSoftware</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1658,14 +1696,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <a href="#hasTechnique">has technique</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchUser">ResearchUser</a>
+                              <a href="#Technique">Technique</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1952,14 +1990,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#performsAgentRole">performs agent role</a>
+                          <a href="#operates">operates</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#AgentRole">AgentRole</a>
+                              <a href="#Equipment">Equipment</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1971,14 +2009,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#operates">operates</a>
+                          <a href="#performsAgentRole">performs agent role</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#Equipment">Equipment</a>
+                              <a href="#AgentRole">AgentRole</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -2147,6 +2185,44 @@ td {
                 <span>
                   <a href="#performsAgentRole">performs agent role</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="executesProtocol">
+          <h3>executes protocol
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/core#executesProtocol</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Relates a planned process to the Protocol (plan specification) it carries out. Shortcut for the BFO pattern in which the process realizes a plan that is the concretization of this plan specification.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <a href="http://purl.obolibrary.org/obo/OBI_0000011">obi:0000011</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#Protocol">Protocol</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
             </tr>
@@ -2527,12 +2603,12 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#DataAcquisition">DataAcquisition</a>
+                  <a href="#DataAnalysis">DataAnalysis</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
                 <span class="cardinality">or</span>
                 <span>
-                  <a href="#DataAnalysis">DataAnalysis</a>
+                  <a href="#DataAcquisition">DataAcquisition</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2622,11 +2698,6 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#DataAnalysis">DataAnalysis</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-                <span class="cardinality">or</span>
-                <span>
                   <a href="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing">https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
@@ -2638,6 +2709,11 @@ td {
                 <span class="cardinality">or</span>
                 <span>
                   <a href="#DataAcquisition">DataAcquisition</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+                <span class="cardinality">or</span>
+                <span>
+                  <a href="#DataAnalysis">DataAnalysis</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2986,6 +3062,9 @@ td {
               <a href="#Project">Project</a>
             </li>
             <li>
+              <a href="#Protocol">Protocol</a>
+            </li>
+            <li>
               <a href="#UserRole">User Role</a>
             </li>
             <li>
@@ -3042,6 +3121,9 @@ td {
             </li>
             <li>
               <a href="#contributorType">contributor type</a>
+            </li>
+            <li>
+              <a href="#executesProtocol">executes protocol</a>
             </li>
             <li>
               <a href="#hasStudy">has study</a>
