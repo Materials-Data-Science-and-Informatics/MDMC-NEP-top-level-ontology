@@ -2,7 +2,7 @@
 @prefix core: <https://purls.helmholtz-metadaten.de/prima/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
-@prefix obi: <http://purl.obolibrary.org/obo/OBI_> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pmd: <https://w3id.org/pmd/co/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -105,21 +105,21 @@ skos:definition a owl:AnnotationProperty .
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom core:ResearchData ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :Dataset ],
-        [ a owl:Restriction ;
             owl:onProperty core:usesResearchSoftware ;
             owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
+            owl:onProperty ro:0002233 ;
             owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
+            owl:someValuesFrom :Dataset ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
             owl:someValuesFrom core:ResearchData ],
-        obi:0000011 ;
+        obo:COB_0000035 ;
     skos:closeMatch <https://terms.codata.org/rdmt/data-curation> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration> .
 
@@ -186,14 +186,14 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:comment "Dataset(s) generated in the course of a Study, that has undergone quality assessment and Data Curation, and can be cited as a reliable source (i.e., a Persistent Identifier is assigned to it) to, e.g., reproduce the results and/or support the conclusions presented in a Scientific Publication or appearing in it. Publication Data may be attributed to some or to all the Research Users who are members of the Project."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMetadata ;
-            owl:someValuesFrom :Metadata ],
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAttributedTo ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataRepository ],
+            owl:onProperty :hasMetadata ;
+            owl:someValuesFrom :Metadata ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> .
 
@@ -215,10 +215,10 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :Dataset ],
+            owl:someValuesFrom :PublicationData ],
         [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :PublicationData ],
+            owl:someValuesFrom :Dataset ],
         iao:0000030 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> .
 
@@ -229,11 +229,11 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :identifierValue ],
+            owl:onProperty :identifierScheme ],
         [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :identifierScheme ],
+            owl:onProperty :identifierValue ],
         iao:0000027 ;
     skos:closeMatch <https://terms.codata.org/rdmt/persistent-identifier> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier> .
@@ -272,14 +272,14 @@ prov:wasAttributedTo a owl:ObjectProperty .
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( core:ResearchData :Dataset ) ] ],
         [ a owl:Restriction ;
-            owl:onProperty :hasMetadata ;
-            owl:someValuesFrom :Metadata ],
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataCollaborationPlatform ],
         [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataRepository ],
+            owl:onProperty :hasMetadata ;
+            owl:someValuesFrom :Metadata ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> .
 
