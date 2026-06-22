@@ -71,11 +71,11 @@
         <rdfs:isDefinedBy>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/contributorType/)</rdfs:isDefinedBy>
     </owl:ObjectProperty>
 
-    <!-- executesProtocol: links a planned process (OBI_0000011) to the Protocol it carries out -->
+    <!-- executesProtocol: links a completely executed planned process (COB_0000035) to the Protocol it carries out -->
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/core#executesProtocol">
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Protocol"/>
-        <rdfs:comment xml:lang="en">Relates a planned process to the Protocol (plan specification) it carries out. Shortcut for the BFO pattern in which the process realizes a plan that is the concretization of this plan specification.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a completely executed planned process to the Protocol (plan specification) it carries out. Shortcut for the BFO pattern in which the process realizes a plan that is the concretization of this plan specification.</rdfs:comment>
         <rdfs:label xml:lang="en">executes protocol</rdfs:label>
     </owl:ObjectProperty>
 
@@ -335,7 +335,7 @@
     </owl:Class>
 
     <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Study">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002211"/>
