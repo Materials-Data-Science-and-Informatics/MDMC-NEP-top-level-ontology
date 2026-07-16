@@ -185,8 +185,15 @@
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#carries">
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy"/>
         <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
-        <rdfs:comment xml:lang="en">carries represents the relationship between sample carrier to sample.</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Relates a Sample Carrier to a Sample or Sample Holder that it carries.</rdfs:comment>
         <rdfs:label xml:lang="en">carries</rdfs:label>
     </owl:ObjectProperty>
     
@@ -208,7 +215,7 @@
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial">
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMaterialOf"/>
         <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Material"/>
         <rdfs:comment xml:lang="en">Direct relationship between Sample and Material(s) it is composed of</rdfs:comment>
         <rdfs:label xml:lang="en">has material</rdfs:label>
     </owl:ObjectProperty>
@@ -221,7 +228,7 @@
         <rdfs:subPropertyOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition"/>
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isMeasurementOf"/>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Measurement"/>
-        <rdfs:comment xml:lang="en">hasMeasurement represents the relationship between experiment to measurement.</rdfs:comment>
+        <rdfs:comment xml:lang="en">hasMeasurement represents the relationship between study to measurement.</rdfs:comment>
         <rdfs:label xml:lang="en">has measurement</rdfs:label>
     </owl:ObjectProperty>
     
@@ -252,9 +259,9 @@
 
     <owl:ObjectProperty rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#holds">
         <owl:inverseOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"/>
-        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
-        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
-        <rdfs:comment xml:lang="en">holds represents the relationship between sample carrier to sample holder.</rdfs:comment>
+        <rdfs:domain rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
+        <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+        <rdfs:comment xml:lang="en">Relates a Sample Holder to a Sample that it holds in place.</rdfs:comment>
         <rdfs:label xml:lang="en">holds</rdfs:label>
     </owl:ObjectProperty>
     
@@ -410,6 +417,13 @@
         <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"/>
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/consumable"/>
     </owl:Class>
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Material">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#System"/>
+        <rdfs:comment xml:lang="en">Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/material"/>
+        <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/material"/>
+    </owl:Class>
     
 
 
@@ -469,7 +483,7 @@
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Material"/>
                             <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -530,7 +544,7 @@
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Material"/>
                             <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -543,7 +557,7 @@
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Material"/>
                             <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
                         </owl:unionOf>
                     </owl:Class>
@@ -600,13 +614,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#hasMaterial"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Material"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Material"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier.</rdfs:comment>
@@ -623,13 +631,14 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#carries"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#holds"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
+                            <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene.</rdfs:comment>
@@ -645,8 +654,8 @@
         <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy"/>
-                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier"/>
+                <owl:onProperty rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#holds"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#Sample"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier.</rdfs:comment>
@@ -658,4 +667,3 @@
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-

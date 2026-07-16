@@ -52,35 +52,14 @@ core:DataAnalysis a owl:Class ;
     owl:priorVersion <https://purls.helmholtz-metadaten.de/prima/dal?version=2.0> ;
     owl:versionInfo "3.0"@en .
 
-:DataProcessing a owl:Class ;
-    rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Reference Data or Raw Data, to prepare it for one or more further processes, e.g., Model Preparation, computational Data Acquisition, and/or Data Analysis. Data Processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion and/or compression of Research Data, as well as calibration, normalization, statistical data reduction, background subtraction and/or correction of artifacts. The output of Data Processing is Processed Data."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesResearchSoftware ;
-            owl:someValuesFrom core:ResearchSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom core:ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
-        [ a owl:Restriction ;
-            owl:onProperty core:hasTechnique ;
-            owl:someValuesFrom core:Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        pmd:PMD_0000583 ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> .
-
 :MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:definition .
+
+:hasDataProcessing a owl:ObjectProperty ;
+    rdfs:label "has data processing"@en ;
+    rdfs:comment "hasDataProcessing represents the relationship between study to data processing"@en ;
+    rdfs:domain core:Study ;
+    rdfs:range :DataProcessing .
 
 ro:0002211 a owl:ObjectProperty ;
     rdfs:label "has agent"@en .
@@ -93,6 +72,33 @@ core:ResearchUser a owl:Class .
 
 core:usesResearchSoftware a owl:ObjectProperty ;
     owl:inverseOf :isUsedByResearchSoftware .
+
+:DataProcessing a owl:Class ;
+    rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Reference Data or Raw Data, to prepare it for one or more further processes, e.g., Model Preparation, computational Data Acquisition, and/or Data Analysis. Data Processing usually consists of routine actions. It may include: filtering, denoising, transformation, fusion and/or compression of Research Data, as well as calibration, normalization, statistical data reduction, background subtraction and/or correction of artifacts. The output of Data Processing is Processed Data."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesResearchSoftware ;
+            owl:someValuesFrom core:ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
+        pmd:PMD_0000583 ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> .
 
 :isUsedByResearchSoftware a owl:ObjectProperty ;
     rdfs:label "is used by research software"@en ;

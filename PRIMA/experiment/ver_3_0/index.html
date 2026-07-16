@@ -423,14 +423,14 @@ td {
           </div>
         </dl>
       </div>
-            <section class="section" id="overview">
+      <section class="section" id="overview">
         <h2>Overview</h2>
         <div class="figure">
             <iframe width="100%" height ="800px" src="webvowl/index.html#prima-experiment"></iframe>
             <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
         </div>
     </section>
-<div class="section" id="classes">
+      <div class="section" id="classes">
         <h2>Classes</h2>
         <div class="property entity" id="InstrumentScientist">
           <h3>Instrument Scientist
@@ -499,14 +499,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#hasMeasurement">has measurement</a>
+                          <a href="#hasProcessingAndTreatment">has processing and treatment</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#Measurement">Measurement</a>
+                              <a href="#ProcessingAndTreatment">ProcessingAndTreatment</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -518,14 +518,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#hasProcessingAndTreatment">has processing and treatment</a>
+                          <a href="#hasMeasurement">has measurement</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ProcessingAndTreatment">ProcessingAndTreatment</a>
+                              <a href="#Measurement">Measurement</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -643,6 +643,79 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="SampleCarrier">
+          <h3>Sample Carrier
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier">https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#carries">carries</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#carries">carries</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="n3885075acc144024904a0b4dfe099c07b5">n3885075acc144024904a0b4dfe099c07b5</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="AcquisitionSoftware">
           <h3>Acquisition Software
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -710,79 +783,6 @@ td {
             </tr>
           </table>
         </div>
-        <div class="property entity" id="SampleHolder">
-          <h3>Sample Holder
-            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
-              </th>
-              <td>
-                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder">https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder</a>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier.</p></td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
-              </th>
-              <td>
-                <span>
-                  <a href="#holds">holds</a>
-                  <sup class="sup-op" title="OWL Object Property">op</sup>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
-              </th>
-              <td>
-                <span>
-                  <span>
-                    <span>
-                      <a href="#isHeldBy">is held by</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                    <span>
-                      <span class="cardinality">some</span>
-                      <span>
-                        <span>
-                          <a href="#SampleCarrier">SampleCarrier</a>
-                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                        </span>
-                      </span>
-                    </span><br>
-                  </span>
-                </span>
-              </td>
-            </tr>
-          </table>
-        </div>
         <div class="property entity" id="Equipment">
           <h3>Equipment
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -826,13 +826,13 @@ td {
                 <ul>
                   <li>
                     <span>
-                      <a href="#SampleHolder">SampleHolder</a>
+                      <a href="#SampleCarrier">SampleCarrier</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
                   </li>
                   <li>
                     <span>
-                      <a href="#SampleCarrier">SampleCarrier</a>
+                      <a href="#SampleHolder">SampleHolder</a>
                       <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                     </span>
                   </li>
@@ -1000,44 +1000,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
-                        <span>
-                          <span class="cardinality">exactly</span>
-                          <span>1</span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="#usesConsumable">uses consumable</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#Consumable">Consumable</a>
+                              <a href="#Laboratory">Laboratory</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1068,14 +1038,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002233">has input</a>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="n3610c8e64dee4c54b94c2b3297b65e94b13">n3610c8e64dee4c54b94c2b3297b65e94b13</a>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1087,14 +1057,44 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
+                          <a href="#usesConsumable">uses consumable</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#Laboratory">Laboratory</a>
+                              <a href="#Consumable">Consumable</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
+                        <span>
+                          <span class="cardinality">exactly</span>
+                          <span>1</span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002233">has input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="n3885075acc144024904a0b4dfe099c07b20">n3885075acc144024904a0b4dfe099c07b20</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1161,6 +1161,95 @@ td {
                     <span>
                       <span>
                         <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002234">has output</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="n3885075acc144024904a0b4dfe099c07b24">n3885075acc144024904a0b4dfe099c07b24</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Laboratory">Laboratory</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique">core:hasTechnique</a>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Technique">core:Technique</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
                           <a href="http://purl.obolibrary.org/obo/BFO_0000062">preceded by</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
@@ -1169,6 +1258,44 @@ td {
                           <span>
                             <span>
                               <a href="#ProcessingAndTreatment">ProcessingAndTreatment</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="#usesConsumable">uses consumable</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#Consumable">Consumable</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002233">has input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="n3885075acc144024904a0b4dfe099c07b34">n3885075acc144024904a0b4dfe099c07b34</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1208,147 +1335,20 @@ td {
                       </span>
                     </span>
                   </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://www.w3.org/ns/prov#atLocation">atLocation</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#Laboratory">Laboratory</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002234">has output</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="n3610c8e64dee4c54b94c2b3297b65e94b22">n3610c8e64dee4c54b94c2b3297b65e94b22</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <a href="https://purls.helmholtz-metadaten.de/prima/core#hasTechnique">core:hasTechnique</a>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Technique">core:Technique</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="#usesConsumable">uses consumable</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#Consumable">Consumable</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="https://purls.helmholtz-metadaten.de/prima/core#ResearchUser">core:ResearchUser</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002233">has input</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="n3610c8e64dee4c54b94c2b3297b65e94b29">n3610c8e64dee4c54b94c2b3297b65e94b29</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <a href="https://purls.helmholtz-metadaten.de/prima/core#usesEquipment">core:usesEquipment</a>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Equipment">core:Equipment</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
                 </ul>
               </td>
             </tr>
           </table>
         </div>
-        <div class="property entity" id="SampleCarrier">
-          <h3>Sample Carrier
+        <div class="property entity" id="SampleHolder">
+          <h3>Sample Holder
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
           </h3>
           <table>
             <tr>
               <th>IRI</th>
               <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/experiment#SampleCarrier</code>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#SampleHolder</code>
               </td>
             </tr>
             <tr>
@@ -1356,14 +1356,14 @@ td {
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
               </th>
               <td>
-                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier">https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier</a>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder">https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder</a>
               </td>
             </tr>
             <tr>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene.</p></td>
+              <td><p>Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier.</p></td>
             </tr>
             <tr>
               <th>
@@ -1381,20 +1381,10 @@ td {
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
               </th>
               <td>
-                <ul>
-                  <li>
-                    <span>
-                      <a href="#carries">carries</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <a href="#holds">holds</a>
-                      <sup class="sup-op" title="OWL Object Property">op</sup>
-                    </span>
-                  </li>
-                </ul>
+                <span>
+                  <a href="#holds">holds</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
               </td>
             </tr>
             <tr>
@@ -1402,46 +1392,23 @@ td {
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
               </th>
               <td>
-                <ul>
-                  <li>
+                <span>
+                  <span>
                     <span>
+                      <a href="#holds">holds</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
                       <span>
                         <span>
-                          <a href="#holds">holds</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                          <a href="#Sample">Sample</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#SampleHolder">SampleHolder</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
                       </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="#carries">carries</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#Sample">Sample</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                </ul>
+                    </span><br>
+                  </span>
+                </span>
               </td>
             </tr>
           </table>
@@ -1486,6 +1453,52 @@ td {
               <td>
                 <span>
                   <a href="#hosts">hosts</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="Material">
+          <h3>Material
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#Material</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" title="The definition of the subject resource. Defined in The RDF Schema vocabulary (RDFS)">Is Defined By</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/skosmos/prima/material">https://purls.helmholtz-metadaten.de/skosmos/prima/material</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://purls.helmholtz-metadaten.de/prima/core#System">core:System</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#hasMaterial">has material</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
                 </span>
               </td>
@@ -1542,7 +1555,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#carries">carries</a>
+                  <a href="#holds">holds</a>
                   <sup class="sup-op" title="OWL Object Property">op</sup>
                 </span>
               </td>
@@ -1552,46 +1565,23 @@ td {
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/restriction" title="Convenience property for things that subclass owl:Restriction. Defined in Ontology Documentation Profile">Restriction</a>
               </th>
               <td>
-                <ul>
-                  <li>
+                <span>
+                  <span>
                     <span>
+                      <a href="#hasMaterial">has material</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">some</span>
                       <span>
                         <span>
-                          <a href="#hasMaterial">has material</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                          <a href="#Material">Material</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="https://purls.helmholtz-metadaten.de/prima/core#Material">core:Material</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
                       </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="#isCarriedBy">is carried by</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#SampleCarrier">SampleCarrier</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                </ul>
+                    </span><br>
+                  </span>
+                </span>
               </td>
             </tr>
           </table>
@@ -1683,7 +1673,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>carries represents the relationship between sample carrier to sample.</p></td>
+              <td><p>Relates a Sample Carrier to a Sample or Sample Holder that it carries.</p></td>
             </tr>
             <tr>
               <th>
@@ -1701,6 +1691,11 @@ td {
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
               </th>
               <td>
+                <span>
+                  <a href="#SampleHolder">SampleHolder</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+                <span class="cardinality">or</span>
                 <span>
                   <a href="#Sample">Sample</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1783,7 +1778,10 @@ td {
                 <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
               </th>
               <td>
-                <a href="https://purls.helmholtz-metadaten.de/prima/core#Material">core:Material</a>
+                <span>
+                  <a href="#Material">Material</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
               </td>
             </tr>
           </table>
@@ -1803,7 +1801,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>hasMeasurement represents the relationship between experiment to measurement.</p></td>
+              <td><p>hasMeasurement represents the relationship between study to measurement.</p></td>
             </tr>
             <tr>
               <th>
@@ -1882,7 +1880,7 @@ td {
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>holds represents the relationship between sample carrier to sample holder.</p></td>
+              <td><p>Relates a Sample Holder to a Sample that it holds in place.</p></td>
             </tr>
             <tr>
               <th>
@@ -1890,7 +1888,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SampleCarrier">SampleCarrier</a>
+                  <a href="#SampleHolder">SampleHolder</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -1901,7 +1899,7 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#SampleHolder">SampleHolder</a>
+                  <a href="#Sample">Sample</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -1946,6 +1944,44 @@ td {
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="iscarriedby">
+          <h3>is carried by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>isCarriedBy is the inverse property of carries.</p></td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="isheldby">
+          <h3>is held by
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>isHeldBy is the inverse property of holds.</p></td>
             </tr>
           </table>
         </div>
@@ -2023,44 +2059,6 @@ td {
               <td>
                 <code>http://purl.obolibrary.org/obo/RO_0002234</code>
               </td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="isCarriedBy">
-          <h3>is carried by
-            <sup class="sup-op" title="OWL Object Property">op</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isCarriedBy</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>isCarriedBy is the inverse property of carries.</p></td>
-            </tr>
-          </table>
-        </div>
-        <div class="property entity" id="isHeldBy">
-          <h3>is held by
-            <sup class="sup-op" title="OWL Object Property">op</sup>
-          </h3>
-          <table>
-            <tr>
-              <th>IRI</th>
-              <td>
-                <code>https://purls.helmholtz-metadaten.de/prima/experiment#isHeldBy</code>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
-              </th>
-              <td><p>isHeldBy is the inverse property of holds.</p></td>
             </tr>
           </table>
         </div>
@@ -2395,10 +2393,10 @@ td {
               <a href="#Institution">Institution</a>
             </li>
             <li>
-              <a href="#AcquisitionSoftware">Acquisition Software</a>
+              <a href="#SampleCarrier">Sample Carrier</a>
             </li>
             <li>
-              <a href="#SampleHolder">Sample Holder</a>
+              <a href="#AcquisitionSoftware">Acquisition Software</a>
             </li>
             <li>
               <a href="#Equipment">Equipment</a>
@@ -2416,10 +2414,13 @@ td {
               <a href="#ProcessingAndTreatment">Processing And Treatment</a>
             </li>
             <li>
-              <a href="#SampleCarrier">Sample Carrier</a>
+              <a href="#SampleHolder">Sample Holder</a>
             </li>
             <li>
               <a href="#Laboratory">Laboratory</a>
+            </li>
+            <li>
+              <a href="#Material">Material</a>
             </li>
             <li>
               <a href="#Sample">Sample</a>
@@ -2465,6 +2466,12 @@ td {
               <a href="#hosts">hosts</a>
             </li>
             <li>
+              <a href="#iscarriedby">is carried by</a>
+            </li>
+            <li>
+              <a href="#isheldby">is held by</a>
+            </li>
+            <li>
               <a href="#ismaterialof">is material of</a>
             </li>
             <li>
@@ -2478,12 +2485,6 @@ td {
             </li>
             <li>
               <a href="#hasoutput">has output</a>
-            </li>
-            <li>
-              <a href="#isCarriedBy">is carried by</a>
-            </li>
-            <li>
-              <a href="#isHeldBy">is held by</a>
             </li>
             <li>
               <a href="#usesConsumable">uses consumable</a>

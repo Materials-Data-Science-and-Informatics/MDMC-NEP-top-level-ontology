@@ -21,8 +21,9 @@ import os
 import sys
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
-from rdflib import Graph
+from rdflib import Graph, OWL, URIRef
 from pylode import OntPub
 
 
@@ -118,6 +119,48 @@ MODULES = {
 }
 
 
+V3_LOCAL_IMPORTS = {
+    "https://purls.helmholtz-metadaten.de/prima/core?version=3.0": "core_v3",
+    "https://purls.helmholtz-metadaten.de/prima/dal?version=3.0": "dal_v3",
+    "https://purls.helmholtz-metadaten.de/prima/dataset?version=3.0": "dataset_v3",
+    "https://purls.helmholtz-metadaten.de/prima/experiment?version=3.0": "experiment_v3",
+    "https://purls.helmholtz-metadaten.de/prima/computational?version=3.0": "computational_v3",
+    "https://purls.helmholtz-metadaten.de/prima/complete?version=3.0": "complete_v3",
+}
+
+
+def prepare_local_v3_imports(base_path: Path, temp_path: Path) -> dict[str, Path]:
+    """Create temporary v3 OWL documents whose PRIMA imports resolve locally.
+
+    WebVOWL is normally generated before a release is pushed. Resolving a PRIMA
+    import through its public PURL at that point can therefore load the previous
+    published version. Temporary document copies keep external imports unchanged
+    but replace versioned PRIMA import IRIs with local file IRIs.
+    """
+    local_documents = {
+        module_name: temp_path / MODULES[module_name]["owl_file"]
+        for module_name in V3_LOCAL_IMPORTS.values()
+    }
+    import_documents = {
+        import_iri: local_documents[module_name]
+        for import_iri, module_name in V3_LOCAL_IMPORTS.items()
+    }
+
+    for module_name, destination in local_documents.items():
+        config = MODULES[module_name]
+        source = base_path / config["path"] / config["owl_file"]
+        graph = Graph().parse(source)
+        for subject, imported in list(graph.subject_objects(OWL.imports)):
+            local_import = import_documents.get(str(imported))
+            if local_import is None:
+                continue
+            graph.remove((subject, OWL.imports, imported))
+            graph.add((subject, OWL.imports, URIRef(local_import.as_uri())))
+        graph.serialize(destination=destination, format="xml")
+
+    return local_documents
+
+
 def inject_webvowl_overview(html: str, ontology_id: str) -> str:
     """Re-inject the WebVOWL overview into pyLODE-generated HTML.
 
@@ -143,7 +186,8 @@ def inject_webvowl_overview(html: str, ontology_id: str) -> str:
         html = html.replace("</style>", overview_css + "    </style>", 1)
 
     # 2) Overview section with the WebVOWL iframe, inserted before the Classes
-    #    section (fallback: the Object Properties section for modules without classes).
+    #    section (fallback: the first available property section for modules
+    #    without locally declared classes, such as the complete module).
     overview_section = (
         '      <section class="section" id="overview">\n'
         '        <h2>Overview</h2>\n'
@@ -157,9 +201,16 @@ def inject_webvowl_overview(html: str, ontology_id: str) -> str:
         for anchor in (
             '<div class="section" id="classes">',
             '<div class="section" id="objectproperties">',
+            '<div class="section" id="datatypeproperties">',
         ):
             if anchor in html:
-                html = html.replace(anchor, overview_section + anchor, 1)
+                indented_anchor = "      " + anchor
+                if indented_anchor in html:
+                    html = html.replace(
+                        indented_anchor, overview_section + indented_anchor, 1
+                    )
+                else:
+                    html = html.replace(anchor, overview_section + anchor, 1)
                 break
     return html
 
@@ -271,11 +322,22 @@ def regenerate_vowl(module_name: str, base_path: Path) -> bool:
         data_dir.mkdir(parents=True, exist_ok=True)
         out_json = data_dir / f"{ontology_id}.json"
 
-        subprocess.run(
-            ["java", *JAVA_ADD_OPENS, "-cp", classpath, OWL2VOWL_MAIN,
-             "-file", str(owl_file), "-output", str(out_json)],
-            check=True,
-        )
+        def run_owl2vowl(input_file: Path) -> None:
+            subprocess.run(
+                ["java", *JAVA_ADD_OPENS, "-cp", classpath, OWL2VOWL_MAIN,
+                 "-file", str(input_file), "-output", str(out_json)],
+                check=True,
+            )
+
+        if module_name.endswith("_v3"):
+            with tempfile.TemporaryDirectory(prefix="prima-vowl-") as temp_dir:
+                local_documents = prepare_local_v3_imports(
+                    base_path, Path(temp_dir)
+                )
+                print("  ✓ Resolving PRIMA v3 imports from local OWL files")
+                run_owl2vowl(local_documents[module_name])
+        else:
+            run_owl2vowl(owl_file)
 
         # Keep the module-root copy (e.g. prima-core.owl.json) identical.
         owl_json = module_path / f"{Path(config['owl_file']).stem}.owl.json"
@@ -355,4 +417,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

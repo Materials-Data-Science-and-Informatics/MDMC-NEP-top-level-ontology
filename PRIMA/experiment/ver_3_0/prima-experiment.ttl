@@ -77,11 +77,11 @@ skos:definition a owl:AnnotationProperty .
 
 core:Study a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMeasurement ;
-            owl:someValuesFrom :Measurement ],
-        [ a owl:Restriction ;
             owl:onProperty :hasProcessingAndTreatment ;
-            owl:someValuesFrom :ProcessingAndTreatment ] .
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMeasurement ;
+            owl:someValuesFrom :Measurement ] .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> a owl:Class ;
     rdfs:comment "Specific type of Research Data, primary output of a Data Acquisition performed on a System, before any subsequent Data Processing."@en ;
@@ -98,11 +98,22 @@ core:Study a owl:Class ;
         obi:0000245 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/institution> .
 
+:SampleCarrier a owl:Class ;
+    rdfs:comment "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :carries ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Sample :SampleHolder ) ] ],
+        core:Equipment ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> .
+
 :carries a owl:ObjectProperty ;
     rdfs:label "carries"@en ;
-    rdfs:comment "carries represents the relationship between sample carrier to sample."@en ;
+    rdfs:comment "Relates a Sample Carrier to a Sample or Sample Holder that it carries."@en ;
     rdfs:domain :SampleCarrier ;
-    rdfs:range :Sample ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( :Sample :SampleHolder ) ] ;
     owl:inverseOf :isCarriedBy .
 
 :hasAcquisitionSoftware a owl:ObjectProperty ;
@@ -115,12 +126,12 @@ core:Study a owl:Class ;
     rdfs:label "has material"@en ;
     rdfs:comment "Direct relationship between Sample and Material(s) it is composed of"@en ;
     rdfs:domain :Sample ;
-    rdfs:range core:Material ;
+    rdfs:range :Material ;
     owl:inverseOf :isMaterialOf .
 
 :hasMeasurement a owl:ObjectProperty ;
     rdfs:label "has measurement"@en ;
-    rdfs:comment "hasMeasurement represents the relationship between experiment to measurement."@en ;
+    rdfs:comment "hasMeasurement represents the relationship between study to measurement."@en ;
     rdfs:range :Measurement ;
     rdfs:subPropertyOf core:hasDataAcquisition ;
     owl:inverseOf :isMeasurementOf .
@@ -133,9 +144,9 @@ core:Study a owl:Class ;
 
 :holds a owl:ObjectProperty ;
     rdfs:label "holds"@en ;
-    rdfs:comment "holds represents the relationship between sample carrier to sample holder."@en ;
-    rdfs:domain :SampleCarrier ;
-    rdfs:range :SampleHolder ;
+    rdfs:comment "Relates a Sample Holder to a Sample that it holds in place."@en ;
+    rdfs:domain :SampleHolder ;
+    rdfs:range :Sample ;
     owl:inverseOf :isHeldBy .
 
 :hosts a owl:ObjectProperty ;
@@ -143,6 +154,14 @@ core:Study a owl:Class ;
     rdfs:comment "hosts represents the relationship between institution to laboratory."@en ;
     rdfs:domain :Institution ;
     rdfs:range :Laboratory .
+
+:isCarriedBy a owl:ObjectProperty ;
+    rdfs:label "is carried by"@en ;
+    rdfs:comment "isCarriedBy is the inverse property of carries."@en .
+
+:isHeldBy a owl:ObjectProperty ;
+    rdfs:label "is held by"@en ;
+    rdfs:comment "isHeldBy is the inverse property of holds."@en .
 
 :isMaterialOf a owl:ObjectProperty ;
     rdfs:label "is material of"@en ;
@@ -170,23 +189,6 @@ ro:0002234 a owl:ObjectProperty ;
             owl:someValuesFrom core:Settings ],
         iao:0000030 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/acquisitionsoftware> .
-
-:SampleHolder a owl:Class ;
-    rdfs:comment "Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder> ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isHeldBy ;
-            owl:someValuesFrom :SampleCarrier ],
-        core:Equipment ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder> .
-
-:isCarriedBy a owl:ObjectProperty ;
-    rdfs:label "is carried by"@en ;
-    rdfs:comment "isCarriedBy is the inverse property of carries."@en .
-
-:isHeldBy a owl:ObjectProperty ;
-    rdfs:label "is held by"@en ;
-    rdfs:comment "isHeldBy is the inverse property of holds."@en .
 
 :usesConsumable a owl:ObjectProperty ;
     rdfs:label "uses consumable"@en ;
@@ -216,25 +218,25 @@ core:Instrument a owl:Class ;
     rdfs:comment "Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesConsumable ;
+            owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
             owl:onClass core:Instrument ;
             owl:onProperty core:usesEquipment ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty :usesConsumable ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( core:Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
+                    owl:unionOf ( :Material :Sample ) ] ],
         core:DataAcquisition ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> .
 
@@ -242,51 +244,48 @@ core:Instrument a owl:Class ;
     rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Material :Sample ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
+        [ a owl:Restriction ;
             owl:onProperty bfo:0000062 ;
             owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesConsumable ;
+            owl:someValuesFrom :Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Material :Sample ) ] ],
         [ a owl:Restriction ;
             owl:onProperty core:usesEquipment ;
             owl:someValuesFrom core:Instrument ],
         [ a owl:Restriction ;
             owl:onProperty core:hasDataAcquisition ;
             owl:someValuesFrom core:DataAcquisition ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( core:Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty core:hasTechnique ;
-            owl:someValuesFrom core:Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesConsumable ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( core:Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
         obo:COB_0000035 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> .
 
-:SampleCarrier a owl:Class ;
-    rdfs:comment "Piece of Equipment used for carrying one or more Samples and/or one or more Sample Holders (depending on the scientific use case), which is helpful for, e.g., referencing, handling, or height adjustment. Examples of Sample Carrier are: a naked wafer, a glass slide, an individually designed metal frame, but also a Si crystal carrying a Sample of exfoliated graphene."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> ;
+:SampleHolder a owl:Class ;
+    rdfs:comment "Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :holds ;
-            owl:someValuesFrom :SampleHolder ],
-        [ a owl:Restriction ;
-            owl:onProperty :carries ;
             owl:someValuesFrom :Sample ],
         core:Equipment ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/samplecarrier> .
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sampleholder> .
 
 :Laboratory a owl:Class ;
     rdfs:comment "Physical or virtual place hosted by an Institution, where the Equipment (including Instruments), is located and can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study."@en ;
@@ -294,15 +293,18 @@ core:Instrument a owl:Class ;
     rdfs:subClassOf bfo:0000029 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/laboratory> .
 
+:Material a owl:Class ;
+    rdfs:comment "Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/material> ;
+    rdfs:subClassOf core:System ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/material> .
+
 :Sample a owl:Class ;
     rdfs:comment "Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :hasMaterial ;
-            owl:someValuesFrom core:Material ],
-        [ a owl:Restriction ;
-            owl:onProperty :isCarriedBy ;
-            owl:someValuesFrom :SampleCarrier ],
+            owl:someValuesFrom :Material ],
         core:System ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/sample> .
 

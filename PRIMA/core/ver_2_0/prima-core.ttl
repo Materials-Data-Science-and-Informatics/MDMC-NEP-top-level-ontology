@@ -273,19 +273,19 @@ prov:wasAssociatedWith a owl:ObjectProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/study> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom :ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
             owl:someValuesFrom :Project ],
         [ a owl:Restriction ;
-            owl:onProperty :hasScientificPublication ;
-            owl:someValuesFrom :ScientificPublication ],
+            owl:onProperty :hasDataAnalysis ;
+            owl:someValuesFrom :DataAnalysis ],
         [ a owl:Restriction ;
             owl:onProperty :hasDataAcquisition ;
             owl:someValuesFrom :DataAcquisition ],
         [ a owl:Restriction ;
-            owl:onProperty :hasDataAnalysis ;
-            owl:someValuesFrom :DataAnalysis ],
+            owl:onProperty :hasScientificPublication ;
+            owl:someValuesFrom :ScientificPublication ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom :ResearchUser ],
         <https://w3id.org/pmd/co/Process> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/study> .
 
@@ -311,6 +311,12 @@ prov:wasAttributedTo a owl:ObjectProperty .
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
+            owl:onProperty <https://w3id.org/pmd/co/output> ;
+            owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesResearchSoftware ;
+            owl:someValuesFrom :ResearchSoftware ],
+        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom :ResearchData ],
         [ a owl:Restriction ;
@@ -320,14 +326,8 @@ prov:wasAttributedTo a owl:ObjectProperty .
             owl:onProperty :usesEquipment ;
             owl:someValuesFrom :Equipment ],
         [ a owl:Restriction ;
-            owl:onProperty <https://w3id.org/pmd/co/output> ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
             owl:onProperty :hasTechnique ;
             owl:someValuesFrom :Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesResearchSoftware ;
-            owl:someValuesFrom :ResearchSoftware ],
         <https://w3id.org/pmd/co/Process> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> .
 
@@ -335,11 +335,11 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question. Data Analysis may include: linear combination fitting, least-squares curve fitting, data modelling, pattern extraction and/or segmentation, data visualization. The output of Data Analysis is Analyzed Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasTechnique ;
-            owl:someValuesFrom :Technique ],
-        [ a owl:Restriction ;
             owl:onProperty <https://w3id.org/pmd/co/input> ;
             owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasTechnique ;
+            owl:someValuesFrom :Technique ],
         [ a owl:Restriction ;
             owl:onProperty prov:wasAssociatedWith ;
             owl:someValuesFrom :ResearchUser ],

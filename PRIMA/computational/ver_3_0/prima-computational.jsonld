@@ -1,30 +1,24 @@
 [
   {
-    "@id": "http://purl.org/dc/terms/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/computational#Calculation",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/computational#Simulation",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."
+        "@value": "Computational Data Acquisition performed by one or more Research Users on a Model to manipulate its Settings using a specific computational and/or theoretical Technique in order to study, predict, or optimize the behaviour and performance of existing or proposed features and properties of a physical System that would otherwise be too complex, too large/small, too fast/slow, too dangerous, inaccessible, or unacceptable to engage and/or control. Examples of Simulation are: multiscale simulation, finite-element simulation, molecular dynamics simulation, discrete dislocation dynamics simulation."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/calculation"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/simulation"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Calculation"
+        "@value": "Simulation"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -35,23 +29,34 @@
         "@id": "https://w3id.org/pmd/co/PMD_0000583"
       },
       {
-        "@id": "_:Nf79b67b25c584102be182a0c5c8aed80"
+        "@id": "_:N7e711f4eaf0e49b78694d439ad216a53"
       },
       {
-        "@id": "_:Ne13b3dd02abb4c2bba3ed2e2a348d601"
+        "@id": "_:N748be9b14592429cabc564e62cba90b8"
       },
       {
-        "@id": "_:N978914809131478db4bcc5f1f52a074d"
+        "@id": "_:N06949c5271764f258bba8d665a3261b6"
+      },
+      {
+        "@id": "_:N65ec16212f954d0fbaa40dcbfe7aee06"
+      },
+      {
+        "@id": "_:N4b8ea32954464ac68309397cb8b20090"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "https://w3id.org/pmd/co/PMD_0000933"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/calculation"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/simulation"
       }
     ]
   },
   {
-    "@id": "_:Nf79b67b25c584102be182a0c5c8aed80",
+    "@id": "_:N7e711f4eaf0e49b78694d439ad216a53",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -67,7 +72,7 @@
     ]
   },
   {
-    "@id": "_:Ne13b3dd02abb4c2bba3ed2e2a348d601",
+    "@id": "_:N748be9b14592429cabc564e62cba90b8",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -83,7 +88,7 @@
     ]
   },
   {
-    "@id": "_:N978914809131478db4bcc5f1f52a074d",
+    "@id": "_:N06949c5271764f258bba8d665a3261b6",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -99,62 +104,117 @@
     ]
   },
   {
-    "@id": "http://purl.obolibrary.org/obo/BFO_0000062",
+    "@id": "_:N65ec16212f954d0fbaa40dcbfe7aee06",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4b8ea32954464ac68309397cb8b20090",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/computational#Model",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Digital representation of a System, primary output of any kind of Model Preparation, aimed to be used in one or more Calculations or Simulations for its description or for predictions of its behaviour. A Model represents the System by direct similitude (e.g., small-scale replica) or by capturing in a logical framework the relations between its properties (e.g., mathematical Model). A Model typically consists of Settings which may be stored in one or more files."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/model"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Model"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
+      },
+      {
+        "@id": "_:N0fbd0a70bb164eb5977d91f67f49515d"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/model"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0fbd0a70bb164eb5977d91f67f49515d",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.obolibrary.org/obo/RO_0002211",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "preceded by"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.obolibrary.org/obo/BFO_0000063"
+        "@value": "has agent"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/title",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ]
   },
   {
-    "@id": "http://purl.obolibrary.org/obo/RO_0002233",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has input"
-      }
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hosts",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#definition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -170,33 +230,15 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
     "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesResearchSoftware",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#hosts",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.obolibrary.org/obo/BFO_0000063",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "precedes"
-      }
     ]
   },
   {
@@ -226,25 +268,25 @@
         "@id": "https://w3id.org/pmd/co/PMD_0000583"
       },
       {
-        "@id": "_:Naa7d49fdd0224be48940fbf1a6b683ff"
+        "@id": "_:N6659e51daff449efb793121de30e6ef7"
       },
       {
-        "@id": "_:Nfd077109defb4b48953677ad57b78d34"
+        "@id": "_:N22c7bb7939bd4af0a2c5cf9c0ea6d688"
       },
       {
-        "@id": "_:Nc351ec8f7b7e49da87917a8421f3e1d3"
+        "@id": "_:N882aa7dbcd77442990385082eb7af72c"
       },
       {
-        "@id": "_:N2bb7a2fbeb194854b2ac625c9ed897c3"
+        "@id": "_:N75b92b8ab13c4807af6b79c0cf484d12"
       },
       {
-        "@id": "_:N7433f951cdcd45cbbfdf5150227dc391"
+        "@id": "_:N356d41f7329d4597bb7cb05ec909396e"
       },
       {
-        "@id": "_:N99d92561cada48f49911c76fff1246b9"
+        "@id": "_:N7819b4434d4d454f813171baf93d6fae"
       },
       {
-        "@id": "_:Nba4a269ec0e54726a74a5eacba10bd83"
+        "@id": "_:Na71941c48e9e4446975397fbbe963f81"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -254,7 +296,7 @@
     ]
   },
   {
-    "@id": "_:Naa7d49fdd0224be48940fbf1a6b683ff",
+    "@id": "_:N6659e51daff449efb793121de30e6ef7",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -270,7 +312,7 @@
     ]
   },
   {
-    "@id": "_:Nfd077109defb4b48953677ad57b78d34",
+    "@id": "_:N22c7bb7939bd4af0a2c5cf9c0ea6d688",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -286,7 +328,7 @@
     ]
   },
   {
-    "@id": "_:Nc351ec8f7b7e49da87917a8421f3e1d3",
+    "@id": "_:N882aa7dbcd77442990385082eb7af72c",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -302,7 +344,7 @@
     ]
   },
   {
-    "@id": "_:N2bb7a2fbeb194854b2ac625c9ed897c3",
+    "@id": "_:N75b92b8ab13c4807af6b79c0cf484d12",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -318,7 +360,7 @@
     ]
   },
   {
-    "@id": "_:N7433f951cdcd45cbbfdf5150227dc391",
+    "@id": "_:N356d41f7329d4597bb7cb05ec909396e",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -334,7 +376,7 @@
     ]
   },
   {
-    "@id": "_:N99d92561cada48f49911c76fff1246b9",
+    "@id": "_:N7819b4434d4d454f813171baf93d6fae",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -350,7 +392,7 @@
     ]
   },
   {
-    "@id": "_:Nba4a269ec0e54726a74a5eacba10bd83",
+    "@id": "_:Na71941c48e9e4446975397fbbe963f81",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -363,6 +405,42 @@
       {
         "@id": "https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"
       }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/license",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ]
   },
   {
@@ -435,136 +513,31 @@
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@id": "http://www.w3.org/2004/02/skos/core#definition",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#definition"
-      }
     ]
   },
   {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/dataset#RawData",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/computational#Model",
+    "@id": "https://purls.helmholtz-metadaten.de/prima/computational#Calculation",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Digital representation of a System, primary output of any kind of Model Preparation, aimed to be used in one or more Calculations or Simulations for its description or for predictions of its behaviour. A Model represents the System by direct similitude (e.g., small-scale replica) or by capturing in a logical framework the relations between its properties (e.g., mathematical Model). A Model typically consists of Settings which may be stored in one or more files."
+        "@value": "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/model"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/calculation"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Model"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#System"
-      },
-      {
-        "@id": "_:N5abc6e501ddd4da8baaf78a4993660cb"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/model"
-      }
-    ]
-  },
-  {
-    "@id": "_:N5abc6e501ddd4da8baaf78a4993660cb",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/prov#atLocation",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/core#usesEquipment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.obolibrary.org/obo/RO_0002211",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has agent"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/created",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/license",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://purls.helmholtz-metadaten.de/prima/computational#Simulation",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Computational Data Acquisition performed by one or more Research Users on a Model to manipulate its Settings using a specific computational and/or theoretical Technique in order to study, predict, or optimize the behaviour and performance of existing or proposed features and properties of a physical System that would otherwise be too complex, too large/small, too fast/slow, too dangerous, inaccessible, or unacceptable to engage and/or control. Examples of Simulation are: multiscale simulation, finite-element simulation, molecular dynamics simulation, discrete dislocation dynamics simulation."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/simulation"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Simulation"
+        "@value": "Calculation"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
@@ -575,31 +548,26 @@
         "@id": "https://w3id.org/pmd/co/PMD_0000583"
       },
       {
-        "@id": "_:N87284aed6b62409490621ea10525d9d0"
+        "@id": "_:N3a549d7193784e3aadab2021970f1762"
       },
       {
-        "@id": "_:N13edfea312134296b7b5367d53d750b1"
+        "@id": "_:N7c4caf2a470e4adba0c661cf0e1db914"
       },
       {
-        "@id": "_:N7868d4f5b30a4f5da5926f3ab38925ff"
+        "@id": "_:N6533840c2661428ebca97fdce8113524"
       },
       {
-        "@id": "_:N91eb30cfaccb45e28acc533af1cd06be"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "https://w3id.org/pmd/co/PMD_0000933"
+        "@id": "_:Nf88b6930b9304322b9cc13c3c1cd92db"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/simulation"
+        "@id": "https://purls.helmholtz-metadaten.de/skosmos/prima/calculation"
       }
     ]
   },
   {
-    "@id": "_:N87284aed6b62409490621ea10525d9d0",
+    "@id": "_:N3a549d7193784e3aadab2021970f1762",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -615,7 +583,7 @@
     ]
   },
   {
-    "@id": "_:N13edfea312134296b7b5367d53d750b1",
+    "@id": "_:N7c4caf2a470e4adba0c661cf0e1db914",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -631,7 +599,7 @@
     ]
   },
   {
-    "@id": "_:N7868d4f5b30a4f5da5926f3ab38925ff",
+    "@id": "_:N6533840c2661428ebca97fdce8113524",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -647,18 +615,18 @@
     ]
   },
   {
-    "@id": "_:N91eb30cfaccb45e28acc533af1cd06be",
+    "@id": "_:Nf88b6930b9304322b9cc13c3c1cd92db",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasTechnique"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasSetting"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Technique"
+        "@id": "https://purls.helmholtz-metadaten.de/prima/core#Settings"
       }
     ]
   },
@@ -666,6 +634,76 @@
     "@id": "https://purls.helmholtz-metadaten.de/prima/core#hasDataAcquisition",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.obolibrary.org/obo/RO_0002233",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has input"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/prov#atLocation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.obolibrary.org/obo/BFO_0000062",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "preceded by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/BFO_0000063"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/created",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.obolibrary.org/obo/BFO_0000063",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "precedes"
+      }
+    ]
+  },
+  {
+    "@id": "https://purls.helmholtz-metadaten.de/prima/core#MDMCNEPGlossaryDefinition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#definition"
+      }
     ]
   }
 ]

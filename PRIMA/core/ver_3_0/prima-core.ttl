@@ -78,12 +78,6 @@ skos:exactMatch a owl:AnnotationProperty .
 :MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:definition .
 
-:Material a owl:Class ;
-    rdfs:comment "Broad term used to define a physical System, typically a substance or mixture of substances, in different states of matter or phases, of which something is composed or can be made. According to this definition, a Sample is constituted by at least one Material. Material(s) may undergo some kind of Processing and Treatment and/or Measurement."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/material> ;
-    rdfs:subClassOf :System ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/material> .
-
 :ProjectLeader a owl:Class ;
     rdfs:label "Project Leader"@en ;
     rdfs:comment "Person officially designated as head of project team or sub- project team instrumental in the work necessary to development of the resource."@en ;
@@ -233,6 +227,12 @@ prov:wasAttributedTo a owl:ObjectProperty .
         schema:PublicationEvent ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/scientificpublication> .
 
+:System a owl:Class ;
+    rdfs:comment "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/system> ;
+    rdfs:subClassOf bfo:0000002 ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/system> .
+
 :hasProjectMember a owl:ObjectProperty ;
     rdfs:label "has project member"@en ;
     rdfs:comment "hasProjectMember represents the relationship between project and its member, which is research user."@en ;
@@ -292,12 +292,6 @@ ro:0002211 a owl:ObjectProperty ;
         <http://purl.obolibrary.org/obo/COB_0000035> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/study> .
 
-:System a owl:Class ;
-    rdfs:comment "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/system> ;
-    rdfs:subClassOf bfo:0000040 ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/system> .
-
 :Technique a owl:Class ;
     rdfs:comment "Any experimental, theoretical, or computational method with a specific aim, including but not limited to: process and/or treat Samples, prepare Models, acquire and/or analyze Research Data, using some Equipment."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/technique> ;
@@ -308,32 +302,32 @@ ro:0002211 a owl:ObjectProperty ;
     rdfs:comment "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :System ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesResearchSoftware ;
-            owl:someValuesFrom :ResearchSoftware ],
+            owl:onProperty :usesEquipment ;
+            owl:someValuesFrom :Equipment ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
+            owl:onProperty :hasTechnique ;
+            owl:someValuesFrom :Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :System ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom :ResearchData ],
         [ a owl:Restriction ;
-            owl:onProperty :usesEquipment ;
-            owl:someValuesFrom :Equipment ],
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesResearchSoftware ;
+            owl:someValuesFrom :ResearchSoftware ],
         [ a owl:Restriction ;
             owl:onProperty obi:0000293 ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:intersectionOf ( :System [ a owl:Restriction ;
                                 owl:onProperty ro:0000087 ;
                                 owl:someValuesFrom obi:0000067 ] ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasTechnique ;
-            owl:someValuesFrom :Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom :ResearchData ],
         obi:0000070 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> .
 
@@ -341,20 +335,20 @@ ro:0002211 a owl:ObjectProperty ;
     rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question. Data Analysis may include: linear combination fitting, least-squares curve fitting, data modelling, pattern extraction and/or segmentation, data visualization. The output of Data Analysis is Analyzed Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
+            owl:onProperty ro:0002234 ;
             owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :hasTechnique ;
             owl:someValuesFrom :Technique ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
             owl:onProperty :usesResearchSoftware ;
             owl:someValuesFrom :ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom :ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :ResearchData ],
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> .
 
@@ -389,11 +383,11 @@ ro:0002211 a owl:ObjectProperty ;
     rdfs:comment "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :performsAgentRole ;
-            owl:someValuesFrom :AgentRole ],
-        [ a owl:Restriction ;
             owl:onProperty :operates ;
             owl:someValuesFrom :Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty :performsAgentRole ;
+            owl:someValuesFrom :AgentRole ],
         bfo:0000004 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser> .
 
