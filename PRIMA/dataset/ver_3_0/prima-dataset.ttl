@@ -97,25 +97,31 @@ dcterms:hasPart a owl:ObjectProperty .
 
 skos:definition a owl:AnnotationProperty .
 
+core:ResearchSoftware a owl:Class .
+
+core:Study a owl:Class .
+
+core:usesResearchSoftware a owl:ObjectProperty .
+
 :DataCuration a owl:Class ;
     rdfs:label "Data Curation"@en ;
     rdfs:comment "Set of actions performed by one or more Research Users on Research Data and/or Datasets using a Technique to cleanse, document, standardize, format and inter-relate them, with the goal of ensuring they are fit for the purpose and available for discovery and reuse. This includes (but is not limited to): forming a new Dataset from several data sources, annotating Research Data and/or a Dataset with Metadata, maintaining links with published materials (Publication Data and/or Scientific Publications). For dynamic Datasets this may mean continuous enrichment or updating. Special forms of Data Curation (e.g., versioning) may be available in Data Repositories."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :Dataset ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom core:ResearchUser ],
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom core:ResearchData ],
         [ a owl:Restriction ;
             owl:onProperty core:usesResearchSoftware ;
             owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom core:ResearchData ],
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom core:ResearchData ],
@@ -146,6 +152,8 @@ ro:0002234 a owl:ObjectProperty ;
 dcterms:references a owl:AnnotationProperty .
 
 prov:wasAttributedTo a owl:ObjectProperty .
+
+core:AgentRole a owl:Class .
 
 <https://purls.helmholtz-metadaten.de/prima/dataset> a owl:Ontology ;
     dcterms:contributor "Elda Osmenaj"@en,
@@ -186,14 +194,14 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:comment "Dataset(s) generated in the course of a Study, that has undergone quality assessment and Data Curation, and can be cited as a reliable source (i.e., a Persistent Identifier is assigned to it) to, e.g., reproduce the results and/or support the conclusions presented in a Scientific Publication or appearing in it. Publication Data may be attributed to some or to all the Research Users who are members of the Project."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
             owl:onProperty :hasMetadata ;
             owl:someValuesFrom :Metadata ],
         [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataRepository ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom core:ResearchUser ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> .
 
@@ -210,15 +218,17 @@ prov:wasAttributedTo a owl:ObjectProperty .
             owl:unionOf ( core:ResearchData :Dataset :PublicationData ) ] ;
     rdfs:range :Metadata .
 
+core:ResearchUser a owl:Class .
+
 :DataRepository a owl:Class ;
     rdfs:comment "Information system used to store, manage, and provide access to digital resources, following a set of rules that define storage and access norms. A Data Repository is particularly suitable for (but not limited to) Publication Data, which is not likely to be altered again. Many Data Repositories automatically assign globally unique Persistent Identifiers to deposited resources. A Data Repository may be associated with an Institution or a group of them, or may be run by a third party. A Data Repository may or may not be directly used by Research Users. The access rights granted to the resources may be determined by the User Role."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :Dataset ],
+            owl:someValuesFrom :PublicationData ],
         [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :PublicationData ],
+            owl:someValuesFrom :Dataset ],
         iao:0000030 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> .
 
@@ -229,11 +239,11 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :identifierValue ],
+            owl:onProperty :identifierScheme ],
         [ a owl:Restriction ;
             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onDataRange xsd:string ;
-            owl:onProperty :identifierScheme ],
+            owl:onProperty :identifierValue ],
         iao:0000027 ;
     skos:closeMatch <https://terms.codata.org/rdmt/persistent-identifier> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/persistentidentifier> .
@@ -248,11 +258,11 @@ prov:wasAttributedTo a owl:ObjectProperty .
     rdfs:comment "Any descriptive data intended to contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Typically, Metadata is created in the course of a Study and then integrated, organized, and refined during Data Curation. Examples of Metadata are: Sample properties and/or treatment history recorded in an Electronic Laboratory Notebook, Instrument parameters saved with Raw Data, analysis processes saved with Analyzed Data, Settings of a Model, but also data license, affiliation of Research Users, descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository and assigned a Persistent Identifier."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/metadata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :MetadataRepository ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom core:ResearchUser ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/metadata> .
 
@@ -271,17 +281,19 @@ prov:wasAttributedTo a owl:ObjectProperty .
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataCollaborationPlatform ],
-        [ a owl:Restriction ;
             owl:onProperty :hasMetadata ;
             owl:someValuesFrom :Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :DataCollaborationPlatform ],
         [ a owl:Restriction ;
             owl:onProperty dcterms:hasPart ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( core:ResearchData :Dataset ) ] ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> .
+
+core:ResearchData a owl:Class .
 
 [] owl:minCardinality "1"^^xsd:nonNegativeInteger .
 

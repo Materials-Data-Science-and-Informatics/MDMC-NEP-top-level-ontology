@@ -917,6 +917,45 @@ td {
             </tr>
           </table>
         </div>
+        <div class="property entity" id="DataProcessing">
+          <h3>Data Processing
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="DataCuration">
+          <h3>Data Curation
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration</code>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="AcquisitionSoftware">
+          <h3>Acquisition Software
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware</code>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="ProjectMember">
           <h3>Project Member
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1240,14 +1279,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#hasScientificPublication">has scientific publication</a>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ScientificPublication">Scientific Publication</a>
+                              <a href="#ResearchUser">ResearchUser</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1259,14 +1298,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <a href="#hasScientificPublication">has scientific publication</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchUser">ResearchUser</a>
+                              <a href="#ScientificPublication">Scientific Publication</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1378,15 +1417,12 @@ td {
                   <li>
                     <span>
                       <span>
-                        <span>
-                          <a href="#usesEquipment">uses equipment</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
+                        <a href="http://purl.obolibrary.org/obo/RO_0002233">ro:0002233</a>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#Equipment">Equipment</a>
+                              <a href="#System">System</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1417,6 +1453,25 @@ td {
                     <span>
                       <span>
                         <span>
+                          <a href="http://purl.obolibrary.org/obo/OBI_0000293">has specified input</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="na0272f65d5334d10b39691c2394e27adb22">na0272f65d5334d10b39691c2394e27adb22</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <span>
                           <a href="#hasTechnique">has technique</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
@@ -1435,12 +1490,15 @@ td {
                   <li>
                     <span>
                       <span>
-                        <a href="http://purl.obolibrary.org/obo/RO_0002233">ro:0002233</a>
+                        <span>
+                          <a href="#usesResearchSoftware">uses research software</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#System">System</a>
+                              <a href="#ResearchSoftware">ResearchSoftware</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1484,33 +1542,14 @@ td {
                     <span>
                       <span>
                         <span>
-                          <a href="#usesResearchSoftware">uses research software</a>
+                          <a href="#usesEquipment">uses equipment</a>
                           <sup class="sup-op" title="OWL Object Property">op</sup>
                         </span>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
                             <span>
-                              <a href="#ResearchSoftware">ResearchSoftware</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <span>
-                          <a href="http://purl.obolibrary.org/obo/OBI_0000293">has specified input</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="n8b3c4de70b164f0fa16419d247dfbcb4b27">n8b3c4de70b164f0fa16419d247dfbcb4b27</a>
+                              <a href="#Equipment">Equipment</a>
                               <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                             </span>
                           </span>
@@ -1576,7 +1615,26 @@ td {
                   <li>
                     <span>
                       <span>
-                        <a href="http://purl.obolibrary.org/obo/RO_0002234">ro:0002234</a>
+                        <span>
+                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
+                          <sup class="sup-op" title="OWL Object Property">op</sup>
+                        </span>
+                        <span>
+                          <span class="cardinality">some</span>
+                          <span>
+                            <span>
+                              <a href="#ResearchUser">ResearchUser</a>
+                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                            </span>
+                          </span>
+                        </span><br>
+                      </span>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <span>
+                        <a href="http://purl.obolibrary.org/obo/RO_0002233">ro:0002233</a>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
@@ -1630,26 +1688,7 @@ td {
                   <li>
                     <span>
                       <span>
-                        <span>
-                          <a href="http://purl.obolibrary.org/obo/RO_0002211">has agent</a>
-                          <sup class="sup-op" title="OWL Object Property">op</sup>
-                        </span>
-                        <span>
-                          <span class="cardinality">some</span>
-                          <span>
-                            <span>
-                              <a href="#ResearchUser">ResearchUser</a>
-                              <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                            </span>
-                          </span>
-                        </span><br>
-                      </span>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <span>
-                        <a href="http://purl.obolibrary.org/obo/RO_0002233">ro:0002233</a>
+                        <a href="http://purl.obolibrary.org/obo/RO_0002234">ro:0002234</a>
                         <span>
                           <span class="cardinality">some</span>
                           <span>
@@ -2554,12 +2593,12 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#DataAnalysis">DataAnalysis</a>
+                  <a href="#DataAcquisition">DataAcquisition</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
                 <span class="cardinality">or</span>
                 <span>
-                  <a href="#DataAcquisition">DataAcquisition</a>
+                  <a href="#DataAnalysis">DataAnalysis</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -2649,22 +2688,22 @@ td {
               </th>
               <td>
                 <span>
-                  <a href="#DataAnalysis">DataAnalysis</a>
-                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
-                </span>
-                <span class="cardinality">or</span>
-                <span>
                   <a href="https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing">https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
                 <span class="cardinality">or</span>
                 <span>
-                  <a href="https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration">https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration</a>
+                  <a href="#DataAnalysis">DataAnalysis</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
                 <span class="cardinality">or</span>
                 <span>
                   <a href="#DataAcquisition">DataAcquisition</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+                <span class="cardinality">or</span>
+                <span>
+                  <a href="https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration">https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration</a>
                   <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                 </span>
               </td>
@@ -3014,6 +3053,15 @@ td {
             </li>
             <li>
               <a href="#UserRole">User Role</a>
+            </li>
+            <li>
+              <a href="#DataProcessing">Data Processing</a>
+            </li>
+            <li>
+              <a href="#DataCuration">Data Curation</a>
+            </li>
+            <li>
+              <a href="#AcquisitionSoftware">Acquisition Software</a>
             </li>
             <li>
               <a href="#ProjectMember">Project Member</a>
