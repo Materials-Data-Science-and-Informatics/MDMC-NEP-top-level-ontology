@@ -42,7 +42,7 @@ PRIMA is a modular ontology consisting of four modules:
 - **Version-aware artifacts**: v3 modules declare version information and prior-version links (useful for tracking evolution across releases).
 
 ## Use Cases
-So far, we have demonstrated the broad applicability of PRIMA by presenting two different use cases: (i) the mapping of the FAIRification workflow applied to Scanning Tunneling Microscope (STM) images from data acquisition to data analysis and (ii) the PRIMA alignment of the fabrication processes ontologies applied to metallic biomaterials recorded in the Herbie Electronic Laboratory Notebook (ELN).
+So far, we have demonstrated the broad applicability of PRIMA by presenting three different use cases: (i) the mapping of the FAIRification workflow applied to Scanning Tunneling Microscope (STM) images from data acquisition to data analysis, (ii) the PRIMA alignment of the fabrication processes ontologies applied to metallic biomaterials recorded in the Herbie Electronic Laboratory Notebook (ELN), and (iii) the alignment of a Discrete Dislocation Dynamics (DDD) simulation modeled with the Dislocation Ontology (DISO) to the PRIMA Computational Workflow module.
 
 ### Use case 1: Scanning Tunneling Microscopy (STM) Images 
 
@@ -56,6 +56,13 @@ The use case including the mapped ontology and the RDF data can be accessed [her
 In this use case, the Herbie ontology, an ontology is used in Herbie, is extended to be aligned to PRIMA. A successful ontology alignment involves identifying relationships between entities in different ontologies to establish links and similarities between the source and target ontologies. The analysis focuses on concepts that overlap but may have different names (synonyms) or types in the ontologies. This alignment supports the generation of linked data and boasts more interoperability of Herbie within the materials science data.
 
 The use case including the extended Herbie ontology and RDF data generated from it can be accessed [here](./use-cases/Herbie-ELN).
+
+### Use case 3: Discrete Dislocation Dynamics (DDD) Simulation
+Discrete Dislocation Dynamics (DDD) is a numerical method to study the motion, interaction, arrangement, and collective behaviour of dislocations in crystalline materials. In this use case, a Copper relaxation simulation is performed with MoDELib and modeled using the Dislocation Ontology (DISO).
+
+In this use case, DISO is aligned to the PRIMA Computational Workflow module. The alignment connects the simulation, its input and output microstructures, and its simulation parameters to PRIMA classes and properties. This alignment demonstrates how a domain-specific description of a dislocation simulation can also be queried through the generic computational provenance concepts provided by PRIMA.
+
+The use case including the alignment ontology, simulation data, mapping scripts, and generated RDF data can be accessed [here](./use-cases/v_3_0/DISO-mapping).
 
 ## Usage
 * We recommend to use [Protégé 5.5.0](https://protege.stanford.edu/products.php#desktop-protege) to be able to view and navigate classes and properties in PRIMA.
@@ -120,5 +127,4 @@ The code is licensed under the [MIT license](./LICENSE). Copyright © 2026.
 ## Acknowledgements
 
 This work has been supported by the Joint Lab “Integrated Model and Data Driven Materials Characterization” ([MDMC](https://jl-mdmc-helmholtz.de)), Helmholtz Metadata Collaboration ([HMC](https://helmholtz-metadaten.de/en)) within the Hub Information at the Forschungszentrum Jülich, the German Research Foundation (Deutsche Forschungsgemeinschaft, DFG) in the framework of the project FAIRmat (Project ID: 460197019); the DFG under the National Research Data Infrastructure – NFDI 38/1 – project number 460247524, the research programs “Engineering Digital Futures” and “Materials System Engineering” of the Helmholtz Association of German Research Centers, NFFA-Europe Pilot ([NEP](https://www.nffa.eu)) Joint Activities and the Use case 1 of EOSC-Pillar ([EOSC-Pillar](https://www.eosc-pillar.eu/)) project.
-
 
