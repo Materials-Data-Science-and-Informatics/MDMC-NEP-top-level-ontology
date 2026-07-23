@@ -14,7 +14,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ro:0000053 a owl:ObjectProperty ;
-    rdfs:label "has participant"@en .
+    rdfs:label "has characteristic"@en .
 
 dcterms:contributor a owl:AnnotationProperty .
 
@@ -108,22 +108,22 @@ core:usesResearchSoftware a owl:ObjectProperty .
     rdfs:comment "Set of actions performed by one or more Research Users on Research Data and/or Datasets using a Technique to cleanse, document, standardize, format and inter-relate them, with the goal of ensuring they are fit for the purpose and available for discovery and reuse. This includes (but is not limited to): forming a new Dataset from several data sources, annotating Research Data and/or a Dataset with Metadata, maintaining links with published materials (Publication Data and/or Scientific Publications). For dynamic Datasets this may mean continuous enrichment or updating. Special forms of Data Curation (e.g., versioning) may be available in Data Repositories."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom :Dataset ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom core:ResearchData ],
-        [ a owl:Restriction ;
             owl:onProperty core:usesResearchSoftware ;
             owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
             owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :Dataset ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
             owl:someValuesFrom core:ResearchData ],
         obo:COB_0000035 ;
     skos:closeMatch <https://terms.codata.org/rdmt/data-curation> ;
@@ -194,14 +194,14 @@ core:AgentRole a owl:Class .
     rdfs:comment "Dataset(s) generated in the course of a Study, that has undergone quality assessment and Data Curation, and can be cited as a reliable source (i.e., a Persistent Identifier is assigned to it) to, e.g., reproduce the results and/or support the conclusions presented in a Scientific Publication or appearing in it. Publication Data may be attributed to some or to all the Research Users who are members of the Project."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
             owl:onProperty :hasMetadata ;
             owl:someValuesFrom :Metadata ],
         [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataRepository ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom core:ResearchUser ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> .
 
@@ -279,13 +279,13 @@ core:ResearchUser a owl:Class .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataRepository ],
+            owl:someValuesFrom :DataCollaborationPlatform ],
         [ a owl:Restriction ;
             owl:onProperty :hasMetadata ;
             owl:someValuesFrom :Metadata ],
         [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataCollaborationPlatform ],
+            owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty dcterms:hasPart ;
             owl:someValuesFrom [ a owl:Class ;

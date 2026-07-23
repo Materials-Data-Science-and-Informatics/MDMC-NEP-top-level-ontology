@@ -143,7 +143,7 @@
     <!-- http://purl.obolibrary.org/obo/RO_0000053 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000053">
-        <rdfs:label xml:lang="en">has participant</rdfs:label>
+        <rdfs:label xml:lang="en">has characteristic</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -169,7 +169,31 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002234">
         <rdfs:label xml:lang="en">has output</rdfs:label>
     </owl:ObjectProperty>
-    
+
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002224 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002224">
+        <rdfs:label xml:lang="en">starts with</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002230 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002230">
+        <rdfs:label xml:lang="en">ends with</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000118 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000118">
+        <rdfs:label xml:lang="en">has proper occurrent part</rdfs:label>
+    </owl:ObjectProperty>
+
 
 
     <!-- http://www.w3.org/ns/prov#atLocation -->
@@ -594,6 +618,24 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000118"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002224"/>
+                <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002230"/>
                 <owl:someValuesFrom rdf:resource="https://purls.helmholtz-metadaten.de/prima/experiment#ProcessingAndTreatment"/>
             </owl:Restriction>
         </rdfs:subClassOf>

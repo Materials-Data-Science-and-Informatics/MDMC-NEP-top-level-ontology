@@ -14,10 +14,10 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 
 ro:0000053 a owl:ObjectProperty ;
-    rdfs:label "has participant"@en .
+    rdfs:label "has characteristic"@en .
 
 ro:0002224 a owl:ObjectProperty ;
-    rdfs:label "realizes"@en .
+    rdfs:label "starts with"@en .
 
 dcterms:contributor a owl:AnnotationProperty .
 
@@ -77,6 +77,11 @@ skos:exactMatch a owl:AnnotationProperty .
 
 :MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:definition .
+
+:OperatorRole a owl:Class ;
+    rdfs:label "Operator Role"@en ;
+    rdfs:comment "The role of a Research User who operates Equipment or performs a procedure during a Study, e.g., the person who conducts a Measurement or Processing and Treatment."@en ;
+    rdfs:subClassOf :AgentRole .
 
 :ProjectLeader a owl:Class ;
     rdfs:label "Project Leader"@en ;
@@ -233,12 +238,6 @@ prov:wasAttributedTo a owl:ObjectProperty .
         schema:PublicationEvent ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/scientificpublication> .
 
-:System a owl:Class ;
-    rdfs:comment "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/system> ;
-    rdfs:subClassOf bfo:0000002 ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/system> .
-
 :hasProjectMember a owl:ObjectProperty ;
     rdfs:label "has project member"@en ;
     rdfs:comment "hasProjectMember represents the relationship between project and its member, which is research user."@en ;
@@ -246,9 +245,9 @@ prov:wasAttributedTo a owl:ObjectProperty .
 
 :hasSetting a owl:ObjectProperty ;
     rdfs:label "has setting"@en ;
-    rdfs:comment "hasSetting represents the relationship between equipment or research software or acquisition software to settings"@en ;
+    rdfs:comment "hasSetting represents the relationship between equipment, research software, acquisition software, data acquisition, or system (including a model) to settings"@en ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( :Equipment :ResearchSoftware <https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware> ) ] ;
+            owl:unionOf ( :Equipment :ResearchSoftware <https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware> :DataAcquisition :System ) ] ;
     rdfs:range :Settings .
 
 :hasTechnique a owl:ObjectProperty ;
@@ -284,58 +283,31 @@ ro:0002211 a owl:ObjectProperty ;
     rdfs:comment "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data." ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/study> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasDataAcquisition ;
-            owl:someValuesFrom :DataAcquisition ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasDataAnalysis ;
-            owl:someValuesFrom :DataAnalysis ],
-        [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :hasScientificPublication ;
             owl:someValuesFrom :ScientificPublication ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasDataAnalysis ;
+            owl:someValuesFrom :DataAnalysis ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasDataAcquisition ;
+            owl:someValuesFrom :DataAcquisition ],
         <http://purl.obolibrary.org/obo/COB_0000035> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/study> .
+
+:System a owl:Class ;
+    rdfs:comment "Physical or digital entity or set of entities with distinctive properties (structural, chemical, dimensional, functional, or others) which is the subject of one or more actions or investigations. According to this definition, Sample, Material, and Model are particular types of System."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/system> ;
+    rdfs:subClassOf bfo:0000002 ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/system> .
 
 :Technique a owl:Class ;
     rdfs:comment "Any experimental, theoretical, or computational method with a specific aim, including but not limited to: process and/or treat Samples, prepare Models, acquire and/or analyze Research Data, using some Equipment."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/technique> ;
     rdfs:subClassOf iao:0000033 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/technique> .
-
-:DataAcquisition a owl:Class ;
-    rdfs:comment "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :System ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom :ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty obi:0000293 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:intersectionOf ( :System [ a owl:Restriction ;
-                                owl:onProperty ro:0000087 ;
-                                owl:someValuesFrom obi:0000067 ] ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasTechnique ;
-            owl:someValuesFrom :Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesResearchSoftware ;
-            owl:someValuesFrom :ResearchSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesEquipment ;
-            owl:someValuesFrom :Equipment ],
-        obi:0000070 ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> .
 
 :DataAnalysis a owl:Class ;
     rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question. Data Analysis may include: linear combination fitting, least-squares curve fitting, data modelling, pattern extraction and/or segmentation, data visualization. The output of Data Analysis is Analyzed Data."@en ;
@@ -344,17 +316,17 @@ ro:0002211 a owl:ObjectProperty ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
             owl:onProperty :hasTechnique ;
             owl:someValuesFrom :Technique ],
         [ a owl:Restriction ;
-            owl:onProperty :usesResearchSoftware ;
-            owl:someValuesFrom :ResearchSoftware ],
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :ResearchData ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesResearchSoftware ;
+            owl:someValuesFrom :ResearchSoftware ],
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> .
 
@@ -375,6 +347,39 @@ ro:0002211 a owl:ObjectProperty ;
             owl:someValuesFrom :Settings ],
         iao:0000030 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/researchsoftware> .
+
+:DataAcquisition a owl:Class ;
+    rdfs:comment "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom :ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesResearchSoftware ;
+            owl:someValuesFrom :ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasTechnique ;
+            owl:someValuesFrom :Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty obi:0000293 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( :System [ a owl:Restriction ;
+                                owl:onProperty ro:0000087 ;
+                                owl:someValuesFrom obi:0000067 ] ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :System ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesEquipment ;
+            owl:someValuesFrom :Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom :ResearchData ],
+        obi:0000070 ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> .
 
 :Equipment a owl:Class ;
     rdfs:comment "Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en ;

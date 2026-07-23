@@ -9,7 +9,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 
 ro:0000053 a owl:ObjectProperty ;
-    rdfs:label "has participant"@en .
+    rdfs:label "has characteristic"@en .
 
 dcterms:contributor a owl:AnnotationProperty .
 
@@ -86,23 +86,23 @@ core:usesResearchSoftware a owl:ObjectProperty ;
             owl:onProperty core:usesResearchSoftware ;
             owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
-        [ a owl:Restriction ;
             owl:onProperty ro:0002211 ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
-            owl:onProperty core:hasTechnique ;
-            owl:someValuesFrom core:Technique ],
-        [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ReferenceData> ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#ProcessedData> ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataprocessing> .
 

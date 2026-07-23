@@ -16,7 +16,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ro:0000053 a owl:ObjectProperty ;
-    rdfs:label "has participant"@en .
+    rdfs:label "has characteristic"@en .
 
 dcterms:contributor a owl:AnnotationProperty .
 
@@ -73,6 +73,15 @@ bfo:0000062 a owl:ObjectProperty ;
 bfo:0000063 a owl:ObjectProperty ;
     rdfs:label "precedes"@en .
 
+bfo:0000118 a owl:ObjectProperty ;
+    rdfs:label "has proper occurrent part"@en .
+
+ro:0002224 a owl:ObjectProperty ;
+    rdfs:label "starts with"@en .
+
+ro:0002230 a owl:ObjectProperty ;
+    rdfs:label "ends with"@en .
+
 skos:definition a owl:AnnotationProperty .
 
 core:AgentRole a owl:Class .
@@ -83,11 +92,11 @@ core:Settings a owl:Class .
 
 core:Study a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :hasMeasurement ;
-            owl:someValuesFrom :Measurement ],
-        [ a owl:Restriction ;
             owl:onProperty :hasProcessingAndTreatment ;
-            owl:someValuesFrom :ProcessingAndTreatment ] .
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMeasurement ;
+            owl:someValuesFrom :Measurement ] .
 
 core:Technique a owl:Class .
 
@@ -240,11 +249,14 @@ core:usesEquipment a owl:ObjectProperty .
     rdfs:comment "Experimental Data Acquisition performed by one or more Research Users on one or more physical Systems (Materials or Samples) using an experimental Technique. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). A Measurement may require the use of Consumables."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
             owl:onProperty :usesConsumable ;
             owl:someValuesFrom :Consumable ],
         [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
             owl:onClass core:Instrument ;
             owl:onProperty core:usesEquipment ;
@@ -256,49 +268,8 @@ core:usesEquipment a owl:ObjectProperty .
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( :Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         core:DataAcquisition ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/measurement> .
-
-:ProcessingAndTreatment a owl:Class ;
-    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom core:ResearchUser ],
-        [ a owl:Restriction ;
-            owl:onProperty core:hasTechnique ;
-            owl:someValuesFrom core:Technique ],
-        [ a owl:Restriction ;
-            owl:onProperty core:hasDataAcquisition ;
-            owl:someValuesFrom core:DataAcquisition ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesConsumable ;
-            owl:someValuesFrom :Consumable ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty prov:atLocation ;
-            owl:someValuesFrom :Laboratory ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Instrument ],
-        [ a owl:Restriction ;
-            owl:onProperty core:usesEquipment ;
-            owl:someValuesFrom core:Equipment ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom [ a owl:Class ;
-                    owl:unionOf ( :Material :Sample ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty bfo:0000062 ;
-            owl:someValuesFrom :ProcessingAndTreatment ],
-        obo:COB_0000035 ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> .
 
 :SampleHolder a owl:Class ;
     rdfs:comment "Piece of Equipment used for making one or more Samples accessible for a Measurement or for holding them in place in the predefined position to be mounted inside the Instrument. Examples of Sample Holder are: a glass slide, a TEM grid, or a tilting support. Depending on the scientific use case, a Sample Holder may carry or be carried by a Sample Carrier."@en ;
@@ -320,6 +291,53 @@ core:usesEquipment a owl:ObjectProperty .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/material> ;
     rdfs:subClassOf core:System ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/material> .
+
+:ProcessingAndTreatment a owl:Class ;
+    rdfs:comment "Set of actions (physical changes or chemical reactions) carried out by one or more Research Users, a commercial enterprise, or a third party, performed on (or between) one or more physical Systems to produce them, treat them, or prepare them for a subsequent Measurement, under controlled conditions described by Settings. Processing and Treatment may require the use of Equipment and Consumables. One or more Measurements may also be performed during Processing and Treatment, e.g., to characterize the intermediate stages and/or the final resulting physical System(s). The output of Processing and Treatment is one or more physical Systems. Examples of Processing and Treatment are: synthesis, fabrication, any type of Material or Sample treatment (e.g., thermo-mechanical or surface treatment), and Sample preparation."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002230 ;
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesConsumable ;
+            owl:someValuesFrom :Consumable ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Equipment ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesEquipment ;
+            owl:someValuesFrom core:Instrument ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Material :Sample ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasTechnique ;
+            owl:someValuesFrom core:Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty bfo:0000118 ;
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty core:hasDataAcquisition ;
+            owl:someValuesFrom core:DataAcquisition ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002211 ;
+            owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty prov:atLocation ;
+            owl:someValuesFrom :Laboratory ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002224 ;
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty bfo:0000062 ;
+            owl:someValuesFrom :ProcessingAndTreatment ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Material :Sample ) ] ],
+        obo:COB_0000035 ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/processingandtreatment> .
 
 :Sample a owl:Class ;
     rdfs:comment "Physical System, composed by one or more Materials, exposed to the Instrument during a Measurement, typically after some kind of Processing and Treatment. Sample may be held by a Sample Holder and/or carried by a Sample Carrier."@en ;

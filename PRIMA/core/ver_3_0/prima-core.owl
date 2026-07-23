@@ -112,11 +112,13 @@
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#Equipment"/>
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#ResearchSoftware"/>
                     <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#DataAcquisition"/>
+                    <rdf:Description rdf:about="https://purls.helmholtz-metadaten.de/prima/core#System"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#Settings"/>
-        <rdfs:comment xml:lang="en">hasSetting represents the relationship between equipment or research software or acquisition software to settings</rdfs:comment>
+        <rdfs:comment xml:lang="en">hasSetting represents the relationship between equipment, research software, acquisition software, data acquisition, or system (including a model) to settings</rdfs:comment>
         <rdfs:label xml:lang="en">has setting</rdfs:label>
     </owl:ObjectProperty>
 
@@ -188,7 +190,7 @@
 
     <!-- RO properties for BFO alignment -->
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000053">
-        <rdfs:label xml:lang="en">has participant</rdfs:label>
+        <rdfs:label xml:lang="en">has characteristic</rdfs:label>
     </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000087">
@@ -202,7 +204,7 @@
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002224">
-        <rdfs:label xml:lang="en">realizes</rdfs:label>
+        <rdfs:label xml:lang="en">starts with</rdfs:label>
     </owl:ObjectProperty>
 
     <!-- OBI properties for Assay alignment -->
@@ -599,6 +601,12 @@
         <rdfs:label xml:lang="en">Work Package Leader</rdfs:label>
         <skos:closeMatch rdf:resource="http://purl.org/datacite/v4.4/WorkPackageLeader"/>
         <skos:exactMatch rdf:resource="https://purls.helmholtz-metadaten.de/skosmos/prima/workpackageleader"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="https://purls.helmholtz-metadaten.de/prima/core#OperatorRole">
+        <rdfs:subClassOf rdf:resource="https://purls.helmholtz-metadaten.de/prima/core#AgentRole"/>
+        <rdfs:comment xml:lang="en">The role of a Research User who operates Equipment or performs a procedure during a Study, e.g., the person who conducts a Measurement or Processing and Treatment.</rdfs:comment>
+        <rdfs:label xml:lang="en">Operator Role</rdfs:label>
     </owl:Class>
 
 </rdf:RDF>
