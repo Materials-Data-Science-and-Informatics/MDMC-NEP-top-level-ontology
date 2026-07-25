@@ -3,6 +3,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix obi: <http://purl.obolibrary.org/obo/OBI_> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pmd: <https://w3id.org/pmd/co/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -12,12 +14,214 @@
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ro:0000053 a owl:ObjectProperty ;
-    rdfs:label "has characteristic"@en .
+bfo:0000062 a owl:ObjectProperty ;
+    rdfs:label "preceded by"@en ;
+    iao:0000111 "preceded by"@en ;
+    iao:0000115 "x is preceded by y if and only if the time point at which y ends is before or equivalent to the time point at which x starts. Formally: x preceded by y iff ω(y) <= α(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."@en ;
+    iao:0000116 "An example is: translation preceded_by transcription; aging preceded_by development (not however death preceded_by aging). Where derives_from links classes of continuants, preceded_by links classes of processes. Clearly, however, these two relations are not independent of each other. Thus if cells of type C1 derive_from cells of type C, then any cell division involving an instance of C1 in a given lineage is preceded_by cellular processes involving an instance of C.    The assertion P preceded_by P1 tells us something about Ps in general: that is, it tells us something about what happened earlier, given what we know about what happened later. Thus it does not provide information pointing in the opposite direction, concerning instances of P1 in general; that is, that each is such as to be succeeded by some instance of P. Note that an assertion to the effect that P preceded_by P1 is rather weak; it tells us little about the relations between the underlying instances in virtue of which the preceded_by relation obtains. Typically we will be interested in stronger relations, for example in the relation immediately_preceded_by, or in relations which combine preceded_by with a condition to the effect that the corresponding instances of P and P1 share participants, or that their participants are connected by relations of derivation, or (as a first step along the road to a treatment of causality) that the one process in some way affects (for example, initiates or regulates) the other."@en ;
+    iao:0000118 "is preceded by"@en,
+        "preceded_by"@en ;
+    dcterms:source "http://www.obofoundry.org/ro/#OBO_REL:preceded_by" ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+    rdfs:subPropertyOf ro:0002086 .
+
+bfo:0000063 a owl:ObjectProperty ;
+    rdfs:label "precedes"@en ;
+    iao:0000111 "precedes"@en ;
+    iao:0000115 "x precedes y if and only if the time point at which x ends is before or equivalent to the time point at which y starts. Formally: x precedes y iff ω(x) <= α(y), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point."@en ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> .
+
+bfo:0000118 a owl:ObjectProperty ;
+    rdfs:label "has proper occurrent part"@en ;
+    rdfs:subPropertyOf bfo:0000117 ;
+    skos:definition "b has proper occurrent part c =Def b has occurrent part c & b and c are not identical"@en ;
+    skos:example "As for has occurrent part."@en .
+
+bfo:0000179 a owl:AnnotationProperty ;
+    rdfs:label "BFO OWL specification label"@en ;
+    iao:0000115 "Relates an entity in the ontology to the name of the variable that is used to represent it in the code that generates the BFO OWL file from the lispy specification."@en ;
+    iao:0000232 "Really of interest to developers only"@en .
+
+bfo:0000180 a owl:AnnotationProperty ;
+    rdfs:label "BFO CLIF specification label"@en ;
+    iao:0000115 "Relates an entity in the ontology to the term that is used to represent it in the the CLIF specification of BFO2"@en ;
+    iao:0000119 "Person:Alan Ruttenberg" ;
+    iao:0000232 "Really of interest to developers only"@en .
+
+iao:0000111 a owl:AnnotationProperty ;
+    rdfs:label "editor preferred label",
+        "editor preferred term",
+        "editor preferred term~editor preferred label",
+        "editor preferred label"@en,
+        "editor preferred term"@en ;
+    iao:0000111 "editor preferred label",
+        "editor preferred term",
+        "editor preferred term~editor preferred label",
+        "editor preferred label"@en,
+        "editor preferred term"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "The concise, meaningful, and human-friendly name for a class or property preferred by the ontology developers. (US-English)"@en ;
+    iao:0000117 "PERSON:Daniel Schober"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+iao:0000112 a owl:AnnotationProperty ;
+    rdfs:label "example of usage",
+        "example of usage"@en ;
+    iao:0000111 "example of usage"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "A phrase describing how a term should be used and/or a citation to a work which uses it. May also include other kinds of examples that facilitate immediate understanding, such as widely know prototypes or instances of a class, or cases where a relation is said to hold."@en ;
+    iao:0000117 "PERSON:Daniel Schober"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+iao:0000114 a owl:AnnotationProperty ;
+    rdfs:label "has curation status"@en ;
+    iao:0000111 "has curation status"@en ;
+    iao:0000117 "PERSON:Alan Ruttenberg"@en,
+        "PERSON:Bill Bug"@en,
+        "PERSON:Melanie Courtot"@en .
+
+iao:0000117 a owl:AnnotationProperty ;
+    rdfs:label "term editor"@en ;
+    iao:0000111 "term editor"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "Name of editor entering the term in the file. The term editor is a point of contact for information regarding the term. The term editor may be, but is not always, the author of the definition, which may have been worked upon by several people"@en ;
+    iao:0000116 "20110707, MC: label update to term editor and definition modified accordingly. See https://github.com/information-artifact-ontology/IAO/issues/115."@en ;
+    iao:0000117 "PERSON:Daniel Schober"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+iao:0000118 a owl:AnnotationProperty ;
+    rdfs:label "alternative label"@en ;
+    iao:0000111 "alternative label"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "A label for a class or property that can be used to refer to the class or property instead of the preferred rdfs:label. Alternative labels should be used to indicate community- or context-specific labels, abbreviations, shorthand forms and the like."@en ;
+    iao:0000117 "OBO Operations committee",
+        "PERSON:Daniel Schober"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+    rdfs:comment "Consider re-defing to: An alternative name for a class or property which can mean the same thing as the preferred name (semantically equivalent, narrow, broad or related)." ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+iao:0000119 a owl:AnnotationProperty ;
+    rdfs:label "definition source"@en ;
+    iao:0000111 "definition source"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "Formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en,
+        "formal citation, e.g. identifier in external database to indicate / attribute source(s) for the definition. Free text indicate / attribute source(s) for the definition. EXAMPLE: Author Name, URI, MeSH Term C04, PUBMED ID, Wiki uri on 31.01.2007"@en ;
+    iao:0000117 "PERSON:Daniel Schober"@en ;
+    iao:0000119 "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w",
+        "Discussion on obo-discuss mailing-list, see http://bit.ly/hgm99w"@en,
+        "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+iao:0000232 a owl:AnnotationProperty ;
+    rdfs:label "curator note"@en ;
+    iao:0000111 "curator note"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "An administrative note of use for a curator but of no use for a user"@en ;
+    iao:0000117 "PERSON:Alan Ruttenberg"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+iao:0000233 a owl:AnnotationProperty ;
+    rdfs:label "term tracker item"@en ;
+    iao:0000111 "term tracker item"@en ;
+    iao:0000112 "the URI for an OBI Terms ticket at sourceforge, such as https://sourceforge.net/p/obi/obi-terms/772/"@en,
+        "the URL for an ontology term tracker issue, such as https://github.com/monarch-initiative/mondo/issues/7588"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "A URL for a request or discussion of an ontology term."@en,
+        "An IRI or similar locator for a request or discussion of an ontology term."@en ;
+    iao:0000117 "Person: Jie Zheng, Chris Stoeckert, Alan Ruttenberg"@en ;
+    iao:0000119 "Person: Jie Zheng, Chris Stoeckert, Alan Ruttenberg"@en ;
+    rdfs:comment "The 'tracker item' can associate a tracker with a specific ontology term."@en .
+
+iao:0000412 a owl:AnnotationProperty ;
+    rdfs:label "imported from"@en ;
+    iao:0000111 "imported from"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "For external terms/classes, the ontology from which the term was imported"@en ;
+    iao:0000117 "PERSON:Alan Ruttenberg"@en,
+        "PERSON:Melanie Courtot"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en .
+
+iao:0000424 a owl:AnnotationProperty ;
+    rdfs:label "expand expression to"@en ;
+    iao:0000111 "expand expression to"@en ;
+    iao:0000112 """ObjectProperty: RO_0002104
+Label: has plasma membrane part
+Annotations: IAO_0000424 "http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.org/obo/owl/GO#GO_0005886 and http://purl.obolibrary.org/obo/BFO_0000051 some ?Y)"
+"""@en ;
+    iao:0000115 "A macro expansion tag applied to an object property (or possibly a data property)  which can be used by a macro-expansion engine to generate more complex expressions from simpler ones"@en ;
+    iao:0000117 "Chris Mungall"@en .
+
+iao:0000589 a owl:AnnotationProperty ;
+    rdfs:label "OBO foundry unique label"@en ;
+    iao:0000111 "OBO foundry unique label"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "An alternative name for a class or property which is unique across the OBO Foundry."@en ;
+    iao:0000116 "The intended usage of that property is as follow: OBO foundry unique labels are automatically generated based on regular expressions provided by each ontology, so that SO could specify unique label = 'sequence ' + [label], etc. , MA could specify 'mouse + [label]' etc. Upon importing terms, ontology developers can choose to use the 'OBO foundry unique label' for an imported term or not. The same applies to tools ."@en ;
+    iao:0000117 "PERSON:Alan Ruttenberg"@en,
+        "PERSON:Bjoern Peters"@en,
+        "PERSON:Chris Mungall"@en,
+        "PERSON:Melanie Courtot"@en ;
+    iao:0000119 "GROUP:OBO Foundry <http://obofoundry.org/>"@en .
+
+iao:0010000 a owl:AnnotationProperty .
+
+obi:0001847 a owl:AnnotationProperty ;
+    rdfs:label "ISA alternative term"@en ;
+    iao:0000111 "ISA alternative term"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "An alternative term used by the ISA tools project (http://isa-tools.org)."@en ;
+    iao:0000116 """Requested by Alejandra Gonzalez-Beltran
+https://sourceforge.net/tracker/?func=detail&aid=3603413&group_id=177891&atid=886178""" ;
+    iao:0000117 "Person: Alejandra Gonzalez-Beltran",
+        "Person: Philippe Rocca-Serra" ;
+    iao:0000119 "ISA tools project (http://isa-tools.org)" .
+
+obi:9991118 a owl:AnnotationProperty ;
+    rdfs:label "IEDB alternative term" ;
+    iao:0000111 "IEDB alternative term" ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "An alternative term used by the IEDB."@en ;
+    iao:0000117 "PERSON:Randi Vita, Jason Greenbaum, Bjoern Peters" ;
+    iao:0000119 "IEDB" .
+
+ro:0001900 a owl:AnnotationProperty ;
+    rdfs:label "temporal interpretation" ;
+    iao:0000115 "An assertion that holds between an OWL Object Property and a temporal interpretation that elucidates how OWL Class Axioms that use this property are to be interpreted in a temporal context." ;
+    rdfs:seeAlso <http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/> .
 
 ro:0002224 a owl:ObjectProperty ;
-    rdfs:label "starts with"@en .
+    rdfs:label "starts with"@en ;
+    iao:0000112 "Every insulin receptor signaling pathway starts with the binding of a ligand to the insulin receptor" ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "x starts with y if and only if x has part y and the time point at which x starts is equivalent to the time point at which y starts. Formally: α(y) = α(x) ∧ ω(y) < ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000118 "started by" ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+    rdfs:subPropertyOf bfo:0000051,
+        ro:0002222 .
+
+ro:0002230 a owl:ObjectProperty ;
+    rdfs:label "ends with"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "x ends with y if and only if x has part y and the time point at which x ends is equivalent to the time point at which y ends. Formally: α(y) > α(x) ∧ ω(y) = ω(x), where α is a function that maps a process to a start point, and ω is a function that maps a process to an end point." ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000118 "finished by" ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+    rdfs:subPropertyOf bfo:0000051,
+        ro:0002222 .
+
+ro:0002501 a owl:ObjectProperty ;
+    rdfs:label "causal relation between processes" ;
+    iao:0000115 "p is causally related to q if and only if p or any part of p and q or any part of q are linked by a chain of events where each event pair is one where the execution of p influences the execution of q. p may be upstream, downstream, part of, or a container of q." ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000119 <http://purl.obolibrary.org/obo/ro/docs/causal-relations> ;
+    iao:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." ;
+    rdfs:subPropertyOf ro:0002410 .
 
 dcterms:contributor a owl:AnnotationProperty .
 
@@ -29,13 +233,106 @@ dcterms:description a owl:AnnotationProperty .
 
 dcterms:license a owl:AnnotationProperty .
 
+dcterms:source a owl:AnnotationProperty .
+
 dcterms:title a owl:AnnotationProperty .
 
 vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
+oboInOwl:hasDbXref a owl:AnnotationProperty .
+
+oboInOwl:hasRelatedSynonym a owl:AnnotationProperty ;
+    rdfs:label "has_related_synonym",
+        "has related synonym"@en ;
+    iao:0000115 "An alternative label for a class or property that has been used synonymously with the primary term name, but the usage is not strictly correct." ;
+    iao:0000117 <http://orcid.org/0000-0001-5208-3432> ;
+    iao:0000233 "https://github.com/information-artifact-ontology/ontology-metadata/issues/21" ;
+    rdfs:seeAlso "https://github.com/information-artifact-ontology/ontology-metadata/issues/21" .
+
+oboInOwl:inSubset a owl:AnnotationProperty ;
+    rdfs:label "in_subset" .
+
+rdfs:comment a owl:AnnotationProperty ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+rdfs:isDefinedBy a owl:AnnotationProperty .
+
+rdfs:label a owl:AnnotationProperty ;
+    rdfs:label "label",
+        "label"@en ;
+    iao:0000111 "label",
+        "label"@en ;
+    iao:0000115 "A human readable name for this class." ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+rdfs:seeAlso a owl:AnnotationProperty ;
+    rdfs:comment ""@en .
+
 skos:closeMatch a owl:AnnotationProperty .
 
 skos:exactMatch a owl:AnnotationProperty .
+
+skos:example a owl:AnnotationProperty .
+
+prov:atLocation a owl:ObjectProperty ;
+    rdfs:label "atLocation" ;
+    rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
+        "The Location of any resource."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    prov:category "expanded" ;
+    prov:editorialNote "The naming of prov:atLocation parallels prov:atTime, and is not named prov:hadLocation to avoid conflicting with the convention that prov:had* properties are used on prov:Influence classes."@en,
+        "This property is not functional because the many values could be at a variety of granularies (In this building, in this room, in that chair)."@en ;
+    prov:inverse "locationOf" ;
+    prov:sharesDefinitionWith prov:Location .
+
+prov:category a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:component a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:definition a owl:AnnotationProperty ;
+    rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:editorialNote a owl:AnnotationProperty ;
+    rdfs:comment "A note by the OWL development team about how this term expresses the PROV-DM concept, or how it should be used in context of semantic web or linked data."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:inverse a owl:AnnotationProperty ;
+    rdfs:comment "PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:seeAlso <http://www.w3.org/TR/prov-o/#names-of-inverse-properties> .
+
+prov:qualifiedForm a owl:AnnotationProperty ;
+    rdfs:comment """This annotation property links a subproperty of prov:wasInfluencedBy with the subclass of prov:Influence and the qualifying property that are used to qualify it. 
+
+Example annotation:
+
+    prov:wasGeneratedBy prov:qualifiedForm prov:qualifiedGeneration, prov:Generation .
+
+Then this unqualified assertion:
+
+    :entity1 prov:wasGeneratedBy :activity1 .
+
+can be qualified by adding:
+
+   :entity1 prov:qualifiedGeneration :entity1Gen .
+   :entity1Gen 
+       a prov:Generation, prov:Influence;
+       prov:activity :activity1;
+       :customValue 1337 .
+
+Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1) is mirrored as the value of the prov:activity (or prov:entity, or prov:agent) property on the influence class."""@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:sharesDefinitionWith a owl:AnnotationProperty ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
 <https://purls.helmholtz-metadaten.de/prima/core> a owl:Ontology ;
     dcterms:contributor "Elda Osmenaj"@en,
@@ -49,7 +346,6 @@ skos:exactMatch a owl:AnnotationProperty .
     vann:preferredNamespacePrefix "PRIMA"@en ;
     rdfs:comment "This is the core module of the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology)."@en ;
     rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
-    owl:imports pmd: ;
     owl:priorVersion <https://purls.helmholtz-metadaten.de/prima/core?version=2.0> ;
     owl:versionInfo "3.0"@en .
 
@@ -123,6 +419,14 @@ skos:exactMatch a owl:AnnotationProperty .
     skos:closeMatch <http://purl.org/datacite/v4.4/Supervisor> ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/supervisor> .
 
+:UserRole a owl:Class ;
+    rdfs:label "User Role"@en ;
+    rdfs:comment "The role of the Research User in a Project, in the context of a specific Study. Examples of User Role are: data curator, project leader, project member. User Role also determines the access rights which might be granted in the information system(s) used for data management (i.e., Data Collaboration Platform, Data Repository, Metadata Repository)."@en ;
+    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/userrole> ;
+    rdfs:subClassOf :AgentRole ;
+    skos:closeMatch <http://purl.org/datacite/v4.4/ContributorType> ;
+    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/userrole> .
+
 :WorkPackageLeader a owl:Class ;
     rdfs:label "Work Package Leader"@en ;
     rdfs:comment "Person responsible for ensuring the comprehensive contents, versioning, and availability of the Work Package during the development of the resource."@en ;
@@ -138,7 +442,7 @@ skos:exactMatch a owl:AnnotationProperty .
 :executesProtocol a owl:ObjectProperty ;
     rdfs:label "executes protocol"@en ;
     rdfs:comment "Relates a completely executed planned process to the Protocol (plan specification) it carries out. Shortcut for the BFO pattern in which the process realizes a plan that is the concretization of this plan specification."@en ;
-    rdfs:domain <http://purl.obolibrary.org/obo/COB_0000035> ;
+    rdfs:domain obo:COB_0000035 ;
     rdfs:range :Protocol .
 
 :hasStudy a owl:ObjectProperty ;
@@ -147,13 +451,267 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:domain :Project ;
     rdfs:range :Study .
 
+pmd:PMD_0000933 a owl:Class ;
+    rdfs:label "Simulationsprozess"@de,
+        "simulation process"@en ;
+    rdfs:subClassOf pmd:PMD_0000583 ;
+    skos:definition "Ein Datenverarbeitungsprozess, der das Verhalten eines Systems im Laufe der Zeit mit mathematischen oder rechnerischen Techniken modelliert"@de,
+        "A computing process that models the behavior of a system over time using mathematical or computational techniques."@en .
+
+bfo:0000003 a owl:Class ;
+    rdfs:label "occurrent"@en ;
+    rdfs:subClassOf bfo:0000001 ;
+    skos:definition "(Elucidation) An occurrent is an entity that unfolds itself in time or it is the start or end of such an entity or it is a temporal or spatiotemporal region"@en ;
+    skos:example "As for process, history, process boundary, spatiotemporal region, zero-dimensional temporal region, one-dimensional temporal region, temporal interval, temporal instant."@en .
+
+bfo:0000015 a owl:Class ;
+    rdfs:label "process"@en ;
+    rdfs:subClassOf bfo:0000003,
+        owl:Thing ;
+    skos:definition "(Elucidation) p is a process means p is an occurrent that has some temporal proper part and for some time t, p has some material entity as participant"@en ;
+    skos:example "An act of selling; the life of an organism; a process of sleeping; a process of cell-division; a beating of the heart; a process of meiosis; the taxiing of an aircraft; the programming of a computer"@en .
+
+bfo:0000117 a owl:ObjectProperty ;
+    rdfs:label "has occurrent part"@en ;
+    rdfs:subPropertyOf bfo:0000051 ;
+    skos:definition "b has occurrent part c =Def c occurrent part of b"@en ;
+    skos:example "Mary's life has occurrent part Mary's 5th birthday"@en .
+
+bfo:0000141 a owl:Class ;
+    rdfs:label "immaterial entity"@en ;
+    bfo:0000179 "immaterial" ;
+    bfo:0000180 "ImmaterialEntity" ;
+    iao:0000116 "BFO 2 Reference: Immaterial entities are divided into two subgroups:boundaries and sites, which bound, or are demarcated in relation, to material entities, and which can thus change location, shape and size and as their material hosts move or change shape or size (for example: your nasal passage; the hold of a ship; the boundary of Wales (which moves with the rotation of the Earth) [38, 7, 10"@en ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000004 .
+
+obo:COB_0000082 a owl:Class ;
+    rdfs:label "planned process"@en ;
+    iao:0000115 "A process that is initiated by an agent who intends to carry out a plan to achieve an objective through one or more actions as described in a plan specification."@en ;
+    rdfs:subClassOf bfo:0000015 .
+
+obo:COB_0000502 a owl:Class ;
+    rdfs:label "characteristic"@en ;
+    rdfs:subClassOf owl:Thing .
+
+iao:0000027 a owl:Class ;
+    rdfs:label "data entity"@en ;
+    iao:0000111 "data entity"@en ;
+    iao:0000112 "Data items include counts of things, analyte concentrations, and statistical summaries."@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "An information content entity that is intended to be one or more truthful statement(s) about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."@en ;
+    iao:0000116 "2014-03-31: See discussion at http://odontomachus.wordpress.com/2014/03/30/aboutness-objects-propositions/",
+        "2/2/2009 Alan and Bjoern discussing FACS run output data. This is a data item because it is about the cell population. Each element records an event and is typically further composed a set of measurment data items that record the fluorescent intensity stimulated by one of the lasers."@en,
+        "2009-03-16: data item deliberatly ambiguous: we merged data set and datum to be one entity, not knowing how to define singular versus plural. So data item is more general than datum."@en,
+        "2009-03-16: removed datum as alternative term as datum specifically refers to singular form, and is thus not an exact synonym."@en,
+        """JAR: datum     -- well, this will be very tricky to define, but maybe some 
+information-like stuff that might be put into a computer and that is 
+meant, by someone, to denote and/or to be interpreted by some 
+process... I would include lists, tables, sentences... I think I might 
+defer to Barry, or to Brian Cantwell Smith
+
+JAR: A data item is an approximately justified approximately true approximate belief"""@en ;
+    iao:0000117 "PERSON: Alan Ruttenberg"@en,
+        "PERSON: Chris Stoeckert"@en,
+        "PERSON: Jonathan Rees"@en ;
+    iao:0000118 "data"@en,
+        "data item"@en ;
+    rdfs:subClassOf iao:0000030 .
+
+iao:0000104 a owl:Class ;
+    rdfs:label "plan specification"@en ;
+    iao:0000111 "plan specification"@en ;
+    iao:0000112 "PMID: 18323827.Nat Med. 2008 Mar;14(3):226.New plan proposed to help resolve conflicting medical advice."@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "A directive information entity with action specifications and objective specifications as parts, and that may be concretized as a realizable entity that, if realized, is realized in a process in which the bearer tries to achieve the objectives by taking the actions specified."@en ;
+    iao:0000116 "2009-03-16: provenance: a term a plan was proposed for OBI (OBI_0000344) , edited by the PlanAndPlannedProcess branch. Original definition was \" a plan is a specification of a process that is realized by an actor to achieve the objective specified as part of the plan\". It has been subsequently moved to IAO where the objective for which the original term was defined was satisfied with the definitionof this, different, term."@en,
+        "2014-03-31: A plan specification can have other parts, such as conditional specifications."@en,
+        "2022-01-16 Updated definition to that proposed by Clint Dowloand, IAO Issue 231."@en,
+        "Alternative previous definition: a plan is a set of instructions that specify how an objective should be achieved"@en ;
+    iao:0000117 "Alan Ruttenberg"@en,
+        "Clint Dowland"@en ;
+    iao:0000119 "OBI Plan and Planned Process branch"@en,
+        "OBI_0000344"@en ;
+    rdfs:comment """2/3/2009 Comment from OBI review.
+
+Action specification not well enough specified.
+Conditional specification not well enough specified.
+Question whether all plan specifications have objective specifications.
+
+Request that IAO either clarify these or change definitions not to use them"""@en ;
+    rdfs:seeAlso "https://github.com/information-artifact-ontology/IAO/issues/231#issuecomment-1010455131"@en ;
+    rdfs:subClassOf iao:0000033 .
+
+iao:0000310 a owl:Class ;
+    rdfs:label "document"@en ;
+    iao:0000111 "document"@en ;
+    iao:0000112 "A journal article, patent application, laboratory notebook, or a book"@en ;
+    iao:0000114 iao:0000120 ;
+    iao:0000115 "A collection of information content entities intended to be understood together as a whole"@en ;
+    iao:0000117 "PERSON: Lawrence Hunter"@en ;
+    rdfs:subClassOf iao:0000030 .
+
+iao:0000311 a owl:Class ;
+    rdfs:label "publication"@en ;
+    iao:0000111 "publication"@en ;
+    iao:0000112 "journal article, newspaper story, book, etc."@en ;
+    iao:0000114 iao:0000120 ;
+    iao:0000115 "A document that is the output of a publishing process."@en ;
+    iao:0000117 "PERSON: Chris Stoeckert"@en,
+        "PERSON: Jie Zheng"@en,
+        "PERSON: Lawrence Hunter"@en ;
+    iao:0000118 "published document"@en ;
+    iao:0000233 <https://github.com/information-artifact-ontology/IAO/issues/232> ;
+    rdfs:comment "Revisit the term in Octorber 2020. Improve the defintion."@en ;
+    rdfs:subClassOf iao:0000310 .
+
+obi:0000067 a owl:Class ;
+    rdfs:label "evaluant role"@en ;
+    iao:0000111 "evaluant role"@en ;
+    iao:0000112 "When a specimen of blood is assayed for glucose concentration, the blood has the evaluant role. When measuring the mass of a mouse, the evaluant is the mouse. When measuring the time of DNA replication, the evaluant is the DNA. When measuring the intensity of light on a surface, the evaluant is the light source."@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "a role that inheres in a material entity that is realized in an assay in which data is generated about the bearer of the evaluant role"@en ;
+    iao:0000116 "Role call - 17nov-08: JF and MC think an evaluant role is always specified input of a process. Even in the case where we have an assay taking blood as evaluant and outputting blood, the blood is not the specified output at the end of the assay (the concentration of glucose in the blood is)"@en,
+        "examples of features that could be described in an evaluant: quality.... e.g. \"contains 10 pg/ml IL2\", or \"no glucose detected\")"@en ;
+    iao:0000117 "GROUP:  Role Branch" ;
+    iao:0000119 "OBI" ;
+    iao:0000232 "Feb 10, 2009.  changes after discussion at OBI Consortium Workshop Feb 2-6, 2009.  accepted as core term." ;
+    rdfs:subClassOf bfo:0000023 .
+
+obi:0000070 a owl:Class ;
+    rdfs:label "assay"@en ;
+    iao:0000111 "assay"@en ;
+    iao:0000112 "Assay the wavelength of light emitted by excited Neon atoms. Count of geese flying over a house." ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "A planned process that has the objective to produce information about a material entity (the evaluant) by examining it."@en ;
+    iao:0000116 "12/3/12: BP: the reference to the 'physical examination' is included to point out that a prediction is not an assay, as that does not require physical examiniation.",
+        "Discussion on OBI call 2023-05-01 resulted in an agreement to revise the textual definition of 'assay'.  https://github.com/obi-ontology/obi/issues/1683." ;
+    iao:0000117 "PlanAndPlannedProcess Branch"@en ;
+    iao:0000118 "measuring"@en,
+        "scientific observation"@en ;
+    iao:0000119 "OBI branch derived"@en ;
+    obi:0001847 "study assay" ;
+    obi:9991118 "any method" ;
+    rdfs:subClassOf obo:COB_0000035 .
+
+obi:0000245 a owl:Class ;
+    rdfs:label "organization"@en ;
+    iao:0000111 "organization"@en ;
+    iao:0000112 "PMID: 16353909.AAPS J. 2005 Sep 22;7(2):E274-80. Review. The joint food and agriculture organization of the United Nations/World Health Organization Expert Committee on Food Additives and its role in the evaluation of the safety of veterinary drug residues in foods."@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "An entity that can bear roles, has members, and has a set of organization rules. Members of organizations are either organizations themselves or individual people. Members can bear specific organization member roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the organization by the organization members."@en ;
+    iao:0000116 """BP: The definition summarizes long email discussions on the OBI developer, roles, biomaterial and denrie branches. It leaves open if an organization is a material entity or a dependent continuant, as no consensus was reached on that.  The current placement as material is therefore temporary, in order to move forward with development. Here is the entire email summary, on which the definition is based:
+
+1) there are organization_member_roles (president, treasurer, branch
+editor), with individual persons as bearers
+
+2) there are organization_roles (employer, owner, vendor, patent holder)
+
+3) an organization has a charter / rules / bylaws, which specify what roles
+there are, how they should be realized, and how to modify the
+charter/rules/bylaws themselves.
+
+It is debatable what the organization itself is (some kind of dependent
+continuant or an aggregate of people). This also determines who/what the
+bearer of organization_roles' are. My personal favorite is still to define
+organization as a kind of 'legal entity', but thinking it through leads to
+all kinds of questions that are clearly outside the scope of OBI.
+
+Interestingly enough, it does not seem to matter much where we place
+organization itself, as long as we can subclass it (University, Corporation,
+Government Agency, Hospital), instantiate it (Affymetrix, NCBI, NIH, ISO,
+W3C, University of Oklahoma), and have it play roles.
+
+This leads to my proposal: We define organization through the statements 1 -
+3 above, but without an 'is a' statement for now. We can leave it in its
+current place in the is_a hierarchy (material entity) or move it up to
+'continuant'. We leave further clarifications to BFO, and close this issue
+for now."""@en ;
+    iao:0000117 "PERSON: Alan Ruttenberg",
+        "PERSON: Bjoern Peters",
+        "PERSON: Philippe Rocca-Serra",
+        "PERSON: Susanna Sansone" ;
+    iao:0000119 "GROUP: OBI" ;
+    rdfs:subClassOf bfo:0000040 .
+
 obi:0000293 a owl:ObjectProperty ;
-    rdfs:label "has specified input"@en .
+    rdfs:label "has specified input"@en ;
+    iao:0000111 "has specified input" ;
+    iao:0000112 "see is_input_of example_of_usage"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "The inverse property of is specified input of" ;
+    iao:0000116 "8/17/09: specified inputs of one process are not necessarily specified inputs of a larger process that it is part of. This is in contrast to how 'has participant' works." ;
+    iao:0000117 "PERSON: Bjoern Peters",
+        "PERSON: Larry Hunter",
+        "PERSON: Melanie Coutot",
+        "PERSON: Alan Ruttenberg"@en ;
+    rdfs:subPropertyOf ro:0000057 .
+
+ro:0000053 a owl:ObjectProperty ;
+    rdfs:label "has characteristic"@en ;
+    iao:0000111 "bearer of"@en ;
+    iao:0000112 "this apple is bearer of this red color"@en,
+        "this vase is bearer of this fragility"@en ;
+    iao:0000115 "Inverse of characteristic_of"@en ;
+    iao:0000116 "A bearer can have many dependents, and its dependents can exist for different periods of time, but none of its dependents can exist when the bearer does not exist."@en ;
+    iao:0000118 "bearer_of"@en,
+        "is bearer of"@en ;
+    ro:0001900 ro:0001901 .
 
 ro:0000087 a owl:ObjectProperty ;
-    rdfs:label "has role"@en .
+    rdfs:label "has role"@en ;
+    iao:0000112 "this person has role this investigator role (more colloquially: this person has this role of investigator)"@en ;
+    iao:0000115 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en ;
+    iao:0000116 "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists."@en ;
+    iao:0000118 "has_role"@en ;
+    rdfs:subPropertyOf ro:0000053 .
+
+ro:0002086 a owl:ObjectProperty ;
+    rdfs:label "ends after"@en ;
+    iao:0000117 <https://orcid.org/0000-0002-7073-9172> ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+    rdfs:comment "X ends_after Y iff: end(Y) before_or_simultaneous_with end(X)"@en ;
+    rdfs:subPropertyOf ro:0002222 .
+
+ro:0002131 a owl:ObjectProperty ;
+    rdfs:label "overlaps"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "x overlaps y if and only if there exists some z such that x has part z and z part of y" ;
+    iao:0000424 "http://purl.obolibrary.org/obo/BFO_0000051 some (http://purl.obolibrary.org/obo/BFO_0000050 some ?Y)" ;
+    ro:0001900 ro:0001901 ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco>,
+        obo:valid_for_go_annotation_extension,
+        obo:valid_for_gocam ;
+    rdfs:subPropertyOf ro:0002323 .
+
+ro:0002323 a owl:ObjectProperty ;
+    rdfs:label "mereotopologically related to"@en ;
+    iao:0000115 "A mereological relationship or a topological relationship" ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000232 "Do not use this relation directly. It is ended as a grouping for a diverse set of relations, all involving parthood or connectivity relationships" ;
+    ro:0001900 ro:0001901 ;
+    rdfs:subPropertyOf owl:topObjectProperty .
 
 skos:definition a owl:AnnotationProperty .
+
+prov:wasInfluencedBy a owl:ObjectProperty ;
+    rdfs:label "wasInfluencedBy" ;
+    rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
+        "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    prov:category "qualified" ;
+    prov:component "agents-responsibility" ;
+    prov:editorialNote """The sub-properties of prov:wasInfluencedBy can be elaborated in more detail using the Qualification Pattern. For example, the binary relation :baking prov:used :spoon can be qualified by asserting :baking prov:qualifiedUsage [ a prov:Usage; prov:entity :spoon; prov:atLocation :kitchen ] .
+
+Subproperties of prov:wasInfluencedBy may also be asserted directly without being qualified.
+
+prov:wasInfluencedBy should not be used without also using one of its subproperties. 
+"""@en ;
+    prov:inverse "influenced" ;
+    prov:qualifiedForm prov:Influence,
+        prov:qualifiedInfluence ;
+    prov:sharesDefinitionWith prov:Influence .
 
 :Project a owl:Class ;
     rdfs:comment "Enterprise (potentially individual but typically collaborative) of one or more Research Users, planned to perform one or more Studies." ;
@@ -168,14 +726,6 @@ skos:definition a owl:AnnotationProperty .
     rdfs:label "Protocol"@en ;
     rdfs:comment "A plan specification detailed enough to be reliably and independently reproduced, prescribing the steps of a planned process such as a Measurement or Processing and Treatment. A Protocol is a continuant information artifact: it persists, is versioned, and is reused across many executions."@en ;
     rdfs:subClassOf iao:0000104 .
-
-:UserRole a owl:Class ;
-    rdfs:label "User Role"@en ;
-    rdfs:comment "The role of the Research User in a Project, in the context of a specific Study. Examples of User Role are: data curator, project leader, project member. User Role also determines the access rights which might be granted in the information system(s) used for data management (i.e., Data Collaboration Platform, Data Repository, Metadata Repository)."@en ;
-    rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/userrole> ;
-    rdfs:subClassOf bfo:0000023 ;
-    skos:closeMatch <http://purl.org/datacite/v4.4/ContributorType> ;
-    skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/userrole> .
 
 :hasDataAcquisition a owl:ObjectProperty ;
     rdfs:label "has data acquisition"@en ;
@@ -216,7 +766,76 @@ skos:definition a owl:AnnotationProperty .
 
 <https://purls.helmholtz-metadaten.de/prima/experiment#AcquisitionSoftware> a owl:Class .
 
-prov:wasAttributedTo a owl:ObjectProperty .
+bfo:0000029 a owl:Class ;
+    rdfs:label "site"@en ;
+    bfo:0000179 "site" ;
+    bfo:0000180 "Site" ;
+    iao:0000112 "Manhattan Canyon)"@en,
+        "a hole in the interior of a portion of cheese"@en,
+        "a rabbit hole"@en,
+        "an air traffic control region defined in the airspace above an airport"@en,
+        "the Grand Canyon"@en,
+        "the Piazza San Marco"@en,
+        "the cockpit of an aircraft"@en,
+        "the hold of a ship"@en,
+        "the interior of a kangaroo pouch"@en,
+        "the interior of the trunk of your car"@en,
+        "the interior of your bedroom"@en,
+        "the interior of your office"@en,
+        "the interior of your refrigerator"@en,
+        "the lumen of your gut"@en,
+        "your left nostril (a fiat part – the opening – of your left nasal cavity)"@en ;
+    iao:0000600 "b is a site means: b is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part thereof. (axiom label in BFO2 Reference: [034-002])"@en ;
+    iao:0000602 "(forall (x) (if (Site x) (ImmaterialEntity x))) // axiom label in BFO2 CLIF: [034-002] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000141 .
+
+ro:0002234 a owl:ObjectProperty ;
+    rdfs:label "has output"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "p has output c iff c is a participant in p, c is present at the end of p, and c is not present in the same state at the beginning of p." ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000118 "produces" ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco>,
+        obo:valid_for_go_annotation_extension,
+        obo:valid_for_go_ontology,
+        obo:valid_for_gocam ;
+    rdfs:seeAlso "https://wiki.geneontology.org/Has_output"^^xsd:anyURI ;
+    rdfs:subPropertyOf ro:0000057 .
+
+ro:0002410 a owl:ObjectProperty ;
+    rdfs:label "causally related to"@en ;
+    iao:0000115 "relation that links two events, processes, states, or objects such that one event, process, state, or object (a cause) contributes to the production of another event, process, state, or object (an effect) where the cause is partly or wholly responsible for the effect, and the effect is partly or wholly dependent on the cause." ;
+    iao:0000116 """This branch of the ontology deals with causal relations between entities. It is divided into two branches: causal relations between occurrents/processes, and causal relations between material entities. We take an 'activity flow-centric approach', with the former as primary, and define causal relations between material entities in terms of causal relations between occurrents.
+
+To define causal relations in an activity-flow type network, we make use of 3 primitives:
+
+ * Temporal: how do the intervals of the two occurrents relate? 
+ * Is the causal relation regulatory?
+ * Is the influence positive or negative?
+
+The first of these can be formalized in terms of the Allen Interval Algebra. Informally, the 3 bins we care about are 'direct', 'indirect' or overlapping. Note that all causal relations should be classified under a RO temporal relation (see the branch under 'temporally related to'). Note that all causal relations are temporal, but not all temporal relations are causal. Two occurrents can be related in time without being causally connected. We take causal influence to be primitive, elucidated as being such that has the upstream changed, some qualities of the donwstream would necessarily be modified.
+
+For the second, we consider a relationship to be regulatory if the system in which the activities occur is capable of altering the relationship to achieve some objective. This could include changing the rate of production of a molecule.
+
+For the third, we consider the effect of the upstream process on the output(s) of the downstream process. If the level of output is increased, or the rate of production of the output is increased, then the direction is increased. Direction can be positive, negative or neutral or capable of either direction. Two positives in succession yield a positive, two negatives in succession yield a positive, otherwise the default assumption is that the net effect is canceled and the influence is neutral.
+
+Each of these 3 primitives can be composed to yield a cross-product of different relation types.""" ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000232 "Do not use this relation directly. It is intended as a grouping for a diverse set of relations, all involving cause and effect." ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+prov:wasAttributedTo a owl:ObjectProperty ;
+    rdfs:label "wasAttributedTo" ;
+    rdfs:comment "Attribution is the ascribing of an entity to an agent."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    prov:category "starting-point" ;
+    prov:component "agents-responsibility" ;
+    prov:definition "Attribution is the ascribing of an entity to an agent."@en ;
+    prov:inverse "contributed" ;
+    prov:qualifiedForm prov:Attribution,
+        prov:qualifiedAttribution .
 
 :ProjectMember a owl:Class ;
     rdfs:label "Project Member"@en ;
@@ -270,8 +889,92 @@ prov:wasAttributedTo a owl:ObjectProperty .
             owl:unionOf ( :DataAcquisition :DataAnalysis <https://purls.helmholtz-metadaten.de/prima/dal#DataProcessing> <https://purls.helmholtz-metadaten.de/prima/dataset#DataCuration> ) ] ;
     rdfs:range :ResearchSoftware .
 
-ro:0002211 a owl:ObjectProperty ;
-    rdfs:label "has agent"@en .
+pmd:PMD_0000583 a owl:Class ;
+    rdfs:label "Datenverarbeitung"@de,
+        "Rechenprozess"@de,
+        "computing process"@en ;
+    iao:0000116 "The subclass trees of \"Computing Process\" are currently still proposals and serve as a working basis for the discussion round with the simulation/workflow domain experts."@en ;
+    rdfs:subClassOf obo:COB_0000035 ;
+    skos:definition "Ein Prozess, der die systematische Verwendung von rechnerischen Methoden und Werkzeugen umfasst, um Simulationen, Analysen oder Datenumwandlungen durchzuführen, um spezifische wissenschaftliche oder technische Ziele zu erreichen."@de,
+        "A process that involves the systematic use of computational methods and tools to perform simulations, analyses, or data transformations to achieve specific scientific or engineering goals."@en .
+
+bfo:0000031 a owl:Class ;
+    rdfs:label "generically dependent continuant"@en ;
+    bfo:0000179 "gdc" ;
+    bfo:0000180 "GenericallyDependentContinuant" ;
+    iao:0000112 "The entries in your database are patterns instantiated as quality instances in your hard drive. The database itself is an aggregate of such patterns. When you create the database you create a particular instance of the generically dependent continuant type database. Each entry in the database is an instance of the generically dependent continuant type IAO: information content entity."@en,
+        "the pdf file on your laptop, the pdf file that is a copy thereof on my laptop"@en,
+        "the sequence of this protein molecule; the sequence that is a copy thereof in that protein molecule."@en ;
+    iao:0000115 "b is a generically dependent continuant = Def. b is a continuant that g-depends_on one or more other entities. (axiom label in BFO2 Reference: [074-001])"@en ;
+    iao:0000602 "(iff (GenericallyDependentContinuant a) (and (Continuant a) (exists (b t) (genericallyDependsOnAt a b t)))) // axiom label in BFO2 CLIF: [074-001] " ;
+    rdfs:comment "A continuant that is dependent on one or other independent continuant bearers. For every instance of A requires some instance of (an independent continuant type) B but which instance of B serves can change from time to time."@en ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000002 .
+
+bfo:0000051 a owl:ObjectProperty ;
+    rdfs:label "has part"@en ;
+    iao:0000111 "has part"@en ;
+    iao:0000112 "my body has part my brain (continuant parthood, two material entities)"@en,
+        "my stomach has part my stomach cavity (continuant parthood, material entity has part immaterial entity)"@en,
+        "this year has part this day (occurrent parthood)"@en ;
+    iao:0000115 "a core relation that holds between a whole and its part"@en ;
+    iao:0000116 "Everything has itself as a part. Any part of any part of a thing is itself part of that thing. Two distinct things cannot have each other as a part."@en,
+        "Occurrents are not subject to change and so parthood between occurrents holds for all the times that the part exists. Many continuants are subject to change, so parthood between continuants will only hold at certain times, but this is difficult to specify in OWL. See http://purl.obolibrary.org/obo/ro/docs/temporal-semantics/"@en,
+        """Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part; only a continuant can have a continuant as part; only an independent continuant can have an independent continuant as part; only a specifically dependent continuant can have a specifically dependent continuant as part; only a generically dependent continuant can have a generically dependent continuant as part. (This list is not exhaustive.)
+
+A continuant cannot have an occurrent as part: use 'participates in'. An occurrent cannot have a continuant as part: use 'has participant'. An immaterial entity cannot have a material entity as part: use 'location of'. An independent continuant cannot have a specifically dependent continuant as part: use 'bearer of'. A specifically dependent continuant cannot have an independent continuant as part: use 'inheres in'."""@en ;
+    iao:0000118 "has_part"@en ;
+    ro:0001900 ro:0001901 ;
+    oboInOwl:inSubset obo:valid_for_go_annotation_extension,
+        obo:valid_for_go_ontology,
+        obo:valid_for_gocam ;
+    rdfs:subPropertyOf ro:0002131,
+        owl:topObjectProperty .
+
+iao:0000033 a owl:Class ;
+    rdfs:label "directive information entity"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "An information content entity whose concretizations indicate to their bearer how to realize them in a process."@en ;
+    iao:0000116 "2009-03-16: provenance: a term realizable information entity was proposed for OBI (OBI_0000337) , edited by the PlanAndPlannedProcess branch. Original definition was  \"is the specification of a process that can be concretized and realized by an actor\" with alternative term  \"instruction\".It has been subsequently moved to IAO where the objective for which the original term was defined was satisfied with the definitionof this, different, term."@en,
+        "2013-05-30 Alan Ruttenberg: What differentiates a directive information entity from an information concretization is that it can have concretizations that are either qualities or realizable entities. The concretizations that are realizable entities are created when an individual chooses to take up the direction, i.e. has the intention to (try to) realize it."@en,
+        "8/6/2009 Alan Ruttenberg: Changed label from \"information entity about a realizable\" after discussions at ICBO"@en,
+        "Werner pushed back on calling it realizable information entity as it isn't realizable. However this name isn't right either. An example would be a recipe. The realizable entity would be a plan, but the information entity isn't about the plan, it, once concretized, *is* the plan. -Alan"@en ;
+    iao:0000117 "PERSON: Alan Ruttenberg"@en,
+        "PERSON: Bjoern Peters"@en ;
+    rdfs:subClassOf iao:0000030 .
+
+iao:0000116 a owl:AnnotationProperty ;
+    rdfs:label "editor note"@en ;
+    iao:0000111 "editor note"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "An administrative note intended for its editor. It may not be included in the publication version of the ontology, so it should contain nothing necessary for end users to understand the ontology."@en ;
+    iao:0000117 "PERSON:Daniel Schober"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obofoundry.org/obo/obi>"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+ro:0002222 a owl:ObjectProperty ;
+    rdfs:label "temporally related to"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000119 <https://en.wikipedia.org/wiki/Allen%27s_interval_algebra> ;
+    iao:0000232 "Do not use this relation directly. It is ended as a grouping for relations between occurrents involving the relative timing of their starts and ends." ;
+    dcterms:source "https://docs.google.com/document/d/1kBv1ep_9g3sTR-SD3jqzFqhuwo9TPNF-l-9fUDbO6rM/edit?pli=1"^^xsd:anyURI ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco> ;
+    rdfs:comment "A relation that holds between two occurrents. This is a grouping relation that collects together all the Allen relations." ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ro:0002233 a owl:ObjectProperty ;
+    rdfs:label "has input"@en ;
+    iao:0000114 iao:0000125 ;
+    iao:0000115 "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p." ;
+    iao:0000117 <https://orcid.org/0000-0002-6601-2165> ;
+    iao:0000118 "consumes" ;
+    oboInOwl:inSubset <http://purl.obolibrary.org/obo/ro/subsets#ro-eco>,
+        obo:valid_for_go_annotation_extension,
+        obo:valid_for_go_ontology,
+        obo:valid_for_gocam ;
+    rdfs:seeAlso "https://wiki.geneontology.org/Has_input"^^xsd:anyURI ;
+    rdfs:subPropertyOf ro:0000057 .
 
 :Settings a owl:Class ;
     rdfs:comment "Any set of configuration parameters which determine the operational conditions of Equipment (including Instrument), configure Acquisition Software and/or Research Software, and/or describe a Model (e.g., by specifying the type of solver user)."@en ;
@@ -283,8 +986,8 @@ ro:0002211 a owl:ObjectProperty ;
     rdfs:comment "Set of all the processes and activities performed by one or more Research Users, who are part of the same Project, with the purpose of verifying, falsifying, or establishing the validity of a hypothesis and supporting the answer to some scientific research question. The output of a Study is usually reported in one or more Scientific Publications and may be supplemented by Publication Data." ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/study> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom :ResearchUser ],
+            owl:onProperty :hasDataAcquisition ;
+            owl:someValuesFrom :DataAcquisition ],
         [ a owl:Restriction ;
             owl:onProperty :hasScientificPublication ;
             owl:someValuesFrom :ScientificPublication ],
@@ -292,9 +995,9 @@ ro:0002211 a owl:ObjectProperty ;
             owl:onProperty :hasDataAnalysis ;
             owl:someValuesFrom :DataAnalysis ],
         [ a owl:Restriction ;
-            owl:onProperty :hasDataAcquisition ;
-            owl:someValuesFrom :DataAcquisition ],
-        <http://purl.obolibrary.org/obo/COB_0000035> ;
+            owl:onProperty ro:0000057 ;
+            owl:someValuesFrom :ResearchUser ],
+        obo:COB_0000035 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/study> .
 
 :System a owl:Class ;
@@ -309,24 +1012,153 @@ ro:0002211 a owl:ObjectProperty ;
     rdfs:subClassOf iao:0000033 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/technique> .
 
+bfo:0000001 a owl:Class ;
+    rdfs:label "entity"@en ;
+    bfo:0000179 "entity" ;
+    bfo:0000180 "Entity" ;
+    iao:0000112 "Julius Caesar"@en,
+        "Verdi’s Requiem"@en,
+        "the Second World War"@en,
+        "your body mass index"@en ;
+    iao:0000116 "BFO 2 Reference: In all areas of empirical inquiry we encounter general terms of two sorts. First are general terms which refer to universals or types:animaltuberculosissurgical procedurediseaseSecond, are general terms used to refer to groups of entities which instantiate a given universal but do not correspond to the extension of any subuniversal of that universal because there is nothing intrinsic to the entities in question by virtue of which they – and only they – are counted as belonging to the given group. Examples are: animal purchased by the Emperortuberculosis diagnosed on a Wednesdaysurgical procedure performed on a patient from Stockholmperson identified as candidate for clinical trial #2056-555person who is signatory of Form 656-PPVpainting by Leonardo da VinciSuch terms, which represent what are called ‘specializations’ in [81"@en,
+        "Entity doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. For example Werner Ceusters 'portions of reality' include 4 sorts, entities (as BFO construes them), universals, configurations, and relations. It is an open question as to whether entities as construed in BFO will at some point also include these other portions of reality. See, for example, 'How to track absolutely everything' at http://www.referent-tracking.com/_RTU/papers/CeustersICbookRevised.pdf"@en ;
+    iao:0000600 "An entity is anything that exists or has existed or will exist. (axiom label in BFO2 Reference: [001-001])"@en ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf owl:Thing ;
+    skos:definition "(Elucidation) An entity is anything that exists or has existed or will exist"@en ;
+    skos:example "Julius Caesar; the Second World War; your body mass index; Verdi's Requiem"@en .
+
+bfo:0000020 a owl:Class ;
+    rdfs:label "specifically dependent continuant"@en ;
+    bfo:0000179 "sdc" ;
+    bfo:0000180 "SpecificallyDependentContinuant" ;
+    iao:0000112 "Reciprocal specifically dependent continuants: the function of this key to open this lock and the mutually dependent disposition of this lock: to be opened by this key"@en,
+        "of one-sided specifically dependent continuants: the mass of this tomato"@en,
+        "of relational dependent continuants (multiple bearers): John’s love for Mary, the ownership relation between John and this statue, the relation of authority between John and his subordinates."@en,
+        "the disposition of this fish to decay"@en,
+        "the function of this heart: to pump blood"@en,
+        "the mutual dependence of proton donors and acceptors in chemical reactions [79"@en,
+        "the mutual dependence of the role predator and the role prey as played by two organisms in a given interaction"@en,
+        "the pink color of a medium rare piece of grilled filet mignon at its center"@en,
+        "the role of being a doctor"@en,
+        "the shape of this hole."@en,
+        "the smell of this portion of mozzarella"@en ;
+    iao:0000115 "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])"@en ;
+    iao:0000116 "Specifically dependent continuant doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. We're not sure what else will develop here, but for example there are questions such as what are promises, obligation, etc."@en ;
+    iao:0000602 "(iff (SpecificallyDependentContinuant a) (and (Continuant a) (forall (t) (if (existsAt a t) (exists (b) (and (IndependentContinuant b) (not (SpatialRegion b)) (specificallyDependsOnAt a b t))))))) // axiom label in BFO2 CLIF: [050-003] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000002 .
+
+bfo:0000023 a owl:Class ;
+    rdfs:label "role"@en ;
+    bfo:0000179 "role" ;
+    bfo:0000180 "Role" ;
+    iao:0000112 "John’s role of husband to Mary is dependent on Mary’s role of wife to John, and both are dependent on the object aggregate comprising John and Mary as member parts joined together through the relational quality of being married."@en,
+        "the priest role"@en,
+        "the role of a boundary to demarcate two neighboring administrative territories"@en,
+        "the role of a building in serving as a military target"@en,
+        "the role of a stone in marking a property boundary"@en,
+        "the role of subject in a clinical trial"@en,
+        "the student role"@en ;
+    iao:0000116 "BFO 2 Reference: One major family of examples of non-rigid universals involves roles, and ontologies developed for corresponding administrative purposes may consist entirely of representatives of entities of this sort. Thus ‘professor’, defined as follows,b instance_of professor at t =Def. there is some c, c instance_of professor role & c inheres_in b at t.denotes a non-rigid universal and so also do ‘nurse’, ‘student’, ‘colonel’, ‘taxpayer’, and so forth. (These terms are all, in the jargon of philosophy, phase sortals.) By using role terms in definitions, we can create a BFO conformant treatment of such entities drawing on the fact that, while an instance of professor may be simultaneously an instance of trade union member, no instance of the type professor role is also (at any time) an instance of the type trade union member role (any more than any instance of the type color is at any time an instance of the type length).If an ontology of employment positions should be defined in terms of roles following the above pattern, this enables the ontology to do justice to the fact that individuals instantiate the corresponding universals –  professor, sergeant, nurse – only during certain phases in their lives."@en ;
+    iao:0000600 "b is a role means: b is a realizable entity & b exists because there is some single bearer that is in some special physical, social, or institutional set of circumstances in which this bearer does not have to be& b is not such that, if it ceases to exist, then the physical make-up of the bearer is thereby changed. (axiom label in BFO2 Reference: [061-001])"@en ;
+    iao:0000602 "(forall (x) (if (Role x) (RealizableEntity x))) // axiom label in BFO2 CLIF: [061-001] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000017 .
+
+obo:COB_0000035 a owl:Class ;
+    rdfs:label "completely executed planned process"@en ;
+    rdfs:subClassOf obo:COB_0000082 .
+
+iao:0000030 a owl:Class ;
+    rdfs:label "information content entity"@en ;
+    iao:0000111 "information content entity"@en ;
+    iao:0000112 "Examples of information content entites include journal articles, data, graphical layouts, and graphs."@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "A generically dependent continuant that is about some thing."@en ;
+    iao:0000116 "2014-03-10: The use of \"thing\" is intended to be general enough to include universals and configurations (see https://groups.google.com/d/msg/information-ontology/GBxvYZCk1oc/-L6B5fSBBTQJ)."@en,
+        """information_content_entity 'is_encoded_in' some digital_entity in obi before split (040907). information_content_entity 'is_encoded_in' some physical_document in obi before split (040907).
+
+Previous. An information content entity is a non-realizable information entity that 'is encoded in' some digital or physical entity."""@en ;
+    iao:0000117 "PERSON: Chris Stoeckert"@en ;
+    iao:0000119 "OBI_0000142"@en ;
+    rdfs:subClassOf bfo:0000031 .
+
+iao:0000115 a owl:AnnotationProperty ;
+    rdfs:label "definition",
+        "textual definition",
+        "definition"@en ;
+    iao:0000111 "definition",
+        "textual definition",
+        "definition"@en ;
+    iao:0000114 iao:0000122 ;
+    iao:0000115 "A property representing the English language definitions of what NCI means by the concept. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software.",
+        "English language definitions of what NCI means by the concept. These are limited to 1024 characters. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software.",
+        "The official definition.",
+        "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en,
+        "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en ;
+    iao:0000116 """2012-04-05: 
+Barry Smith
+
+The official OBI definition, explaining the meaning of a class or property: 'Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions'  is terrible.
+
+Can you fix to something like:
+
+A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
+
+Alan Ruttenberg
+
+Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can't be evaluated by those criteria. 
+
+On the specifics of the proposed definition:
+
+We don't have definitions of 'meaning' or 'expression' or 'property'. For 'reference' in the intended sense I think we use the term 'denotation'. For 'expression', I think we you mean symbol, or identifier. For 'meaning' it differs for class and property. For class we want documentation that let's the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let's the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The 'intended reader' part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
+
+Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
+
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with."""@en,
+        """2012-04-05: 
+Barry Smith
+
+The official OBI definition, explaining the meaning of a class or property: 'Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions'  is terrible.
+
+Can you fix to something like:
+
+A statement of necessary and sufficient conditions explaining the meaning of an expression referring to a class or property.
+
+Alan Ruttenberg
+
+Your proposed definition is a reasonable candidate, except that it is very common that necessary and sufficient conditions are not given. Mostly they are necessary, occasionally they are necessary and sufficient or just sufficient. Often they use terms that are not themselves defined and so they effectively can't be evaluated by those criteria. 
+
+On the specifics of the proposed definition:
+
+We don't have definitions of 'meaning' or 'expression' or 'property'. For 'reference' in the intended sense I think we use the term 'denotation'. For 'expression', I think we you mean symbol, or identifier. For 'meaning' it differs for class and property. For class we want documentation that let's the intended reader determine whether an entity is instance of the class, or not. For property we want documentation that let's the intended reader determine, given a pair of potential relata, whether the assertion that the relation holds is true. The 'intended reader' part suggests that we also specify who, we expect, would be able to understand the definition, and also generalizes over human and computer reader to include textual and logical definition. 
+
+Personally, I am more comfortable weakening definition to documentation, with instructions as to what is desirable. 
+
+We also have the outstanding issue of how to aim different definitions to different audiences. A clinical audience reading chebi wants a different sort of definition documentation/definition from a chemistry trained audience, and similarly there is a need for a definition that is adequate for an ontologist to work with.  """@en ;
+    iao:0000117 "PERSON:Daniel Schober"@en ;
+    iao:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
 :DataAnalysis a owl:Class ;
     rdfs:comment "Set of actions performed by one or more Research Users, possibly using a Technique and Research Software, on Research Data, typically Processed Data, to extract insights that support the answer to some scientific research question. Data Analysis may include: linear combination fitting, least-squares curve fitting, data modelling, pattern extraction and/or segmentation, data visualization. The output of Data Analysis is Analyzed Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom :ResearchUser ],
-        [ a owl:Restriction ;
             owl:onProperty :hasTechnique ;
             owl:someValuesFrom :Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty :usesResearchSoftware ;
+            owl:someValuesFrom :ResearchSoftware ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom :ResearchData ],
         [ a owl:Restriction ;
+            owl:onProperty ro:0000057 ;
+            owl:someValuesFrom :ResearchUser ],
+        [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesResearchSoftware ;
-            owl:someValuesFrom :ResearchSoftware ],
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataanalysis> .
 
@@ -348,15 +1180,38 @@ ro:0002211 a owl:ObjectProperty ;
         iao:0000030 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/researchsoftware> .
 
+bfo:0000017 a owl:Class ;
+    rdfs:label "realizable entity"@en ;
+    bfo:0000179 "realizable" ;
+    bfo:0000180 "RealizableEntity" ;
+    iao:0000112 "the disposition of this piece of metal to conduct electricity."@en,
+        "the disposition of your blood to coagulate"@en,
+        "the function of your reproductive organs"@en,
+        "the role of being a doctor"@en,
+        "the role of this boundary to delineate where Utah and Colorado meet"@en ;
+    iao:0000600 "To say that b is a realizable entity is to say that b is a specifically dependent continuant that inheres in some independent continuant which is not a spatial region and is of a type instances of which are realized in processes of a correlated type. (axiom label in BFO2 Reference: [058-002])"@en ;
+    iao:0000601 "All realizable dependent continuants have independent continuants that are not spatial regions as their bearers. (axiom label in BFO2 Reference: [060-002])"@en ;
+    iao:0000602 "(forall (x t) (if (RealizableEntity x) (exists (y) (and (IndependentContinuant y) (not (SpatialRegion y)) (bearerOfAt y x t))))) // axiom label in BFO2 CLIF: [060-002] ",
+        "(forall (x) (if (RealizableEntity x) (and (SpecificallyDependentContinuant x) (exists (y) (and (IndependentContinuant y) (not (SpatialRegion y)) (inheresIn x y)))))) // axiom label in BFO2 CLIF: [058-002] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000020,
+        obo:COB_0000502 .
+
 :DataAcquisition a owl:Class ;
     rdfs:comment "Set of actions carried out by one or more Research Users, performed on a System or a set of them to generate a single self-consistent unit of Raw Data using a Technique, an Instrument and possibly other Equipment under constant or varying conditions described by Settings, depending on the particular research context. Data Acquisition may be an experimental (Measurement) or a computational (Calculation, Simulation) process. Data Acquisition is specific to a Technique: an investigation on the same System conducted using a different Technique implies a different Data Acquisition. The output of Data Acquisition is Raw Data."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
-            owl:someValuesFrom :ResearchUser ],
+            owl:onProperty :usesEquipment ;
+            owl:someValuesFrom :Equipment ],
         [ a owl:Restriction ;
             owl:onProperty :usesResearchSoftware ;
             owl:someValuesFrom :ResearchSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0000057 ;
+            owl:someValuesFrom :ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty :hasTechnique ;
             owl:someValuesFrom :Technique ],
@@ -368,18 +1223,32 @@ ro:0002211 a owl:ObjectProperty ;
                                 owl:someValuesFrom obi:0000067 ] ) ] ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
             owl:someValuesFrom :System ],
-        [ a owl:Restriction ;
-            owl:onProperty :usesEquipment ;
-            owl:someValuesFrom :Equipment ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :ResearchData ],
         obi:0000070 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataacquisition> .
+
+iao:0000600 a owl:AnnotationProperty ;
+    rdfs:label "elucidation"@en ;
+    iao:0000111 "elucidation"@en ;
+    iao:0000117 "person:Alan Ruttenberg"@en ;
+    iao:0000119 "Person:Barry Smith"@en ;
+    iao:0000600 "Primitive terms in a highest-level ontology such as BFO are terms which are so basic to our understanding of reality that there is no way of defining them in a non-circular fashion. For these, therefore, we can provide only elucidations, supplemented by examples and by axioms"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+ro:0000057 a owl:ObjectProperty ;
+    rdfs:label "has participant"@en ;
+    iao:0000111 "has participant"@en ;
+    iao:0000112 "this blood coagulation has participant this blood clot"@en,
+        "this investigation has participant this investigator"@en,
+        "this process has participant this input material (or this output material)"@en ;
+    iao:0000115 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en ;
+    iao:0000116 "Has_participant is a primitive instance-level relation between a process, a continuant, and a time at which the continuant participates in some way in the process. The relation obtains, for example, when this particular process of oxygen exchange across this particular alveolar membrane has_participant this particular sample of hemoglobin at this particular time."@en ;
+    iao:0000118 "has_participant"@en ;
+    dcterms:source "http://www.obofoundry.org/ro/#OBO_REL:has_participant" ;
+    rdfs:subPropertyOf owl:topObjectProperty .
 
 :Equipment a owl:Class ;
     rdfs:comment "Any kind of physical or virtual item, device, machine or other tool located in a Laboratory hosted by an Institution, which can be physically, virtually, and/or remotely accessed to perform any of the processes during the course of a Study, by applying a Technique. Equipment is usually an investment. According to this definition, an Instrument is a particular type of Equipment."@en ;
@@ -389,6 +1258,8 @@ ro:0002211 a owl:ObjectProperty ;
             owl:someValuesFrom :Settings ],
         bfo:0000040 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/equipment> .
+
+owl:topObjectProperty a owl:ObjectProperty .
 
 :ResearchUser a owl:Class ;
     rdfs:comment "Person, usually member of a Project, who conducts any part of the Study to collect and/or to analyze Research Data, and/or reuses Reference Data to extract insights that support the answer to some specific research question, usually reported in one or more Scientific Publications. A Research User may be assigned with a User Role."@en ;
@@ -402,8 +1273,322 @@ ro:0002211 a owl:ObjectProperty ;
         bfo:0000004 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/researchuser> .
 
+bfo:0000040 a owl:Class ;
+    rdfs:label "material entity"@en ;
+    bfo:0000179 "material" ;
+    bfo:0000180 "MaterialEntity" ;
+    iao:0000111 "material entity"@en ;
+    iao:0000112 "a flame"@en,
+        "a forest fire"@en,
+        "a human being"@en,
+        "a hurricane"@en,
+        "a photon"@en,
+        "a puff of smoke"@en,
+        "a sea wave"@en,
+        "a tornado"@en,
+        "an aggregate of human beings."@en,
+        "an energy wave"@en,
+        "an epidemic"@en,
+        "the undetached arm of a human being"@en ;
+    iao:0000115 "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en ;
+    iao:0000116 "BFO 2 Reference: Material entities (continuants) can preserve their identity even while gaining and losing material parts. Continuants are contrasted with occurrents, which unfold themselves in successive temporal parts or phases [60"@en,
+        "BFO 2 Reference: Object, Fiat Object Part and Object Aggregate are not intended to be exhaustive of Material Entity. Users are invited to propose new subcategories of Material Entity."@en,
+        "BFO 2 Reference: ‘Matter’ is intended to encompass both mass and energy (we will address the ontological treatment of portions of energy in a later version of BFO). A portion of matter is anything that includes elementary particles among its proper or improper parts: quarks and leptons, including electrons, as the smallest particles thus far discovered; baryons (including protons and neutrons) at a higher level of granularity; atoms and molecules at still higher levels, forming the cells, organs, organisms and other material entities studied by biologists, the portions of rock studied by geologists, the fossils studied by paleontologists, and so on.Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time).According to the FMA, material entities may have immaterial entities as parts – including the entities identified below as sites; for example the interior (or ‘lumen’) of your small intestine is a part of your body. BFO 2.0 embodies a decision to follow the FMA here."@en,
+        "Elucidation: An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en ;
+    iao:0000412 obo:ido.owl ;
+    iao:0000600 "A material entity is an independent continuant that has some portion of matter as proper or improper continuant part. (axiom label in BFO2 Reference: [019-002])"@en ;
+    iao:0000601 "Every entity which has a material entity as continuant part is a material entity. (axiom label in BFO2 Reference: [020-002])"@en,
+        "every entity of which a material entity is continuant part is also a material entity. (axiom label in BFO2 Reference: [021-002])"@en ;
+    iao:0000602 "(forall (x) (if (MaterialEntity x) (IndependentContinuant x))) // axiom label in BFO2 CLIF: [019-002] ",
+        "(forall (x) (if (and (Entity x) (exists (y t) (and (MaterialEntity y) (continuantPartOfAt x y t)))) (MaterialEntity x))) // axiom label in BFO2 CLIF: [021-002] ",
+        "(forall (x) (if (and (Entity x) (exists (y t) (and (MaterialEntity y) (continuantPartOfAt y x t)))) (MaterialEntity x))) // axiom label in BFO2 CLIF: [020-002] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000004,
+        owl:Thing .
+
+iao:0000601 a owl:AnnotationProperty ;
+    rdfs:label "has associated axiom(nl)"@en ;
+    iao:0000111 "has associated axiom(nl)"@en ;
+    iao:0000117 "Person:Alan Ruttenberg"@en ;
+    iao:0000119 "Person:Alan Ruttenberg"@en ;
+    iao:0000600 "An axiom associated with a term expressed using natural language"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+bfo:0000004 a owl:Class ;
+    rdfs:label "independent continuant"@en ;
+    bfo:0000179 "ic" ;
+    bfo:0000180 "IndependentContinuant" ;
+    iao:0000112 "a chair"@en,
+        "a heart"@en,
+        "a leg"@en,
+        "a molecule"@en,
+        "a spatial region"@en,
+        "an atom"@en,
+        "an orchestra."@en,
+        "an organism"@en,
+        "the bottom right portion of a human torso"@en,
+        "the interior of your mouth"@en ;
+    iao:0000115 "b is an independent continuant = Def. b is a continuant which is such that there is no c and no t such that b s-depends_on c at t. (axiom label in BFO2 Reference: [017-002])"@en ;
+    iao:0000601 "For any independent continuant b and any time t there is some spatial region r such that b is located_in r at t. (axiom label in BFO2 Reference: [134-001])"@en,
+        "For every independent continuant b and time t during the region of time spanned by its life, there are entities which s-depends_on b during t. (axiom label in BFO2 Reference: [018-002])"@en ;
+    iao:0000602 "(forall (x t) (if (IndependentContinuant x) (exists (r) (and (SpatialRegion r) (locatedInAt x r t))))) // axiom label in BFO2 CLIF: [134-001] ",
+        "(forall (x t) (if (and (IndependentContinuant x) (existsAt x t)) (exists (y) (and (Entity y) (specificallyDependsOnAt y x t))))) // axiom label in BFO2 CLIF: [018-002] ",
+        "(iff (IndependentContinuant a) (and (Continuant a) (not (exists (b t) (specificallyDependsOnAt a b t))))) // axiom label in BFO2 CLIF: [017-002] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000002 .
+
 :AgentRole a owl:Class ;
     rdfs:comment "A functional role that an Agent can perform within a research context. Roles define the responsibilities and capabilities of agents in conducting research activities."@en ;
-    rdfs:subClassOf bfo:0000023 ;
-    owl:equivalentClass :UserRole .
+    rdfs:subClassOf bfo:0000023 .
+
+bfo:0000002 a owl:Class ;
+    rdfs:label "continuant"@en ;
+    bfo:0000179 "continuant" ;
+    bfo:0000180 "Continuant" ;
+    iao:0000115 "An entity that exists in full at any time in which it exists at all, persists through time while maintaining its identity and has no temporal parts."@en ;
+    iao:0000116 "BFO 2 Reference: Continuant entities are entities which can be sliced to yield parts only along the spatial dimension, yielding for example the parts of your table which we call its legs, its top, its nails. ‘My desk stretches from the window to the door. It has spatial parts, and can be sliced (in space) in two. With respect to time, however, a thing is a continuant.’ [60, p. 240"@en,
+        "Continuant doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. For example, in an expansion involving bringing in some of Ceuster's other portions of reality, questions are raised as to whether universals are continuants"@en ;
+    iao:0000600 "A continuant is an entity that persists, endures, or continues to exist through time while maintaining its identity. (axiom label in BFO2 Reference: [008-002])"@en ;
+    iao:0000601 "if b is a continuant and if, for some t, c has_continuant_part b at t, then c is a continuant. (axiom label in BFO2 Reference: [126-001])"@en,
+        "if b is a continuant and if, for some t, cis continuant_part of b at t, then c is a continuant. (axiom label in BFO2 Reference: [009-002])"@en,
+        "if b is a material entity, then there is some temporal interval (referred to below as a one-dimensional temporal region) during which b exists. (axiom label in BFO2 Reference: [011-002])"@en ;
+    iao:0000602 "(forall (x y) (if (and (Continuant x) (exists (t) (continuantPartOfAt y x t))) (Continuant y))) // axiom label in BFO2 CLIF: [009-002] ",
+        "(forall (x y) (if (and (Continuant x) (exists (t) (hasContinuantPartOfAt y x t))) (Continuant y))) // axiom label in BFO2 CLIF: [126-001] ",
+        "(forall (x) (if (Continuant x) (Entity x))) // axiom label in BFO2 CLIF: [008-002] ",
+        "(forall (x) (if (Material Entity x) (exists (t) (and (TemporalRegion t) (existsAt x t))))) // axiom label in BFO2 CLIF: [011-002] " ;
+    rdfs:isDefinedBy obo:bfo.owl ;
+    rdfs:subClassOf bfo:0000001 .
+
+iao:0000602 a owl:AnnotationProperty ;
+    rdfs:label "has associated axiom(fol)"@en ;
+    iao:0000111 "has associated axiom(fol)"@en ;
+    iao:0000117 "Person:Alan Ruttenberg"@en ;
+    iao:0000119 "Person:Alan Ruttenberg"@en ;
+    iao:0000600 "An axiom expressed in first order logic using CLIF syntax"@en ;
+    rdfs:isDefinedBy obo:iao.owl .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/021-002> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000040 ;
+    owl:annotatedTarget "every entity of which a material entity is continuant part is also a material entity. (axiom label in BFO2 Reference: [021-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/060-002> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000017 ;
+    owl:annotatedTarget "All realizable dependent continuants have independent continuants that are not spatial regions as their bearers. (axiom label in BFO2 Reference: [060-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/009-002> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "if b is a continuant and if, for some t, cis continuant_part of b at t, then c is a continuant. (axiom label in BFO2 Reference: [009-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/058-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000017 ;
+    owl:annotatedTarget "(forall (x) (if (RealizableEntity x) (and (SpecificallyDependentContinuant x) (exists (y) (and (IndependentContinuant y) (not (SpatialRegion y)) (inheresIn x y)))))) // axiom label in BFO2 CLIF: [058-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/034-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000029 ;
+    owl:annotatedTarget "(forall (x) (if (Site x) (ImmaterialEntity x))) // axiom label in BFO2 CLIF: [034-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/019-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000040 ;
+    owl:annotatedTarget "(forall (x) (if (MaterialEntity x) (IndependentContinuant x))) // axiom label in BFO2 CLIF: [019-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/060-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000017 ;
+    owl:annotatedTarget "(forall (x t) (if (RealizableEntity x) (exists (y) (and (IndependentContinuant y) (not (SpatialRegion y)) (bearerOfAt y x t))))) // axiom label in BFO2 CLIF: [060-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/0000004> ;
+    rdfs:comment "per discussion with Barry Smith" ;
+    rdfs:seeAlso <http://www.referent-tracking.com/_RTU/papers/CeustersICbookRevised.pdf> ;
+    owl:annotatedProperty iao:0000116 ;
+    owl:annotatedSource bfo:0000001 ;
+    owl:annotatedTarget "Entity doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. For example Werner Ceusters 'portions of reality' include 4 sorts, entities (as BFO construes them), universals, configurations, and relations. It is an open question as to whether entities as construed in BFO will at some point also include these other portions of reality. See, for example, 'How to track absolutely everything' at http://www.referent-tracking.com/_RTU/papers/CeustersICbookRevised.pdf"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/020-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000040 ;
+    owl:annotatedTarget "(forall (x) (if (and (Entity x) (exists (y t) (and (MaterialEntity y) (continuantPartOfAt y x t)))) (MaterialEntity x))) // axiom label in BFO2 CLIF: [020-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/001-001> ;
+    owl:annotatedProperty iao:0000600 ;
+    owl:annotatedSource bfo:0000001 ;
+    owl:annotatedTarget "An entity is anything that exists or has existed or will exist. (axiom label in BFO2 Reference: [001-001])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/008-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "(forall (x) (if (Continuant x) (Entity x))) // axiom label in BFO2 CLIF: [008-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/018-002> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000004 ;
+    owl:annotatedTarget "For every independent continuant b and time t during the region of time spanned by its life, there are entities which s-depends_on b during t. (axiom label in BFO2 Reference: [018-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/011-002> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "if b is a material entity, then there is some temporal interval (referred to below as a one-dimensional temporal region) during which b exists. (axiom label in BFO2 Reference: [011-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/134-001> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000004 ;
+    owl:annotatedTarget "(forall (x t) (if (IndependentContinuant x) (exists (r) (and (SpatialRegion r) (locatedInAt x r t))))) // axiom label in BFO2 CLIF: [134-001] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/074-001> ;
+    owl:annotatedProperty iao:0000115 ;
+    owl:annotatedSource bfo:0000031 ;
+    owl:annotatedTarget "b is a generically dependent continuant = Def. b is a continuant that g-depends_on one or more other entities. (axiom label in BFO2 Reference: [074-001])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/011-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "(forall (x) (if (Material Entity x) (exists (t) (and (TemporalRegion t) (existsAt x t))))) // axiom label in BFO2 CLIF: [011-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/134-001> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000004 ;
+    owl:annotatedTarget "For any independent continuant b and any time t there is some spatial region r such that b is located_in r at t. (axiom label in BFO2 Reference: [134-001])"@en .
+
+[] a owl:Axiom ;
+    oboInOwl:hasDbXref "https://en.wikipedia.org/wiki/Causality" ;
+    owl:annotatedProperty iao:0000115 ;
+    owl:annotatedSource ro:0002410 ;
+    owl:annotatedTarget "relation that links two events, processes, states, or objects such that one event, process, state, or object (a cause) contributes to the production of another event, process, state, or object (an effect) where the cause is partly or wholly responsible for the effect, and the effect is partly or wholly dependent on the cause." .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/019-002> ;
+    owl:annotatedProperty iao:0000600 ;
+    owl:annotatedSource bfo:0000040 ;
+    owl:annotatedTarget "A material entity is an independent continuant that has some portion of matter as proper or improper continuant part. (axiom label in BFO2 Reference: [019-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/126-001> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "if b is a continuant and if, for some t, c has_continuant_part b at t, then c is a continuant. (axiom label in BFO2 Reference: [126-001])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/017-002> ;
+    owl:annotatedProperty iao:0000115 ;
+    owl:annotatedSource bfo:0000004 ;
+    owl:annotatedTarget "b is an independent continuant = Def. b is a continuant which is such that there is no c and no t such that b s-depends_on c at t. (axiom label in BFO2 Reference: [017-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/058-002> ;
+    owl:annotatedProperty iao:0000600 ;
+    owl:annotatedSource bfo:0000017 ;
+    owl:annotatedTarget "To say that b is a realizable entity is to say that b is a specifically dependent continuant that inheres in some independent continuant which is not a spatial region and is of a type instances of which are realized in processes of a correlated type. (axiom label in BFO2 Reference: [058-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/050-003> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000020 ;
+    owl:annotatedTarget "(iff (SpecificallyDependentContinuant a) (and (Continuant a) (forall (t) (if (existsAt a t) (exists (b) (and (IndependentContinuant b) (not (SpatialRegion b)) (specificallyDependsOnAt a b t))))))) // axiom label in BFO2 CLIF: [050-003] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/0000005> ;
+    rdfs:comment "per discussion with Barry Smith" ;
+    owl:annotatedProperty iao:0000116 ;
+    owl:annotatedSource bfo:0000020 ;
+    owl:annotatedTarget "Specifically dependent continuant doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. We're not sure what else will develop here, but for example there are questions such as what are promises, obligation, etc."@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/034-002> ;
+    owl:annotatedProperty iao:0000600 ;
+    owl:annotatedSource bfo:0000029 ;
+    owl:annotatedTarget "b is a site means: b is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part thereof. (axiom label in BFO2 Reference: [034-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/126-001> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "(forall (x y) (if (and (Continuant x) (exists (t) (hasContinuantPartOfAt y x t))) (Continuant y))) // axiom label in BFO2 CLIF: [126-001] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/017-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000004 ;
+    owl:annotatedTarget "(iff (IndependentContinuant a) (and (Continuant a) (not (exists (b t) (specificallyDependsOnAt a b t))))) // axiom label in BFO2 CLIF: [017-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/061-001> ;
+    owl:annotatedProperty iao:0000600 ;
+    owl:annotatedSource bfo:0000023 ;
+    owl:annotatedTarget "b is a role means: b is a realizable entity & b exists because there is some single bearer that is in some special physical, social, or institutional set of circumstances in which this bearer does not have to be& b is not such that, if it ceases to exist, then the physical make-up of the bearer is thereby changed. (axiom label in BFO2 Reference: [061-001])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/020-002> ;
+    owl:annotatedProperty iao:0000601 ;
+    owl:annotatedSource bfo:0000040 ;
+    owl:annotatedTarget "Every entity which has a material entity as continuant part is a material entity. (axiom label in BFO2 Reference: [020-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/021-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000040 ;
+    owl:annotatedTarget "(forall (x) (if (and (Entity x) (exists (y t) (and (MaterialEntity y) (continuantPartOfAt x y t)))) (MaterialEntity x))) // axiom label in BFO2 CLIF: [021-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/050-003> ;
+    owl:annotatedProperty iao:0000115 ;
+    owl:annotatedSource bfo:0000020 ;
+    owl:annotatedTarget "b is a specifically dependent continuant = Def. b is a continuant & there is some independent continuant c which is not a spatial region and which is such that b s-depends_on c at every time t during the course of b’s existence. (axiom label in BFO2 Reference: [050-003])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/074-001> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000031 ;
+    owl:annotatedTarget "(iff (GenericallyDependentContinuant a) (and (Continuant a) (exists (b t) (genericallyDependsOnAt a b t)))) // axiom label in BFO2 CLIF: [074-001] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/061-001> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000023 ;
+    owl:annotatedTarget "(forall (x) (if (Role x) (RealizableEntity x))) // axiom label in BFO2 CLIF: [061-001] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/018-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000004 ;
+    owl:annotatedTarget "(forall (x t) (if (and (IndependentContinuant x) (existsAt x t)) (exists (y) (and (Entity y) (specificallyDependsOnAt y x t))))) // axiom label in BFO2 CLIF: [018-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/009-002> ;
+    owl:annotatedProperty iao:0000602 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "(forall (x y) (if (and (Continuant x) (exists (t) (continuantPartOfAt y x t))) (Continuant y))) // axiom label in BFO2 CLIF: [009-002] " .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/008-002> ;
+    owl:annotatedProperty iao:0000600 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "A continuant is an entity that persists, endures, or continues to exist through time while maintaining its identity. (axiom label in BFO2 Reference: [008-002])"@en .
+
+[] a owl:Axiom ;
+    iao:0010000 <http://purl.obolibrary.org/obo/bfo/axiom/0000007> ;
+    owl:annotatedProperty iao:0000116 ;
+    owl:annotatedSource bfo:0000002 ;
+    owl:annotatedTarget "Continuant doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. For example, in an expansion involving bringing in some of Ceuster's other portions of reality, questions are raised as to whether universals are continuants"@en .
 

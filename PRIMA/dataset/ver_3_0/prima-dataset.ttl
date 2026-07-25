@@ -4,7 +4,6 @@
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pmd: <https://w3id.org/pmd/co/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -90,8 +89,8 @@ core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
     rdfs:comment "hasPersistentIdentifier represents the relationship between a resource and its persistent identifier"@en ;
     rdfs:range :PersistentIdentifier .
 
-ro:0002211 a owl:ObjectProperty ;
-    rdfs:label "has agent"@en .
+ro:0000057 a owl:ObjectProperty ;
+    rdfs:label "has participant"@en .
 
 dcterms:hasPart a owl:ObjectProperty .
 
@@ -108,14 +107,14 @@ core:usesResearchSoftware a owl:ObjectProperty .
     rdfs:comment "Set of actions performed by one or more Research Users on Research Data and/or Datasets using a Technique to cleanse, document, standardize, format and inter-relate them, with the goal of ensuring they are fit for the purpose and available for discovery and reuse. This includes (but is not limited to): forming a new Dataset from several data sources, annotating Research Data and/or a Dataset with Metadata, maintaining links with published materials (Publication Data and/or Scientific Publications). For dynamic Datasets this may mean continuous enrichment or updating. Special forms of Data Curation (e.g., versioning) may be available in Data Repositories."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datacuration> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty core:usesResearchSoftware ;
-            owl:someValuesFrom core:ResearchSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002211 ;
+            owl:onProperty ro:0000057 ;
             owl:someValuesFrom core:ResearchUser ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty core:usesResearchSoftware ;
+            owl:someValuesFrom core:ResearchSoftware ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :Dataset ],
@@ -167,8 +166,7 @@ core:AgentRole a owl:Class .
     vann:preferredNamespacePrefix "PRIMA"@en ;
     rdfs:comment "This is the dataset module of the Provenance Information for Materials Science (PRIMA) Ontology, version 3.0, aligned with PMDco v3 and based on BFO (Basic Formal Ontology)."@en ;
     rdfs:seeAlso <https://github.com/Materials-Data-Science-and-Informatics/MDMC-NEP-top-level-ontology> ;
-    owl:imports <https://purls.helmholtz-metadaten.de/prima/core?version=3.0>,
-        pmd: ;
+    owl:imports <https://purls.helmholtz-metadaten.de/prima/core?version=3.0> ;
     owl:priorVersion <https://purls.helmholtz-metadaten.de/prima/dataset?version=2.0> ;
     owl:versionInfo "3.0"@en .
 
@@ -194,14 +192,14 @@ core:AgentRole a owl:Class .
     rdfs:comment "Dataset(s) generated in the course of a Study, that has undergone quality assessment and Data Curation, and can be cited as a reliable source (i.e., a Persistent Identifier is assigned to it) to, e.g., reproduce the results and/or support the conclusions presented in a Scientific Publication or appearing in it. Publication Data may be attributed to some or to all the Research Users who are members of the Project."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty prov:wasAttributedTo ;
-            owl:someValuesFrom core:ResearchUser ],
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty :hasMetadata ;
             owl:someValuesFrom :Metadata ],
         [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataRepository ],
+            owl:onProperty prov:wasAttributedTo ;
+            owl:someValuesFrom core:ResearchUser ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/publicationdata> .
 
@@ -225,10 +223,10 @@ core:ResearchUser a owl:Class .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :PublicationData ],
+            owl:someValuesFrom :Dataset ],
         [ a owl:Restriction ;
             owl:onProperty :stores ;
-            owl:someValuesFrom :Dataset ],
+            owl:someValuesFrom :PublicationData ],
         iao:0000030 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/datarepository> .
 
@@ -258,11 +256,11 @@ core:ResearchUser a owl:Class .
     rdfs:comment "Any descriptive data intended to contextualize or otherwise qualify Research Data and/or Datasets and/or Publication Data and their management through time. Typically, Metadata is created in the course of a Study and then integrated, organized, and refined during Data Curation. Examples of Metadata are: Sample properties and/or treatment history recorded in an Electronic Laboratory Notebook, Instrument parameters saved with Raw Data, analysis processes saved with Analyzed Data, Settings of a Model, but also data license, affiliation of Research Users, descriptions of how files are named, structured and stored. Metadata may be registered in a Metadata Repository and assigned a Persistent Identifier."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/metadata> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :MetadataRepository ],
-        [ a owl:Restriction ;
             owl:onProperty prov:wasAttributedTo ;
             owl:someValuesFrom core:ResearchUser ],
+        [ a owl:Restriction ;
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :MetadataRepository ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/metadata> .
 
@@ -279,17 +277,17 @@ core:ResearchUser a owl:Class .
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty :isStoredIn ;
-            owl:someValuesFrom :DataCollaborationPlatform ],
-        [ a owl:Restriction ;
-            owl:onProperty :hasMetadata ;
-            owl:someValuesFrom :Metadata ],
-        [ a owl:Restriction ;
-            owl:onProperty :isStoredIn ;
             owl:someValuesFrom :DataRepository ],
         [ a owl:Restriction ;
             owl:onProperty dcterms:hasPart ;
             owl:someValuesFrom [ a owl:Class ;
                     owl:unionOf ( core:ResearchData :Dataset ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasMetadata ;
+            owl:someValuesFrom :Metadata ],
+        [ a owl:Restriction ;
+            owl:onProperty :isStoredIn ;
+            owl:someValuesFrom :DataCollaborationPlatform ],
         iao:0000027 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/dataset> .
 
