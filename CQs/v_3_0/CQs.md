@@ -74,13 +74,13 @@ SELECT ?project ?user WHERE {
 }
 ```
 
-**CQ2 — studies a researcher performed** (was `prov:wasAttributedTo`; now `ro:0002211` has agent)
+**CQ2 — studies a researcher performed**
 ```sparql
 PREFIX core:    <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX ro:      <http://purl.obolibrary.org/obo/RO_>
 
 SELECT ?study ?user WHERE {
-  ?study a core:Study ; ro:0002211 ?user .
+  ?study a core:Study ; ro:0000057 ?user . #has participant
   ?user a core:ResearchUser .
 }
 ```
@@ -92,7 +92,7 @@ PREFIX ro:      <http://purl.obolibrary.org/obo/RO_>
 
 SELECT ?process ?user WHERE {
   VALUES ?type { core:DataAcquisition core:DataAnalysis }
-  ?process a ?type ; ro:0002211 ?user .
+  ?process a ?type ; ro:0000057 ?user .
   ?user a core:ResearchUser .
 }
 ```
@@ -155,7 +155,7 @@ SELECT ?study ?process ?processType WHERE {
 }
 ```
 
-**CQ9 — data used and produced in a data analysis / data processing** (was `pmd:input/output`)
+**CQ9 — data used and produced in a data analysis / data processing** 
 ```sparql
 PREFIX core:    <https://purls.helmholtz-metadaten.de/prima/core#>
 PREFIX dal:     <https://purls.helmholtz-metadaten.de/prima/dal#>
@@ -188,7 +188,7 @@ PREFIX ro:      <http://purl.obolibrary.org/obo/RO_>
 
 SELECT ?process ?user WHERE {
   VALUES ?type { core:DataAnalysis dal:DataProcessing }
-  ?process a ?type ; ro:0002211 ?user .
+  ?process a ?type ; ro:0000057 ?user .
   ?user a core:ResearchUser .
 }
 ```
@@ -298,7 +298,7 @@ PREFIX ro:      <http://purl.obolibrary.org/obo/RO_>
 
 SELECT ?process ?user WHERE {
   VALUES ?type { exp:Measurement exp:ProcessingAndTreatment }
-  ?process a ?type ; ro:0002211 ?user .
+  ?process a ?type ; ro:0000057 ?user .
   ?user a core:ResearchUser .
 }
 ```
@@ -382,17 +382,3 @@ SELECT ?prep ?model ?input WHERE {
 ```
 
 ---
-
-## Gaps surfaced (v2 CQ concepts without a v3 class/property yet)
-
-Resolve during the rewrite (reformulate or extend the ontology):
-
-- **DataAnalysisLifecycle aggregator** (v2 CQ5–8, 12): v3 has `core:DataAnalysis` and
-  `dal:DataProcessing` but **no `DataAnalysisLifecycle` class** linking them — CQs reformulated
-  around the individual processes / `core:Study`.
-- **DataInterpretation** (v2 CQ8–12): class removed in v3 — dropped from the CQs.
-- **Project-level attribution** (CQ12): `prov:wasAttributedTo` ranges over `core:ResearchUser` only.
-- **Data derivation** (v2 "which dataset was the publication data derived from"): v3 has no
-  `prov:wasDerivedFrom`; only `dcterms:references` / `dcterms:hasPart`. Consider re-introducing a
-  derivation property for the lineage facet.
-- **When** (CQ20): `prov:startedAtTime`/`endedAtTime` declared but not attached to processes.

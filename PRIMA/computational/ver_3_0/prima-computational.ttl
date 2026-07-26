@@ -44,9 +44,6 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to process its input Settings into output calculated properties using a specific computational and/or theoretical Technique based on a theory accepted by the scientific community (e.g., Density Functional Theory, Conformal Field Theory)."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :Model ],
-        [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
@@ -55,6 +52,9 @@ skos:exactMatch a owl:AnnotationProperty .
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
             owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :Model ],
         core:DataAcquisition,
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/calculation> .
@@ -64,8 +64,14 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:comment "Set of actions carried out by one or more Research Users, possibly using Research Software, to define and/or formulate a Model making use of Research Data (typically, but not limited to, Reference Data after Data Processing) as input for parametrization, boundary conditions, or validation. A Model Preparation may require the use of Equipment. The output of Model Preparation is Model."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom core:ResearchData ],
+        [ a owl:Restriction ;
             owl:onProperty prov:atLocation ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/experiment#Laboratory> ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002234 ;
+            owl:someValuesFrom :Model ],
         [ a owl:Restriction ;
             owl:onProperty ro:0000057 ;
             owl:someValuesFrom core:ResearchUser ],
@@ -78,12 +84,6 @@ skos:exactMatch a owl:AnnotationProperty .
         [ a owl:Restriction ;
             owl:onProperty core:usesResearchSoftware ;
             owl:someValuesFrom core:ResearchSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom core:ResearchData ],
-        [ a owl:Restriction ;
-            owl:onProperty ro:0002234 ;
-            owl:someValuesFrom :Model ],
         pmd:PMD_0000583 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/modelpreparation> .
 
@@ -92,26 +92,25 @@ skos:exactMatch a owl:AnnotationProperty .
     rdfs:comment "Computational Data Acquisition performed by one or more Research Users on a Model to manipulate its Settings using a specific computational and/or theoretical Technique in order to study, predict, or optimize the behaviour and performance of existing or proposed features and properties of a physical System that would otherwise be too complex, too large/small, too fast/slow, too dangerous, inaccessible, or unacceptable to engage and/or control. Examples of Simulation are: multiscale simulation, finite-element simulation, molecular dynamics simulation, discrete dislocation dynamics simulation."@en ;
     rdfs:isDefinedBy <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ro:0002233 ;
-            owl:someValuesFrom core:ResearchData ],
-        [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom :Model ],
         [ a owl:Restriction ;
+            owl:onProperty core:hasSetting ;
+            owl:someValuesFrom core:Settings ],
+        [ a owl:Restriction ;
             owl:onProperty core:hasTechnique ;
             owl:someValuesFrom core:Technique ],
+        [ a owl:Restriction ;
+            owl:onProperty ro:0002233 ;
+            owl:someValuesFrom :Model ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002234 ;
             owl:someValuesFrom <https://purls.helmholtz-metadaten.de/prima/dataset#RawData> ],
         [ a owl:Restriction ;
             owl:onProperty ro:0002233 ;
-            owl:someValuesFrom :Model ],
-        [ a owl:Restriction ;
-            owl:onProperty core:hasSetting ;
-            owl:someValuesFrom core:Settings ],
+            owl:someValuesFrom core:ResearchData ],
         core:DataAcquisition,
         pmd:PMD_0000583 ;
-    owl:equivalentClass pmd:PMD_0000933 ;
     skos:exactMatch <https://purls.helmholtz-metadaten.de/skosmos/prima/simulation> .
 
 core:MDMCNEPGlossaryDefinition a owl:AnnotationProperty ;
